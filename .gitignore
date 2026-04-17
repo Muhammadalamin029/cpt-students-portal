@@ -1,3 +1,4 @@
 .idea
 .codex
-.DS_Storeshared/config.js
+.DS_Store
+shared/config.js
