@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CS Scholar Portal | Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <script src="../shared/theme-init.js"></script>
+    <link href="../shared/styles.css" rel="stylesheet" />
+    <script defer src="../shared/portal.js"></script>
+    <script type="module" defer src="./dashboard.js"></script>
+  </head>
+  <body
+    class="portal-shell bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-primary"
+    data-page="admin-dashboard"
+  >
+    <!-- Basic Navbar specific to Admin -->
+    <header class="border-b border-outline/10 bg-white shadow-sm dark:bg-slate-900">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8">
+        <div class="flex items-center gap-2 text-primary">
+            <span class="material-symbols-outlined text-[28px]">shield_person</span>
+            <span class="font-headline text-xl font-bold tracking-tight">Admin Dashboard</span>
+        </div>
+        <button id="logoutBtn" class="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-container hover:text-error disabled:opacity-50 hidden">
+          <span class="material-symbols-outlined text-[20px]">logout</span>
+          Sign Out
+        </button>
+      </div>
+    </header>
+
+    <main class="portal-main mx-auto max-w-7xl px-4 pt-12 pb-20 sm:px-8">
+      <header class="mb-12">
+        <span class="mb-2 block text-xs font-bold uppercase tracking-[0.1em] text-secondary">
+          Submission Review
+        </span>
+        <h1 class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-primary md:text-5xl">
+          Pending Validations
+        </h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-on-surface-variant">
+          Review newly submitted student portfolios, or manage already approved students.
+        </p>
+
+        <!-- Tabs -->
+        <div class="mt-8 flex border-b border-outline/10">
+          <button id="tab-pending" class="px-6 py-3 font-semibold text-primary border-b-2 border-primary transition-colors focus:outline-none">
+            Pending Validations
+          </button>
+          <button id="tab-approved" class="px-6 py-3 font-semibold text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors focus:outline-none">
+            Approved Students
+          </button>
+        </div>
+      </header>
+      
+      <div id="authCheckLoader" class="flex flex-col items-center justify-center py-20 text-on-surface-variant">
+        <span class="material-symbols-outlined animate-spin text-[40px] text-primary" style="animation: spin 1s linear infinite;">sync</span>
+        <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+        <p class="mt-4 font-semibold text-lg">Authenticating Session...</p>
+      </div>
+
+      <div id="dashboardContent" class="hidden">
+        <section id="pending-section" aria-labelledby="pending-heading">
+          <h2 class="sr-only" id="pending-heading">Pending Students Grid</h2>
+          <div
+            id="pending-grid"
+            class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+            role="list"
+          >
+            <!-- Skeletons load here -->
+          </div>
+          
+          <div
+            id="emptyState"
+            class="hidden rounded-[2rem] border-2 border-dashed border-outline/20 bg-surface-container-lowest p-16 text-center"
+          >
+            <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-low text-secondary mb-6">
+                <span class="material-symbols-outlined text-[36px]">done_all</span>
+            </div>
+            <h3 class="mb-2 text-2xl font-headline font-bold text-primary">
+              All caught up!
+            </h3>
+            <p class="text-on-surface-variant max-w-md mx-auto">
+              There are no pending student portfolios requiring validation at this time.
+            </p>
+          </div>
+        </section>
+
+        <section id="approved-section" class="hidden" aria-labelledby="approved-heading">
+          <h2 class="sr-only" id="approved-heading">Approved Students Grid</h2>
+          <div
+            id="approved-grid"
+            class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+            role="list"
+          >
+            <!-- Skeletons load here -->
+          </div>
+          
+          <div
+            id="emptyStateApproved"
+            class="hidden rounded-[2rem] border-2 border-dashed border-outline/20 bg-surface-container-lowest p-16 text-center"
+          >
+            <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-low text-secondary mb-6">
+                <span class="material-symbols-outlined text-[36px]">group_off</span>
+            </div>
+            <h3 class="mb-2 text-2xl font-headline font-bold text-primary">
+              No Approved Students
+            </h3>
+            <p class="text-on-surface-variant max-w-md mx-auto">
+              There are no students currently approved to be displayed in the public directory.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

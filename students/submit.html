@@ -1,0 +1,388 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CS Scholar Portal | Portfolio Submission</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <script src="../shared/theme-init.js"></script>
+    <link href="../shared/styles.css" rel="stylesheet" />
+    <script defer="" src="../shared/portal.js"></script>
+    <script type="module" defer="" src="../shared/submit.js"></script>
+  </head>
+  <body
+    id="page-top"
+    class="portal-shell bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-primary"
+    data-page="submit"
+  >
+    <div data-portal-header=""></div>
+
+    <main id="main-content" class="portal-main pt-24" tabindex="-1">
+      <section
+        id="submission-form"
+        class="relative overflow-hidden bg-[linear-gradient(180deg,#f5f9ff_0%,#ecf3ff_42%,#f8f9fa_100%)] py-20 dark:bg-[linear-gradient(180deg,#020617_0%,#081225_45%,#020617_100%)]"
+      >
+        <div class="absolute inset-0 opacity-60">
+          <div
+            class="absolute left-0 top-0 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-900/20"
+          ></div>
+          <div
+            class="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-primary-fixed/50 blur-3xl dark:bg-primary/20"
+          ></div>
+        </div>
+
+        <div class="relative mx-auto max-w-5xl px-4 sm:px-8">
+          <section
+            class="overflow-hidden rounded-[2.5rem] border border-primary/10 bg-white/85 shadow-[0px_20px_60px_rgba(0,35,111,0.08)] backdrop-blur-sm dark:bg-slate-900/75"
+          >
+            <div
+              class="border-b border-primary/10 bg-[linear-gradient(180deg,rgba(220,225,255,0.5)_0%,rgba(255,255,255,0)_100%)] p-8 md:p-10"
+            >
+              <span
+                class="text-xs font-bold uppercase tracking-[0.18em] text-secondary"
+              >
+                Portfolio Submission
+              </span>
+              <h1
+                class="mt-3 text-4xl font-headline font-extrabold leading-tight text-primary md:text-5xl"
+              >
+                Submit your Computer Science CPT portfolio
+              </h1>
+              <p
+                class="mt-4 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+              >
+                Complete the form, upload your files, and validate the
+                submission package in one focused workflow.
+              </p>
+            </div>
+
+            <form
+              id="portfolio-form"
+              class="space-y-10 p-8 md:p-10"
+              novalidate=""
+            >
+              <section class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white"
+                  >
+                    <span aria-hidden="true" class="material-symbols-outlined">
+                      badge
+                    </span>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs font-bold uppercase tracking-[0.18em] text-secondary"
+                    >
+                      Step 1
+                    </p>
+                    <h3 class="text-2xl font-headline font-bold text-primary">
+                      Student identity
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div class="space-y-2">
+                    <label
+                      class="block text-sm font-semibold text-primary"
+                      for="fullName"
+                    >
+                      Full Name
+                    </label>
+                    <input
+                      id="fullName"
+                      class="w-full rounded-2xl border border-[#E5E7EB] bg-surface-container-low px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                      name="fullName"
+                      placeholder="e.g. Julianna Valez"
+                      required=""
+                      type="text"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="block text-sm font-semibold text-primary"
+                      for="emailAddress"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      id="emailAddress"
+                      class="w-full rounded-2xl border border-[#E5E7EB] bg-surface-container-low px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                      name="emailAddress"
+                      placeholder="student@school.edu"
+                      required=""
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                  <div class="space-y-2">
+                    <label
+                      class="block text-sm font-semibold text-primary"
+                      for="matricNumber"
+                    >
+                      Matric Number
+                    </label>
+                    <input
+                      id="matricNumber"
+                      class="w-full rounded-2xl border border-[#E5E7EB] bg-surface-container-low px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                      name="matricNumber"
+                      placeholder="e.g. CPT2024-001"
+                      required=""
+                      type="text"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="block text-sm font-semibold text-primary"
+                      for="studentId"
+                    >
+                      Student ID
+                    </label>
+                    <input
+                      id="studentId"
+                      class="w-full rounded-2xl border border-[#E5E7EB] bg-surface-container-low px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                      name="studentId"
+                      placeholder="e.g. ubt253007"
+                      required=""
+                      type="text"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label
+                      class="block text-sm font-semibold text-primary"
+                      for="gender"
+                    >
+                      Gender
+                    </label>
+                    <select
+                      id="gender"
+                      class="w-full rounded-2xl border border-[#E5E7EB] bg-surface-container-low px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                      name="gender"
+                      required=""
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </section>
+
+              <section class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary text-white"
+                  >
+                    <span aria-hidden="true" class="material-symbols-outlined">
+                      upload
+                    </span>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs font-bold uppercase tracking-[0.18em] text-secondary"
+                    >
+                      Step 2
+                    </p>
+                    <h3 class="text-2xl font-headline font-bold text-primary">
+                      Upload assets
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6 xl:grid-cols-[0.9fr,1.1fr]">
+                  <div class="space-y-4">
+                    <label
+                      class="block text-sm font-semibold text-primary"
+                      for="profilePicture"
+                    >
+                      Profile Picture
+                    </label>
+                    <label
+                      class="group flex min-h-[220px] cursor-pointer flex-col items-center justify-center rounded-[2rem] border-2 border-dashed border-[#E5E7EB] bg-surface-container-low/60 p-8 text-center transition-colors hover:border-secondary hover:bg-surface-bright"
+                      for="profilePicture"
+                    >
+                      <div
+                        class="flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-high text-secondary"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="material-symbols-outlined text-4xl"
+                        >
+                          add_a_photo
+                        </span>
+                      </div>
+                      <p
+                        class="mt-5 font-headline text-xl font-bold text-primary"
+                      >
+                        Upload professional headshot
+                      </p>
+                      <p class="mt-2 text-sm text-on-surface-variant">
+                        JPG or PNG up to 5MB
+                      </p>
+                      <p
+                        id="profileStatus"
+                        class="mt-4 text-sm font-medium text-on-surface-variant"
+                      >
+                        No file selected yet.
+                      </p>
+                    </label>
+                    <input
+                      id="profilePicture"
+                      accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                      class="sr-only"
+                      name="profilePicture"
+                      required=""
+                      type="file"
+                    />
+                  </div>
+
+                  <div class="space-y-4">
+                    <label
+                      class="block text-sm font-semibold text-primary"
+                      for="portfolioFiles"
+                    >
+                      Portfolio Files
+                    </label>
+                    <label
+                      class="group flex min-h-[220px] cursor-pointer flex-col items-center justify-center rounded-[2rem] border-2 border-dashed border-[#E5E7EB] bg-surface-container-low/60 p-8 text-center transition-colors hover:border-secondary hover:bg-surface-bright"
+                      for="portfolioFiles"
+                    >
+                      <div
+                        class="flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-high text-secondary"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="material-symbols-outlined text-4xl"
+                        >
+                          cloud_upload
+                        </span>
+                      </div>
+                      <p
+                        class="mt-5 font-headline text-xl font-bold text-primary"
+                      >
+                        Choose supporting files
+                      </p>
+                      <p class="mt-2 text-sm text-on-surface-variant">
+                        Upload a .zip file containing all your project files
+                      </p>
+                      <p
+                        id="portfolioStatus"
+                        class="mt-4 text-sm font-medium text-on-surface-variant"
+                      >
+                        No file selected yet.
+                      </p>
+                    </label>
+                    <input
+                      id="portfolioFiles"
+                      accept=".zip,application/zip,application/x-zip-compressed"
+                      class="sr-only"
+                      name="portfolioFiles"
+                      required=""
+                      type="file"
+                    />
+                  </div>
+                </div>
+              </section>
+
+              <section class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-container text-white"
+                  >
+                    <span aria-hidden="true" class="material-symbols-outlined">
+                      edit_note
+                    </span>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs font-bold uppercase tracking-[0.18em] text-secondary"
+                    >
+                      Step 3
+                    </p>
+                    <h3 class="text-2xl font-headline font-bold text-primary">
+                      Notes for review
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <label
+                    class="block text-sm font-semibold text-primary"
+                    for="submissionNotes"
+                  >
+                    Review Notes
+                  </label>
+                  <textarea
+                    id="submissionNotes"
+                    class="w-full rounded-[2rem] border border-[#E5E7EB] bg-surface-container-low px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                    name="submissionNotes"
+                    placeholder="Briefly describe the contents of your portfolio, the projects included, and any specific notes the review board should understand."
+                    rows="6"
+                  ></textarea>
+                </div>
+              </section>
+
+              <section
+                class="rounded-[2rem] bg-gradient-to-r from-primary to-secondary p-6 text-white shadow-[0px_20px_60px_rgba(0,35,111,0.18)] md:p-8"
+              >
+                <div
+                  class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
+                >
+                  <div class="max-w-2xl">
+                    <p
+                      class="text-xs font-bold uppercase tracking-[0.18em] text-blue-100/75"
+                    >
+                      Final Step
+                    </p>
+                    <h3 class="mt-3 text-3xl font-headline font-extrabold">
+                      Validate your submission package
+                    </h3>
+                    <p class="mt-4 leading-relaxed text-blue-50/85">
+                      This will securely upload your assets to Cloudinary and link them within your student record.
+                    </p>
+                  </div>
+                  <button
+                    class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-white px-10 py-4 text-lg font-bold text-primary transition-all hover:bg-blue-50 active:scale-95 disabled:opacity-50 lg:w-auto"
+                    type="submit"
+                  >
+                    <span>Upload & Submit</span>
+                    <span aria-hidden="true" class="material-symbols-outlined">
+                      send
+                    </span>
+                  </button>
+                </div>
+              </section>
+
+
+              <div
+                id="submissionStatus"
+                aria-live="polite"
+                class="rounded-2xl bg-surface-container-low px-5 py-4 text-sm text-on-surface-variant"
+              >
+                Complete the required fields, then validate the submission to
+                confirm everything is ready.
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div data-portal-footer=""></div>
+  </body>
+</html>

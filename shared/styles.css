@@ -1,0 +1,123 @@
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.glass-nav {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f9fa;
+}
+
+html.dark body {
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+h1,
+h2,
+h3,
+.font-headline {
+  font-family: "Manrope", sans-serif;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 60;
+  transform: translateY(-200%);
+  border-radius: 9999px;
+  background: #00236f;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 12px 32px rgba(0, 35, 111, 0.18);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.portal-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.portal-main {
+  flex: 1;
+}
+
+.status-pill {
+  min-width: 7.5rem;
+  text-align: center;
+}
+
+html.dark .bg-surface {
+  background-color: #020617 !important;
+}
+
+html.dark .bg-surface-container-lowest {
+  background-color: #111827 !important;
+}
+
+html.dark .bg-surface-container-low {
+  background-color: #1f2937 !important;
+}
+
+html.dark .bg-surface-container-high {
+  background-color: #334155 !important;
+}
+
+html.dark .text-on-surface {
+  color: #e5e7eb !important;
+}
+
+html.dark .text-on-surface-variant,
+html.dark .text-outline {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-primary {
+  color: #c7d2fe !important;
+}
+
+html.dark .text-secondary {
+  color: #93c5fd !important;
+}
+
+html.dark .border-\[\#E5E7EB\] {
+  border-color: #334155 !important;
+}
+
+html.dark .shadow-\[0px_12px_32px_rgba\(0\2c 35\2c 111\2c 0\.04\)\],
+html.dark .shadow-\[0px_12px_32px_rgba\(0\2c 35\2c 111\2c 0\.06\)\] {
+  box-shadow: 0 12px 32px rgba(2, 6, 23, 0.45) !important;
+}

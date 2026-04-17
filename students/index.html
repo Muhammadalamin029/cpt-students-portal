@@ -1,0 +1,169 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CS Scholar Portal | Student Directory</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <script src="../shared/theme-init.js"></script>
+    <link href="../shared/styles.css" rel="stylesheet" />
+    <script defer="" src="../shared/portal.js"></script>
+    <script type="module" defer="" src="../shared/directory.js"></script>
+  </head>
+  <body
+    id="page-top"
+    class="portal-shell bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-primary"
+    data-page="students"
+  >
+    <div data-portal-header=""></div>
+
+    <main
+      id="main-content"
+      class="portal-main mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-8"
+      tabindex="-1"
+    >
+      <header
+        class="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end"
+      >
+        <div class="max-w-2xl">
+          <span
+            class="mb-2 block text-xs font-bold uppercase tracking-[0.1em] text-secondary"
+          >
+            Computer Science CPT Portal
+          </span>
+          <h1
+            class="mb-4 text-5xl font-extrabold leading-tight tracking-tight text-primary"
+          >
+            Computer Science Student Directory
+          </h1>
+          <p class="text-lg leading-relaxed text-on-surface-variant">
+            Search the current student list, review approval status, and open
+            approved portfolio links from one place.
+          </p>
+        </div>
+
+        <section
+          id="directory-controls"
+          aria-label="Directory controls"
+          class="w-full md:w-auto"
+        >
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <div class="relative flex-grow">
+              <label class="sr-only" for="studentSearch">Search students</label>
+              <span
+                aria-hidden="true"
+                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline"
+              >
+                search
+              </span>
+              <input
+                id="studentSearch"
+                class="w-full rounded-xl border-none bg-surface-container-low py-4 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all focus:ring-2 focus:ring-secondary/20 sm:w-80"
+                placeholder="Search by name, matric, ID, or gender"
+                type="search"
+              />
+            </div>
+            <div
+              aria-label="Sort students"
+              class="flex rounded-xl bg-surface-container-low p-1"
+              role="group"
+            >
+              <button
+                aria-pressed="true"
+                class="ascending_button flex items-center gap-2 rounded-lg bg-surface-container-lowest px-4 py-2 text-sm font-semibold text-primary shadow-sm"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                  class="material-symbols-outlined text-[18px]"
+                >
+                  sort_by_alpha
+                </span>
+                Ascending
+              </button>
+              <button
+                aria-pressed="false"
+                class="descending_button flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-bright"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                  class="material-symbols-outlined text-[18px]"
+                >
+                  vertical_align_bottom
+                </span>
+                Descending
+              </button>
+            </div>
+          </div>
+          <p
+            id="resultsSummary"
+            aria-live="polite"
+            class="mt-4 text-sm text-on-surface-variant"
+          ></p>
+        </section>
+      </header>
+
+      <section aria-labelledby="directory-heading">
+        <h2 class="sr-only" id="directory-heading">Student directory</h2>
+        <div
+          id="student-directory"
+          aria-describedby="resultsSummary"
+          class="students-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          role="list"
+        ></div>
+        <div
+          id="emptyState"
+          class="hidden rounded-[2rem] bg-surface-container-lowest p-10 text-center shadow-[0px_12px_32px_rgba(0,35,111,0.06)]"
+        >
+          <h3 class="mb-2 text-2xl font-headline font-bold text-primary">
+            No students found
+          </h3>
+          <p class="text-on-surface-variant">
+            Try a different keyword or clear the current search to see the full
+            directory again.
+          </p>
+        </div>
+      </section>
+
+      <nav
+        aria-label="Directory pagination"
+        class="mt-16 flex items-center justify-center gap-4"
+      >
+        <button
+          aria-label="Previous page"
+          class="pagination-prev flex h-12 w-12 items-center justify-center rounded-xl bg-surface-container-low text-on-surface-variant transition-colors hover:bg-surface-container-high"
+          type="button"
+        >
+          <span aria-hidden="true" class="material-symbols-outlined">
+            chevron_left
+          </span>
+        </button>
+        <div class="pagination-pages flex items-center gap-2"></div>
+        <button
+          aria-label="Next page"
+          class="pagination-next flex h-12 w-12 items-center justify-center rounded-xl bg-surface-container-low text-on-surface-variant transition-colors hover:bg-surface-container-high"
+          type="button"
+        >
+          <span aria-hidden="true" class="material-symbols-outlined">
+            chevron_right
+          </span>
+        </button>
+      </nav>
+    </main>
+
+    <div data-portal-footer=""></div>
+  </body>
+</html>
