@@ -1,0 +1,8 @@
+{
+  "name": "cpt-assignment-submission-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "bash build.sh"
+  }
+}

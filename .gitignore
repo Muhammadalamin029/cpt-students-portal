@@ -1,3 +1,8 @@
+shared/config.js
+public/
+node_modules/
+.env
+.DS_Store
 .idea
 .codex
 .DS_Store
