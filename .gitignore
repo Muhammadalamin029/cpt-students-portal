@@ -1,4 +1,5 @@
 .idea
 .codex
 .DS_Store
+*.env
 shared/config.js
