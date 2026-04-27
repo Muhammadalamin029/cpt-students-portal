@@ -29,8 +29,13 @@ if (submissionForm) {
     const isImage = file.type.startsWith("image/");
     const resourceType = isImage ? "image" : "raw";
 
-    if (CLOUDINARY_CLOUD_NAME === "YOUR_CLOUD_NAME" || CLOUDINARY_UPLOAD_PRESET === "YOUR_UPLOAD_PRESET") {
-        throw new Error("Missing Cloudinary configuration. Please update CLOUDINARY_CLOUD_NAME and CLOUDINARY_UPLOAD_PRESET in shared/submit.js");
+    if (
+      CLOUDINARY_CLOUD_NAME === "YOUR_CLOUD_NAME" ||
+      CLOUDINARY_UPLOAD_PRESET === "YOUR_UPLOAD_PRESET"
+    ) {
+      throw new Error(
+        "Missing Cloudinary configuration. Please update CLOUDINARY_CLOUD_NAME and CLOUDINARY_UPLOAD_PRESET in shared/submit.js",
+      );
     }
 
     const formData = new FormData();
@@ -39,7 +44,7 @@ if (submissionForm) {
     if (fileName) {
       formData.append("public_id", fileName);
     }
-    
+
     const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/${resourceType}/upload`;
 
     const response = await fetch(url, {
@@ -75,11 +80,11 @@ if (submissionForm) {
     const portfolioFile = portfolioInput.files[0];
 
     if (!profileFile || !portfolioFile) {
-        submissionStatus.className =
-          "rounded-2xl bg-error-container px-5 py-4 text-sm font-medium text-on-error-container";
-        submissionStatus.textContent =
-          "Please select both a profile picture and at least one portfolio file.";
-        return;
+      submissionStatus.className =
+        "rounded-2xl bg-error-container px-5 py-4 text-sm font-medium text-on-error-container";
+      submissionStatus.textContent =
+        "Please select both a profile picture and at least one portfolio file.";
+      return;
     }
 
     const submitBtn = submissionForm.querySelector('button[type="submit"]');
@@ -90,18 +95,29 @@ if (submissionForm) {
     try {
       submissionStatus.className =
         "rounded-2xl bg-surface-container-low px-5 py-4 text-sm text-on-surface-variant";
-      submissionStatus.textContent = "Uploading profile picture to Cloudinary...";
+      submissionStatus.textContent =
+        "Uploading profile picture to Cloudinary...";
 
-      const matricNumber = submissionForm.matricNumber.value;
-      
-      const getExt = (file) => file.name.includes('.') ? file.name.substring(file.name.lastIndexOf('.')) : '';
+      const studentIdentifier = submissionForm.studentId.value.trim();
+
+      const getExt = (file) =>
+        file.name.includes(".")
+          ? file.name.substring(file.name.lastIndexOf("."))
+          : "";
       const profileExt = getExt(profileFile);
       const portfolioExt = getExt(portfolioFile);
 
-      const profileUrl = await uploadToCloudinary(profileFile, `${matricNumber}_profile${profileExt}`);
-      
-      submissionStatus.textContent = "Uploading portfolio files to Cloudinary...";
-      const portfolioUrl = await uploadToCloudinary(portfolioFile, `${matricNumber}_portfolio${portfolioExt}`);
+      const profileUrl = await uploadToCloudinary(
+        profileFile,
+        `${studentIdentifier}_profile${profileExt}`,
+      );
+
+      submissionStatus.textContent =
+        "Uploading portfolio files to Cloudinary...";
+      const portfolioUrl = await uploadToCloudinary(
+        portfolioFile,
+        `${studentIdentifier}_portfolio${portfolioExt}`,
+      );
 
       submissionStatus.textContent = "Saving student record...";
 
@@ -122,7 +138,7 @@ if (submissionForm) {
         "rounded-2xl bg-secondary-fixed px-5 py-4 text-sm font-medium text-on-secondary-fixed";
       submissionStatus.textContent =
         "Success! Your portfolio has been submitted with Cloudinary links.";
-        
+
       submissionForm.reset();
       profileStatus.textContent = "No file selected yet.";
       portfolioStatus.textContent = "No file selected yet.";
@@ -130,7 +146,8 @@ if (submissionForm) {
       console.error("Submission error:", error);
       submissionStatus.className =
         "rounded-2xl bg-error-container px-5 py-4 text-sm font-medium text-on-error-container";
-      submissionStatus.textContent = error.message || "Error submitting portfolio. Please try again.";
+      submissionStatus.textContent =
+        error.message || "Error submitting portfolio. Please try again.";
     } finally {
       submitBtn.innerHTML = originalBtnHTML;
       submitBtn.disabled = false;
