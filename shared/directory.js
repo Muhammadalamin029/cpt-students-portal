@@ -32,6 +32,29 @@ if (Object.values(directoryElements).every(Boolean)) {
     }
   };
 
+  const getPortfolioDownloadUrl = (value) => {
+    if (!isSafeHttpUrl(value)) return "#";
+
+    try {
+      const url = new URL(value);
+
+      if (
+        url.hostname === "res.cloudinary.com" &&
+        url.pathname.includes("/upload/") &&
+        !url.pathname.includes("/upload/fl_attachment/")
+      ) {
+        url.pathname = url.pathname.replace(
+          "/upload/",
+          "/upload/fl_attachment/",
+        );
+      }
+
+      return url.toString();
+    } catch {
+      return value;
+    }
+  };
+
   const getFilteredStudents = () => {
     const query = directoryElements.searchInput.value.trim().toLowerCase();
     if (!query) return students;
@@ -108,15 +131,15 @@ if (Object.values(directoryElements).every(Boolean)) {
       action = document.createElement("a");
       action.className =
         "inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-4 font-semibold text-white shadow-lg shadow-secondary/30 transition-all duration-300 hover:bg-primary";
-      action.href = student.portfolioUrl;
+      action.href = getPortfolioDownloadUrl(student.portfolioUrl);
       action.target = "_blank";
       action.rel = "noopener noreferrer";
-      action.textContent = "Visit Portfolio";
+      action.textContent = "Download Portfolio ZIP";
 
       const icon = document.createElement("span");
       icon.className = "material-symbols-outlined text-[20px]";
       icon.setAttribute("aria-hidden", "true");
-      icon.textContent = "folder_open";
+      icon.textContent = "download";
       action.prepend(icon);
     } else {
       action = document.createElement("button");

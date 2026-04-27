@@ -23,6 +23,29 @@ const isSafeHttpUrl = (value) => {
   }
 };
 
+const getPortfolioDownloadUrl = (value) => {
+    if (!isSafeHttpUrl(value)) return "#";
+
+    try {
+        const url = new URL(value);
+
+        if (
+            url.hostname === "res.cloudinary.com" &&
+            url.pathname.includes("/upload/") &&
+            !url.pathname.includes("/upload/fl_attachment/")
+        ) {
+            url.pathname = url.pathname.replace(
+                "/upload/",
+                "/upload/fl_attachment/",
+            );
+        }
+
+        return url.toString();
+    } catch {
+        return value;
+    }
+};
+
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     // Not authenticated, redirect to login
@@ -147,13 +170,15 @@ function createStudentCard(student, isPending) {
     assetsLabel.textContent = "Uploaded Assets";
     
     const assetAction = document.createElement("a");
-    assetAction.href = isSafeHttpUrl(student.portfolioUrl) ? student.portfolioUrl : "#";
+        assetAction.href = isSafeHttpUrl(student.portfolioUrl)
+            ? getPortfolioDownloadUrl(student.portfolioUrl)
+            : "#";
     if (isSafeHttpUrl(student.portfolioUrl)) {
         assetAction.target = "_blank";
         assetAction.rel = "noopener noreferrer";
     }
     assetAction.className = "inline-flex items-center gap-2 rounded-xl border border-secondary/20 bg-secondary/5 px-4 py-3 text-sm font-semibold text-secondary transition-colors hover:bg-secondary/10 w-full";
-    assetAction.innerHTML = `<span class="material-symbols-outlined text-[18px]">cloud_download</span> Review Portfolio File`;
+    assetAction.innerHTML = `<span class="material-symbols-outlined text-[18px]">cloud_download</span> Download Portfolio File`;
     
     assetsWrap.append(assetsLabel, assetAction);
     contentSection.append(assetsWrap);

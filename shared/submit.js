@@ -26,6 +26,8 @@ if (submissionForm) {
   async function uploadToCloudinary(file, fileName) {
     const CLOUDINARY_CLOUD_NAME = CONFIG.CLOUDINARY.CLOUD_NAME;
     const CLOUDINARY_UPLOAD_PRESET = CONFIG.CLOUDINARY.UPLOAD_PRESET;
+    const isImage = file.type.startsWith("image/");
+    const resourceType = isImage ? "image" : "raw";
 
     if (CLOUDINARY_CLOUD_NAME === "YOUR_CLOUD_NAME" || CLOUDINARY_UPLOAD_PRESET === "YOUR_UPLOAD_PRESET") {
         throw new Error("Missing Cloudinary configuration. Please update CLOUDINARY_CLOUD_NAME and CLOUDINARY_UPLOAD_PRESET in shared/submit.js");
@@ -38,8 +40,7 @@ if (submissionForm) {
       formData.append("public_id", fileName);
     }
     
-    // We use /auto/upload to handle both image (profile picture) and raw/other documents (portfolio zip/pdf) seamlessly
-    const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`;
+    const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/${resourceType}/upload`;
 
     const response = await fetch(url, {
       method: "POST",
@@ -51,6 +52,11 @@ if (submissionForm) {
     }
 
     const data = await response.json();
+
+    if (!isImage && data.secure_url) {
+      return data.secure_url.replace("/upload/", "/upload/fl_attachment/");
+    }
+
     return data.secure_url;
   }
 
