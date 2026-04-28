@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///C:/xampp/htdocs/futmx%20assignments/portfl.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odo David Chijindu</title>
+  <style>
+    /* ====== GENERAL RESET ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0f0f1a, #050509);
+      color: #f0f0f0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    main {
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.1);
+      padding: 40px;
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+    }
+
+    main:hover {
+      box-shadow: 0 0 60px rgba(0, 255, 200, 0.25);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      color: #00ffc3;
+      text-shadow: 0 0 10px #00ffc3, 0 0 30px #00ffc3;
+      margin-bottom: 20px;
+      animation: fadeDown 1s ease forwards;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 40px;
+      animation: fadeDown 1.2s ease forwards;
+    }
+
+    section {
+      margin-bottom: 50px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0, 255, 200, 0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #00e0ff;
+      text-shadow: 0 0 10px #00e0ff;
+      margin-bottom: 15px;
+    }
+
+    .img {
+        width: 500px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    figcaption {
+        margin-top: 10px;
+        font-size: 16px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #0ac78ed7;
+        font-style: italic;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      iframe {
+        width: 100%;
+        height: 250px;
+      }
+      main {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Odo David Chijindu</h1>
+    <p>The Boy With A Dream</p>
+
+    <section class="visible" style="box-shadow: rgba(0, 255, 200, 0.1) 0px 0px 15px;">
+      <h2>Bio</h2>
+      <p>Name: Odo David Chijindu
+        <br>Age: 17 years
+        <br>Date Of Birth: 01/03/2009
+        <br>State Of Origin: Enugu State
+        <br>L.G.A: Udenu
+        <br>Height: 5'11 (180.34cm)
+        <br>Education: Capville Schools
+        <br>Eucharistic College
+        <br>Federal University of Technology, Minna (Current)
+      </p>
+        <img src="C:\xampp\htdocs\futmx assignments\portfl_assets\My Website\images\IMG-20260224-WA0023(1).jpg" class="img">
+        <figcaption>David at a tech conference in Abuja</figcaption>
+    </section>
+
+    <section class="visible" style="box-shadow: rgba(0, 255, 200, 0.1) 0px 0px 15px;">
+      <h2>About David</h2>
+      <p>Odo David Chijindu, fondly known as Uzi by his <br>
+         coursemates and close friends, is a young man from <br>
+        Enugu State. Born and brought up in FCT Abuja in a <br>
+        family of four, he has been fostered in a very caring and loving home.
+        He was admitted into the Federal University Of Technology, Minna in October, 2026
+        to study Computer Science.<br>
+        Asides coding and mathematics, David is also interested in playing football, cooking, gaming, reading, writing and listening to music. <br>
+        He is currently sharpening his skills in web development and responsive design.
+    </p>
+      <img src="C:\xampp\htdocs\futmx assignments\portfl_assets\My Website\images\IMG-20260220-WA0219.jpg" class="img">
+      <figcaption>David in his club jersey at a hackathon</figcaption>
+    </section>
+
+    <section class="visible" style="box-shadow: rgba(0, 255, 200, 0.1) 0px 0px 15px;">
+      <h2>Contact David</h2>
+      <p>
+        Phone: 07014433108
+        <br>
+        Email: ododavid20@gmail.com
+        <br>
+        Address: 13 Hilary Road, Kubwa, F.C.T Abuja
+      </p>
+      
+    </section>
+  </main>
+
+  <script>
+    // Smooth reveal animation on scroll
+    const sections = document.querySelectorAll("section");
+
+    const reveal = () => {
+      sections.forEach(sec => {
+        const secTop = sec.getBoundingClientRect().top;
+        if (secTop < window.innerHeight - 100) {
+          sec.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Neon pulse on hover
+    document.querySelectorAll("section").forEach(sec => {
+      sec.addEventListener("mouseenter", () => {
+        sec.style.boxShadow = "0 0 40px rgba(0,255,200,0.4)";
+      });
+      sec.addEventListener("mouseleave", () => {
+        sec.style.boxShadow = "0 0 15px rgba(0,255,200,0.1)";
+      });
+    });
+  </script>
+
+
+</body></html>

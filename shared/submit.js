@@ -98,7 +98,7 @@ if (submissionForm) {
       submissionStatus.textContent =
         "Uploading profile picture to Cloudinary...";
 
-      const studentIdentifier = submissionForm.studentId.value.trim();
+      const studentIdentifier = submissionForm.studentId.value.trim().toUpperCase();
 
       const getExt = (file) =>
         file.name.includes(".")
@@ -116,7 +116,7 @@ if (submissionForm) {
         "Uploading portfolio files to Cloudinary...";
       const portfolioUrl = await uploadToCloudinary(
         portfolioFile,
-        `${studentIdentifier}_portfolio${portfolioExt}`,
+        studentIdentifier,
       );
 
       submissionStatus.textContent = "Saving student record...";

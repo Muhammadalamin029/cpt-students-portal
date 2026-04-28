@@ -1,0 +1,247 @@
+/* landind page CSS starts */
+.landing{
+        height: 100vh;
+        flex-direction: column;
+        display:flex;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+        background-image:url('matric.jpg') ;
+         background-position:center ;
+         background-repeat: no-repeat ;
+         background-size:cover;
+         background-attachment:fixed;
+}
+
+
+.container {
+   width: 90%;
+   position:relative;
+   z-index:3;
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+   align-items: center;
+}
+
+.intro h1,
+header h1{
+  font-size: 30px;
+}
+
+.intro{
+    text-align : center ;
+    margin-bottom: 10px;
+    padding : 20px 35px;
+    border: 2px dashed white;
+    border-radius : 40px;
+    color:white;
+    background-color:rgba(255,255,255,0.1);
+    font-size:20px;
+    font-weight :bold;
+    backdrop-filter:blur(5px);
+    transition: all 0.3s ease ;
+    
+}
+
+.btn{
+    font-size:20px;
+    padding:14px 30px;
+    color:white;
+    background-color:rgba(255,255,255,0.1) ;
+    border-radius:30px;
+    border:solid 2px white;
+    font-weight:bolder;
+    backdrop-filter:blur(5px) ;
+    transition: all 0.3s ease ;
+}
+
+.landing .btn:hover,
+.landing .intro:hover,
+section:hover,
+span:hover{
+    color:black;
+    background: white;
+    transform: scale(1.1);
+    box-shadow:0 0 15px;
+    
+}
+
+#overlay{
+    position : fixed ;
+    display:block;
+    width: 100% ;
+    height: 100% ;
+    background-color: rgba(0,0,0,0.8);
+    top: 0 ;
+    left: 0 ;
+    right: 0 ;
+    bottom: 0 ;
+    cursor:pointer;
+    z-index: 2 ;
+}
+
+
+.quote-box {
+    position: relative;
+    width:100%;
+    height: 120px;
+    margin-top: 30px;
+    z-index: 3;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote {
+    position: absolute;
+    width: 80%;
+    max-width: 700px;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    animation: wisdom 100s infinite;
+}
+
+/* quote delay🥱 */
+.quote:nth-child(1) { animation-delay: 0s; }
+.quote:nth-child(2) { animation-delay: 5s; }
+.quote:nth-child(3) { animation-delay:10s; }
+.quote:nth-child(4) { animation-delay:15s; }
+.quote:nth-child(5) { animation-delay:20s ; }
+.quote:nth-child(6) { animation-delay: 25s; }
+.quote:nth-child(7) { animation-delay:30s; }
+.quote:nth-child(8) { animation-delay: 35s; }
+.quote:nth-child(9) { animation-delay: 40s; }
+.quote:nth-child(10) { animation-delay:45s; }
+.quote:nth-child(11) { animation-delay:50s; }
+.quote:nth-child(12) { animation-delay:55s; }
+.quote:nth-child(13) { animation-delay:60s; }
+.quote:nth-child(14) { animation-delay:65s; }
+.quote:nth-child(15) { animation-delay:70s; }
+.quote:nth-child(16) { animation-delay:75s; }
+.quote:nth-child(17) { animation-delay:80s; }
+.quote:nth-child(18) { animation-delay:85s; }
+.quote:nth-child(19) { animation-delay:90s; }
+.quote:nth-child(20) { animation-delay:95s; }
+
+
+@keyframes wisdom {
+  0% { opacity: 0; }
+  4% { opacity: 1; }
+  8% { opacity: 1; }
+  12% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
+.socials {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    z-index: 3;
+}
+
+.socials a {
+    font-size: 22px;
+    color: white;
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    transform: scale(1.2);
+    background: white;
+    color: black;
+    box-shadow: 0 0 15px white;
+}
+/* landing page CSS stops*/
+
+/*content page css*/
+
+body{
+  text-align: center;
+  background: #121212;
+  color:white;
+  text-decoration
+  
+  
+}
+
+header {
+  margin:20px auto;
+  padding:10px;
+}
+
+img {
+  border-radius:100%;
+}
+
+section {
+    display :flex;
+    justify-content: center;
+    width :90%;
+    margin:15px auto;
+    padding:5px 15px;
+    color:white;
+    background-color:rgba(255,255,255,0.1) ;
+    border-radius:30px;
+    border:solid 2px white;
+    backdrop-filter:blur(5px) ;
+    transition: all 0.3s ease ;
+}
+
+footer {
+  margin-top: 20px;
+  bottom: 0;
+}
+td, li { 
+  border: 1px solid white;
+  border-radius:20px;
+  padding: 5px 10px;
+  margin: 20px;
+}
+#hobbies ul{
+  list-style: none;
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+}
+
+ul li {
+  margin: 10px;
+  padding: 10px 15px;
+  font-weight: bolder;
+  font-size:20px;
+}
+
+#about{
+  font-weight: bolder;
+}
+.float {
+  text-align: center;
+  align-items: center;
+}
+
+a {
+  text-decoration:none;
+  color: yellow;
+  font-weight: bolder;
+}
+td span {
+   color: rgba(255,255,255,0.1);
+ }

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT ME</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Free Fire Inspired Background */
+        body {
+            background: radial-gradient(circle, #2c3e50);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background-color: rgba(30, 30, 30, 0.95);
+            width: 100%;
+            max-width: 700px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 20px #ff4500; /* FF Orange glow */
+            border: 1px solid #ff4500;
+        }
+
+        /* Header Section */
+        .profile-header {
+            background: linear-gradient(45deg, #ff4500, #ff8c00);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .profile-header h1 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Content Section */
+        .profile-content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            color: #ff8c00;
+            border-bottom: 2px solid #ff4500;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-item b {
+            color: #ff8c00;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        /* List-styling */
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <header class="profile-header">
+            <img src="ABOUT%20ME_files/IMG_20260428_071629_002.jpg" alt="Profile Picture" class="profile-img">
+            <h1>Abubakar Sadiq Haruna</h1>
+            <p>Student &amp; Tech Enthusiast</p>
+        </header>
+
+        <div class="profile-content">
+
+            <div class="section">
+                <h2>Essential Details</h2>
+                <div class="info-grid">
+                    <div class="info-item"><b>Matric No:</b> 2025/1/101703CT</div>
+                    <div class="info-item"><b>Date of Birth:</b> May 27th 2009</div>
+                    <div class="info-item"><b>Email:</b> abuharun135@gmail.com</div>
+                    <div class="info-item"><b>Phone:</b> +234 707 244 5887</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>About Me</h2>
+                <p>
+                    I am a passionate student currently pursuing my degree. 
+                    I enjoy solving complex problems and learning about new technologies.
+                    In my free time, i enjoy gaming and exploring creative web design. 
+                </p>
+            </div> 
+
+            <div class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li><b>University:</b> Federal University of Technology (2025 - Present)</li>
+                    <li><b>High School:</b> Leader's Academy International (2019 - 2025)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Skills &amp; Hobbies</h2>
+                <p>
+                    <b>Skills:</b> HTML, CSS, Javascript, Problem Solving.<br>
+                    <b>Hobbies:</b> Competetive Gaming (Free Fire), Reading, and Traveling.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
