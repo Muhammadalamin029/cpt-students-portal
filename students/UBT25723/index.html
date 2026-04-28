@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Samson Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #021c13, #052e16);
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    background: #010b07;
+}
+
+.navbar h2 {
+    color: #22c55e;
+    font-size: 20px;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #22c55e;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.hero img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #22c55e;
+    object-fit: cover;
+}
+
+.hero h1 {
+    margin-top: 10px;
+    font-size: 26px;
+}
+
+.hero p {
+    font-size: 14px;
+    color: #cbd5d1;
+    max-width: 300px;
+    margin: auto;
+}
+
+/* ABOUT */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h2 {
+    margin-bottom: 10px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.card {
+    background: #0f2e22;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.card h4 {
+    margin-bottom: 5px;
+}
+
+.card:hover {
+    border: 1px solid #22c55e;
+}
+
+/* Profile */
+.profile {
+    padding: 20px;
+    text-align: center;
+}
+
+.profile h2 {
+    margin-bottom: 10px;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.card {
+    background: #0f2e22;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border: 1px solid #22c55e;
+}
+
+/* Goals */
+.goals {
+    padding: 20px;
+    text-align: center;
+}
+
+.goals {
+    padding: 20px;
+    margin-top: 20px;   /* ADD THIS */
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.card {
+    background: #0f2e22;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.card h4 {
+    margin-bottom: 5px;
+}
+
+.card:hover {
+    border: 1px solid #22c55e;
+}
+
+.interests {
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.interest-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.interest-card {
+    background: #0f2e22;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.interest-card:hover {
+    border: 1px solid #22c55e;
+}
+
+/* SKILLS */
+.skills {
+    text-align: center;
+    padding: 20px;
+}
+
+.skills h2 {
+    margin-bottom: 10px;
+}
+
+.skill {
+    display: inline-block;
+    background: #0f2e22;
+    padding: 8px 14px;
+    border-radius: 15px;
+    margin: 5px;
+    font-size: 13px;
+}
+
+.skill:hover {
+    background: #22c55e;
+    color: black;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background: #010b07;
+    margin-top: 20px;
+    font-size: 13px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>Samson</h2>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Skills</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+    <img src="carnage.jpg">
+    <h1>Hi, I'm Samson</h1>
+    <p>
+        A focused individual who enjoys basketball and is building a career in Artificial Intelligence.
+    </p>
+</div>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+    <h2>About Me</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h4>Matric Number</h4>
+            <p>2025/1/102613CT</p>
+        </div>
+
+        <div class="card">
+            <h4>Department</h4>
+            <p>Computer Science</p>
+        </div>
+
+   <div class="card">  
+     <h4>Nationality</h4>
+     <p>Nigerian</p>
+ </div>
+        <div class="card">
+            <h4>Level</h4>
+            <p>100</p>
+        </div>
+
+        <div class="card">
+            <h4>School</h4>
+            <p>FUTMINNA</p>
+        </div>
+
+        <div class="card">
+            <h4>State</h4>
+            <p>Benue State</p>
+        </div>
+        
+        <div class="card">
+            <h4>Residence</h4>
+            <p>kaduna</p>
+        </div>
+        
+        <div class="card">
+            <h4>school mail</h4>
+            <p>audusaubt25723@st.futmina.edu.ng </p>
+        </div>
+        
+        <div class="card">
+            <h4>Religion</h4>
+            <p>Christianity </p>
+        </div>
+
+        <div class="card">
+            <h4>Previous School</h4>
+            <p>Government Secondary School</p>
+        </div>
+    </div>
+</div>
+
+<!-- Profile -->
+<div class="card" 
+    <h3>Profile</h3>
+    <p> So I'm Carnage, a focused and determined individual with a growing passion for technology and innovation. I enjoy pushing myself beyond limits, both mentally and physically, which reflects in my love for basketball and continuous self-improvement.
+With a strong interest in Artificial Intelligence, I am steadily building my skills and knowledge, aiming to create impactful solutions in the future. I believe in consistency, growth, and staying disciplined, knowing that every step forward brings me closer to becoming the best version of myself.</p>
+</div>
+</div>
+</div>
+<div>
+<!-- Goals -->
+<div class="card">
+ <h3>Goals</h3> 
+ <p>To develop strong skills in Artificial Intelligence and become a professional capable of solving real-world problems using technology.</p>  
+</div>
+
+<div class="interests">
+    <h2>Interests</h2>
+
+    <div class="interest-row">
+
+        <div class="interest-card">Basketball</div>
+        <div class="interest-card">Technology</div>
+        <div class="interest-card">Artificial Intelligence</div>
+        <div class="interest-card">Problem Solving</div>
+
+    </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills">
+    <h2>Skills</h2>
+
+    <span class="skill">Ai visuals</span>
+    <span class="skill">video and photo editing </span>
+    <span class="skill">graphics </span>
+    <span class="skill">AI Enthusiast</span>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>📞 090-7729-7901</p>
+    <p>audusamson7777@gmail.com</p>
+    <p>© 2026 Samson | Carnage Concepts</p>
+</div>
+
+</body>
+</html>

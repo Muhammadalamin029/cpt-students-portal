@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery {
+  padding: 50px 10%;
+  text-align: center;
+}
+
+.gallery h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #333;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-container img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.gallery-container video {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+/* ✨ Hover Effect */
+.gallery-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+    </style>
+</head>
+<body>
+    <section class="gallery">
+  <h2>Gallery</h2>
+
+  <div class="gallery-container">
+    <img src="MY PICS/a76ba30a5ada4a83b380186627724f98.jpg" alt="pics 1">
+    <img src="MY PICS/IMG-20260203-WA0140.jpg" alt="pics 2">
+    <img src="MY PICS/IMG-20260216-WA0032.jpg" alt="pics 3">
+    <img src="MY PICS/IMG-20260216-WA0033.jpg" alt="pics 4">
+    <img src="MY PICS/IMG-20260216-WA0034(1).jpg" alt="pics 5">
+    <img src="MY PICS/IMG-20260216-WA0034.jpg" alt=" pics 6">
+    <img src="MY PICS/IMG-20260216-WA0126.jpg" alt="pics 7">
+    <img src="MY PICS/IMG-20260216-WA0144.jpg" alt="pics 8">
+    <img src="MY PICS/IMG-20260216-WA0145.jpg" alt="pics 9">
+    <img src="MY PICS/IMG-20260216-WA0146.jpg" alt="pics pics 10">
+    <img src="MY PICS/IMG-20260222-WA0053.jpg" alt=" pics 11">
+    <img src="MY PICS/IMG-20260222-WA0088.jpg" alt=" pics 12">
+    </div>
+    </section>
+</body>
+</html>
