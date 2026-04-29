@@ -5,6 +5,8 @@ import {
   loadStudentsFromFirebase,
   approveStudent,
   rejectStudent,
+  createStudentFromAdmin,
+  updateStudentFromAdmin,
 } from "../shared/firebase.js";
 
 const authCheckLoader = document.getElementById("authCheckLoader");
@@ -18,6 +20,27 @@ const tabPending = document.getElementById("tab-pending");
 const tabApproved = document.getElementById("tab-approved");
 const pendingSection = document.getElementById("pending-section");
 const approvedSection = document.getElementById("approved-section");
+const addStudentBtn = document.getElementById("addStudentBtn");
+
+const studentModal = document.getElementById("studentModal");
+const studentModalOverlay = document.getElementById("studentModalOverlay");
+const studentModalClose = document.getElementById("studentModalClose");
+const studentModalCancel = document.getElementById("studentModalCancel");
+const studentModalForm = document.getElementById("studentModalForm");
+const studentModalTitle = document.getElementById("studentModalTitle");
+const studentModalSave = document.getElementById("studentModalSave");
+const studentModalError = document.getElementById("studentModalError");
+
+const studentDocIdInput = document.getElementById("studentDocId");
+const studentFullNameInput = document.getElementById("studentFullName");
+const studentIdInput = document.getElementById("studentId");
+const studentMatricInput = document.getElementById("studentMatric");
+const studentGenderInput = document.getElementById("studentGender");
+const studentEmailInput = document.getElementById("studentEmail");
+const studentImageUrlInput = document.getElementById("studentImageUrl");
+const studentPortfolioUrlInput = document.getElementById("studentPortfolioUrl");
+const studentNotesInput = document.getElementById("studentNotes");
+const studentApprovedInput = document.getElementById("studentApproved");
 
 const fallbackAvatar =
   "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%23dce1ff'/%3E%3Ccircle cx='60' cy='46' r='22' fill='%2300236f' opacity='0.85'/%3E%3Cpath d='M27 103c7-18 22-27 33-27s26 9 33 27' fill='%2300236f' opacity='0.85'/%3E%3C/svg%3E";
@@ -30,6 +53,22 @@ const isSafeHttpUrl = (value) => {
     return false;
   }
 };
+
+const normalizeWhitespace = (value) =>
+  String(value ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const normalizeStudentId = (value) =>
+  String(value ?? "")
+    .replace(/\s+/g, "")
+    .trim()
+    .toUpperCase();
+
+const toNameCase = (value) =>
+  normalizeWhitespace(value)
+    .toLowerCase()
+    .replace(/\b\w/g, (match) => match.toUpperCase());
 
 const getPortfolioDownloadUrl = (value) => {
   if (!isSafeHttpUrl(value)) return "#";
@@ -64,6 +103,144 @@ onAuthStateChanged(auth, async (user) => {
   logoutBtn.classList.remove("hidden");
 
   await fetchAndRenderStudents();
+});
+
+let lastFocusedElement = null;
+
+const isModalOpen = () => studentModal && !studentModal.classList.contains("hidden");
+
+const hideStudentModalError = () => {
+  if (!studentModalError) return;
+  studentModalError.classList.add("hidden");
+  studentModalError.textContent = "";
+};
+
+const showStudentModalError = (message) => {
+  if (!studentModalError) return;
+  studentModalError.textContent = message || "Something went wrong. Please try again.";
+  studentModalError.classList.remove("hidden");
+};
+
+function openStudentModal({ mode, student }) {
+  if (!studentModal || !studentModalForm) return;
+
+  lastFocusedElement = document.activeElement;
+  hideStudentModalError();
+  studentModalForm.reset();
+
+  const isEdit = mode === "edit";
+  studentModalTitle.textContent = isEdit ? "Edit Student" : "Add Student";
+
+  if (isEdit && student) {
+    studentDocIdInput.value = student.id || "";
+    studentFullNameInput.value = student.name || "";
+    studentIdInput.value = student.student_id || "";
+    studentMatricInput.value = student.matric || "";
+    studentGenderInput.value = student.gender || "";
+    studentEmailInput.value = student.email || "";
+    studentImageUrlInput.value = student.imageUrl || "";
+    studentPortfolioUrlInput.value = student.portfolioUrl || "";
+    studentNotesInput.value = student.additional_info?.notes || "";
+    studentApprovedInput.checked = Boolean(student.approved);
+  } else {
+    studentDocIdInput.value = "";
+    studentApprovedInput.checked = false;
+  }
+
+  studentModal.classList.remove("hidden");
+  studentModal.classList.add("flex");
+  document.body.classList.add("overflow-hidden");
+
+  setTimeout(() => {
+    studentFullNameInput?.focus();
+  }, 0);
+}
+
+function closeStudentModal() {
+  if (!studentModal) return;
+  studentModal.classList.add("hidden");
+  studentModal.classList.remove("flex");
+  document.body.classList.remove("overflow-hidden");
+  hideStudentModalError();
+  studentModalForm?.reset();
+
+  if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+    lastFocusedElement.focus();
+  }
+  lastFocusedElement = null;
+}
+
+addStudentBtn?.addEventListener("click", () => {
+  openStudentModal({ mode: "add" });
+});
+
+studentModalOverlay?.addEventListener("click", () => {
+  closeStudentModal();
+});
+
+studentModalClose?.addEventListener("click", () => {
+  closeStudentModal();
+});
+
+studentModalCancel?.addEventListener("click", () => {
+  closeStudentModal();
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && isModalOpen()) {
+    closeStudentModal();
+  }
+});
+
+studentModalForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  hideStudentModalError();
+
+  if (!studentModalForm.reportValidity()) return;
+
+  const documentId = studentDocIdInput.value.trim();
+  const isEditing = Boolean(documentId);
+
+  const normalizedStudentId = normalizeStudentId(studentIdInput.value);
+  const notesValue = normalizeWhitespace(studentNotesInput.value);
+
+  const payload = {
+    name: toNameCase(studentFullNameInput.value),
+    student_id: normalizedStudentId,
+    matric: normalizeWhitespace(studentMatricInput.value),
+    gender: studentGenderInput.value,
+    email: normalizeWhitespace(studentEmailInput.value),
+    approved: studentApprovedInput.checked,
+    imageUrl: normalizeWhitespace(studentImageUrlInput.value),
+    portfolioUrl: normalizeWhitespace(studentPortfolioUrlInput.value),
+    additional_info: notesValue ? { notes: notesValue } : {},
+  };
+
+  const originalSaveHTML = studentModalSave?.innerHTML;
+  if (studentModalSave) {
+    studentModalSave.innerHTML = `<span>${isEditing ? "Saving..." : "Creating..."}</span><span class="material-symbols-outlined animate-spin text-[18px]">sync</span>`;
+    studentModalSave.disabled = true;
+  }
+
+  try {
+    if (isEditing) {
+      await updateStudentFromAdmin(documentId, payload);
+    } else {
+      await createStudentFromAdmin(payload);
+    }
+    closeStudentModal();
+    fetchAndRenderStudents();
+  } catch (err) {
+    console.error(err);
+    showStudentModalError(
+      "Failed to save student. Please check Firebase permissions and try again.",
+    );
+  } finally {
+    if (studentModalSave) {
+      studentModalSave.innerHTML = originalSaveHTML;
+      studentModalSave.disabled = false;
+    }
+  }
 });
 
 tabPending?.addEventListener("click", () => {
@@ -236,6 +413,18 @@ function createStudentCard(student, isPending) {
   const actionSection = document.createElement("div");
   actionSection.className = "border-t border-primary/10 bg-white/50 p-6";
 
+  const actionsWrap = document.createElement("div");
+  actionsWrap.className = "grid grid-cols-1 gap-3";
+
+  const editBtn = document.createElement("button");
+  editBtn.type = "button";
+  editBtn.className =
+    "w-full flex items-center justify-center gap-2 rounded-xl border border-outline bg-white px-5 py-4 font-headline text-sm font-bold text-primary transition-colors hover:bg-surface-container disabled:opacity-50";
+  editBtn.innerHTML = `<span>Edit Student</span><span class="material-symbols-outlined text-[18px]">edit</span>`;
+  editBtn.addEventListener("click", () => {
+    openStudentModal({ mode: "edit", student });
+  });
+
   if (isPending) {
     const validateBtn = document.createElement("button");
     validateBtn.className =
@@ -258,7 +447,7 @@ function createStudentCard(student, isPending) {
         validateBtn.disabled = false;
       }
     });
-    actionSection.append(validateBtn);
+    actionsWrap.append(validateBtn, editBtn);
   } else {
     const rejectBtn = document.createElement("button");
     rejectBtn.className =
@@ -285,9 +474,10 @@ function createStudentCard(student, isPending) {
         rejectBtn.disabled = false;
       }
     });
-    actionSection.append(rejectBtn);
+    actionsWrap.append(rejectBtn, editBtn);
   }
 
+  actionSection.append(actionsWrap);
   card.append(topSection, contentSection, actionSection);
   return card;
 }

@@ -44,12 +44,27 @@
         <span class="mb-2 block text-xs font-bold uppercase tracking-[0.1em] text-secondary">
           Submission Review
         </span>
-        <h1 class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-primary md:text-5xl">
-          Pending Validations
-        </h1>
-        <p class="max-w-2xl text-lg leading-relaxed text-on-surface-variant">
-          Review newly submitted student portfolios, or manage already approved students.
-        </p>
+        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h1 class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-primary md:text-5xl">
+              Pending Validations
+            </h1>
+            <p class="max-w-2xl text-lg leading-relaxed text-on-surface-variant">
+              Review newly submitted student portfolios, or manage already approved students.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <button
+              id="addStudentBtn"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-4 text-sm font-bold text-white shadow-[0px_16px_32px_rgba(0,35,111,0.18)] transition-all hover:bg-primary/90"
+            >
+              <span class="material-symbols-outlined text-[18px]">person_add</span>
+              Add Student
+            </button>
+          </div>
+        </div>
 
         <!-- Tabs -->
         <div class="mt-8 flex border-b border-outline/10">
@@ -122,5 +137,193 @@
         </section>
       </div>
     </main>
+
+    <!-- Add/Edit Student Modal -->
+    <div
+      id="studentModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="studentModalTitle"
+    >
+      <div
+        id="studentModalOverlay"
+        class="absolute inset-0 bg-slate-950/40 backdrop-blur-sm"
+      ></div>
+
+      <div class="relative w-full max-w-2xl overflow-hidden rounded-[2.5rem] border border-primary/10 bg-white shadow-[0px_30px_90px_rgba(0,35,111,0.18)]">
+        <div class="flex items-start justify-between gap-6 border-b border-primary/10 bg-primary/5 px-8 py-6">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-secondary">
+              Admin
+            </p>
+            <h2 id="studentModalTitle" class="mt-2 font-headline text-2xl font-extrabold text-primary">
+              Add Student
+            </h2>
+            <p class="mt-1 text-sm text-on-surface-variant">
+              Create a new student record or update an existing one.
+            </p>
+          </div>
+          <button
+            id="studentModalClose"
+            type="button"
+            class="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/10 bg-white text-on-surface-variant shadow-sm transition-colors hover:bg-surface-container"
+            aria-label="Close modal"
+          >
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+
+        <form id="studentModalForm" class="space-y-6 px-8 py-8">
+          <input id="studentDocId" name="studentDocId" type="hidden" />
+
+          <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <div class="space-y-2 md:col-span-2">
+              <label class="block text-sm font-semibold text-primary" for="studentFullName">
+                Full Name
+              </label>
+              <input
+                id="studentFullName"
+                name="fullName"
+                type="text"
+                required
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                placeholder="e.g. Jane Doe"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-primary" for="studentId">
+                Student ID
+              </label>
+              <input
+                id="studentId"
+                name="studentId"
+                type="text"
+                required
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 font-semibold tracking-wider text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                placeholder="e.g. UBT25731"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-primary" for="studentMatric">
+                Matric Number
+              </label>
+              <input
+                id="studentMatric"
+                name="matric"
+                type="text"
+                required
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                placeholder="e.g. 2025/1/109876CT"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-primary" for="studentGender">
+                Gender
+              </label>
+              <select
+                id="studentGender"
+                name="gender"
+                required
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+              >
+                <option value="" selected disabled>Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-primary" for="studentEmail">
+                Email Address
+              </label>
+              <input
+                id="studentEmail"
+                name="email"
+                type="email"
+                required
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                placeholder="student@example.com"
+              />
+            </div>
+
+            <div class="space-y-2 md:col-span-2">
+              <label class="block text-sm font-semibold text-primary" for="studentImageUrl">
+                Profile Image URL
+              </label>
+              <input
+                id="studentImageUrl"
+                name="imageUrl"
+                type="url"
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                placeholder="https://..."
+              />
+            </div>
+
+            <div class="space-y-2 md:col-span-2">
+              <label class="block text-sm font-semibold text-primary" for="studentPortfolioUrl">
+                Portfolio File URL (Cloudinary)
+              </label>
+              <input
+                id="studentPortfolioUrl"
+                name="portfolioUrl"
+                type="url"
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                placeholder="https://res.cloudinary.com/..."
+              />
+              <p class="text-xs text-on-surface-variant">
+                Use a direct Cloudinary link that students can open or download.
+              </p>
+            </div>
+
+            <div class="space-y-2 md:col-span-2">
+              <label class="block text-sm font-semibold text-primary" for="studentNotes">
+                Notes (optional)
+              </label>
+              <textarea
+                id="studentNotes"
+                name="notes"
+                rows="3"
+                class="w-full resize-none rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+                placeholder="Any admin notes..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-4 rounded-2xl bg-surface-container-lowest p-5 ring-1 ring-primary/5 sm:flex-row sm:items-center sm:justify-between">
+            <label class="inline-flex items-center gap-3 text-sm font-semibold text-primary">
+              <input id="studentApproved" name="approved" type="checkbox" class="h-5 w-5 rounded border-outline text-primary focus:ring-0" />
+              Mark as approved (visible on directory)
+            </label>
+
+            <div class="flex items-center gap-3">
+              <button
+                id="studentModalCancel"
+                type="button"
+                class="inline-flex items-center justify-center gap-2 rounded-2xl border border-outline bg-white px-5 py-3 text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-container"
+              >
+                Cancel
+              </button>
+              <button
+                id="studentModalSave"
+                type="submit"
+                class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary/90 disabled:opacity-60"
+              >
+                <span>Save</span>
+                <span class="material-symbols-outlined text-[18px]">save</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="studentModalError"
+            class="hidden rounded-2xl bg-error-container px-5 py-4 text-sm font-medium text-on-error-container"
+          ></div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

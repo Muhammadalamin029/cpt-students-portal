@@ -2,6 +2,22 @@ import { addStudent } from "./firebase.js";
 import { CONFIG } from "./config.js";
 const submissionForm = document.querySelector("#portfolio-form");
 
+const normalizeWhitespace = (value) =>
+  String(value ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const normalizeStudentId = (value) =>
+  String(value ?? "")
+    .replace(/\s+/g, "")
+    .trim()
+    .toUpperCase();
+
+const toNameCase = (value) =>
+  normalizeWhitespace(value)
+    .toLowerCase()
+    .replace(/\b\w/g, (match) => match.toUpperCase());
+
 if (submissionForm) {
   const profileInput = document.querySelector("#profilePicture");
   const portfolioInput = document.querySelector("#portfolioFiles");
@@ -98,7 +114,7 @@ if (submissionForm) {
       submissionStatus.textContent =
         "Uploading profile picture to Cloudinary...";
 
-      const studentIdentifier = submissionForm.studentId.value.trim().toUpperCase();
+      const studentIdentifier = normalizeStudentId(submissionForm.studentId.value);
 
       const getExt = (file) =>
         file.name.includes(".")
@@ -122,15 +138,15 @@ if (submissionForm) {
       submissionStatus.textContent = "Saving student record...";
 
       await addStudent({
-        full_name: submissionForm.fullName.value,
-        email: submissionForm.emailAddress.value,
-        matric: submissionForm.matricNumber.value,
-        id: submissionForm.studentId.value,
+        full_name: toNameCase(submissionForm.fullName.value),
+        email: normalizeWhitespace(submissionForm.emailAddress.value),
+        matric: normalizeWhitespace(submissionForm.matricNumber.value),
+        id: studentIdentifier,
         gender: submissionForm.gender.value,
         profile_picture_url: profileUrl,
         portfolio_url: portfolioUrl,
         additional_info: {
-          notes: submissionForm.submissionNotes.value,
+          notes: normalizeWhitespace(submissionForm.submissionNotes.value),
         },
       });
 
