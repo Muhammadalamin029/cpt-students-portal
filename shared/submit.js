@@ -24,6 +24,7 @@ if (submissionForm) {
   const profileStatus = document.querySelector("#profileStatus");
   const portfolioStatus = document.querySelector("#portfolioStatus");
   const submissionStatus = document.querySelector("#submissionStatus");
+  const studentIdField = document.querySelector("#studentId");
 
   const formatFileList = (files) => {
     if (!files || files.length === 0) return "No file selected yet.";
@@ -38,6 +39,14 @@ if (submissionForm) {
   portfolioInput?.addEventListener("change", () => {
     portfolioStatus.textContent = formatFileList(portfolioInput.files);
   });
+
+  const syncPortfolioInputName = () => {
+    if (!portfolioInput) return;
+    const normalizedId = normalizeStudentId(studentIdField?.value || "");
+    portfolioInput.name = normalizedId || "portfolioFiles";
+  };
+
+  studentIdField?.addEventListener("input", syncPortfolioInputName);
 
   async function uploadToCloudinary(file, fileName) {
     const CLOUDINARY_CLOUD_NAME = CONFIG.CLOUDINARY.CLOUD_NAME;
@@ -115,6 +124,7 @@ if (submissionForm) {
         "Uploading profile picture to Cloudinary...";
 
       const studentIdentifier = normalizeStudentId(submissionForm.studentId.value);
+      syncPortfolioInputName();
 
       const getExt = (file) =>
         file.name.includes(".")

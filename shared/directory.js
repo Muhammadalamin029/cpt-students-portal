@@ -1,5 +1,5 @@
 // Import Firebase functions
-import { loadStudentsFromFirebase } from "./firebase.js";
+import { subscribeToStudents } from "./firebase.js";
 
 // Load students from Firebase
 let students = [];
@@ -284,7 +284,9 @@ if (Object.values(directoryElements).every(Boolean)) {
     }
   });
 
-  async function initializeStudents() {
+  let unsubscribeStudents = null;
+
+  function initializeStudents() {
     // Show loading skeleton
     directoryElements.studentsGrid.replaceChildren();
     for (let i = 0; i < 6; i++) {
@@ -295,11 +297,16 @@ if (Object.values(directoryElements).every(Boolean)) {
     }
     directoryElements.emptyState.classList.add("hidden");
 
-    students = await loadStudentsFromFirebase();
-    console.log("Students loaded:", students);
-    if (Object.values(directoryElements).every(Boolean)) {
-      updateView();
-    }
+    unsubscribeStudents = subscribeToStudents(
+      (nextStudents) => {
+        students = nextStudents;
+        console.log("Students updated:", students);
+        updateView();
+      },
+      (error) => {
+        console.error("Students subscription failed:", error);
+      },
+    );
   }
 
   // Load students from Firebase

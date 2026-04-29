@@ -2,7 +2,7 @@ import {
   auth,
   onAuthStateChanged,
   signOut,
-  loadStudentsFromFirebase,
+  subscribeToStudents,
   approveStudent,
   rejectStudent,
   createStudentFromAdmin,
@@ -102,7 +102,7 @@ onAuthStateChanged(auth, async (user) => {
   dashboardContent.classList.remove("hidden");
   logoutBtn.classList.remove("hidden");
 
-  await fetchAndRenderStudents();
+  setupStudentsSubscription();
 });
 
 let lastFocusedElement = null;
@@ -229,7 +229,6 @@ studentModalForm?.addEventListener("submit", async (event) => {
       await createStudentFromAdmin(payload);
     }
     closeStudentModal();
-    fetchAndRenderStudents();
   } catch (err) {
     console.error(err);
     showStudentModalError(
@@ -267,7 +266,12 @@ logoutBtn?.addEventListener("click", async () => {
 });
 
 async function fetchAndRenderStudents() {
-  // Show skeleton
+  // Deprecated: replaced by realtime subscription
+}
+
+let unsubscribeStudents = null;
+
+function showStudentsSkeleton() {
   pendingGrid.replaceChildren();
   approvedGrid.replaceChildren();
   for (let i = 0; i < 3; i++) {
@@ -279,34 +283,45 @@ async function fetchAndRenderStudents() {
   }
   emptyState.classList.add("hidden");
   emptyStateApproved.classList.add("hidden");
+}
 
-  try {
-    const allStudents = await loadStudentsFromFirebase();
-    const pendingStudents = allStudents.filter((s) => !s.approved);
-    const approvedStudents = allStudents.filter((s) => s.approved);
+function renderStudents(allStudents) {
+  const pendingStudents = allStudents.filter((s) => !s.approved);
+  const approvedStudents = allStudents.filter((s) => s.approved);
 
-    pendingGrid.replaceChildren();
-    if (pendingStudents.length === 0) {
-      emptyState.classList.remove("hidden");
-    } else {
-      emptyState.classList.add("hidden");
-      pendingStudents.forEach((student) => {
-        pendingGrid.append(createStudentCard(student, true));
-      });
-    }
-
-    approvedGrid.replaceChildren();
-    if (approvedStudents.length === 0) {
-      emptyStateApproved.classList.remove("hidden");
-    } else {
-      emptyStateApproved.classList.add("hidden");
-      approvedStudents.forEach((student) => {
-        approvedGrid.append(createStudentCard(student, false));
-      });
-    }
-  } catch (err) {
-    console.error("Failed to load students:", err);
+  pendingGrid.replaceChildren();
+  if (pendingStudents.length === 0) {
+    emptyState.classList.remove("hidden");
+  } else {
+    emptyState.classList.add("hidden");
+    pendingStudents.forEach((student) => {
+      pendingGrid.append(createStudentCard(student, true));
+    });
   }
+
+  approvedGrid.replaceChildren();
+  if (approvedStudents.length === 0) {
+    emptyStateApproved.classList.remove("hidden");
+  } else {
+    emptyStateApproved.classList.add("hidden");
+    approvedStudents.forEach((student) => {
+      approvedGrid.append(createStudentCard(student, false));
+    });
+  }
+}
+
+function setupStudentsSubscription() {
+  if (unsubscribeStudents) return;
+  showStudentsSkeleton();
+
+  unsubscribeStudents = subscribeToStudents(
+    (students) => {
+      renderStudents(students);
+    },
+    (error) => {
+      console.error("Students subscription failed:", error);
+    },
+  );
 }
 
 function createStudentCard(student, isPending) {
@@ -490,7 +505,6 @@ function createStudentCard(student, isPending) {
 
       try {
         await approveStudent(student.id);
-        fetchAndRenderStudents();
       } catch (err) {
         alert(
           "Failed to approve student. Please check permissions or try again.",
@@ -517,7 +531,6 @@ function createStudentCard(student, isPending) {
 
       try {
         await rejectStudent(student.id);
-        fetchAndRenderStudents();
       } catch (err) {
         alert(
           "Failed to reject student. Please check permissions or try again.",

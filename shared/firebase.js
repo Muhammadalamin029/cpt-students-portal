@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/fireba
 import {
   getFirestore,
   collection,
-  getDocs,
+  onSnapshot,
   doc,
   addDoc,
   updateDoc,
@@ -103,18 +103,29 @@ async function updateStudentFromAdmin(documentId, studentData) {
   }
 }
 
-async function loadStudentsFromFirebase() {
+function subscribeToStudents(onChange, onError) {
   try {
-    const querySnapshot = await getDocs(collection(db, "students"));
-    const students = querySnapshot.docs.map((doc) => ({
-      ...doc.data(),
-      id: doc.id, // Ensure we have the actual document ID for updating
-      student_id: doc.data().student_id || doc.data().id,
-    }));
-    return students;
+    const unsubscribe = onSnapshot(
+      collection(db, "students"),
+      (querySnapshot) => {
+        const students = querySnapshot.docs.map((snapshot) => ({
+          ...snapshot.data(),
+          id: snapshot.id,
+          student_id: snapshot.data().student_id || snapshot.data().id,
+        }));
+        onChange(students);
+      },
+      (error) => {
+        console.error("Error subscribing to students:", error);
+        onError?.(error);
+      },
+    );
+
+    return unsubscribe;
   } catch (error) {
-    console.error("Error loading students:", error);
-    return [];
+    console.error("Error setting up students subscription:", error);
+    onError?.(error);
+    return () => {};
   }
 }
 
@@ -149,7 +160,7 @@ export {
   addStudent, 
   createStudentFromAdmin,
   updateStudentFromAdmin,
-  loadStudentsFromFirebase, 
+  subscribeToStudents,
   approveStudent,
   rejectStudent,
   auth,
