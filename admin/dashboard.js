@@ -367,6 +367,7 @@ function createStudentCard(student, isPending) {
   contentSection.className = "flex-grow space-y-5 p-6";
 
   if (student.additional_info?.notes) {
+    const notesText = normalizeWhitespace(student.additional_info.notes);
     const notesWrap = document.createElement("div");
     const notesLabel = document.createElement("span");
     notesLabel.className =
@@ -375,8 +376,59 @@ function createStudentCard(student, isPending) {
     const notesBody = document.createElement("p");
     notesBody.className =
       "rounded-2xl bg-white/75 px-4 py-4 text-sm leading-relaxed text-on-surface shadow-sm ring-1 ring-primary/5";
-    notesBody.textContent = student.additional_info.notes;
+    notesBody.textContent = notesText;
+
+    const shouldClamp = notesText.length > 220;
+    let isExpanded = false;
+
+    const applyClampState = () => {
+      if (!shouldClamp) return;
+
+      if (isExpanded) {
+        notesBody.style.display = "block";
+        notesBody.style.overflow = "visible";
+        notesBody.style.webkitBoxOrient = "";
+        notesBody.style.webkitLineClamp = "";
+      } else {
+        notesBody.style.display = "-webkit-box";
+        notesBody.style.overflow = "hidden";
+        notesBody.style.webkitBoxOrient = "vertical";
+        notesBody.style.webkitLineClamp = "4";
+      }
+    };
+
     notesWrap.append(notesLabel, notesBody);
+
+    if (shouldClamp) {
+      const notesToggleRow = document.createElement("div");
+      notesToggleRow.className = "mt-3 flex items-center justify-end";
+
+      const toggleBtn = document.createElement("button");
+      toggleBtn.type = "button";
+      toggleBtn.className =
+        "inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-secondary transition-colors hover:bg-secondary/10";
+      toggleBtn.setAttribute("aria-expanded", "false");
+
+      const setToggleLabel = () => {
+        toggleBtn.setAttribute("aria-expanded", String(isExpanded));
+        toggleBtn.innerHTML = isExpanded
+          ? `<span>Read less</span><span class="material-symbols-outlined text-[18px]">expand_less</span>`
+          : `<span>Read more</span><span class="material-symbols-outlined text-[18px]">expand_more</span>`;
+      };
+
+      toggleBtn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+        applyClampState();
+        setToggleLabel();
+      });
+
+      applyClampState();
+      setToggleLabel();
+
+      notesToggleRow.append(toggleBtn);
+      notesWrap.append(notesToggleRow);
+    }
+
     contentSection.append(notesWrap);
   }
 
