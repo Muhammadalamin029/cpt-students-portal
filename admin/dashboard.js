@@ -22,6 +22,14 @@ const pendingSection = document.getElementById("pending-section");
 const approvedSection = document.getElementById("approved-section");
 const addStudentBtn = document.getElementById("addStudentBtn");
 
+const adminStudentsCountTotal = document.getElementById("adminStudentsCountTotal");
+const adminStudentsCountApproved = document.getElementById(
+  "adminStudentsCountApproved",
+);
+const adminStudentsCountPending = document.getElementById(
+  "adminStudentsCountPending",
+);
+
 const studentModal = document.getElementById("studentModal");
 const studentModalOverlay = document.getElementById("studentModalOverlay");
 const studentModalClose = document.getElementById("studentModalClose");
@@ -288,6 +296,16 @@ function showStudentsSkeleton() {
 function renderStudents(allStudents) {
   const pendingStudents = allStudents.filter((s) => !s.approved);
   const approvedStudents = allStudents.filter((s) => s.approved);
+
+  if (adminStudentsCountTotal) {
+    adminStudentsCountTotal.textContent = String(allStudents.length);
+  }
+  if (adminStudentsCountApproved) {
+    adminStudentsCountApproved.textContent = String(approvedStudents.length);
+  }
+  if (adminStudentsCountPending) {
+    adminStudentsCountPending.textContent = String(pendingStudents.length);
+  }
 
   pendingGrid.replaceChildren();
   if (pendingStudents.length === 0) {

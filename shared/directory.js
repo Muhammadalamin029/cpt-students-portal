@@ -14,6 +14,9 @@ const directoryElements = {
   studentsGrid: document.querySelector(".students-grid"),
   summary: document.querySelector("#resultsSummary"),
   emptyState: document.querySelector("#emptyState"),
+  totalCount: document.querySelector("#studentsCountTotal"),
+  approvedCount: document.querySelector("#studentsCountApproved"),
+  pendingCount: document.querySelector("#studentsCountPending"),
 };
 
 if (Object.values(directoryElements).every(Boolean)) {
@@ -212,7 +215,19 @@ if (Object.values(directoryElements).every(Boolean)) {
     directoryElements.summary.textContent = `Showing ${start}-${end} of ${filteredStudents.length} students, sorted ${sortLabel}. ${totalPages} page${totalPages === 1 ? "" : "s"} total.`;
   };
 
+  const updateCounts = () => {
+    const total = students.length;
+    const approved = students.filter((student) => student.approved).length;
+    const pending = total - approved;
+
+    directoryElements.totalCount.textContent = String(total);
+    directoryElements.approvedCount.textContent = String(approved);
+    directoryElements.pendingCount.textContent = String(pending);
+  };
+
   const updateView = () => {
+    updateCounts();
+
     const filteredStudents = getFilteredStudents();
     const sortedStudents = getSortedStudents(filteredStudents);
     const totalPages = Math.max(

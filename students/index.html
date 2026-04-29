@@ -113,6 +113,33 @@
             aria-live="polite"
             class="mt-4 text-sm text-on-surface-variant"
           ></p>
+
+          <div
+            class="mt-4 flex flex-wrap gap-2 text-sm"
+            aria-label="Student counts"
+          >
+            <span
+              class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant"
+            >
+              <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">groups</span>
+              <span>Total:</span>
+              <span id="studentsCountTotal" class="text-primary">0</span>
+            </span>
+            <span
+              class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant"
+            >
+              <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">verified</span>
+              <span>Approved:</span>
+              <span id="studentsCountApproved" class="text-primary">0</span>
+            </span>
+            <span
+              class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant"
+            >
+              <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">pending</span>
+              <span>Review required:</span>
+              <span id="studentsCountPending" class="text-primary">0</span>
+            </span>
+          </div>
         </section>
       </header>
 
