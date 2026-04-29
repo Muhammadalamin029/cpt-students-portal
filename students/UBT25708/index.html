@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yusuf Mashood | Profile</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --surface: rgba(255, 255, 255, 0.06);
+        --surface-2: rgba(255, 255, 255, 0.1);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --accent: #7c5cff;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+        --radius: 16px;
+        --container: 920px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Ubuntu,
+          Cantarell,
+          Noto Sans,
+          sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            1000px 400px at 10% -10%,
+            rgba(124, 92, 255, 0.4),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 400px at 90% 0%,
+            rgba(0, 212, 255, 0.18),
+            transparent 55%
+          ),
+          linear-gradient(180deg, #060917 0%, var(--bg) 60%, #050714 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--text);
+      }
+
+      .container {
+        width: min(100% - 32px, var(--container));
+        margin: 0 auto;
+      }
+
+      @media (min-width: 760px) {
+        .container {
+          width: min(100% - 48px, var(--container));
+        }
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid var(--border);
+        background: rgba(11, 16, 32, 0.7);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 58px;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .links {
+        display: none;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .links a {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 8px 10px;
+        border-radius: 999px;
+      }
+
+      .links a:hover {
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      @media (min-width: 760px) {
+        .nav-inner {
+          height: 64px;
+        }
+
+        .links {
+          display: flex;
+        }
+      }
+
+      main {
+        padding: 44px 0 72px;
+      }
+
+      .hero {
+        margin-top: 14px;
+        padding: 28px 0 34px;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 124px;
+        height: 124px;
+        margin: 0 auto 18px;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: clamp(30px, 4vw, 44px);
+        letter-spacing: -0.03em;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      @media (min-width: 860px) {
+        .grid {
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: start;
+        }
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        background: linear-gradient(
+          180deg,
+          var(--surface) 0%,
+          transparent 140%
+        );
+        border-radius: var(--radius);
+        padding: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .section-spaced {
+        margin-top: 18px;
+      }
+
+      @media (min-width: 760px) {
+        main {
+          padding: 56px 0 80px;
+        }
+
+        .card {
+          padding: 18px;
+        }
+      }
+
+      .card h2 {
+        margin: 0 0 12px;
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .about {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .info {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: rgba(255, 255, 255, 0.86);
+        line-height: 1.7;
+      }
+
+      .info li {
+        margin: 6px 0;
+      }
+
+      .pill {
+        display: inline-block;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(124, 92, 255, 0.12);
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 10px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .contact-list a {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .contact-list a:hover {
+        border-color: rgba(124, 92, 255, 0.55);
+        background: rgba(124, 92, 255, 0.12);
+      }
+
+      .contact-label {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .contact-value {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 14px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      @media (min-width: 520px) {
+        .contact-list a {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+
+      footer {
+        margin-top: 48px;
+        padding: 26px 0 48px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      footer .footer-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      @media (min-width: 760px) {
+        footer .footer-inner {
+          flex-direction: row;
+        }
+      }
+
+      .skip {
+        position: absolute;
+        left: -999px;
+        top: 10px;
+        padding: 10px 12px;
+        background: #000;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+      }
+
+      .skip:focus {
+        left: 12px;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">YUSUF MASHOOD</div>
+        <div class="links" aria-label="Page sections">
+          <a href="#about">About</a>
+          <a href="#details">Details</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container" id="main">
+      <header class="hero">
+        <div class="avatar">
+          <img src="img.jpg" alt="Yusuf Mashood profile photo" />
+        </div>
+        <h1>Yusuf Mashood</h1>
+        <p class="subtitle">Student · Federal University of Technology Minna</p>
+      </header>
+
+      <section class="grid" id="about">
+        <article class="card">
+          <h2>About</h2>
+          <p class="about">
+            I am a student of the Federal University of Technology Minna. This
+            page contains my basic profile details for the assignment submission
+            portal.
+          </p>
+        </article>
+
+        <aside class="card" id="contact" aria-label="Contact information">
+          <h2>Contact</h2>
+          <span class="pill">UBT25708</span>
+          <ul class="contact-list">
+            <li>
+              <a href="mailto:moshoodyubt25708@st.futminna.edu.ng">
+                <span class="contact-label">Email</span>
+                <span class="contact-value"
+                  >moshoodyubt25708@st.futminna.edu.ng</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="tel:09069202244">
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">09069202244</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="card section-spaced" id="details">
+        <h2>Student Details</h2>
+        <ul class="info">
+          <li>Yusuf mashood</li>
+          <li>Matric No: 2025/1/101700CT</li>
+          <li>Students id: UBT25708</li>
+          <li>Email: moshoodyubt25708@st.futminna.edu.ng</li>
+          <li>Phone Number: 09069202244</li>
+          <li>
+            From kwara state but base in kaduna state stays with my parent
+          </li>
+          <li>Federal university of technology minna</li>
+        </ul>
+      </section>
+
+      <footer>
+        <div class="container footer-inner">
+          <div>© 2026 Yusuf Mashood</div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
