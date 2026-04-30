@@ -17,11 +17,17 @@ const directoryElements = {
   totalCount: document.querySelector("#studentsCountTotal"),
   approvedCount: document.querySelector("#studentsCountApproved"),
   pendingCount: document.querySelector("#studentsCountPending"),
+  cardStyleBtn: document.querySelector("#cardStyleToggle"),
 };
 
-if (Object.values(directoryElements).every(Boolean)) {
+// allow the check to pass even if cardStyleBtn is null (optional element)
+const requiredElements = { ...directoryElements };
+delete requiredElements.cardStyleBtn;
+
+if (Object.values(requiredElements).every(Boolean)) {
   let isAscending = true;
   let currentPage = 1;
+  let cardStyle = "classic"; // "classic" | "photo"
   const itemsPerPage = 15;
   const fallbackAvatar =
     "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='24' fill='%23dce1ff'/%3E%3Ccircle cx='60' cy='46' r='22' fill='%2300236f' opacity='0.85'/%3E%3Cpath d='M27 103c7-18 22-27 33-27s26 9 33 27' fill='%2300236f' opacity='0.85'/%3E%3C/svg%3E";
@@ -61,7 +67,8 @@ if (Object.values(directoryElements).every(Boolean)) {
     return element;
   };
 
-  const createStudentCard = (student) => {
+  // ── Classic card (original style) ──
+  const createClassicCard = (student) => {
     const card = document.createElement("article");
     card.className =
       "group rounded-[2rem] bg-surface-container-lowest p-8 shadow-[0px_12px_32px_rgba(0,35,111,0.06)] transition-all duration-300 hover:-translate-y-1 hover:bg-surface-bright";
@@ -75,68 +82,93 @@ if (Object.values(directoryElements).every(Boolean)) {
     image.className =
       "h-20 w-20 rounded-2xl object-cover shadow-md transition-transform duration-500 group-hover:scale-105";
     image.alt = `${student.name} profile photo`;
-    image.src = isSafeHttpUrl(student.imageUrl)
-      ? student.imageUrl
-      : fallbackAvatar;
-    image.addEventListener("error", () => {
-      image.src = fallbackAvatar;
-    });
+    image.src = isSafeHttpUrl(student.imageUrl) ? student.imageUrl : fallbackAvatar;
+    image.addEventListener("error", () => { image.src = fallbackAvatar; });
 
     const status = document.createElement("span");
     status.className = student.approved
       ? "status-pill rounded-full bg-secondary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-on-secondary-fixed"
       : "status-pill rounded-full bg-tertiary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-on-tertiary-fixed";
     status.textContent = student.approved ? "Approved" : "Review Required";
-
     topRow.append(image, status);
 
-    const name = createTextElement(
-      "h2",
-      "mb-1 text-2xl font-extrabold text-primary",
-      student.name,
-    );
-    const idText = createTextElement(
-      "p",
-      "mb-2 text-sm font-medium text-on-surface-variant",
-      `ID: ${student.student_id}`,
-    );
-    const metaText = createTextElement(
-      "p",
-      "mb-4 text-xs uppercase tracking-wide text-outline",
-      `${student.matric} • ${student.gender}`,
-    );
+    const name    = createTextElement("h2", "mb-1 text-2xl font-extrabold text-primary", student.name);
+    const idText  = createTextElement("p", "mb-2 text-sm font-medium text-on-surface-variant", `ID: ${student.student_id}`);
+    const metaText= createTextElement("p", "mb-4 text-xs uppercase tracking-wide text-outline", `${student.matric} • ${student.gender}`);
 
-    let action;
+    const action = buildAction(student);
+    card.append(topRow, name, idText, metaText, action);
+    return card;
+  };
+
+  // ── Photo-first card (large cover image) ──
+  const createPhotoCard = (student) => {
+    const card = document.createElement("article");
+    card.className =
+      "group overflow-hidden rounded-[2rem] bg-surface-container-lowest shadow-[0px_12px_32px_rgba(0,35,111,0.06)] transition-all duration-300 hover:-translate-y-1";
+    card.setAttribute("role", "listitem");
+    card.setAttribute("aria-label", `${student.name}, ${student.student_id}`);
+
+    // Cover image area
+    const imgWrap = document.createElement("div");
+    imgWrap.className = "relative h-56 w-full overflow-hidden bg-surface-container-high";
+
+    const image = document.createElement("img");
+    image.className = "h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105";
+    image.alt = `${student.name} profile photo`;
+    image.src = isSafeHttpUrl(student.imageUrl) ? student.imageUrl : fallbackAvatar;
+    image.addEventListener("error", () => { image.src = fallbackAvatar; });
+
+    const statusOverlay = document.createElement("span");
+    statusOverlay.className = student.approved
+      ? "absolute right-3 top-3 rounded-full bg-secondary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-on-secondary-fixed shadow"
+      : "absolute right-3 top-3 rounded-full bg-tertiary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-on-tertiary-fixed shadow";
+    statusOverlay.textContent = student.approved ? "Approved" : "Review Required";
+
+    imgWrap.append(image, statusOverlay);
+
+    // Card body
+    const body = document.createElement("div");
+    body.className = "p-6";
+
+    const name    = createTextElement("h2", "mb-1 text-xl font-extrabold text-primary leading-snug", student.name);
+    const idText  = createTextElement("p", "mb-1 text-sm font-medium text-on-surface-variant", `ID: ${student.student_id}`);
+    const metaText= createTextElement("p", "mb-4 text-xs uppercase tracking-wide text-outline", `${student.matric} • ${student.gender}`);
+
+    const action = buildAction(student);
+    body.append(name, idText, metaText, action);
+    card.append(imgWrap, body);
+    return card;
+  };
+
+  // ── Shared action builder ──
+  const buildAction = (student) => {
     if (student.approved && isSafeHttpUrl(student.portfolioUrl)) {
-      action = document.createElement("a");
+      const action = document.createElement("a");
       action.className =
         "inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-4 font-semibold text-white shadow-lg shadow-secondary/30 transition-all duration-300 hover:bg-primary";
       action.href = `${encodeURIComponent(student.student_id.toUpperCase())}/index.html`;
       action.target = "_blank";
       action.rel = "noopener noreferrer";
       action.textContent = "Visit Portfolio";
-
       const icon = document.createElement("span");
       icon.className = "material-symbols-outlined text-[20px]";
       icon.setAttribute("aria-hidden", "true");
       icon.textContent = "folder_open";
       action.prepend(icon);
-    } else {
-      action = document.createElement("button");
-      action.type = "button";
-      action.className =
-        "w-full rounded-lg bg-secondary/20 px-6 py-4 font-semibold text-secondary";
-      action.disabled = true;
-      action.textContent = "Pending Review";
-      action.setAttribute(
-        "aria-label",
-        `${student.name} portfolio is still pending review`,
-      );
+      return action;
     }
-
-    card.append(topRow, name, idText, metaText, action);
-    return card;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "w-full rounded-lg bg-secondary/20 px-6 py-4 font-semibold text-secondary";
+    btn.disabled = true;
+    btn.textContent = "Pending Review";
+    btn.setAttribute("aria-label", `${student.name} portfolio is still pending review`);
+    return btn;
   };
+
+  const createStudentCard = (student) =>
+    cardStyle === "photo" ? createPhotoCard(student) : createClassicCard(student);
 
   const updateSortButtons = () => {
     directoryElements.ascendingButton.setAttribute(
@@ -249,6 +281,14 @@ if (Object.values(directoryElements).every(Boolean)) {
       directoryElements.emptyState.classList.remove("hidden");
     } else {
       directoryElements.emptyState.classList.add("hidden");
+      // Update grid columns for photo style (taller cards, fewer columns)
+      if (cardStyle === "photo") {
+        directoryElements.studentsGrid.classList.remove("lg:grid-cols-3");
+        directoryElements.studentsGrid.classList.add("lg:grid-cols-3");
+      } else {
+        directoryElements.studentsGrid.classList.remove("lg:grid-cols-3");
+        directoryElements.studentsGrid.classList.add("lg:grid-cols-3");
+      }
       visibleStudents.forEach((student) => {
         directoryElements.studentsGrid.append(createStudentCard(student));
       });
@@ -298,6 +338,21 @@ if (Object.values(directoryElements).every(Boolean)) {
       updateView();
     }
   });
+
+  // ── Card style toggle ──
+  if (directoryElements.cardStyleBtn) {
+    directoryElements.cardStyleBtn.addEventListener("click", () => {
+      cardStyle = cardStyle === "classic" ? "photo" : "classic";
+      const isPhoto = cardStyle === "photo";
+      directoryElements.cardStyleBtn.setAttribute("aria-pressed", String(isPhoto));
+      directoryElements.cardStyleBtn.querySelector(".toggle-label").textContent =
+        isPhoto ? "Classic View" : "Photo View";
+      directoryElements.cardStyleBtn.querySelector(".material-symbols-outlined").textContent =
+        isPhoto ? "view_list" : "photo_library";
+      currentPage = 1;
+      updateView();
+    });
+  }
 
   let unsubscribeStudents = null;
 
