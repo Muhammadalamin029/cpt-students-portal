@@ -1,0 +1,23 @@
+h1{
+    color: #ffdead;
+    text-align: center;
+}
+
+
+#basic{
+    border-style: solid;
+    border-color: navy;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+     text-align: left;
+    color: lightblue;
+    border-width: 30px;
+
+}
+
+img{
+    border-radius: 90px;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+}

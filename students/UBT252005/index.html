@@ -1,18 +1,830 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Oladele Precious Opeyemi - Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ── Reset ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* ── Tokens ── */
+      :root {
+        --bg: #f9faf2;
+        --on-bg: #191c18;
+        --on-surface: #191c18;
+        --on-surface-var: #42493e;
+        --surface-lowest: #ffffff;
+        --surface-cont: #edefe7;
+        --surface-high: #e7e9e1;
+        --surface-highest: #e2e3dc;
+        --surface-var: #e2e3dc;
+        --primary: #154212;
+        --primary-cont: #2d5a27;
+        --secondary: #585f6c;
+        --outline: #72796e;
+
+        --font-main: "Inter", sans-serif;
+        --font-code: "Space Grotesk", monospace;
+        --max-w: 800px;
+        --px: 24px;
+        --section-gap: 80px;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--on-bg);
+        font-family: var(--font-main);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+      }
+      ::selection {
+        background: var(--primary-cont);
+        color: #fff;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* ── Material Symbols ── */
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        display: inline-block;
+        white-space: nowrap;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        vertical-align: middle;
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* ══════════════════════════════
+         NAV
+      ══════════════════════════════ */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 var(--px);
+        height: 64px;
+      }
+      .nav-logo {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        color: #1a3a15;
+      }
+      .nav-links {
+        display: none;
+        gap: 24px;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: #4b5563;
+        transition: color 0.2s;
+      }
+      .nav-links a.active {
+        color: #154212;
+        border-bottom: 2px solid #154212;
+        padding-bottom: 2px;
+      }
+      .nav-links a:hover {
+        color: #154212;
+      }
+      .nav-menu-btn {
+        display: flex;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        color: #1e293b;
+      }
+      @media (min-width: 640px) {
+        .nav-links {
+          display: flex;
+          align-items: center;
+        }
+        .nav-menu-btn {
+          display: none;
+        }
+      }
+
+      /* Mobile drawer */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.4);
+        z-index: 99;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .mobile-overlay.open {
+        display: block;
+        opacity: 1;
+      }
+      .mobile-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 260px;
+        background: #fff;
+        z-index: 100;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -4px 0 24px rgba(15, 23, 42, 0.12);
+      }
+      .mobile-drawer.open {
+        transform: translateX(0);
+      }
+      .mobile-drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .mobile-drawer-logo {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1a3a15;
+      }
+      .mobile-drawer-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.2s;
+      }
+      .mobile-drawer-close:hover {
+        background: var(--surface-high);
+      }
+      .mobile-drawer a {
+        display: block;
+        font-size: 15px;
+        font-weight: 500;
+        color: #4b5563;
+        padding: 10px 14px;
+        border-radius: 6px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .mobile-drawer a:hover,
+      .mobile-drawer a.active {
+        background: var(--surface-high);
+        color: var(--primary);
+      }
+
+      /* ══════════════════════════════
+         MAIN WRAPPER
+      ══════════════════════════════ */
+      main {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 128px var(--px) var(--section-gap);
+      }
+
+      /* ══════════════════════════════
+         HERO
+      ══════════════════════════════ */
+      #home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: var(--section-gap);
+        margin-top: 40px;
+      }
+      .hero-avatar {
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid var(--surface-var);
+        background: var(--surface-cont);
+        margin-bottom: 32px;
+      }
+      .hero-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-name {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--on-bg);
+        margin-bottom: 8px;
+      }
+      .hero-subtitle {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--on-surface-var);
+        margin-bottom: 32px;
+      }
+      .hero-desc {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--secondary);
+        max-width: 560px;
+      }
+      @media (max-width: 480px) {
+        .hero-name {
+          font-size: 32px;
+        }
+        .hero-subtitle {
+          font-size: 16px;
+        }
+      }
+
+      /* divider */
+      .divider {
+        border: none;
+        border-top: 1px solid var(--surface-var);
+        margin: 0 0 var(--section-gap);
+      }
+
+      /* ══════════════════════════════
+         SECTION HEADINGS
+      ══════════════════════════════ */
+      .section-title {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--on-bg);
+        display: inline-block;
+        border-bottom: 1px solid var(--surface-var);
+        padding-bottom: 4px;
+        margin-bottom: 32px;
+      }
+      section {
+        margin-bottom: var(--section-gap);
+      }
+
+      /* ══════════════════════════════
+         ABOUT
+      ══════════════════════════════ */
+      .about-text {
+        color: var(--on-surface-var);
+      }
+      .about-text p + p {
+        margin-top: 16px;
+      }
+
+      /* ══════════════════════════════
+         EDUCATION TABLE
+      ══════════════════════════════ */
+      .table-wrap {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      thead tr {
+        border-bottom: 2px solid var(--surface-var);
+      }
+      th {
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: var(--on-surface);
+      }
+      tbody tr {
+        border-bottom: 1px solid var(--surface-highest);
+      }
+      td {
+        padding: 12px 16px;
+        font-size: 16px;
+        color: var(--on-surface-var);
+      }
+      td.td-name {
+        font-weight: 500;
+        color: var(--on-bg);
+      }
+      td.td-level {
+        text-align: right;
+        font-family: var(--font-code);
+        font-size: 14px;
+        color: var(--secondary);
+      }
+
+      /* ══════════════════════════════
+         SKILLS
+      ══════════════════════════════ */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      @media (min-width: 600px) {
+        .skills-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .skill-card {
+        background: var(--surface-lowest);
+        border: 1px solid var(--surface-var);
+        border-radius: 2px;
+        padding: 32px;
+      }
+      .skill-card h3 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--on-surface);
+        margin-bottom: 16px;
+      }
+      .skill-card h3 .material-symbols-outlined {
+        color: var(--primary);
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .skill-tag {
+        background: var(--surface-cont);
+        border: 1px solid var(--surface-highest);
+        border-radius: 2px;
+        padding: 4px 12px;
+        font-family: var(--font-code);
+        font-size: 14px;
+        color: var(--on-surface-var);
+      }
+
+      /* ══════════════════════════════
+         FOOTBALL
+      ══════════════════════════════ */
+      .football-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      @media (min-width: 600px) {
+        .football-inner {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+      }
+      .football-text {
+        flex: 1;
+        color: var(--on-surface-var);
+      }
+      .football-text p {
+        margin-bottom: 16px;
+      }
+      .football-list {
+        list-style: none;
+        border-left: 4px solid var(--primary-cont);
+        padding-left: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-top: 16px;
+      }
+      .football-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        color: var(--on-surface-var);
+      }
+      .football-list li .material-symbols-outlined {
+        color: var(--primary);
+        font-size: 18px;
+      }
+      .football-badge {
+        width: 100%;
+        max-width: 240px;
+        aspect-ratio: 1/1;
+        background: var(--surface-cont);
+        border: 1px solid var(--surface-var);
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .football-badge .material-symbols-outlined {
+        font-size: 100px;
+        color: var(--primary-cont);
+        opacity: 0.2;
+      }
+      .football-badge-label {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: var(--primary);
+      }
+
+      /* ══════════════════════════════
+         CONTACT
+      ══════════════════════════════ */
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        background: var(--surface-lowest);
+        border: 1px solid var(--surface-var);
+        border-radius: 2px;
+        padding: 16px;
+        color: var(--on-surface-var);
+        font-size: 16px;
+        transition: color 0.2s;
+        width: fit-content;
+      }
+      .contact-link:hover {
+        color: var(--primary);
+      }
+
+      /* ══════════════════════════════
+         FOOTER
+      ══════════════════════════════ */
+      footer {
+        background: #f8fafc;
+        border-top: 1px solid #e2e8f0;
+        padding: 64px 24px;
+        margin-top: 32px;
+      }
+      .footer-inner {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-align: center;
+      }
+      .footer-links {
+        display: flex;
+        gap: 24px;
+      }
+      .footer-links a {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #64748b;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 2px;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: #154212;
+      }
+      .footer-copy {
+        font-size: 12px;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    </style>
   </head>
   <body>
-    <ul>
-      <li>Oladele Precious Opeyemi</li>
-      <li>2025/1/106070CT</li>
-      <li>UBT252005</li>
-      <li>oladelepoubt252005@st.futminna.edu.ng</li>
-      <li>08144891913</li>
-      <li>Federal university of technology minna</li>
-    </ul>
+    <!-- ── NAV ── -->
+    <nav>
+      <div class="nav-inner">
+        <div class="nav-logo">DevPitch</div>
+        <div class="nav-links">
+          <a href="#home" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#football">Football</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button
+          class="nav-menu-btn"
+          id="menuOpenBtn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileDrawer"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile overlay & drawer -->
+    <div class="mobile-overlay" id="mobileOverlay" role="presentation"></div>
+    <div
+      class="mobile-drawer"
+      id="mobileDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
+    >
+      <div class="mobile-drawer-header">
+        <span class="mobile-drawer-logo">DevPitch</span>
+        <button
+          class="mobile-drawer-close"
+          id="menuCloseBtn"
+          aria-label="Close menu"
+        >
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#football">Football</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <main>
+      <!-- ── HERO ── -->
+      <section id="home">
+        <div class="hero-avatar">
+          <img
+            src="img.jpg"
+            alt="Profile portrait of Oladele Precious Opeyemi"
+          />
+        </div>
+        <h1 class="hero-name">Oladele Precious Opeyemi</h1>
+        <p class="hero-subtitle">
+          Student | Aspiring Software Developer | Football Enthusiast
+        </p>
+        <p class="hero-desc">
+          Combining the precision of software engineering with the strategy and
+          passion of the football pitch.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ── ABOUT ── -->
+      <section id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-text">
+          <p>
+            I am a dedicated university student with a profound passion for
+            building scalable, elegant software solutions. My academic journey
+            has been driven by an insatiable curiosity for how systems operate
+            beneath the surface, leading me to focus deeply on modern web
+            architectures and robust backend engineering.
+          </p>
+          <p>
+            Beyond the IDE, my life is significantly shaped by the game of
+            football. The pitch demands split-second decision-making, relentless
+            teamwork, and an unyielding commitment to continuous improvement —
+            principles I actively map directly onto my coding practices. Whether
+            architecting a database or orchestrating a midfield play, I believe
+            in structured strategy and disciplined execution.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── EDUCATION ── -->
+      <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>School</th>
+                <th>Faculty / Department</th>
+                <th>Course</th>
+                <th style="text-align: right">Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-name">Federal University of Technology, Minna</td>
+                <td>School of Information &amp; Communication Technology</td>
+                <td>Computer Science</td>
+                <td class="td-level">Undergraduate</td>
+              </tr>
+              <tr>
+                <td class="td-name">Matric No: 2025/1/106070CT</td>
+                <td>SICT Batch</td>
+                <td>UBT252005</td>
+                <td class="td-level">2025 / 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── SKILLS ── -->
+      <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>
+              <span class="material-symbols-outlined">code</span>
+              Web Development
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>
+              <span class="material-symbols-outlined">desktop_windows</span>
+              Software &amp; Tools
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Microsoft Office</span>
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Docker</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>
+              <span class="material-symbols-outlined">brush</span>
+              Graphics Design
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Photoshop</span>
+              <span class="skill-tag">Illustrator</span>
+              <span class="skill-tag">UI/UX Basics</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3>
+              <span class="material-symbols-outlined">psychology</span>
+              Personal Skills
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Communication</span>
+              <span class="skill-tag">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── FOOTBALL ── -->
+      <section id="football">
+        <h2 class="section-title">Football Identity</h2>
+        <div class="football-inner">
+          <div class="football-text">
+            <p>
+              On the pitch, I operate as a <strong>Central Midfielder</strong>.
+              This role requires constant spatial awareness, precise
+              distribution, and the ability to control the tempo of the game —
+              skills that translate seamlessly into architectural planning in
+              software.
+            </p>
+            <ul class="football-list">
+              <li>
+                <span class="material-symbols-outlined">check</span>
+                Teamwork &amp; Synergy
+              </li>
+              <li>
+                <span class="material-symbols-outlined">check</span>
+                Strategic Positioning
+              </li>
+              <li>
+                <span class="material-symbols-outlined">check</span>
+                Consistency under Pressure
+              </li>
+            </ul>
+          </div>
+          <div class="football-badge">
+            <span class="material-symbols-outlined">sports_soccer</span>
+            <span class="football-badge-label">#8 Role</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CONTACT ── -->
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-links">
+          <a
+            href="mailto:oladelepoubt252005@st.futminna.edu.ng"
+            class="contact-link"
+          >
+            <span class="material-symbols-outlined">mail</span>
+            <span>oladelepoubt252005@st.futminna.edu.ng</span>
+          </a>
+          <a href="tel:+2348144891913" class="contact-link">
+            <span class="material-symbols-outlined">call</span>
+            <span>08144891913</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#">Twitter</a>
+        </div>
+        <p class="footer-copy">
+          © 2025 Oladele Precious Opeyemi. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var openBtn = document.getElementById("menuOpenBtn");
+        var closeBtn = document.getElementById("menuCloseBtn");
+        var overlay = document.getElementById("mobileOverlay");
+        var drawer = document.getElementById("mobileDrawer");
+        var links = drawer.querySelectorAll("a");
+
+        function open() {
+          drawer.classList.add("open");
+          overlay.classList.add("open");
+          openBtn.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
+        }
+        function close() {
+          drawer.classList.remove("open");
+          overlay.classList.remove("open");
+          openBtn.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+
+        openBtn.addEventListener("click", open);
+        closeBtn.addEventListener("click", close);
+        overlay.addEventListener("click", close);
+        links.forEach(function (l) {
+          l.addEventListener("click", close);
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") close();
+        });
+      })();
+    </script>
   </body>
 </html>

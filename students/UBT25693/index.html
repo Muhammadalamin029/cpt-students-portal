@@ -1,18 +1,772 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ojonubah Isaac Ojonugwa - Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f6f9ff;
+        --surface: #ffffff;
+        --surface-muted: #eef4fc;
+        --text: #161c22;
+        --text-muted: #505f76;
+        --border: #c6c6cd;
+        --shadow-border: rgba(15, 23, 42, 0.06);
+
+        --container: 1120px;
+        --gutter: 32px;
+        --stack-sm: 8px;
+        --stack-md: 16px;
+        --stack-lg: 32px;
+        --section: 128px;
+
+        --radius-sm: 2px;
+        --radius-md: 4px;
+        --radius-lg: 8px;
+        --radius-xl: 12px;
+
+        --font-body:
+          Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        --font-head:
+          Manrope, Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b1220;
+          --surface: rgba(2, 6, 23, 0.72);
+          --surface-muted: rgba(15, 23, 42, 0.6);
+          --text: #f8fafc;
+          --text-muted: #94a3b8;
+          --border: #1e293b;
+          --shadow-border: rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      ::selection {
+        background: rgba(99, 102, 241, 0.18);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        opacity: 0.85;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 48px));
+        margin-inline: auto;
+      }
+
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.8);
+        border-bottom: 1px solid var(--shadow-border);
+        backdrop-filter: blur(10px);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .topbar {
+          background: rgba(2, 6, 23, 0.72);
+          border-bottom-color: var(--border);
+        }
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        gap: 16px;
+      }
+
+      .brand {
+        font-family: var(--font-head);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        font-size: 18px;
+      }
+
+      .nav-links {
+        display: none;
+        align-items: center;
+        gap: 32px;
+      }
+
+      @media (min-width: 768px) {
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      .nav-link {
+        font-family: var(--font-head);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--text-muted);
+        padding-bottom: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--text);
+      }
+
+      .nav-link.is-active {
+        color: var(--text);
+        border-bottom: 1px solid var(--text);
+      }
+
+      .nav-action {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-head);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      @media (min-width: 768px) {
+        .nav-action {
+          display: inline-flex;
+        }
+      }
+
+      .icon {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .mobile-menu {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        padding: 8px;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+      }
+
+      @media (min-width: 768px) {
+        .mobile-menu {
+          display: none;
+        }
+      }
+
+      .mobile-nav {
+        position: relative;
+      }
+
+      @media (min-width: 768px) {
+        .mobile-nav {
+          display: none;
+        }
+      }
+
+      .mobile-nav summary {
+        list-style: none;
+      }
+
+      .mobile-nav summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .mobile-panel {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 10px);
+        width: min(280px, calc(100vw - 32px));
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 14px;
+        box-shadow: 0 12px 30px rgba(2, 6, 23, 0.12);
+        backdrop-filter: blur(10px);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .mobile-panel {
+          background: rgba(2, 6, 23, 0.88);
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      .mobile-nav[open] .mobile-panel {
+        display: block;
+      }
+
+      .mobile-links {
+        display: grid;
+        gap: 10px;
+      }
+
+      .mobile-links a {
+        display: block;
+        padding: 10px;
+        border-radius: var(--radius-md);
+        font-family: var(--font-head);
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: var(--text);
+      }
+
+      .mobile-links a:hover {
+        background: rgba(148, 163, 184, 0.12);
+        opacity: 1;
+      }
+
+      main {
+        padding-top: 128px;
+        padding-bottom: var(--section);
+      }
+
+      section {
+        padding-block: var(--section);
+      }
+
+      .hero {
+        min-height: 716px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 128px;
+        height: 128px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: var(--surface-muted);
+        border: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        margin-bottom: var(--stack-lg);
+      }
+
+      @media (min-width: 768px) {
+        .avatar {
+          width: 160px;
+          height: 160px;
+        }
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(1);
+        transition: filter 500ms ease;
+      }
+
+      .avatar:hover img {
+        filter: grayscale(0);
+      }
+
+      h1 {
+        margin: 0 0 var(--stack-sm);
+        font-family: var(--font-head);
+        font-size: 48px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-weight: 700;
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 40px;
+        }
+      }
+
+      .hero-subtitle {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        max-width: 720px;
+      }
+
+      .sep {
+        margin-inline: 8px;
+        color: var(--border);
+      }
+
+      .divider {
+        border: 0;
+        border-top: 1px solid var(--border);
+        width: min(200px, 100%);
+        margin: var(--section) auto;
+      }
+
+      h2 {
+        margin: 0 0 var(--stack-lg);
+        font-family: var(--font-head);
+        font-size: 32px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        font-weight: 600;
+      }
+
+      h3 {
+        margin: 0;
+        font-family: var(--font-head);
+        font-size: 24px;
+        line-height: 1.3;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .prose {
+        max-width: 768px;
+      }
+
+      .prose p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .prose p + p {
+        margin-top: var(--stack-md);
+      }
+
+      .rows {
+        max-width: 768px;
+        border-top: 1px solid var(--border);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--stack-md);
+        padding-block: var(--stack-md);
+        border-bottom: 1px solid var(--border);
+        align-items: baseline;
+      }
+
+      @media (min-width: 768px) {
+        .row {
+          grid-template-columns: repeat(12, 1fr);
+          gap: var(--stack-md);
+        }
+        .row .label {
+          grid-column: span 3;
+        }
+        .row .value {
+          grid-column: span 9;
+        }
+      }
+
+      .label {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .value {
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 600;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gutter);
+      }
+
+      @media (min-width: 768px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .skills-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: var(--stack-lg);
+        background: rgba(255, 255, 255, 0.75);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .card {
+          background: rgba(15, 23, 42, 0.5);
+        }
+      }
+
+      .card-head {
+        display: flex;
+        align-items: center;
+        gap: var(--stack-sm);
+        margin-bottom: var(--stack-md);
+      }
+
+      .card-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: var(--stack-sm);
+      }
+
+      .card-list li {
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .card-list li::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--border);
+        flex: 0 0 auto;
+      }
+
+      .contact-rows .row {
+        transition: background 220ms ease;
+        padding-inline: 12px;
+        margin-inline: -12px;
+        border-radius: var(--radius-md);
+      }
+
+      .contact-rows .row:hover {
+        background: rgba(148, 163, 184, 0.12);
+      }
+
+      .contact-value {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .contact-link {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-color: rgba(148, 163, 184, 0.9);
+      }
+
+      .contact-link:hover {
+        text-decoration-color: currentColor;
+      }
+
+      .link-out {
+        font-size: 16px;
+        color: var(--text-muted);
+        opacity: 0;
+        transition: opacity 180ms ease;
+      }
+
+      .contact-value:hover .link-out {
+        opacity: 1;
+      }
+
+      footer {
+        background: rgba(255, 255, 255, 0.8);
+        border-top: 1px solid var(--shadow-border);
+        padding-block: 64px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        footer {
+          background: rgba(2, 6, 23, 0.72);
+          border-top-color: var(--border);
+        }
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      @media (min-width: 768px) {
+        .footer-inner {
+          flex-direction: row;
+        }
+      }
+
+      .footer-copy {
+        font-family: var(--font-head);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer-link {
+        font-family: var(--font-head);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .footer-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
   </head>
   <body>
-    <ul>
-      <li>Ojonubah Isaac Ojonugwa</li>
-      <li>2025/1/106485CT</li>
-      <li>UBT25693</li>
-      <li>ojonubahioubt25693@st.futminna.edu.ng</li>
-      <li>09160313208</li>
-      <li>Federal university of technology minna</li>
-    </ul>
+    <!-- TopNavBar -->
+    <nav class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#home">OJONUBAH</a>
+        <!-- Desktop Nav -->
+        <div class="nav-links">
+          <a class="nav-link is-active" href="#about">About</a>
+          <a class="nav-link" href="#education">Education</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
+        <!-- Mobile Menu -->
+        <details class="mobile-nav">
+          <summary aria-label="Open menu" class="mobile-menu">
+            <span aria-hidden="true" class="material-symbols-outlined"
+              >menu</span
+            >
+          </summary>
+          <div class="mobile-panel" role="dialog" aria-label="Mobile menu">
+            <nav class="mobile-links" aria-label="Mobile navigation">
+              <a href="#about">About</a>
+              <a href="#education">Education</a>
+              <a href="#skills">Skills</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </div>
+        </details>
+      </div>
+    </nav>
+    <main class="container">
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="avatar">
+          <img alt="Fwangwen Stephen Plangzak portrait" src="img.jpeg" />
+        </div>
+        <h1>Ojonubah Isaac Ojonugwa</h1>
+        <p class="hero-subtitle">
+          Student ID: UBT25693 <span class="sep">|</span> Matric No:
+          2025/1/106485CT
+        </p>
+      </section>
+      <!-- Divider -->
+      <hr class="divider" />
+      <!-- About Section -->
+      <section id="about">
+        <h2>About</h2>
+        <div class="prose">
+          <p>
+            My name is Ojonubah Isaac Ojonugwa. I am from Kogi State, Nigeria,
+            and I am a good boy currently residing in Abuja. I am a student
+            (UBT25693) at the Federal University of Technology, Minna, studying
+            Computer Science.
+          </p>
+          <p>
+            I completed my secondary school education at FSTC Orozo and am now a
+            100 Level Computer Science student in the SICT faculty at FUTMinna.
+          </p>
+          <p>Outside academics, I enjoy football and listening to music.</p>
+        </div>
+      </section>
+      <!-- Education Section (Borderless Table Pattern) -->
+      <section id="education">
+        <h2>Education</h2>
+        <div class="rows">
+          <div class="row">
+            <div class="label">University</div>
+            <div class="value">Federal University of Technology, Minna</div>
+          </div>
+          <div class="row">
+            <div class="label">Level</div>
+            <div class="value">100 Level</div>
+          </div>
+          <div class="row">
+            <div class="label">Department</div>
+            <div class="value">Computer Science</div>
+          </div>
+          <div class="row">
+            <div class="label">Faculty</div>
+            <div class="value">SICT</div>
+          </div>
+          <div class="row">
+            <div class="label">Secondary School</div>
+            <div class="value">FSTC Orozo</div>
+          </div>
+          <div class="row">
+            <div class="label">State of Origin</div>
+            <div class="value">Kogi State</div>
+          </div>
+        </div>
+      </section>
+      <!-- Skills Section (Bento Grid) -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="card">
+            <div class="card-head">
+              <span aria-hidden="true" class="material-symbols-outlined icon">star</span>
+              <h3>Personal Skills</h3>
+            </div>
+            <ul class="card-list">
+              <li>Football</li>
+              <li>Listening to Music</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <span aria-hidden="true" class="material-symbols-outlined icon">html</span>
+              <h3>HTML</h3>
+            </div>
+            <ul class="card-list">
+              <li>Semantic Markup</li>
+              <li>Forms &amp; Inputs</li>
+              <li>Accessibility</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <span aria-hidden="true" class="material-symbols-outlined icon">css</span>
+              <h3>CSS</h3>
+            </div>
+            <ul class="card-list">
+              <li>Flexbox &amp; Grid</li>
+              <li>Responsive Design</li>
+              <li>Animations</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="rows contact-rows">
+          <div class="row">
+            <div class="label">Student ID</div>
+            <div class="value contact-value">UBT25693</div>
+          </div>
+          <div class="row">
+            <div class="label">Matric No</div>
+            <div class="value">2025/1/106485CT</div>
+          </div>
+          <div class="row">
+            <div class="label">Email</div>
+            <div class="value contact-value">
+              <a
+                class="contact-link"
+                href="mailto:ojonubahioubt25693@st.futminna.edu.ng"
+                >ojonubahioubt25693@st.futminna.edu.ng</a
+              >
+              <span
+                aria-hidden="true"
+                class="material-symbols-outlined link-out"
+                >arrow_outward</span
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">Phone</div>
+            <div class="value contact-value">
+              <a class="contact-link" href="tel:+2349160313208">09160313208</a>
+              <span
+                aria-hidden="true"
+                class="material-symbols-outlined link-out"
+                >arrow_outward</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-inner">
+        <p class="footer-copy">
+          © 2026 Ojonubah Isaac Ojonugwa. All rights reserved.
+        </p>
+        <div class="footer-links">
+          <a class="footer-link" href="#">LinkedIn</a>
+          <a class="footer-link" href="#">GitHub</a>
+          <a class="footer-link" href="#">Twitter</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
