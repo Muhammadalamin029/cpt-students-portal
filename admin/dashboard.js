@@ -500,12 +500,18 @@ function createStudentCard(student, isPending) {
   actionSection.className = "border-t border-primary/10 bg-white/50 p-6";
 
   const actionsWrap = document.createElement("div");
-  actionsWrap.className = "grid grid-cols-1 gap-3";
+  actionsWrap.className = "space-y-3";
+
+  const primaryActionsRow = document.createElement("div");
+  primaryActionsRow.className = "grid grid-cols-1 gap-3";
+
+  const secondaryActionsRow = document.createElement("div");
+  secondaryActionsRow.className = "grid grid-cols-1 gap-3 sm:grid-cols-2";
 
   const editBtn = document.createElement("button");
   editBtn.type = "button";
   editBtn.className =
-    "w-full flex items-center justify-center gap-2 rounded-xl border border-outline bg-white px-5 py-4 font-headline text-sm font-bold text-primary transition-colors hover:bg-surface-container disabled:opacity-50";
+    "w-full flex items-center justify-center gap-2 rounded-xl border border-outline bg-white px-5 py-3 font-headline text-sm font-bold text-primary transition-colors hover:bg-surface-container disabled:opacity-50";
   editBtn.innerHTML = `<span>Edit Student</span><span class="material-symbols-outlined text-[18px]">edit</span>`;
   editBtn.addEventListener("click", () => {
     openStudentModal({ mode: "edit", student });
@@ -514,7 +520,7 @@ function createStudentCard(student, isPending) {
   const deleteBtn = document.createElement("button");
   deleteBtn.type = "button";
   deleteBtn.className =
-    "w-full flex items-center justify-center gap-2 rounded-xl bg-error-container px-5 py-4 font-headline text-sm font-bold text-on-error-container transition-all hover:bg-error hover:text-white disabled:opacity-50";
+    "w-full flex items-center justify-center gap-2 rounded-xl border border-error/30 bg-white px-5 py-3 font-headline text-sm font-bold text-error transition-colors hover:bg-error-container disabled:opacity-50";
   deleteBtn.innerHTML = `<span>Delete Student</span><span class="material-symbols-outlined text-[18px]">delete</span>`;
   deleteBtn.addEventListener("click", async () => {
     const label = student.student_id ? ` (${student.student_id})` : "";
@@ -554,7 +560,9 @@ function createStudentCard(student, isPending) {
         validateBtn.disabled = false;
       }
     });
-    actionsWrap.append(validateBtn, editBtn, deleteBtn);
+    primaryActionsRow.append(validateBtn);
+    secondaryActionsRow.append(editBtn, deleteBtn);
+    actionsWrap.append(primaryActionsRow, secondaryActionsRow);
   } else {
     const rejectBtn = document.createElement("button");
     rejectBtn.className =
@@ -580,7 +588,9 @@ function createStudentCard(student, isPending) {
         rejectBtn.disabled = false;
       }
     });
-    actionsWrap.append(rejectBtn, editBtn, deleteBtn);
+    primaryActionsRow.append(rejectBtn);
+    secondaryActionsRow.append(editBtn, deleteBtn);
+    actionsWrap.append(primaryActionsRow, secondaryActionsRow);
   }
 
   actionSection.append(actionsWrap);
