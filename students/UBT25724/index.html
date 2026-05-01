@@ -1,0 +1,480 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Precision Architect - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0058be",
+              "on-primary-container": "#fefcff",
+              "on-surface-variant": "#424754",
+              "on-tertiary-fixed": "#311400",
+              "tertiary-fixed-dim": "#ffb786",
+              "on-secondary-fixed-variant": "#304671",
+              "surface-container-low": "#eef4ff",
+              outline: "#727785",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#d4e4fa",
+              "inverse-surface": "#233143",
+              "on-tertiary-container": "#fffbff",
+              tertiary: "#924700",
+              "on-background": "#0d1c2d",
+              "primary-fixed": "#d8e2ff",
+              "inverse-on-surface": "#e9f1ff",
+              "secondary-container": "#b6ccff",
+              background: "#f8f9ff",
+              "secondary-fixed-dim": "#b1c6f9",
+              "surface-dim": "#ccdbf2",
+              "primary-fixed-dim": "#adc6ff",
+              "secondary-fixed": "#d8e2ff",
+              surface: "#f8f9ff",
+              "outline-variant": "#c2c6d6",
+              "on-primary-fixed": "#001a42",
+              "surface-variant": "#d4e4fa",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-tint": "#005ac2",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed-variant": "#723600",
+              "on-error": "#ffffff",
+              "primary-container": "#2170e4",
+              "on-secondary-container": "#405682",
+              error: "#ba1a1a",
+              "tertiary-container": "#b75b00",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed": "#001a42",
+              "surface-container": "#e5efff",
+              "surface-bright": "#f8f9ff",
+              secondary: "#495e8a",
+              "inverse-primary": "#adc6ff",
+              "surface-container-high": "#dbe9ff",
+              "on-surface": "#0d1c2d",
+              "on-primary-fixed-variant": "#004395",
+              "tertiary-fixed": "#ffdcc6",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Inter", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl"
+    >
+      <div
+        class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20"
+      >
+        <div
+          class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-100"
+        >
+          The Architect
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a
+            class="text-blue-700 dark:text-blue-400 border-b-2 border-blue-700 dark:border-blue-400 pb-1 font-inter tracking-tight text-sm font-medium hover:opacity-80 transition-opacity"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors font-inter tracking-tight text-sm font-medium hover:opacity-80"
+            href="#past"
+            >Past</a
+          >
+          <a
+            class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors font-inter tracking-tight text-sm font-medium hover:opacity-80"
+            href="#now"
+            >Now</a
+          >
+          <a
+            class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors font-inter tracking-tight text-sm font-medium hover:opacity-80"
+            href="#future"
+            >Future</a
+          >
+          <a
+            class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors font-inter tracking-tight text-sm font-medium hover:opacity-80"
+            href="#gallery"
+            >Gallery</a
+          >
+          <a
+            class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors font-inter tracking-tight text-sm font-medium hover:opacity-80"
+            href="#contact"
+            >Contact</a
+          >
+        </div>
+        <a
+          class="hidden md:inline-flex items-center justify-center bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl px-5 py-2 text-sm font-bold tracking-tight hover:opacity-90 transition-opacity"
+          href="#contact"
+          >Hire Me</a
+        >
+      </div>
+    </nav>
+    <main class="pt-24 pb-16">
+      <!-- Hero Section -->
+      <section
+        class="max-w-7xl mx-auto px-8 py-24 flex flex-col items-center justify-center text-center relative"
+      >
+        <div
+          class="absolute inset-0 bg-surface-container-lowest rounded-3xl opacity-50 pointer-events-none"
+          style="margin: 2rem; padding: 2rem"
+        ></div>
+        <div class="relative z-10 space-y-8 max-w-3xl mx-auto">
+          <div
+            class="w-48 h-48 mx-auto rounded-full overflow-hidden bg-surface-container-high ring-4 ring-surface-container-lowest shadow-[0px_20px_40px_rgba(13,28,45,0.06)]"
+          >
+            <img
+              alt="Portrait"
+              class="w-full h-full object-cover"
+              data-alt="close up professional headshot of a confident developer in a well lit studio with a subtle neutral background"
+              src="image/hero.jpeg"
+            />
+          </div>
+          <h1
+            class="text-5xl md:text-7xl font-bold tracking-tighter text-on-surface leading-tight"
+          >
+            Hi! Welcome to <br /><span class="text-primary">Toria Heal's</span>
+            World
+          </h1>
+          <p
+            class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+          >
+            Using my passion for tech for this journey of a thousand mile
+          </p>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section class="max-w-7xl mx-auto px-8 py-24" id="about">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8">
+            <h2 class="text-4xl font-bold tracking-tight text-on-surface">
+              About Me
+            </h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              I'm a tech lover, passionate about building new technological
+              skills that well make the world a better place. Am driven by
+              curiosity, continous learning, and the desire to grow my skills
+              and knowledge in meaningful ways
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-sm font-medium tracking-wide"
+                >HTML</span
+              >
+              <span
+                class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-sm font-medium tracking-wide"
+                >CSS</span
+              >
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest rounded-2xl overflow-hidden aspect-square flex items-center justify-center p-8"
+          >
+            <img
+              alt="Workspace"
+              class="w-full h-full object-cover rounded-xl"
+              data-alt="clean minimalist desk setup with modern computer monitor mechanical keyboard and subtle warm lighting"
+              src="image/about.jpeg"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Past Section -->
+      <section class="w-full bg-surface-container-low py-24" id="past">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div
+              class="order-2 lg:order-1 bg-surface-container-lowest rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center p-8"
+            >
+              <img
+                alt="Teamwork"
+                class="w-full h-full object-cover rounded-xl"
+                data-alt="group of creative professionals collaborating around a large wooden table in a bright modern office with natural light"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWOu2ppzQviSCZtnmOiBUD_tGN4HSDCA5uiHZllttHthSnNBwFVIyj8X1LVmUgDF1Dc3lGOuakAX4uoMbPSpFb14x8hmbDvMiy5vLxuurMFhIFuDuTDatwdS07-8u7Ci9zeigQ-hllB-0uvOuJW04kUKzR0OHrQscs7Al19eCO0f9y-wj6HwDLV5c0YVfHlCa5WB63WxCAzxkjcNLs5tA-ptrMg7Cqjc857eIq5ppiQwDVpPvQ_x4Uw3nQ510-0ha6q6JflCqHO-mf"
+              />
+            </div>
+            <div class="order-1 lg:order-2 space-y-8">
+              <h2 class="text-4xl font-bold tracking-tight text-on-surface">
+                Past
+              </h2>
+              <p class="text-lg text-on-surface-variant leading-relaxed">
+                Just all about a young child with different aspiration about
+                what to do. Developed strong interest in medicine and fashion.
+                this is just me trying to know more about the human body,promote
+                health and well being of others. <br />
+                <br />
+
+                I was also drawn to fashion as a powerful form of self
+                expression and creativity .this interest reflected my
+                appreciation for styles, designs and the evolving trends that
+                shapes society.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Now Section -->
+      <section class="max-w-7xl mx-auto px-8 py-24" id="now">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8">
+            <h2 class="text-4xl font-bold tracking-tight text-on-surface">
+              Now
+            </h2>
+            <p class="text-lg text-on-surface-variant leading-relaxed">
+              Expressing the now is a thing of joy....Time always reveals our
+              real self. Currently a student of Federal University of Technology
+              Minna. Studying Computer Science. <br />
+              <br />
+
+              Not by chance or mistake but a concious decision born out of my
+              strong passion for tech and innovation. At this stage i am focused
+              on growth academically, interlectually and practically. <br />
+              <br />
+
+              My experience at the Federal University of Technology Minna is not
+              just about acquiring knowledge but becoming a tech oriented
+              individual that make meaningful impact to the world around me
+            </p>
+          </div>
+          <div
+            class="bg-surface-container-lowest rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center p-8"
+          >
+            <img
+              alt="Code"
+              class="w-full h-full object-cover rounded-xl"
+              data-alt="close up of a laptop screen displaying intricate code structure with a shallow depth of field in a dimly lit room"
+              src="image/now.jpeg"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Future Section -->
+      <section class="w-full bg-surface-container-low py-24" id="future">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div
+              class="order-2 lg:order-1 bg-surface-container-lowest rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center p-8"
+            >
+              <img
+                alt="Future"
+                class="w-full h-full object-contain rounded-xl"
+                data-alt="abstract geometric rendering of interconnected digital nodes glowing softly against a dark blue expansive background"
+                src="image/future.jpeg"
+              />
+            </div>
+            <div class="order-1 lg:order-2 space-y-8">
+              <h2 class="text-4xl font-bold tracking-tight text-on-surface">
+                Future
+              </h2>
+              <p class="text-lg text-on-surface-variant leading-relaxed">
+                The future would be the brightest part......On the wigs of
+                technology and innovation. Expanding in several aspect of
+                technological skills such as software development, data science,
+                artificial intelligence and machine learning. <br />
+                <br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Gallery Section -->
+      <section class="max-w-7xl mx-auto px-8 py-24" id="gallery">
+        <div class="space-y-16">
+          <div class="text-center">
+            <h2 class="text-4xl font-bold tracking-tight text-on-surface">
+              Gallery
+            </h2>
+            <p class="text-lg text-on-surface-variant mt-4">
+              A curated selection of technical craft.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Card 1 -->
+            <div
+              class="group relative bg-surface-container-lowest rounded-2xl overflow-hidden cursor-pointer"
+            >
+              <div
+                class="aspect-[4/5] overflow-hidden bg-surface-container-low"
+              >
+                <img
+                  alt="Project 1"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  data-alt="dashboard interface design shown on a computer screen with charts and graphs in cool blue tones"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGoICceRBZtPIZ8pW-FVRwB6CIiLKVNJqa-zdPVbjXFnUc6H22BVL1NmLiop8rwMP99E2BpFxiVAUbht5kArCb2MtV1-J62TKQprZiJFw9Hw7MDX9Z0CjXQCtUZ2w50p5oPyyaNU9mrbMtiThd3A1IFwQd9AQOV6UbrmcNhAA1YReUEq_ZhcqO_hOxwCySHx0LTmYJpl_a-t1awXiQnoy81TI0LP5VKAs0he7lTbh3X4fZZoUNvB4e_NAazp-vUj3k8IeOVEeAw8F"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-on-surface">
+                  Data Visualization Engine
+                </h3>
+                <p
+                  class="text-sm text-on-surface-variant mt-2 uppercase tracking-widest"
+                >
+                  Enterprise System
+                </p>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="group relative bg-surface-container-lowest rounded-2xl overflow-hidden cursor-pointer mt-0 md:mt-12"
+            >
+              <div
+                class="aspect-[4/5] overflow-hidden bg-surface-container-low"
+              >
+                <img
+                  alt="Project 2"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  data-alt="minimalist mobile app interface displayed on a modern smartphone resting on a smooth marble surface"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ryvhI0g5MD2vdxo7W8Ybd5tjsoSSZeCuQOOjYXBz0xcDO39I1sDzxngJ7rlX_vSKscuJnM-HryhllczwP6uvmBqesEPdWCYZxCBpDaEg2j846uUV3rog_rQPYz2mdFiKOcyZsCe97qyLrWmwSAAIDIl2uFm9IA3rd9um1qT3s_yTUuRWDqB_QpLYg0ZnXUapvJXknbkuGHnN4jFBQ3pbwnWP2f-qF7KhWxDveB35mYzvZ3RAtn87QatL9x7UHHkketYxENi-GBpd"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-on-surface">
+                  Fluid Typography Framework
+                </h3>
+                <p
+                  class="text-sm text-on-surface-variant mt-2 uppercase tracking-widest"
+                >
+                  Open Source
+                </p>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div
+              class="group relative bg-surface-container-lowest rounded-2xl overflow-hidden cursor-pointer"
+            >
+              <div
+                class="aspect-[4/5] overflow-hidden bg-surface-container-low"
+              >
+                <img
+                  alt="Project 3"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  data-alt="abstract architectural rendering of a modern building facade with stark lines and high contrast shadows"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuABJD-cR91EYNCFlRoSfKuvWbGIAzuEoRvMVu9JfYi5SGYFadygvXphtyOXmSz3QUyw662AwmhzavL-w588NS1F9hrwTZkxk3fJOJHc-h7vfuxBECc7Mpd1IMDpYDvh6bruPD3W_Y79WYrv4VhFNOY3DwtY_87TdPykQ17ZiF-RkGfrZV5wX-tVNPUE0nKcq9QekMWUBeVn8-7MLHIlZmowcg0L025OFR9TglKuhV7DDXg__JItmyil_y38iiNQdEBHNMl3IviLKO0-"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-on-surface">
+                  E-Commerce Architecture
+                </h3>
+                <p
+                  class="text-sm text-on-surface-variant mt-2 uppercase tracking-widest"
+                >
+                  Client Project
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section class="max-w-3xl mx-auto px-8 py-24 text-center" id="contact">
+        <h2 class="text-4xl font-bold tracking-tight text-on-surface mb-4">
+          Contact Me
+        </h2>
+        <p class="text-lg text-on-surface-variant mb-12">
+          Let's build something precise.
+        </p>
+        <div
+          class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0px_20px_40px_rgba(13,28,45,0.06)]"
+        >
+          <p
+            class="text-on-surface-variant text-base md:text-lg leading-relaxed"
+          >
+            Reach out directly by email or connect with me on social platforms.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              class="inline-flex items-center justify-center bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl px-6 py-3 text-sm font-bold tracking-tight hover:opacity-90 transition-opacity"
+              href="mailto:hello@precisionarchitect.dev"
+              >Email Me</a
+            >
+            <a
+              class="inline-flex items-center justify-center bg-surface-container-low text-on-surface rounded-xl px-6 py-3 text-sm font-bold tracking-tight hover:opacity-90 transition-opacity"
+              href="#"
+              >LinkedIn</a
+            >
+            <a
+              class="inline-flex items-center justify-center bg-surface-container-low text-on-surface rounded-xl px-6 py-3 text-sm font-bold tracking-tight hover:opacity-90 transition-opacity"
+              href="#"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full py-16 bg-slate-100 dark:bg-slate-900 tonal shift via surface-container-low"
+    >
+      <div
+        class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8"
+      >
+        <div
+          class="text-lg font-black text-slate-900 dark:text-slate-100 cursor-pointer"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        >
+          © 2024 The Precision Architect. Built with editorial rigor.
+        </div>
+        <div class="flex space-x-6">
+          <a
+            class="font-inter text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-700 dark:hover:text-blue-400 hover:translate-y-[-2px] transition-transform"
+            href="#"
+            >LinkedIn</a
+          >
+          <a
+            class="font-inter text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-700 dark:hover:text-blue-400 hover:translate-y-[-2px] transition-transform"
+            href="#"
+            >GitHub</a
+          >
+          <a
+            class="font-inter text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-700 dark:hover:text-blue-400 hover:translate-y-[-2px] transition-transform"
+            href="#"
+            >Dribbble</a
+          >
+          <a
+            class="font-inter text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 hover:text-blue-700 dark:hover:text-blue-400 hover:translate-y-[-2px] transition-transform"
+            href="#"
+            >Read.cv</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

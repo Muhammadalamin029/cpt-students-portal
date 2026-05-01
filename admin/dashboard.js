@@ -5,6 +5,7 @@ import {
   subscribeToStudents,
   approveStudent,
   rejectStudent,
+  deleteStudent,
   createStudentFromAdmin,
   updateStudentFromAdmin,
 } from "../shared/firebase.js";
@@ -510,6 +511,28 @@ function createStudentCard(student, isPending) {
     openStudentModal({ mode: "edit", student });
   });
 
+  const deleteBtn = document.createElement("button");
+  deleteBtn.type = "button";
+  deleteBtn.className =
+    "w-full flex items-center justify-center gap-2 rounded-xl bg-error-container px-5 py-4 font-headline text-sm font-bold text-on-error-container transition-all hover:bg-error hover:text-white disabled:opacity-50";
+  deleteBtn.innerHTML = `<span>Delete Student</span><span class="material-symbols-outlined text-[18px]">delete</span>`;
+  deleteBtn.addEventListener("click", async () => {
+    const label = student.student_id ? ` (${student.student_id})` : "";
+    if (!confirm(`Delete ${student.name}${label}? This cannot be undone.`)) return;
+
+    const originalHTML = deleteBtn.innerHTML;
+    deleteBtn.innerHTML = `<span>Deleting...</span><span class="material-symbols-outlined animate-spin text-[18px]">sync</span>`;
+    deleteBtn.disabled = true;
+
+    try {
+      await deleteStudent(student.id);
+    } catch (err) {
+      alert("Failed to delete student. Please check permissions or try again.");
+      deleteBtn.innerHTML = originalHTML;
+      deleteBtn.disabled = false;
+    }
+  });
+
   if (isPending) {
     const validateBtn = document.createElement("button");
     validateBtn.className =
@@ -531,7 +554,7 @@ function createStudentCard(student, isPending) {
         validateBtn.disabled = false;
       }
     });
-    actionsWrap.append(validateBtn, editBtn);
+    actionsWrap.append(validateBtn, editBtn, deleteBtn);
   } else {
     const rejectBtn = document.createElement("button");
     rejectBtn.className =
@@ -557,7 +580,7 @@ function createStudentCard(student, isPending) {
         rejectBtn.disabled = false;
       }
     });
-    actionsWrap.append(rejectBtn, editBtn);
+    actionsWrap.append(rejectBtn, editBtn, deleteBtn);
   }
 
   actionSection.append(actionsWrap);
