@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enenche Destiny Enenche | Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: century, sans-serif;
+            background: white;
+            background-size: 300% 400%;
+            animation: moveGradient 5s ease infinite;
+            color: black;
+            line-height: 1.6;
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: right;
+            padding: 20px 10px;
+            background: rgba(40, 0, 100, 0.8); /* Semi-transparent blue */
+            position: sticky;
+            top: 0;
+            z-index: 500;
+        }
+
+        nav h2 { color: white; margin: 0; }
+        nav a { color: white; margin-left: 15px; text-decoration: none; font-weight: bold; }
+
+        .hero { text-align: left; padding: 50px 20px; }
+        .hero img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .section-title { text-align: center; color: #FF6347; margin-top: 50px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px 50px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1); /* Glass effect */
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        
+        .footer { text-align: center; padding: 40px; border-top: 1px solid white; color: white; }
+    </style>
+</head>
+<body>
+
+    <nav>
+       
+        <div>
+        
+            <a href="test.html">Back</a>
+            <a href="#about">About Me</a>
+            <a href="#Ach">Achievement</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <img src="mypersonalpic.jpg" alt="Profile Picture">
+          <div style="text-align: centre; padding: 0 50px;"><h2>WELCOME TO MY PAGE </h2></div>
+            <h3><div class="card">
+                <div>  <strong>Below You can Find My Credentials<br></strong><h5>Making the world better place to live with technology</h5></h3>
+        </div>
+    </div>
+
+    <h1 id="about" class="section-title">About Me</h1>
+    <div style="text-align: center; padding: 0 50px;">
+        I am a student of the Federal University of Technology, Minna (FUTMINNA), I Reside in Tunga-maje Abuja..<br>
+        I have at least 3-4 years of experience About Computer programming<b></b>
+        
+    </div>
+    <div class="section-title"><h2>Family And Personal Life</h2></div>
+    <ul>
+        <li>Marrital status: [Single]</li>
+        <li>Hobbie: [Reading, football, programming]</li>
+        <li>Home Address: [No 8 phase 3, Angwan dibiri Tunga-Maje Abuja]</li>
+    </ul>
+
+    <h1 class="section-title">Bio-Data</h1>
+    <div class="grid">
+        <div class="card"><strong>Date of Birth:</strong><br>27th January</div>
+        <div class="card"><strong>School:</strong><br>FUTMINNA</div>
+        <div class="card"><strong>Course:</strong><br>Computer Science</div>
+        <div class="card"><strong>Level:</strong><br>100</div>
+        <div class="card"><strong>Faculty:</strong><br>SICT</div>
+      <div class="card"><strong>Matric No:</strong><br>2025/1/102100CT</div>
+        <div class="card"><strong>State of Origin:</strong><br>Benue</div>
+    </div>
+    
+    <h1 class="section-title">Achievement </h1>
+        <div style="text-align: center; padding: 0 50px;">
+            I am presently working hand in hand with FIVERR Comp. Branch as part of their team regarding web developing, both front and back end development and other related activities.
+
+    </div>
+
+    <div class="footer" id="Ach">
+        <p>&copy;2026 All Right Reserved.</p>
+
+</body>
+</html>

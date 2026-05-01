@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismail Ibrahim Kolawole | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Luxury Professional Palette */
+            --bg-gradient: linear-gradient(135deg, #450a0a 0%, #1a0505 100%);
+            --accent-gold: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(212, 175, 55, 0.2);
+            --text-main: #fdfcfb;
+            --text-dim: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- FLOATING ANIMATION --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo { 
+            font-weight: 800; 
+            font-size: 1.4rem;
+            color: var(--accent-gold); 
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        nav a { 
+            color: var(--text-dim); 
+            margin-left: 30px; 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s; 
+        }
+
+        nav a:hover { color: var(--accent-gold); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic shape */
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            padding: 5px;
+            background: var(--glass-bg);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 20px 0 10px;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* --- GLASS LAYOUT --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 700;
+        }
+
+        /* --- BIO GRID --- */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .bio-item {
+            border-left: 2px solid var(--glass-border);
+            padding-left: 15px;
+        }
+
+        .bio-item label {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
+        .bio-item span {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* --- SKILLS --- */
+        .skills-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--glass-border);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        /* --- BUTTONS --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #1a0505;
+            padding: 15px 35px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px var(--gold-glow);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px var(--gold-glow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { padding: 1rem 5%; }
+            nav .links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="home.html" class="logo">Home</a>
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#bio">Profile</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="profile-container">
+            <img src="odk.jpg" alt="Ismail Ibrahim Kolawole" class="profile-img">
+        </div>
+        <h1>Ismail Ibrahim Kolawole</h1>
+        <p>Computer Science • FUTMINNA • Software Engineering</p>
+    </header>
+
+    <main class="container">
+        
+        <section id="about" class="glass-card">
+            <span class="section-title">Professional Profile</span>
+            <p>I am a dedicated Computer Science student at the <strong>Federal University of Technology, Minna (FUTMINNA)</strong>. Focused on mastering modern programming paradigms to build impactful software solutions. My journey is defined by a commitment to core computing principles and high-performance web technologies.</p>
+        </section>
+
+        <section id="bio" class="glass-card">
+            <span class="section-title">Academic Bio-Data</span>
+            <div class="bio-grid">
+                <div class="bio-item"><label>Matric No.</label><span>2025/1/102969CT</span></div>
+                <div class="bio-item"><label>Level</label><span>100 Level</span></div>
+                <div class="bio-item"><label>Faculty</label><span>SICT</span></div>
+                <div class="bio-item"><label>DOB</label><span>17 May 2008</span></div>
+            </div>
+        </section>
+
+        <section id="skills" class="glass-card">
+            <span class="section-title">Tech Stack</span>
+            <div class="skills-flex">
+                <div class="skill-badge">C++ Systems</div>
+                <div class="skill-badge">Modern JavaScript</div>
+                <div class="skill-badge">UI/UX Design</div>
+                <div class="skill-badge">Responsive Architecture</div>
+                <div class="skill-badge">Problem Solving</div>
+            </div>
+        </section>
+
+        <section id="contact" class="glass-card" style="text-align: center;">
+            <span class="section-title">Inquiries</span>
+            <h3>Let's build something exceptional.</h3>
+           <p style="font-size: 0.9rem; opacity: 0.7;">IBKM</p
+   style="background: green; color: white; padding: 10px 20px;">
+   Start a Conversation
+</a>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2026 Ismail Ibrahim Kolawole. Structured for Excellence.
+    </footer>
+
+</body>
+</html>

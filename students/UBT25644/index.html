@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://127.0.0.1:5500/oyebisiporfolio.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>Oyebisi Stephen - Contact Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: #1e293b;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      max-width: 420px;
+      width: 90%;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #38bdf8;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .bio {
+      font-size: 14px;
+      color: #cbd5f5;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin: 5px 0;
+      color: #cbd5f5;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    /* TABLE STYLE */
+    table {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+      background: #0f172a;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #334155;
+      text-align: left;
+    }
+
+    td:first-child {
+      font-weight: bold;
+      color: #38bdf8;
+      width: 50%;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      background: #38bdf8;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- YOUR IMAGE -->
+    <img src="./Oyebisi Stephen - Contact Page_files/seyi.jpeg" alt="Oyebisi Stephen">
+
+    <!-- YOUR INFO -->
+    <h1>Oyebisi Stephen</h1>
+    <p class="bio">I am a passionate computer science student eager to learn and grow in the world of technology and i believe i am in the right school to build a solid foundation.</p>
+
+    <!-- TABLE -->
+    <table>
+      <tbody><tr>
+        <td>Matric Number</td>
+        <td>YOUR_MATRIC_NO</td>
+      </tr>
+      <tr>
+        <td>born in august</td>
+        <td>13/08/2007</td>
+      </tr>
+    </tbody></table>
+
+    <!-- CONTACT -->
+    <p>Email: <a href="mailto:your@email.com">oyebisistephen3@gmail.com</a></p>
+    <p>Phone: <a href="tel:+234XXXXXXXXXX">+234 7063925894</a></p>
+
+    <!-- CONTACT FORM -->
+    <form action="mailto:your@email.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required="">
+      <input type="email" name="email" placeholder="Your Email" required="">
+      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

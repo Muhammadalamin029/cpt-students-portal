@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enenche Destiny Enenche | Portfolio</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(-55deg, green, yellow, #4B0082, red);
+            --text-color: white;
+            --nav-bg: rgba(40, 0, 100, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --skill-bg: white;
+            --skill-text: black;
+            --input-bg: rgba(255, 255, 255, 0.2);
+        }
+
+        .light-mode {
+            --bg-gradient: linear-gradient(-55deg, #e0e0e0, #ffffff, #cfdef3);
+            --text-color: #333;
+            --nav-bg: rgba(200, 200, 200, 0.9);
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --skill-bg: #4B0082;
+            --skill-text: white;
+            --input-bg: rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-gradient);
+            background-size: 300% 400%;
+            animation: moveGradient 5s ease infinite;
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: 0.5s;
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        nav a { color: var(--text-color); margin-left: 15px; text-decoration: none; font-weight: bold; }
+
+        #theme-toggle {
+            background: var(--text-color);
+            color: var(--nav-bg);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero { text-align: center; padding: 50px 20px; }
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .section-title { text-align: center; color: #FF6347; margin-top: 60px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .btn-project {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #FF6347;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Form Styles */
+        .contact-container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 2px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .skills { text-align: center; padding: 40px; }
+        .skills span {
+            display: inline-block;
+            background: var(--skill-bg);
+            color: var(--skill-text);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .footer { text-align: center; padding: 60px; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button id="theme-toggle">Switch Theme</button>
+        <div>
+            <a href="bo.html">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <img src="mypersonalpic.jpg" alt="Enenche Destiny">
+        <div class="card" style="max-width: 700px; margin: auto;">
+            <h1>Hi, I'm Enenche Destiny Enenche</h1>
+            <p><strong>Computer Science Student @ FUTMINNA (Level 100)</strong></p>
+            <p>Passionate Web Developer and Computer Professional based in Tunga-maje, Abuja.</p>
+        </div>
+    </div>
+
+    <h1 id="projects" class="section-title">My Projects</h1>
+    <div class="grid">
+        <div class="card">
+            <h3>Management System</h3>
+            <p>A C++ based application designed to handle data structures and file management efficiently.</p>
+            <a href="https://www.w3schools.com/cpp/" class="btn-project">View Code</a>
+        </div>
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>A responsive personal portfolio showcasing my personal datails and experience.</p>
+ <a href="nee.html"class="btn-project">View Personal Portfolio</a>
+
+        </div>
+     
+
+    <h1 id="contact" class="section-title">Get In Touch</h1>
+    <div class="contact-container">
+        <div class="card">
+            <form action="#">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="How can I help you?"></textarea>
+                <button type="submit" id="theme-toggle" style="width: 100%; margin-top: 10px;">Send Message</button>
+            </form>
+            <div style="margin-top: 20px; text-align: center;">
+                <p>📍 Tunga-maje, Abuja | 📞 08109871810</p>
+                <p>📧 enenchedestiny1810@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Enenche Destiny Enenche | All rights reserved</p>
+    </div>
+
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        btn.addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            btn.textContent = document.body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
+        });
+    </script>
+
+</body>
+</html>

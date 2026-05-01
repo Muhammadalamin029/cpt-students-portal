@@ -1,0 +1,126 @@
+*	{
+    Margin: 0;
+    Padding: 0;
+    Box-sizing: border-box;
+    Font-family: ‘Segoe UI’, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    Background-color: #0f172a; 
+    Color: #f8fafc;
+    Min-height: 100vh;
+    Display: flex;
+    Justify-content: center;
+    Padding: 40px 20px;
+    Position: relative;
+}
+.container {
+    Max-width: 1000px;
+    Width: 100%;
+    z-index: 1;
+}
+
+/* HERO SECTION */
+.profile-hero {
+    Text-align: center;
+    Margin-bottom: 40px;
+}
+
+.profile-pic {
+    Width: 150px;
+    Height: 150px;
+    Border-radius: 50%;
+    Object-fit: cover;
+    Border: 4px solid #3b82f6;
+    Box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    Margin-bottom: 15px;
+}
+
+h1 {
+    Font-size: 2.5rem;
+    Margin-bottom: 5px;
+    Letter-spacing: 1px;
+}
+
+.matric-no {
+    Color: #93c5fd;
+    Font-weight: bold;
+    Font-size: 1.1rem;
+    Margin-bottom: 5px;
+}
+
+.tagline {
+    Color: #cbd5e1;
+    Font-size: 1rem;
+}
+
+/* GRID LAYOUT FOR CARDS */
+.info-grid {
+    Display: grid;
+    Grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    Gap: 25px;
+}
+
+/* THE GLASS CARDS */
+.glass-card {
+    Background: rgba(255, 255, 255, 0.05); 
+    Backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    Border: 1px solid rgba(255, 255, 255, 0.1);
+    Border-radius: 15px;
+    Padding: 10px;
+    Transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    Transform: translateY(-5px); 
+    Background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-card h2 {
+    Font-size: 1.3rem;
+    Color: #3b82f6;
+    Margin-bottom: 15px;
+    Border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    Padding-bottom: 8px;
+}
+
+.glass-card p, .glass-card ul {
+    Font-size: 0.95rem;
+    Line-height: 1.6;
+    Color: #e2e8f0;
+}
+
+.glass-card ul {
+    List-style: none;
+}
+
+.glass-card ul li {
+    Margin-bottom: 10px;
+}
+
+.glass-card strong {
+    Color: #93c5fd;
+}
+
+/* SKILL TAGS */
+.tags {
+    Display: flex;
+    Flex-wrap: wrap;
+    Gap: 10px;
+}
+
+.tags span {
+    Background: rgba(59, 130, 246, 0.2);
+    Border: 1px solid rgba(59, 130, 246, 0.4);
+    Padding: 5px 12px;
+    Border-radius: 20px;
+    Font-size: 0.85rem;
+}
+
+Footer {
+    Text-align: center;
+    Margin-top: 50px;
+    Color: #64748b;
+    Font-size: 0.9rem;
+}

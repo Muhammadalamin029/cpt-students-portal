@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulife Kelvin Kelechi - Student Portfolio</title>
+    
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== GENERAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000000;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION MENU ===== */
+        nav {
+            background: #000000;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00d4ff;
+            box-shadow: 0 2px 10px rgba(0, 212, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== CONTAINER & SECTIONS ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #00d4ff;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+        }
+
+        /* ===== HEADER SECTION ===== */
+        #header {
+            text-align: center;
+            padding: 4rem 0;
+            background: #0a0a0a;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .header-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #b0b8ff;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* ===== PROFILE SECTION ===== */
+        #profile {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d4ff, #7b68ee);
+            margin: 0 auto 2rem;
+            display: block;
+            font-size: 4rem;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            border: 3px solid #00d4ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+        }
+
+        .profile-intro {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+
+        /* ===== ARTIST NAME SECTION ===== */
+        #artist {
+            text-align: center;
+            padding: 2rem 0;
+            background: #0a0a0a;
+        }
+
+        .artist-label {
+            font-size: 0.9rem;
+            color: #b0b8ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .artist-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #7b68ee;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .artist-name:hover {
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .artist-tagline {
+            font-size: 1rem;
+            color: #a8a8a8;
+            font-style: italic;
+        }
+
+        /* ===== BIO DATA SECTION ===== */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .bio-item {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #00d4ff;
+            transition: all 0.3s ease;
+        }
+
+        .bio-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.15);
+        }
+
+        .bio-label {
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bio-value {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        /* ===== SKILLS, EXPERIENCE, EDUCATION ===== */
+        .cv-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cv-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(123, 104, 238, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cv-card:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .cv-card-title {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cv-card-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #00d4ff, #7b68ee);
+            border-radius: 2px;
+        }
+
+        .cv-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-item-title {
+            font-weight: 600;
+            color: #e0e0e0;
+            margin-bottom: 0.3rem;
+        }
+
+        .cv-item-subtitle {
+            font-size: 0.9rem;
+            color: #b0b8ff;
+        }
+
+        .cv-item-description {
+            font-size: 0.95rem;
+            color: #a8a8a8;
+            margin-top: 0.3rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 212, 255, 0.3);
+            border-color: #00d4ff;
+        }
+
+        /* ===== HOBBIES SECTION ===== */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hobby-card {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hobby-card:hover {
+            border-color: #00d4ff;
+            background: linear-gradient(135deg, #0f3a54, #1a4d5f);
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.25);
+        }
+
+        .hobby-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-card:hover .hobby-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .hobby-name {
+            font-size: 1.3rem;
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: #b0b8ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #000000;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid #00d4ff;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-accent {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding: 0.5rem 0;
+            }
+
+            .header-name {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                display: block;
+                width: 100%;
+            }
+
+            .profile-image {
+                width: 140px;
+                height: 140px;
+                font-size: 3rem;
+            }
+
+            .profile-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+
+            .bio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                overflow-x: auto;
+            }
+
+            .cv-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                overflow-x: auto;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                overflow-x: auto;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                overflow-x: auto;
+            }
+
+            section {
+                padding: 2rem 0;
+            }
+
+            #header {
+                padding: 2rem 1rem;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 0.5rem;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
+            }
+
+            nav li {
+                flex-shrink: 0;
+            }
+
+            .header-name {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            .profile-image img {
+                width: 100% !important;
+                height: 100% !important;
+                display: block !important;
+                object-fit: cover !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border-radius: 50% !important;
+            }
+
+            .bio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .bio-item {
+                flex-shrink: 0;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .hobby-card {
+                flex-shrink: 0;
+            }
+
+            .cv-content {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .cv-card {
+                flex-shrink: 0;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .contact-item {
+                flex-shrink: 0;
+            }
+
+            .cv-card-title {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION MENU ===== -->
+    <nav>
+        <ul>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#bio">Bio Data</a></li>
+            <li><a href="#cv">CV/Resume</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HEADER SECTION ===== -->
+    <section id="header">
+        <div class="container">
+            <h1 class="header-name">Pulife Kelvin Kelechi</h1>
+            <p class="tagline">Student | Creative | Aspiring Developer & Artist</p>
+            <p class="subtitle">Passionate about music, creativity, and technology</p>
+        </div>
+    </section>
+
+    <!-- ===== ARTIST NAME SECTION ===== -->
+    <section id="artist">
+        <div class="container">
+            <p class="artist-label">Artist Name</p>
+            <h2 class="artist-name">Kavenor</h2>
+            <p class="artist-tagline">Music Producer & Creative Artist</p>
+        </div>
+    </section>
+
+    <!-- ===== PROFILE SECTION ===== -->
+    <section id="profile">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div style="text-align: center;">
+                <div class="profile-image">
+                    <img src="./image/profile.jpg" alt="Profile Photo">
+                </div>
+                <p class="profile-intro">
+                    I'm a passionate student with a deep love for music, creative expression, and technology. 
+                    I believe in blending artistic vision with technical skills to create meaningful experiences. 
+                    Whether it's producing music, designing content, or writing code, I'm committed to continuous learning 
+                    and pushing the boundaries of my capabilities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BIO DATA SECTION ===== -->
+    <section id="bio">
+        <div class="container">
+            <h2 class="section-title">Bio Data</h2>
+            <div class="bio-grid">
+                <div class="bio-item">
+                    <div class="bio-label">Full Name</div>
+                    <div class="bio-value">Pulife Kelvin Kelechi</div>
+                </div>
+                <div class="bio-item">
+                    <div class="bio-label">Matric Number</div>
+                    <div class="bio-value">2025/1/101792CT</div>
+                </div>
+                <div class="bio-item">
+                    <div class="bio-label">School</div>
+                    <div class="bio-value">School Of Information Communication and Technology</div>
+                </div>
+                <div class="bio-item">
+                    <div class="bio-label">Course</div>
+                    <div class="bio-value">Computer Science</div>
+                </div>
+                <div class="bio-item">
+                    <div class="bio-label">Academic Level</div>
+                    <div class="bio-value">100 Level</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CV / RESUME SECTION ===== -->
+    <section id="cv">
+        <div class="container">
+            <h2 class="section-title">CV / Resume</h2>
+            
+            <div class="cv-content">
+                <!-- Skills Card -->
+                <div class="cv-card">
+                    <div class="cv-card-title">Skills</div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Technical Skills</div>
+                        <span class="skill-tag">Music Production</span>
+                        <span class="skill-tag">Audio Editing</span>
+                        <span class="skill-tag">Content Creation</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript Basics</span>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Creative Skills</div>
+                        <span class="skill-tag">Graphic Design</span>
+                        <span class="skill-tag">Video Editing</span>
+                        <span class="skill-tag">Photography</span>
+                        <span class="skill-tag">Storytelling</span>
+                    </div>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="cv-card">
+                    <div class="cv-card-title">Experience</div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Music Producer</div>
+                        <div class="cv-item-subtitle">Personal Projects | Ongoing</div>
+                        <div class="cv-item-description">Created and released original music tracks showcasing creativity and technical production skills.</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Content Creator</div>
+                        <div class="cv-item-subtitle">Social Media | 2023 - Present</div>
+                        <div class="cv-item-description">Developed engaging multimedia content combining music, visuals, and storytelling for online platforms.</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Web Developer</div>
+                        <div class="cv-item-subtitle">Personal Projects</div>
+                        <div class="cv-item-description">Building responsive, modern websites using HTML, CSS, and JavaScript with focus on user experience.</div>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div class="cv-card">
+                    <div class="cv-card-title">Education</div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Secondary School</div>
+                        <div class="cv-item-subtitle">Baptist Comprehensive School</div>
+                        <div class="cv-item-description">Completed secondary education with focus on science and creative subjects.</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">University</div>
+                        <div class="cv-item-subtitle">Federal University of Technology, Minna | Computer Science | Current</div>
+                        <div class="cv-item-description">Currently pursuing higher education while developing skills in technology and creative fields.</div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-title">Self-Learning</div>
+                        <div class="cv-item-subtitle">Online Courses & Certifications | Ongoing</div>
+                        <div class="cv-item-description">Continuously learning web development, music production, and creative design through online platforms.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOBBIES SECTION ===== -->
+    <section id="hobbies">
+        <div class="container">
+            <h2 class="section-title">Hobbies & Interests</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎵</div>
+                    <div class="hobby-name">Music</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎬</div>
+                    <div class="hobby-name">Content Creation</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">📚</div>
+                    <div class="hobby-name">Learning New Skills</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">💻</div>
+                    <div class="hobby-name">Coding</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">kelvinpulife@gmail.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">+234 (0) 9012488708</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-label">Location</div>
+                    <div class="contact-value">Nigeria</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 <span class="footer-accent">Pulife Kelvin Kelechi</span>. All rights reserved.</p>
+        <p>Designed & Developed with <span style="color: #ff6b9d;">❤</span> | Student Portfolio</p>
+    </footer>
+</body>
+</html>

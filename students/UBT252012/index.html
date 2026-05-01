@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGI Clinton Moga-Okpahe | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Open Sans',sans-serif;}
+
+body{background:#f9f9f9;color:#333;transition:0.3s;}
+body.dark{background:#0f172a;color:#e5e7eb;}
+
+/* NAV */
+nav{
+position:fixed;width:100%;
+display:flex;justify-content:space-between;align-items:center;
+padding:1rem 2rem;background:#001f3f;color:white;z-index:1000;
+}
+
+nav .links{display:flex;}
+nav .links a{margin-left:1.5rem;}
+
+.menu-btn{display:none;font-size:1.5rem;cursor:pointer;}
+
+@media(max-width:768px){
+nav .links{
+position:absolute;top:70px;left:0;width:100%;
+background:#001f3f;flex-direction:column;text-align:center;
+max-height:0;overflow:hidden;transition:0.3s;
+}
+nav .links.show{max-height:300px;}
+nav .links a{padding:1rem;display:block;}
+.menu-btn{display:block;}
+}
+
+/* HERO */
+header{
+height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+background:linear-gradient(135deg,#001f3f,#00c4b4);
+color:white;padding:0 1rem;
+}
+
+header h1{font-size:3rem;font-family:'Montserrat';}
+.typing{margin-top:10px;height:30px;}
+
+.hero-btn{
+margin-top:1rem;padding:0.9rem 2rem;background:white;
+color:#001f3f;border:none;border-radius:30px;cursor:pointer;
+}
+
+/* SECTIONS */
+section{padding:5rem 2rem;max-width:1100px;margin:auto;}
+h2{text-align:center;margin-bottom:2rem;font-family:'Montserrat';}
+
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:2rem;
+}
+
+.card{
+background:white;padding:1.5rem;border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+body.dark .card{background:#1e293b;}
+
+/* TESTIMONIALS */
+.testimonials{overflow:hidden;}
+.slider{display:flex;transition:0.5s;}
+.testimonial{min-width:100%;padding:2rem;text-align:center;}
+
+/* CONTACT */
+.contact form{
+display:flex;flex-direction:column;gap:1rem;
+max-width:500px;margin:auto;
+}
+.contact input,.contact textarea{
+padding:0.8rem;border-radius:6px;border:1px solid #ccc;
+}
+.contact button{
+padding:1rem;background:#00c4b4;color:white;border:none;border-radius:6px;
+}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem;background:#001f3f;color:white;}
+
+.fade{opacity:0;transform:translateY(20px);transition:1s;}
+.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><strong>AGI Clinton</strong></div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="links" id="navLinks">
+<a href="#about">About</a>
+<a href="#life">Life</a>
+<a href="#achievements">Achievements</a>
+<a href="#testimonials">Reviews</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div onclick="toggleDark()">🌙</div>
+</nav>
+
+<header>
+<h1>AGI Clinton Moga-Okpahe</h1>
+<div class="typing" id="typing"></div>
+
+<button class="hero-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+Contact Me
+</button>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+<h2>About Me</h2>
+<p style="text-align:center;max-width:700px;margin:auto;">
+I am AGI Clinton Moga-Okpahe. I reside in New Kutunku, Gwagwalada, Abuja, and I am originally from Cross River State. 
+I dislike stressful situations and do not like being pushed around. I prefer calm environments where I can focus and be at my best.
+</p>
+</section>
+
+<!-- LIFE -->
+<section id="life" class="fade">
+<h2>Education & Lifestyle</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Education</h3>
+<p>I attended Christ Academy International from primary school to secondary school.</p>
+<p>I graduated with 7 A’s and 2 B’s in my WAEC.</p>
+</div>
+
+<div class="card">
+<h3>Interests</h3>
+<p>I enjoy playing football and watching series. I also like basketball but I am not a fan of music.</p>
+</div>
+
+<div class="card">
+<h3>Personality</h3>
+<p>One fun fact about me is that people around me don’t tend to be sad — I naturally lighten the mood of those I know.</p>
+</div>
+
+<div class="card">
+<h3>Skills</h3>
+<p>Currently, I do not have technical skills, but I am open to growth, learning, and improving myself.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="fade">
+<h2>Achievements</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Creative Work</h3>
+<p>I successfully made my own soap and perfume during secondary school.</p>
+</div>
+
+<div class="card">
+<h3>Academic Recognition</h3>
+<p>I was recognized as the best male student in my class during senior secondary school.</p>
+</div>
+
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="fade">
+<h2>Reviews</h2>
+<div class="testimonials">
+<div class="slider" id="slider">
+
+<div class="testimonial">
+<p>"Clinton has a calm personality and makes everyone feel comfortable."</p>
+</div>
+
+<div class="testimonial">
+<p>"Being around him always lifts the mood."</p>
+</div>
+
+<div class="testimonial">
+<p>"Simple, focused, and easy to relate with."</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+<h2>Contact</h2>
+<div class="contact">
+
+<p style="text-align:center;margin-bottom:1rem;">
+<strong>Email:</strong> clintonagi12@gmail.com <br>
+<strong>Phone:</strong> 08071865877
+</p>
+
+<form onsubmit="submitForm(event)">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="5" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 AGI Clinton Moga-Okpahe</p>
+</footer>
+
+<script>
+// DARK MODE
+function toggleDark(){
+document.body.classList.toggle("dark");
+localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
+}
+if(localStorage.getItem("theme")==="dark"){
+document.body.classList.add("dark");
+}
+
+// MOBILE MENU
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+
+// TYPING TEXT
+const textArray=[
+"Calm and Focused",
+"Positive Energy",
+"Easy to Be Around",
+"Growth Mindset"
+];
+
+let i=0,j=0,text="",del=false;
+
+function type(){
+let el=document.getElementById("typing");
+
+if(!del && j<=textArray[i].length){
+text=textArray[i].substring(0,j++);
+}
+else if(del && j>=0){
+text=textArray[i].substring(0,j--);
+}
+
+el.textContent=text;
+
+if(j===textArray[i].length){del=true;setTimeout(type,1000);return;}
+if(del && j===0){del=false;i=(i+1)%textArray.length;}
+
+setTimeout(type,del?50:100);
+}
+type();
+
+// SCROLL ANIMATION
+const faders=document.querySelectorAll('.fade');
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('show');}
+});
+});
+faders.forEach(el=>observer.observe(el));
+
+// TESTIMONIAL SLIDER
+let index=0;
+setInterval(()=>{
+index=(index+1)%3;
+document.getElementById("slider").style.transform=`translateX(-${index*100}%)`;
+},3000);
+
+// FORM
+function submitForm(e){
+e.preventDefault();
+alert("Message sent successfully!");
+e.target.reset();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Akagu Ejura — Fashion Model & Web Developer</title>
+<meta name="description" content="Portfolio of Akagu Ejura: a fashion model and web developer blending elegance with technology." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root{
+  --bg:#15101f; --bg2:#120e1c; --fg:#f4ecff; --muted:#a89bc2;
+  --primary:#9b59ff; --primary-glow:#c79bff; --primary-deep:#5b2ea8;
+  --accent:#d6a8ff; --gold:#e6c97a; --card:#231838; --border:rgba(155,89,255,0.25);
+  --grad-primary:linear-gradient(135deg,#5b2ea8,#c79bff);
+  --grad-text:linear-gradient(135deg,#f0d9ff,#c79bff);
+  --grad-card:linear-gradient(160deg,rgba(50,30,80,0.9),rgba(30,18,55,0.6));
+  --grad-hero:radial-gradient(ellipse at top,rgba(91,46,168,0.55),transparent 60%),linear-gradient(180deg,#15101f,#0f0a1c);
+  --shadow-glow:0 0 60px rgba(155,89,255,0.45);
+  --shadow-elegant:0 25px 60px -20px rgba(20,10,50,0.7);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--grad-hero);background-attachment:fixed;color:var(--fg);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;letter-spacing:-0.02em;line-height:1.1}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.text-gradient{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(50,30,80,0.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:1rem}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 1.75rem;border-radius:9999px;font-weight:500;transition:all 0.5s var(--ease);cursor:pointer;font-size:0.95rem}
+.btn-primary{background:var(--grad-primary);color:#fff;box-shadow:var(--shadow-glow);border:none}
+.btn-primary:hover{transform:scale(1.05)}
+.btn-outline{border:1px solid rgba(155,89,255,0.4);color:var(--fg);background:transparent}
+.btn-outline:hover{background:rgba(155,89,255,0.1)}
+.icon{width:1rem;height:1rem;stroke-width:2;stroke:currentColor;fill:none}
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:1.25rem 0;transition:all 0.5s var(--ease)}
+header.scrolled{padding:0.75rem 0;background:rgba(50,30,80,0.4);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700}
+.nav-links{display:none;gap:2rem;list-style:none;font-size:0.9rem;color:var(--muted)}
+.nav-links a:hover{color:var(--fg)}
+.nav-cta{display:none}
+@media(min-width:768px){.nav-links{display:flex}.nav-cta{display:inline-flex}}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:7rem 0 5rem;overflow:hidden}
+.orb{position:absolute;border-radius:9999px;filter:blur(80px);animation:float 6s ease-in-out infinite}
+.orb-1{top:25%;left:-5rem;width:24rem;height:24rem;background:rgba(155,89,255,0.3)}
+.orb-2{bottom:2.5rem;right:0;width:28rem;height:28rem;background:rgba(214,168,255,0.2);animation-delay:2s}
+.hero-grid{display:grid;gap:4rem;align-items:center;position:relative;z-index:10}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1fr 1fr}}
+.eyebrow{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 1rem;border-radius:9999px;margin-bottom:1.5rem;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--muted)}
+.eyebrow .icon{color:var(--accent)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;margin-bottom:1.5rem}
+.hero p.lead{font-size:1.125rem;color:var(--muted);max-width:36rem;margin-bottom:2.5rem}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:1rem}
+.stats{margin-top:3.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:28rem}
+.stat-val{font-family:'Playfair Display',serif;font-size:1.875rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted);margin-top:0.25rem}
+.hero-image-wrap{position:relative}
+.hero-image-glow{position:absolute;inset:-1.5rem;background:var(--grad-primary);border-radius:2rem;filter:blur(40px);opacity:0.5;animation:glow 3s ease-in-out infinite}
+.hero-image{position:relative;border-radius:2rem;overflow:hidden;box-shadow:var(--shadow-elegant);border:1px solid rgba(155,89,255,0.3);aspect-ratio:1/1}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.hero-image .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,10,28,0.8),transparent)}
+.hero-badge{position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;padding:1rem;display:flex;align-items:center;gap:0.75rem}
+.hero-badge .icon{color:var(--accent);width:1.25rem;height:1.25rem}
+.hero-badge p:first-child{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.15em}
+.hero-badge p:last-child{font-size:0.875rem;font-weight:500}
+section{padding:8rem 0;position:relative}
+.section-head{max-width:42rem;margin-bottom:4rem}
+.section-eyebrow{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.3em;color:var(--accent);margin-bottom:1rem}
+.section-head h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:1rem}
+.section-head p{color:var(--muted);font-size:1.125rem}
+.about-grid{display:grid;gap:4rem;align-items:center}
+@media(min-width:1024px){.about-grid{grid-template-columns:1fr 1fr}}
+.about-img-wrap{position:relative}
+.about-img-glow{position:absolute;inset:-1rem;background:var(--grad-primary);opacity:0.3;filter:blur(40px);border-radius:1.5rem}
+.about-img{position:relative;border-radius:1.5rem;box-shadow:var(--shadow-elegant);border:1px solid rgba(155,89,255,0.2);width:100%}
+.about p{color:var(--muted);margin-bottom:1.5rem;line-height:1.7}
+.info-grid{display:grid;gap:1rem;margin-top:2.5rem}
+@media(min-width:640px){.info-grid{grid-template-columns:1fr 1fr}}
+.chip{padding:1rem;display:flex;align-items:center;gap:0.75rem;transition:all 0.5s var(--ease)}
+.chip:hover{border-color:rgba(155,89,255,0.6)}
+.chip-icon{width:2.5rem;height:2.5rem;border-radius:0.75rem;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chip-icon .icon{width:1.25rem;height:1.25rem;color:#fff}
+.chip-lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted)}
+.chip-val{font-weight:500}
+.skills-grid{display:grid;gap:1.5rem;grid-template-columns:1fr}
+@media(min-width:640px){.skills-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.skills-grid{grid-template-columns:repeat(4,1fr)}}
+.skill-card{position:relative;background:var(--grad-card);border-radius:1.5rem;padding:2rem;border:1px solid rgba(155,89,255,0.2);transition:all 0.5s var(--ease);overflow:hidden}
+.skill-card:hover{border-color:rgba(155,89,255,0.6);transform:translateY(-0.5rem)}
+.skill-icon{width:3.5rem;height:3.5rem;border-radius:1rem;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;box-shadow:var(--shadow-glow);transition:transform 0.5s var(--ease)}
+.skill-card:hover .skill-icon{transform:scale(1.1)}
+.skill-icon .icon{width:1.75rem;height:1.75rem;color:#fff}
+.skill-card h3{font-size:1.25rem;font-weight:600;margin-bottom:0.75rem}
+.skill-card p{font-size:0.875rem;color:var(--muted);line-height:1.6}
+.hobbies{margin-top:5rem;display:grid;gap:1.5rem}
+@media(min-width:640px){.hobbies{grid-template-columns:1fr 1fr}}
+.hobby{padding:2rem;display:flex;gap:1.25rem;transition:transform 0.5s var(--ease)}
+.hobby:hover{transform:scale(1.02)}
+.hobby-icon{width:3rem;height:3rem;border-radius:0.75rem;background:rgba(214,168,255,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hobby-icon .icon{width:1.5rem;height:1.5rem;color:var(--accent)}
+.hobby-eyebrow{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--accent);margin-bottom:0.5rem}
+.hobby h3{font-size:1.25rem;font-weight:600;margin-bottom:0.5rem}
+.hobby p{font-size:0.875rem;color:var(--muted)}
+.timeline{position:relative;max-width:48rem;margin:0 auto}
+.timeline-line{position:absolute;left:1.5rem;top:0.5rem;bottom:0.5rem;width:1px;background:linear-gradient(to bottom,var(--primary),var(--accent),transparent)}
+.tl-item{position:relative;padding-left:5rem;padding-bottom:3rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:0;top:0;width:3rem;height:3rem;border-radius:9999px;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-glow)}
+.tl-dot .icon{width:1.25rem;height:1.25rem;color:#fff}
+.tl-card{padding:1.5rem}
+.tl-card h3{font-size:1.25rem;font-weight:600}
+.tl-card .place{font-size:0.875rem;color:var(--accent);margin-top:0.25rem}
+.tl-card .detail{color:var(--muted);margin-top:0.75rem;line-height:1.6}
+.contact-card{position:relative;max-width:64rem;margin:0 auto;background:var(--grad-card);border:1px solid rgba(155,89,255,0.3);border-radius:2.5rem;padding:4rem 2.5rem;overflow:hidden;box-shadow:var(--shadow-elegant)}
+.contact-orb-1{position:absolute;top:-8rem;right:-8rem;width:24rem;height:24rem;background:rgba(155,89,255,0.3);border-radius:9999px;filter:blur(80px)}
+.contact-orb-2{position:absolute;bottom:-8rem;left:-8rem;width:24rem;height:24rem;background:rgba(214,168,255,0.2);border-radius:9999px;filter:blur(80px)}
+.contact-grid{position:relative;display:grid;gap:3rem;align-items:center}
+@media(min-width:768px){.contact-grid{grid-template-columns:1fr 1fr}.contact-card{padding:4rem}}
+.contact-card h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:1.5rem}
+.contact-card .lead{color:var(--muted);line-height:1.7}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1.25rem;margin-bottom:1rem;transition:all 0.5s var(--ease)}
+.contact-link:hover{border-color:rgba(155,89,255,0.6)}
+.contact-link .icon-box{width:3rem;height:3rem;border-radius:0.75rem;background:var(--grad-primary);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-glow);transition:transform 0.5s var(--ease)}
+.contact-link:hover .icon-box{transform:scale(1.1)}
+.contact-link .icon-box .icon{width:1.25rem;height:1.25rem;color:#fff}
+.contact-link .lbl{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted)}
+.contact-link .val{font-weight:500;word-break:break-word}
+footer{padding:2.5rem 0;border-top:1px solid rgba(155,89,255,0.2)}
+.footer-inner{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:1rem;font-size:0.875rem;color:var(--muted)}
+@media(min-width:768px){.footer-inner{flex-direction:row}}
+.footer-inner .quote{font-family:'Playfair Display',serif;font-style:italic}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 30px rgba(155,89,255,0.4)}50%{box-shadow:0 0 60px rgba(214,168,255,0.7)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.9s var(--ease) both}
+.delay-200{animation-delay:0.2s}
+</style>
+</head>
+<body>
+<header id="hdr">
+  <div class="container">
+    <nav>
+      <a href="#top" class="logo"><span class="text-gradient">Akagu</span> Ejura</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary nav-cta" style="padding:0.5rem 1.25rem;font-size:0.875rem">Hire Me <i data-lucide="arrow-right" class="icon"></i></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="top" class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="container hero-grid">
+    <div class="fade-up">
+      <div class="eyebrow glass"><i data-lucide="sparkles" class="icon"></i><span>Model · Developer · Visionary</span></div>
+      <h1>Where the <span class="text-gradient">runway</span> meets the <span class="text-gradient">code</span>.</h1>
+      <p class="lead">I'm <strong style="color:var(--fg);font-weight:500">Akagu Ejura</strong> — a fashion model and web developer building a distinctive career at the intersection of style and technology.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Let's Connect <i data-lucide="arrow-right" class="icon"></i></a>
+        <a href="#about" class="btn btn-outline">Discover My Story</a>
+      </div>
+      <div class="stats">
+        <div><div class="stat-val">1+</div><div class="stat-lbl">Years Experience</div></div>
+        <div><div class="stat-val">4</div><div class="stat-lbl">Core Skills</div></div>
+        <div><div class="stat-val">∞</div><div class="stat-lbl">Ambition</div></div>
+      </div>
+    </div>
+    <div class="hero-image-wrap fade-up delay-200">
+      <div class="hero-image-glow"></div>
+      <div class="hero-image">
+        <img src="assets/about-visual.jpg" alt="Akagu Ejura portrait" />
+        <div class="overlay"></div>
+        <div class="hero-badge glass">
+          <i data-lucide="award" class="icon"></i>
+          <div>
+            <p>Currently</p>
+            <p>FUT Minna · 100 Level</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-glow"></div>
+        <img src="assets/about-visual.jpg" alt="Abstract visual" class="about-img" />
+      </div>
+      <div>
+        <p class="section-eyebrow">About Me</p>
+        <h2>A story written in <span class="text-gradient">style and syntax</span>.</h2>
+        <p>I'm a 100-level student at the Federal University of Technology, Minna, where I'm sharpening my craft as a developer while pursuing a parallel career as a fashion model. Two worlds — discipline and creativity — that I refuse to keep separate.</p>
+        <p>My ambition is to become an inspiration to young girls everywhere: proof that you can be elegant, technical, ambitious, and unapologetically yourself.</p>
+        <div class="info-grid">
+          <div class="chip glass"><div class="chip-icon"><i data-lucide="graduation-cap" class="icon"></i></div><div><div class="chip-lbl">Education</div><div class="chip-val">FUT Minna</div></div></div>
+          <div class="chip glass"><div class="chip-icon"><i data-lucide="map-pin" class="icon"></i></div><div><div class="chip-lbl">Based In</div><div class="chip-val">Nigeria</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Skills & Passions</p>
+      <h2>Crafted in <span class="text-gradient">code and couture</span>.</h2>
+      <p>A blend of technical mastery and creative expression — the foundation of everything I build and become.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-icon"><i data-lucide="code-2" class="icon"></i></div><h3>Python</h3><p>Building logic and solutions with one of the most powerful languages.</p></div>
+      <div class="skill-card"><div class="skill-icon"><i data-lucide="braces" class="icon"></i></div><h3>JavaScript</h3><p>Bringing the web to life with interactive, dynamic experiences.</p></div>
+      <div class="skill-card"><div class="skill-icon"><i data-lucide="sparkles" class="icon"></i></div><h3>Modeling</h3><p>Confidence, presence, and storytelling through fashion.</p></div>
+      <div class="skill-card"><div class="skill-icon"><i data-lucide="palette" class="icon"></i></div><h3>Creative Vision</h3><p>Merging aesthetics with function for memorable digital experiences.</p></div>
+    </div>
+    <div class="hobbies">
+      <div class="hobby glass">
+        <div class="hobby-icon"><i data-lucide="book-open" class="icon"></i></div>
+        <div><p class="hobby-eyebrow">Hobby</p><h3>Reading</h3><p>Stories, ideas, and worlds — fuel for an imaginative mind.</p></div>
+      </div>
+      <div class="hobby glass">
+        <div class="hobby-icon"><i data-lucide="music" class="icon"></i></div>
+        <div><p class="hobby-eyebrow">Hobby</p><h3>Music</h3><p>Rhythm and melody — the soundtrack to every creative session.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center">
+      <p class="section-eyebrow">The Journey</p>
+      <h2>Chapters of <span class="text-gradient">growth</span>.</h2>
+      <p>Every step forward is a stitch in the larger tapestry I'm weaving.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="tl-item">
+        <div class="tl-dot"><i data-lucide="graduation-cap" class="icon"></i></div>
+        <div class="tl-card glass"><h3>Federal University of Technology, Minna</h3><p class="place">100 Level · Present</p><p class="detail">Currently pursuing my degree while expanding my technical and creative skill set.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><i data-lucide="sparkles" class="icon"></i></div>
+        <div class="tl-card glass"><h3>Fashion Modeling</h3><p class="place">Ongoing</p><p class="detail">Building presence and storytelling through the runway and editorial work.</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"><i data-lucide="code-2" class="icon"></i></div>
+        <div class="tl-card glass"><h3>Web Development</h3><p class="place">In Progress</p><p class="detail">Mastering Python, JavaScript, and the craft of building meaningful digital products.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-orb-1"></div>
+      <div class="contact-orb-2"></div>
+      <div class="contact-grid">
+        <div>
+          <p class="section-eyebrow">Get in Touch</p>
+          <h2>Let's create something <span class="text-gradient">extraordinary</span>.</h2>
+          <p class="lead">Whether it's a project, a collaboration, or just a conversation — I'd love to hear from you.</p>
+        </div>
+        <div>
+          <a href="mailto:akagu.ejura@example.com" class="contact-link glass"><div class="icon-box"><i data-lucide="mail" class="icon"></i></div><div><div class="lbl">Email</div><div class="val">akagu.ejura@example.com</div></div></a>
+          <a href="#" class="contact-link glass"><div class="icon-box"><i data-lucide="instagram" class="icon"></i></div><div><div class="lbl">Instagram</div><div class="val">@akagu.ejura</div></div></a>
+          <a href="#" class="contact-link glass"><div class="icon-box"><i data-lucide="linkedin" class="icon"></i></div><div><div class="lbl">LinkedIn</div><div class="val">Akagu Ejura</div></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© 2025 Akagu Ejura. All rights reserved.</p>
+    <p class="quote">"Elegance is the only beauty that never fades."</p>
+  </div>
+</footer>
+
+<script>
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => {
+  if (window.scrol

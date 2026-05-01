@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enenche Andrew Oche – FUTMINNA Computer Science Student & Aspiring Developer">
+    <title>Enenche Andrew Oche | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================================
+           CSS CUSTOM PROPERTIES
+        ========================================================= */
+        :root {
+            /* Dark (default) — Deep slate-charcoal with warm brass accent */
+            --bg-base:        #111318;
+            --bg-surface:     #191d26;
+            --bg-elevated:    #1f2433;
+            --glass-bg:       rgba(255, 255, 255, 0.04);
+            --glass-border:   rgba(255, 255, 255, 0.08);
+            --text-primary:   #e8e4dc;
+            --text-secondary: #8a8e9a;
+            --accent:         #c9a96e;   /* warm brass / gold */
+            --accent-soft:    rgba(201, 169, 110, 0.12);
+            --accent-glow:    rgba(201, 169, 110, 0.25);
+            --nav-bg:         rgba(17, 19, 24, 0.90);
+            --card-shadow:    0 4px 32px rgba(0, 0, 0, 0.5);
+            --hr-color:       rgba(255, 255, 255, 0.07);
+        }
+
+        .light-mode {
+            --bg-base:        #f5f2ed;
+            --bg-surface:     #edeae4;
+            --bg-elevated:    #e4e0d8;
+            --glass-bg:       rgba(255, 255, 255, 0.60);
+            --glass-border:   rgba(0, 0, 0, 0.08);
+            --text-primary:   #1a1814;
+            --text-secondary: #5a5650;
+            --accent:         #8b6535;
+            --accent-soft:    rgba(139, 101, 53, 0.10);
+            --accent-glow:    rgba(139, 101, 53, 0.20);
+            --nav-bg:         rgba(245, 242, 237, 0.92);
+            --card-shadow:    0 4px 24px rgba(0, 0, 0, 0.10);
+            --hr-color:       rgba(0, 0, 0, 0.08);
+        }
+
+        /* =========================================================
+           BASE / RESET
+        ========================================================= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.75;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* =========================================================
+           SUBTLE BACKGROUND TEXTURE
+        ========================================================= */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 10%, rgba(201,169,110,0.06) 0%, transparent 60%),
+                radial8gradient(ellipse 60% 80% at 80% 90%, rgba(56,80,140,0.07) 0%, transparent 60%),
+                var(--bg-base);
+            pointer-events: none;
+        }
+
+        .light-mode body::before {
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 10%, rgba(139,101,53,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 80% at 80% 90%, rgba(100,80,60,0.04) 0%, transparent 60%),
+                var(--bg-base);
+        }
+
+        /* =========================================================
+           WATERMARK
+        ========================================================= */
+        .glass-watermark-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .glass-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18vw;
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(201, 169, 110, 0.06);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            white-space: nowrap;
+            user-select: none;
+            animation: slowDrift 20s ease-in-out infinite;
+        }
+
+        @keyframes slowDrift {
+            0%, 100% { transform: translateY(0) rotate(-4deg); }
+            50%       { transform: translateY(24px) rotate(-2deg); }
+        }
+
+        /* =========================================================
+           FLOATING AMBIENT TAGS  (fixed loop)
+        ========================================================= */
+        .floating-tag {
+            position: fixed;
+            padding: 6px 16px;
+            background: var(--accent-soft);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            z-index: 0;
+            pointer-events: none;
+            /* Each tag uses a CSS animation that loops seamlessly */
+            animation: tagRise linear infinite;
+        }
+
+        @keyframes tagRise {
+            from { transform: translateY(110vh); opacity: 0; }
+            10%  { opacity: 0.6; }
+            90%  { opacity: 0.6; }
+            to   { transform: translateY(-15vh); opacity: 0; }
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: background 0.4s ease;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 8px; }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+            letter-spacing: 0.03em;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        #theme-toggle {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: background 0.25s, color 0.25s;
+            letter-spacing: 0.04em;
+        }
+
+        #theme-toggle:hover {
+            background: var(--accent);
+            color: var(--bg-base);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .hero-avatar {
+            width: 136px;
+            height: 136px;
+            border: 2px solid var(--accent);
+            object-fit: cover;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 0 6px var(--accent-soft), 0 0 40px var(--accent-glow);
+            animation: morphShape 10s ease-in-out infinite;
+        }
+
+        @keyframes morphShape {
+            0%, 100% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+            50%       { border-radius: 55% 45% 38% 62% / 52% 30% 70% 48%; }
+        }
+
+        .hero-welcome {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-role {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-bio {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 480px;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           GLASS CARD
+        ========================================================= */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--card-shadow), 0 0 0 1px var(--glass-border);
+        }
+
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            text-align: center;
+            color: var(--accent);
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 600;
+            margin: 64px 0 28px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+            margin: 12px auto 0;
+            opacity: 0.5;
+        }
+
+        /* About */
+        .about-text {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.97rem;
+            margin-bottom: 1rem;
+        }
+
+        hr.divider {
+            border: 0;
+            border-top: 1px solid var(--hr-color);
+            margin: 20px 0;
+        }
+
+        .meta-row {
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-row strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Bio Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .grid .glass-card {
+            text-align: center;
+            padding: 22px 16px;
+        }
+
+        .grid .glass-card strong {
+            display: block;
+            color: var(--accent);
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .grid .glass-card span {
+            font-size: 0.92rem;
+            color: var(--text-primary);
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 0 60px;
+        }
+
+        .skill-tag {
+            background: var(--accent-soft);
+            border: 1px solid rgba(201, 169, 110, 0.30);
+            color: var(--accent);
+            padding: 7px 18px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            transition: background 0.25s, transform 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           WHATSAPP BUTTON
+        ========================================================= */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 20px;
+            background: rgba(37, 211, 102, 0.10);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(37, 211, 102, 0.25);
+            border-radius: 50px;
+            color: #e8e4dc;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 9999;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.30);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                        background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-6px) scale(1.03);
+            background: rgba(37, 211, 102, 0.22);
+            border-color: #25D366;
+        }
+
+        .whatsapp-float img {
+            filter: drop-shadow(0 0 4px rgba(37, 211, 102, 0.45));
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+        footer {
+            text-align: center;
+            padding: 56px 20px 40px;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--glass-border);
+            margin-top: 20px;
+            transition: background 0.4s ease;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover { color: var(--accent); }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            opacity: 0.6;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+        @media (max-width: 600px) {
+            nav { padding: 0.8rem 4%; }
+            .nav-links a { display: none; }
+            .grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background watermark -->
+    <div class="glass-watermark-bg" aria-hidden="true">
+        <div class="glass-text">FUTMINNA</div>
+    </div>
+
+    <!-- Ambient floating tags (fixed loop via animation-delay) -->
+    <div class="floating-tag" aria-hidden="true" style="left:9%;  animation-duration:28s; animation-delay:0s;">FUTMINNA</div>
+    <div class="floating-tag" aria-hidden="true" style="left:16%; animation-duration:22s; animation-delay:-8s;">CPT112</div>
+    <div class="floating-tag" aria-hidden="true" style="left:79%; animation-duration:20s; animation-delay:-4s;">FUTMINNA</div>
+    <div class="floating-tag" aria-hidden="true" style="left:86%; animation-duration:25s; animation-delay:-14s;">CPT112</div>
+
+    <!-- Navigation -->
+    <nav>
+        <span class="nav-logo">ËÅÕ</span> 
+        <div>
+            <a href="b.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#bio">Bio</a>
+            <a href="#contact">Contact</a>
+            <p <button id="theme-toggle" aria-label="Toggle colour theme">☀️ Light</button> </p>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img class="hero-avatar" src="odk.jpg" alt="Portrait of Enenche Andrew Oche">
+        <p class="hero-welcome">Welcome</p>
+        <h1 class="hero-name">Enenche Andrew Oche</h1>
+        <p class="hero-role">FUTMINNA · Computer Science · 100 Level</p>
+        <p class="hero-bio">Passionate about coding and problem-solving, working toward becoming a developer who builds meaningful, modern web applications.</p>
+    </section>
+
+    <!-- Main content -->
+    <main class="container">
+
+        <h2 id="about" class="section-title">About Me</h2>
+        <div class="glass-card">
+            <p class="about-text">I am a student of the Federal University of Technology, Minna (FUTMINNA), residing in Abuja. I have a deep passion for coding and problem-solving, with a primary focus on building modern web applications and contributing to technology that impacts society.</p>
+            <hr class="divider">
+            <p class="meta-row"><strong>Marital Status:</strong> Single &nbsp;·&nbsp; <strong>Hobbies:</strong> Reading, Football, Music, Programming</p>
+        </div>
+
+        <h2 id="bio" class="section-title">Bio-Data</h2>
+        <div class="grid">
+            <div class="glass-card"><strong>Date of Birth</strong><span>27th January</span></div>
+            <div class="glass-card"><strong>Institution</strong><span>FUTMINNA</span></div>
+            <div class="glass-card"><strong>Course</strong><span>Computer Science</span></div>
+            <div class="glass-card"><strong>Level</strong><span>100 Level</span></div>
+            <div class="glass-card"><strong>Faculty</strong><span>SICT</span></div>
+            <div class="glass-card"><strong>Matric No.</strong><span>2025/1/102096CT</span></div>
+            <div class="glass-card"><strong>State of Origin</strong><span>Benue State</span></div>
+            <div class="glass-card"><strong>Year Admitted</strong><span>2025</span></div>
+        </div>
+
+        <h2 class="section-title">Tech Skills</h2>
+        <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Computer Technician </span>
+        </div>
+
+    </main>
+
+    <!-- WhatsApp CTA -->
+    <a href="https://wa.me/2349154103673" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="22" alt="">
+        <span>Chat with me</span>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-contact">
+            <a href="tel:+2349154103673">📞 +234 915 410 3673</a>
+            <a href="mailto:enencheandrew3080@gmail.com">✉️ enencheandrew3080@gmail.com</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Enenche Andrew Oche · All rights reserved</p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        btn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            btn.textContent = isLight ? '🌙 Dark' : '☀️ Light';
+            btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+        });
+    </script>
+</body>
+</html>
