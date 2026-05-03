@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* Wrapper */
+.wrapper {
+  width: 90%;
+  max-width: 400px;
+}
+
+/* Profile Card */
+.profile-card {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #a855f7;
+  box-shadow: 0 0 25px #a855f7;
+  object-fit: cover;
+}
+
+.profile-card h1 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.profile-card p,h4{
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+/* About Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.grid div {
+  background: rgba(255,255,255,0.08);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* Skills */
+.skills {
+  margin-top: 10px;
+}
+
+.skills span {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 5px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #a855f7, #6366f1);
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.skills span:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #a855f7;
+}

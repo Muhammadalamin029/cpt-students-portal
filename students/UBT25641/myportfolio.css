@@ -1,0 +1,121 @@
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5; width: 100%
+}
+
+/* 🔝 HEADER */
+.header {
+  position: relative;
+}
+
+.nav {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+
+
+
+
+
+.header {
+  background-color: #2c2f3a;
+  color: white;
+  padding: 100px 20px 40px;
+  text-align: center; width: 100%
+}
+img{
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 5px solid #dcdcdc; /* white ring */
+  
+  display: block;
+  margin: 0 auto 15px; /* center it */
+}
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin-top: 5px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* 📦 MAIN LAYOUT */
+.container {
+  display: flex; width: 100%
+}
+
+/* ⬅ LEFT PANEL */
+.left {
+  width: 30%;
+  background-color: #e6e6e6;
+  padding: 20px;
+  text-align: left;
+}
+
+/* ➡ RIGHT PANEL */
+.right {
+  width: 70%;
+  padding: 25px;
+  background-color: white;
+}
+
+/* 🖼 PROFILE IMAGE */
+.profile {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  /* 🔥 THE STRIPE EFFECT */
+  border: 6px solid #2c2f3a;
+
+  margin-top: -70px; /* pulls image into header */
+  background-color: white;
+}
+
+/* HEADINGS */
+h2 {
+  border-bottom: 2px solid #2c2f3a;
+  padding-bottom: 5px;
+}
+
+h3 {
+  margin-top: 20px; border-bottom: 2px solid #2c2f3a;
+  padding-bottom: 5px;
+}
+
+/* TEXT */
+p {
+  font-size: 14px; font-weight: 500;
+}
+
+/* LISTS */
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px; font-weight: 500;
+}
+html{scroll-behavior: smooth
+}

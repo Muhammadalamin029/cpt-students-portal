@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healson Shlomon | Portfolio</title>
+    <style>
+        * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100vw;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            background-image: radial-gradient(ellipse at 20% 50%, rgba(77,51,12,0.15) 0%, transparent 50%),
+                              radial-gradient(ellipse at 80% 20%, rgba(143,103,43,0.1) 0%, transparent 40%);
+        }
+
+        /* Starfield background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
+                radial-gradient(1px 1px at 10% 15%, rgba(255,174,0,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 25% 40%, rgba(255,200,50,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,174,0,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 60%, rgba(200,150,0,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 70% 25%, rgba(255,174,0,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 85% 70%, rgba(255,200,50,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 15% 75%, rgba(255,174,0,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 45%, rgba(200,150,0,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 33% 85%, rgba(255,174,0,0.5) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 60% 90%, rgba(255,200,50,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 5% 50%, rgba(255,174,0,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 5%, rgba(200,150,0,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 48% 35%, rgba(255,174,0,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 92% 80%, rgba(255,200,50,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 20% 95%, rgba(255,174,0,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 65% 55%, rgba(200,150,0,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 38% 65%, rgba(255,174,0,0.4) 0%, transparent 100%),
+                radial-gradient(1px 1px at 82% 30%, rgba(255,200,50,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 50% 80%, rgba(255,174,0,0.3) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 7% 30%, rgba(200,150,0,0.6) 0%, transparent 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* NAV */
+        .main {
+            width: 100vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(77,51,12,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo h2 {
+            color: #cccccc;
+            font-weight: 800;
+            font-size: 25px;
+            margin-left: 0.8rem;
+            border: 2px solid;
+            border-radius: 32px;
+            padding: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo h2:hover {
+            text-shadow: 0px 0px 10px #ffae00;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        nav {
+            margin-right: 6%;
+            display: flex;
+            gap: 50px;
+        }
+
+        nav a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+
+        nav a:hover, nav a.active {
+            transform: scale(1.2);
+            text-decoration: underline;
+            text-decoration-color: #ffae00;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+
+        /* HERO SECTION */
+        .section1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-top: 100px;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 45px;
+            text-align: left;
+            word-spacing: 10px;
+            margin-top: 0px;
+            padding-top: 1%;
+        }
+
+        .hello { color: #acaaaa; text-shadow: 0px 0px 5px #ffffff; }
+
+        .name {
+            color: #8f672b;
+            text-shadow: 0px 0px 5px #ffae00;
+            width: 22ch;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #ffae00;
+            display: inline-block;
+            animation: nameTyping 9s steps(22) infinite, blink 0.7s step-end infinite;
+        }
+
+        @keyframes nameTyping {
+            0%   { width: 0 }
+            20%  { width: 100% }
+            80%  { width: 100% }
+            100% { width: 0 }
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50%       { border-color: #ffae00; }
+        }
+
+        .bio {
+            font-size: 22px;
+            text-align: left;
+            color: #ffae00;
+            text-shadow: 0px 0px 5px #918f8f;
+        }
+
+        .type-wrap { display: inline-block; vertical-align: baseline; }
+
+        .type {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #ffae00;
+            display: inline-block;
+        }
+
+        .delay {
+            width: 25ch;
+            animation: delayTyping 9s steps(25) infinite, blink 0.7s step-end infinite;
+        }
+
+        @keyframes delayTyping {
+            0%   { width: 0 }
+            20%  { width: 0 }
+            40%  { width: 100% }
+            80%  { width: 100% }
+            100% { width: 0 }
+        }
+
+        .leftside { padding-left: 20px; }
+
+        .leftside p {
+            text-align: justify;
+            font-size: 15px;
+            color: #acaaaa;
+            padding: 20px 0px;
+        }
+
+        .btns { display: flex; gap: 30px; padding: 5% 0%; }
+
+        .btn1 {
+            border: 1px solid #5c3904;
+            outline: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: #a3a2a2;
+            background-color: #5c3904;
+            font-size: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn2 {
+            border: 1px solid #fff;
+            outline: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: #a3a2a2;
+            background-color: transparent;
+            font-size: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn1:hover {
+            color: #5c3904;
+            background-color: #a3a2a2;
+            border: 1px solid #4d330c;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px #ffae00;
+        }
+
+        .btn2:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px #ffae00;
+        }
+
+        .rightside img {
+            width: 65vh;
+            height: auto;
+            margin-top: 10%;
+            padding-right: 20px;
+            transition: transform 0.4s ease;
+        }
+
+        .rightside img:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        /* SECTION STYLES */
+        .content-section {
+            position: relative;
+            z-index: 1;
+            margin: 20px;
+            padding: 40px;
+            background: rgba(30, 20, 5, 0.7);
+            border: 1px solid rgba(255,174,0,0.2);
+            border-radius: 16px;
+            backdrop-filter: blur(6px);
+        }
+
+        .content-section h2 {
+            color: #ffae00;
+            font-size: 32px;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-section h2::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            left: 0;
+            bottom: -10px;
+            border-radius: 10px;
+            background-color: #ffae00;
+        }
+
+        /* BIODATA TABLE */
+        .bio-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .bio-table td {
+            padding: 14px 16px;
+            border: 1px solid rgba(255,174,0,0.2);
+            color: #acacac;
+            font-size: 15px;
+        }
+
+        .bio-table tr td:first-child {
+            color: #ffae00;
+            font-weight: 600;
+            width: 220px;
+            background: rgba(77,51,12,0.3);
+        }
+
+        .bio-table tr:hover td {
+            background: rgba(77,51,12,0.4);
+        }
+
+        /* ABOUT */
+        .about-body {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .about-leftside { color: #acacac; flex: 1; }
+
+        .about-leftside h3 {
+            padding: 10px 0px;
+            font-size: 24px;
+            color: #ffae00;
+        }
+
+        .about-leftside p {
+            padding: 10px 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .skills-list { padding: 10px 20px; }
+        .skills-list li { padding: 6px 0; color: #cc8d06; font-size: 15px; }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            background-color: transparent;
+            color: #acacac;
+            border: 2px solid #ffae00;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 1.0s ease;
+            text-align: center;
+        }
+
+        .stat h3 { font-size: 28px; color: #cc8d06; }
+        .stat p { font-size: 13px; margin-top: 5px; }
+
+        .stat:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(255,174,0,0.2);
+        }
+
+        /* EDUCATION */
+        .edu-list { list-style: none; padding: 0; }
+        .edu-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,174,0,0.15);
+            color: #acacac;
+            font-size: 15px;
+        }
+        .edu-list li b { color: #ffae00; }
+
+        /* EXPERIENCE */
+        .card {
+            background: rgba(77,51,12,0.25);
+            border: 1px solid rgba(255,174,0,0.2);
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 20px rgba(255,174,0,0.15);
+        }
+
+        .card h3 { color: #ffae00; margin-bottom: 8px; font-size: 18px; }
+        .card p { color: #acacac; font-size: 14px; line-height: 1.6; }
+
+        /* PORTFOLIO PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .project-card {
+            background: rgba(77,51,12,0.25);
+            border: 1px solid rgba(255,174,0,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0px 10px 25px rgba(255,174,0,0.2);
+        }
+
+        .project-card h3 {
+            color: #ffae00;
+            font-size: 17px;
+            padding: 16px 16px 8px;
+        }
+
+        .project-card p {
+            color: #acacac;
+            font-size: 13px;
+            padding: 0 16px 12px;
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,174,0,0.2);
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .img-wrapper img {
+            transform: scale(1.05);
+        }
+
+
+
+        /* FOOTER */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            background-color: #4d330c;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p { color: #8f8d8d; font-size: 15px; }
+        footer a { text-decoration: none; color: #8f8d8d; }
+        footer a:hover { text-decoration: underline; color: #ffae00; }
+
+        /* RESPONSIVE */
+        @media only screen and (max-width: 1024px) {
+            nav { gap: 25px; }
+            nav a { font-size: 13px; }
+            .rightside img { display: none; }
+            .section1 { flex-direction: column; padding-top: 120px; }
+            .leftside { margin: 5%; }
+            .about-body { flex-direction: column; }
+            .about-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media only screen and (max-width: 768px) {
+            nav { gap: 15px; }
+            nav a { font-size: 11px; }
+            .logo h2 { font-size: 18px; padding: 8px; }
+            h1 { font-size: 34px; }
+            .bio { font-size: 18px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        @media only screen and (max-width: 480px) {
+            nav { gap: 12px; margin-right: 5%; }
+            nav a { font-size: 8px; }
+            .logo h2 { font-size: 10px; padding: 6px; }
+            h1 { font-size: 26px; }
+            .bio { font-size: 14px; }
+            .leftside p { font-size: 11px; }
+            .btns { flex-direction: column; }
+            .btn1, .btn2 { width: 160px; font-size: 13px; }
+            .content-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <section class="main">
+        <span class="logo"><h2>HS</h2></span>
+        <nav>
+            <a class="active" href="#home">HOME</a>
+            <a href="#biodata">BIODATA</a>
+            <a href="#about">ABOUT</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#experience">EXPERIENCE</a>
+            <a href="#portfolio">PORTFOLIO</a>
+        </nav>
+    </section>
+
+    <!-- HERO -->
+    <section class="section1" id="home">
+        <div class="leftside">
+            <h1><span class="hello">Hello!</span></h1>
+            <h1>
+                <div class="type-wrap">
+                    <span class="type name">I'm Healson Shlomon</span>
+                </div>
+            </h1>
+            <h2>
+                <div class="type-wrap">
+                    <span class="bio type delay">I am a CS Student & Developer!</span>
+                </div>
+            </h2>
+            <p>
+                <i>Passionate about technology and building innovative solutions. <br>
+                Studying Computer Science at FUT Minna with a focus on web development and problem solving.</i>
+            </p>
+            <div class="btns">
+                <a href="mailto:Healsonpsubt25618.futminna.edu.ng" style="text-decoration:none;">
+                    <button class="btn1">Contact Me ✉</button>
+                </a>
+                <a href="#portfolio" style="text-decoration:none;">
+                    <button class="btn2">View Projects 📁</button>
+                </a>
+            </div>
+        </div>
+        <div class="rightside">
+            <img src="file_0000000097c471f4858883c1edbd4061.png" alt="Developer Illustration">
+        </div>
+    </section>
+
+    <!-- BIODATA -->
+    <section class="content-section" id="biodata">
+        <h2>Biodata</h2>
+        <table class="bio-table">
+            <tr><td>Full Name</td><td>Healson Pheevami Shlomon</td></tr>
+            <tr><td>Matric No.</td><td>2025/1/101761CT</td></tr>
+            <tr><td>State of Origin</td><td>Taraba State</td></tr>
+            <tr><td>Current State</td><td>Abuja (FCT)</td></tr>
+            <tr><td>School</td><td>Federal University of Technology, Minna</td></tr>
+            <tr><td>Department</td><td>Computer Science</td></tr>
+            <tr><td>Level</td><td>100 Level</td></tr>
+            <tr><td>Email</td><td>Healsonpsubt25618@st.futminna.edu.ng</td></tr>
+            <tr><td>Phone</td><td>07066323234</td></tr>
+            <tr><td>Date of Birth</td><td>7th October, 2008</td></tr>
+        </table>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="content-section" id="about">
+        <h2>About Me</h2>
+        <div class="about-body">
+            <div class="about-leftside">
+                <h3>Passionate Developer & Problem Solver</h3>
+                <p>
+                    <i>With 400+ days of experience in web development, I specialize in
+                    creating responsive, user-friendly websites and applications.
+                    My expertise includes:</i>
+                </p>
+                <ul class="skills-list">
+                    <li>Frontend: HTML, CSS, JavaScript, React</li>
+                    <li>Backend: Node.js, Python, PHP</li>
+                    <li>Databases: MySQL, MongoDB</li>
+                    <li>Tools: Git, VS Code, Figma</li>
+                </ul>
+            </div>
+            <div class="about-stats">
+                <div class="stat"><h3>3+</h3><p>Projects Completed</p></div>
+                <div class="stat"><h3>400+</h3><p>Days Experience</p></div>
+                <div class="stat"><h3>100L</h3><p>Current Level</p></div>
+                <div class="stat"><h3>CS</h3><p>Department</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="content-section" id="skills">
+        <h2>Skills</h2>
+        <div class="about-body">
+            <div class="about-leftside">
+                <h3>Technical Skills</h3>
+                <ul class="skills-list">
+                    <li>HTML & CSS — Web structure and styling</li>
+                    <li>JavaScript — Interactive web development</li>
+                    <li>React — Component-based UI development</li>
+                    <li>Node.js & Python — Backend development</li>
+                    <li>MySQL & MongoDB — Database management</li>
+                    <li>Git & GitHub — Version control</li>
+                    <li>Figma & VS Code — Design & development tools</li>
+                </ul>
+            </div>
+            <div class="about-leftside">
+                <h3>Soft Skills</h3>
+                <ul class="skills-list">
+                    <li>Problem Solving & Critical Thinking</li>
+                    <li>Team Collaboration</li>
+                    <li>Attention to Detail</li>
+                    <li>Continuous Learning</li>
+                    <li>Communication</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="content-section" id="education">
+        <h2>Education</h2>
+        <ul class="edu-list">
+            <li><b>Primary School:</b> Ruby Schools International</li>
+            <li><b>Secondary School:</b> Ruby Schools International</li>
+            <li><b>Current (Tertiary):</b> Federal University of Technology, Minna — B.Sc. Computer Science, 100 Level</li>
+        </ul>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="content-section" id="experience">
+        <h2>Experience</h2>
+        <div class="card">
+            <h3>Web Developer (Self-Taught)</h3>
+            <p>400+ days of hands-on experience building web projects including clones of major platforms, personal portfolio sites, and responsive web applications using HTML, CSS, JavaScript, and React.</p>
+        </div>
+        <div class="card">
+            <h3>Frontend Development</h3>
+            <p>Developed and deployed multiple frontend projects with a focus on UI accuracy, performance, and responsive design across devices.</p>
+        </div>
+        <div class="card">
+            <h3>Computer Science Student — FUT Minna</h3>
+            <p>Currently studying Computer Science, gaining formal knowledge in algorithms, data structures, programming, and software engineering principles.</p>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="content-section" id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="projects-grid">
+
+            <!-- Facebook Clone -->
+            <div class="project-card">
+                <div class="img-wrapper">
+                    <img src="facebook homepage duplicate.jpeg" alt="Facebook Homepage Clone">
+                </div>
+                <h3>Facebook Homepage Clone</h3>
+                <p>A pixel-accurate replica of Facebook's login/homepage, built with HTML and CSS to demonstrate UI cloning skills.</p>
+            </div>
+
+            <!-- Google Clone -->
+            <div class="project-card">
+                <div class="img-wrapper">
+                    <img src="Google Hompage Duplicate.jpeg" alt="Google Homepage Clone">
+                </div>
+                <h3>Google Homepage Clone</h3>
+                <p>A faithful recreation of Google's homepage including the search bar, buttons, and responsive layout using pure HTML and CSS.</p>
+            </div>
+
+            <!-- Personal Portfolio -->
+            <div class="project-card">
+                <div class="img-wrapper">
+                    <img src="personal portfolio project.png" alt="Personal Portfolio">
+                </div>
+                <h3>Personal Portfolio Website</h3>
+                <p>Built from scratch with custom animations, a starfield background, responsive layout, and a typewriter name effect.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <a href="mailto:healsonpsubt25618@st.futminna.edu.ng">
+            <p>© 2026 Healson Pheevami Shlomon — Healsonpsubt25618.futminna.edu.ng</p>
+        </a>
+    </footer>
+    <script>
+        // Scroll-based active nav highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                // If user has scrolled into this section
+                if (window.pageYOffset >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            // Remove active class from all links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to current section's link
+            if (currentSection) {
+                const activeLink = document.querySelector(`nav a[href="#${currentSection}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+ 
+
+</body>
+</html>

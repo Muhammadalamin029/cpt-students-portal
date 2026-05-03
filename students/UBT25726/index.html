@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USMAN JESSE EBO  | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #9b59b6; 
+            --bg: #080808;
+            --card: #121212;
+            --text: #ffffff;
+            --dim: #a0a0a0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Smooth Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; position: fixed; width: 100%;
+            background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(10px); z-index: 1000;
+            border-bottom: 1px solid rgba(155, 89, 182, 0.1);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; transition: 0.3s; cursor: pointer; }
+        .logo:hover { transform: scale(1.05); }
+        .logo span { color: var(--primary); }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--dim); font-size: 0.9rem; transition: 0.3s; position: relative; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero Section */
+        .hero { display: flex; height: 100vh; align-items: center; padding: 0 8%; gap: 50px; }
+        .hero-content { flex: 1; }
+        .hero-content h1 { font-size: 4rem; font-weight: 700; margin-bottom: 10px; animation: fadeIn 1s ease-in; }
+        .hero-content h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(155, 89, 182, 0.3); }
+        
+        /* Interactive Photo Box */
+        .hero-image { flex: 1; display: flex; justify-content: center; animation: float 6s ease-in-out infinite; }
+        .image-box {
+            width: 350px; height: 450px; background: #1a1a1a;
+            border-radius: 20px; overflow: hidden; border: 2px solid var(--primary);
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.2); transition: 0.5s;
+        }
+        .image-box:hover { transform:  translateY(-15px) scale(1.02);box-shadow: 0 0 50px rgba(155, 89, 182, 0.4); }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%); transition: 0.5s; }
+        .image-box:hover img { filter: grayscale(0%); }
+
+        /* Section Styling */
+        .section { padding: 100px 8%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .underline { width: 60px; height: 4px; background: var(--primary); margin-bottom: 50px; border-radius: 2px; }
+ The Grid Layout */
+                       .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #121212;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+.card:hover, .card:active {
+    transform: translateY(-10px);
+    background: #1a1a1a;
+    border-color: #9b59b6;
+
+    box-shadow:
+    0 0 10px #9b59b6,
+    0 0 20px #9b59b6,
+    0 0 40px #9b59b6;
+}
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.8), 
+                        0 0 40px rgba(155, 89, 182, 0.4);
+        }
+
+        .card i { 
+            font-size: 2.5rem; 
+            color: #9b59b6; 
+            margin-bottom: 20px; 
+            display: block;
+            transition: 0.3s; 
+        }
+
+        .card:hover i, .card:active i {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+            margin-bottom: 20px; 
+            display: block; /* Puts the icon on its own line */
+            transition: 0.3s; 
+        }
+
+        /* 84. Icon turns white on touch */
+        .card:hover i, .card:active i {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+                        0 0 40px rgba(155, 89, 182, 0.4) !important;
+        }
+ The Card Icons */
+        .card i { 
+            font-size: 2.5rem !important; 
+            color: #9b59b6 !important; 
+            margin-bottom: 20px !important; 
+            transition: 0.3s !important; 
+        }
+ Icon Highlight */
+        .card:hover i, .card:active i {
+            color: #ffffff !important;
+            transform: scale(1.1) !important;
+            text-shadow: 0 0 10px #9b59b6 !important;
+        }                        
+/* Makes the icon turn bright white to complete the highlight */
+        .card:hover i, .card:active i {
+            color: #ffffff !important;
+            transform: scale(1.1) !important;
+            text-shadow: 0 0 10px #9b59b6 !important;
+        }
+  /* Makes the icon glow white when you touch the card */
+        .card:hover i, .card:active i {
+            color: #ffffff !important;
+            transform: scale(1.1) !important;
+        }
+            transform: translateY(-20px);
+            background: #1a1a1a;
+            border-color: #9b59b6;
+            box-shadow: 0 0 30px rgba(155, 89, 182, 0.6); /* Purple Glow */
+        }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; transition: 0.3s; }
+        .card:hover i { transform: scale(1.2) rotate(5deg); }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; margin-top: 30px; }
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.4s; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3); }
+        .btn-secondary { border: 2px solid var(--primary); color: white; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(155, 89, 182, 0.5); }
+
+        /* Animations */
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+
+        @media (max-width: 992px) {
+            .hero { flex-direction: column-reverse; text-align: center; height: auto; padding-top: 150px; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .image-box { width: 280px; height: 350px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Port<span>folio</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h3 style="color: var(--primary); letter-spacing: 3px;">WELCOME</h3>
+            <h1>USMAN <span>JESSE</span> EBO</h1>
+            <p>Digital Strategist & Python Developer. Crafting high-end YouTube automation and cinematic stories from the heart of Port Harcourt.</p>
+            <div class="btn-group">
+                <a href="tel:07062195940" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-box">
+                <img src="image.png" alt="Usman Jesse Ebo">
+            </div>
+        </div>
+   </div>
+</div>
+    </section>
+
+    <section class="section reveal" id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h4>Education</h4>
+                <p>Air Force Secondary School & Primary School, Port Harcourt.</p>
+                MATRIC NO : 2025/1/1003391CT
+                STUDENT ID : UBT25726
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-users-rectangle"></i>
+                <h4>Family</h4>
+                <p>Proudly supported by Mom.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-basketball"></i>
+                <h4>Hobbies</h4>
+                <p>Passionate about Basketball, Tech Hardware, and Creative Design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reveal" id="skills">
+        <div class="section-header">
+            <h2>Expertise</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-brands fa-python"></i>
+                <h4>Python Coding</h4>
+                <p>Certified developer focusing on automation and data scripting.</p>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-youtube"></i>
+                <h4>YouTube Automation</h4>
+                <p>Expert in managing viral channels and content workflows.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-clapperboard"></i>
+                <h4>Video Production</h4>
+                <p>Professional cinematic editing and investigative storytelling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reveal" id="contact">
+        <div class="section-header">
+            <h2>Contact</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-phone-flip"></i>
+                <h4>Phone</h4>
+                <p><a href="tel:07062195940" style="color: white; text-decoration: none;">07062195940</a></p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-envelope"></i>
+                <h4>Gmail</h4>
+                <p>Jesseusman960@gmail.com</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h4>Office</h4>
+                <p>Air Force Base, Port Harcourt, Nigeria.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 60px; color: var(--dim); font-size: 0.8rem; border-top: 1px solid #1a1a1a;">
+        &copy; 2026 USMAN JESSE EBO | ALL RIGHTS RESERVED
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Run once on load
+        reveal();
+    </script>
+
+</body>
+</html>

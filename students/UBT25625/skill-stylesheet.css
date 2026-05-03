@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  background-color: #0a0a0a;
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+
+.main-skills {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 250px;
+    row-gap: 15px;
+    column-gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .main-skills {
+        grid-template-columns: 1fr;
+        grid-template-rows: 350px 350px 350px 350px;
+    }
+
+    .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;  
+        padding-top: 0;
+        margin-top: -8px;      
+    }
+
+    .head {
+        padding-top: 90px;
+    }
+    
+}
+
+.skill-done {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid;
+    border-color: rgb(0, 175, 239);
+    border-radius: 10px;
+    border-width: 5px;
+    padding: 10px;
+
+}
+
+@media (max-width: 780px) {
+    .skill-done {
+        flex-direction: column;
+    }
+
+
+}
+
+.head {
+    height: 90px;
+}
+
+.skill {
+    height: 50px;
+    border: solid;
+    border-width: 7px;
+    border-radius: 10px;
+    border-color: rgb(0, 175, 239);
+    font-weight: 1000;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.img-div {
+    height: 200px;
+    width: 200px;
+    padding-right: 10px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.per-done {
+    background-color: black;
+    height: 10px;
+}
+
+.show-done {
+    background-color: cyan;
+    height: 10px;
+    width: 80%;
+}
+
+.shon-done {
+    background-color: cyan;
+    height: 10px;
+    width: 90%; 
+}
+
+.shom-done {
+    background-color: cyan;
+    height: 10px;
+    width: 70%; 
+}
+
+.div {
+    flex: 1;
+}
+
+p {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}

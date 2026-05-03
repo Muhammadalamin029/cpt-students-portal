@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile Webpage</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a, #140021);
+    color: white;
+    text-align: center;
+}
+
+/* NAVBAR */
+nav {
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav h2 {
+    color: #bb86fc;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+/* PROFILE */
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #bb86fc;
+    margin-top: 30px;
+    box-shadow: 0 0 20px #bb86fc;
+    animation: float 3s infinite ease-in-out;
+}
+
+h1 {
+    margin-top: 10px;
+}
+
+/* GLASS BOXES */
+.about {
+    margin-top: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    padding: 15px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #bb86fc;
+}
+
+/* SKILLS */
+.skills span {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid #bb86fc;
+    color: #bb86fc;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    background: #bb86fc;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>JOSHUA</h2>
+    <ul>
+        <li>Home</li>
+        <li>About Me</li>
+        <li>Skills</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<!-- PROFILE -->
+<div class="profile">
+    <img src="profile.jpg" alt="My Picture">
+    <h1>Hey there, I'm Joshua</h1>
+    <p>Computer Science Student | Lover of Technology</p>
+</div>
+
+<!-- ABOUT -->
+<div class="about">
+    <h2>A computer science student at the Federal university of Technology, Minna aiming to play a vital role in the advancement of technology in all positive aspescts of life</h2>
+
+    <div class="grid">
+        <div class="box">Date of Birth: April 29</div>
+        <div class="box">School: Federal University of Technology, Minna</div>
+        <div class="box">Course: Computer Science</div>
+        <div class="box">Level: 100</div>
+        <div class="box">Department: Computer Science</div>
+        <div class="box">Faculty: School of Information Science & Technology</div>
+        <div class="box">Matric No: 2025/1/107697CT</div>
+    </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills">
+    <h2>Skills</h2>
+    <span>Fashion Design</span>
+    <span>Graphics Design</span>
+    <span>CSS</span>
+    <span>HTML</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>Points of contact: 07078508606 | WhatsApp: 08039924889</p>
+    <p>© 2026 My Portfolio</p>
+</footer>
+
+</body>
+</html>

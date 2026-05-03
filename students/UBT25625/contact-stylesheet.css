@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+
+input {
+    display:block;
+}
+
+.navbar {
+  background-color: #0a0a0a;
+  padding: 15px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+
+.main-contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 768px){
+    .main-contact {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;  
+        padding-top: 0;
+        margin-top: -15px;      
+    }
+
+    .general {
+        padding-top: 80px;
+    }
+}
+
+.get-intouch {
+    border: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: rgb(8, 46, 161);
+    padding-left: 20px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    width: 400px;
+}
+
+.con {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.contact-head,
+.contact-subhead,
+.contact-vision {
+    text-align: center;
+}
+
+.contact-head {
+    font-size: 14px;
+    color:rgb(8, 46, 161);
+    font-weight: 600;
+    margin-bottom: -10px;
+}
+
+.contact-subhead {
+    font-size: 50px;
+    font-weight: 1000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.contact-vision {
+    font-size:17px;
+}
+
+.full-name,
+.email-address,
+.subject {
+    border: solid;
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: rgb(8, 46, 161);
+    width: 460px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.full-name:focus {
+    border-color: rgb(8, 46, 161);
+    outline-color: rgb(8, 46, 161);
+}
+
+.email-address:focus {
+    border-color: rgb(8, 46, 161);
+    outline-color: rgb(8, 46, 161);
+}
+
+.subject:focus {
+    border-color: rgb(8, 46, 161);
+    outline-color: rgb(8, 46, 161);
+}
+
+.your-name:focus {
+    border-color: rgb(8, 46, 161);
+    outline-color: rgb(8, 46, 161);
+}
+.your-name {
+    border: solid;
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: rgb(8, 46, 161);
+    width: 450px;
+    height: 130px;
+    margin-bottom: 10px; 
+    padding: 5px;
+}
+
+.button {
+    background-color: rgb(8, 46, 161);
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.visit {
+    font-weight: 1000;
+    margin-bottom: -7px;
+}
+
+.call {
+    font-weight: 1000;
+    margin-bottom: -7px;
+}
+
+.email-me {
+    font-weight: 1000;
+    margin-bottom: -7px;
+}
+
+.follow-me {
+    font-weight: 1000;
+    margin-bottom: -5px;
+}
+
+.email {
+    margin-left: 0;
+    padding-left: 0;
+}
