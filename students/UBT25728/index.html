@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Dark/Light Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            background: #f4f6f9;
+        }
+
+        /* Light mode (default) */
+        body.light {
+            background: #f0f2f5;
+            color: #1a1a2e;
+        }
+
+        body.light .resume-container {
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        body.light .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+        }
+
+        body.light .job-title {
+            color: #3498db;
+        }
+
+        body.light .company {
+            color: #7f8c8d;
+        }
+
+        /* Night mode */
+        body.night {
+            background: #0f0f1a;
+            color: #e0e0e0;
+        }
+
+        body.night .resume-container {
+            background: #1e1e2e;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        body.night .section-title {
+            color: #bb86fc;
+            border-bottom-color: #bb86fc;
+        }
+
+        body.night .job-title {
+            color: #bb86fc;
+        }
+
+        body.night .company {
+            color: #a0a0b0;
+        }
+
+        body.night hr {
+            border-color: #333;
+        }
+
+        /* Resume container */
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        body.night .title {
+            color: #bb86fc;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        /* Job/Education items */
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .job-title, .degree {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+
+        body.night .date {
+            color: #888;
+        }
+
+        .company, .school {
+            margin-bottom: 8px;
+        }
+
+        .description {
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: #3498db20;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        body.night .skill-tag {
+            background: #bb86fc20;
+        }
+
+        hr {
+            margin: 15px 0;
+            border: none;
+            height: 1px;
+            background: #ddd;
+        }
+
+        body.night hr {
+            background: #333;
+        }
+
+        /* Toggle button */
+        .toggle-wrapper {
+            text-align: right;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+        }
+
+        .toggle-btn {
+            background: #2c3e50;
+            border: none;
+            padding: 10px 24px;
+            font-size: 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.05);
+        }
+
+        body.night .toggle-btn {
+            background: #bb86fc;
+            color: #1e1e2e;
+        }
+
+img {
+border-width: 100px;
+border-radius: 100%;
+border-color: blue;
+padding: 0;
+alignment: center;
+}
+
+    </style>
+</head>
+<body class="light">
+    <div class="toggle-wrapper">
+        <button class="toggle-btn" id="themeToggle">
+            <span id="themeIcon">🌞</span>
+            <span id="themeText">Light Mode</span>
+        </button>
+    </div>
+
+ <div class="resume-container">
+        <div class="header">
+<h1 class="name">Ikyo Peter</h1>
+    <!-- Local image -->
+    <img src="IMG.JPG" alt="centered" width="300" height="300"style="display: block; margin: 0 auto; max-width: 100%; height: auto;">
+            <div class="title">Computer Scientist</div>
+            <div class="contact-info">
+                <span>📧 ikyopeterdofa007@email.com</span>
+                <span>📞 (+233) l8064681256</span>
+                <span>📍 Jikwoyi phase 1,ss quarter,FCT,Abuja. </span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <h2 class="section-title">Career Objective</h2>
+            <p class="description">Passionate computer science and quantum physicist, aiming at building and innovating technologies and computations that will enhance performance and evolutionize the way the world work and do things. This vision of mine will help the world to connect effectively, in terms of communication, science, technology and education.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Bio-Data:</h2>
+            <p><div class="item">
+                <div class="item-header">
+                    <span class="job-title">Data Dashboard</span>
+                    <span class="date">2026</span>
+                </div>
+                <div class="List">
+NAME:&nbsp;Ikyo Peter Aondofa<br>GENDER:&nbsp;Male<br> STATE/L.G.A:&nbsp;Benue/Logo<br>TRIBE:&nbsp;Tiv<br>DATE OF BIRTH:&nbsp;7<sup>th</sup>June<br>PHONE NUMBER:&nbsp;0864681256<br>NATIONALITY:&nbsp;Nigerian<br>MATRIC NUMBER:&nbsp;2025/1/108065CT<br>STUDENT ID:&nbsp;UBT25728<div>
+
+</div><p>
+        <div class="section">
+            <h2 class="section-title">Work Experience</h2>
+             
+            <div class="item">
+                <div class="item-header">
+                    <span class="job-title">Apprenticeship</span>
+                    <span class="date">2021 - 2023</span>
+                </div>
+                <div class="company">CyberMarks ICT Service, jikwoyi Phase 1,FCT,Abuja.</div>
+                <ul class="description" style="margin-left: 20px; margin-top: 8px;"> 
+                    <li>Word Processing to manipulate text data for reading</li>
+                    <li>SpreadSheet for manipulation cells for data storage</li>
+                    <li>Presentation to used slide shows to represent data</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="job-title">Computer Analyst</span>
+                    <span class="date">2025 - 2026</span>
+                </div>
+                <div class="company">GoodLuck Confectioneries, Jikwoyi,FCT,Abuja</div>
+                <ul class="description" style="margin-left: 20px; margin-top: 8px;">
+                    <li>Ensure computer analysis is accurate and efficient</li>
+                    <li>Analyze computation is not complex</li>
+                    <li>To endure computation system are analyzed for efficiency</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="degree">BSc Computer Science </span>
+                    <span class="date">2026- 2031</span>
+                </div>
+                <div class="school">Federal University of Technology, Minna</div>
+                <div class="description">GPA: 4.5/5.0 | Relevant courses: AL and Machine Language, Web Dev, Data Science, Cyber Security</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-list">
+                <span class="skill-tag">Word Processing/ES6</span>
+                <span class="skill-tag">Electronic Circuit</span>
+                <span class="skill-tag">SpreadSheet</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">HTML5/CSS3</span>
+                <span class="skill-tag">System Management</span>
+                <span class="skill-tag">Cloud Engineer</span>
+                <span class="skill-tag">IoT Engineer</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="description">• Frontend Developer Student (2026)<br>• Huawei Cloud Practitioner (2026)</div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('resumeTheme');
+        if (savedTheme === 'night') {
+            body.classList.add('night');
+            body.classList.remove('light');
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Night Mode';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('light')) {
+                body.classList.remove('light');
+                body.classList.add('night');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Night Mode';
+                localStorage.setItem('resumeTheme', 'night');
+            } else {
+                body.classList.remove('night');
+                body.classList.add('light');
+                themeIcon.textContent = '🌞';
+                themeText.textContent = 'Light Mode';
+                localStorage.setItem('resumeTheme', 'light');
+            }
+        });
+    </script>
+</body>
+<center>&lt;&lt;&lt;&copy2026&gt;&gt;&gt</center>
+</html>
+

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anyalor Mitchelle Chirotaram | Developer & Creator Portfolio</title>
+  
+  <meta name="description" content="Anyalor Mitchelle Chirotaram – Computer science student, web developer,Game developer, 3D Artist, designer, and lifelong learner building the future one project at a time."/>
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-dark: #0ea5e9;
+      --border: #334155;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(2, 6, 23, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--primary);
+      margin: 0 1.25rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary-dark);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 8rem 1.5rem 6rem;
+      background: linear-gradient(to bottom, #0f172a, #0f172a 60%, #1e293b);
+    }
+
+    .hero img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 9999px;
+      border: 5px solid var(--primary);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .biodata-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.05rem;
+    }
+
+    .biodata-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .biodata-table td:first-child {
+      font-weight: 600;
+      color: var(--primary);
+      width: 40%;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-pill {
+      background: #334155;
+      color: var(--primary);
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+    }
+
+    .skill-pill:hover {
+      background: var(--primary);
+      color: #0f172a;
+      transform: translateY(-2px);
+    }
+
+    /* Timeline for Education */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--primary);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1.5rem 2rem;
+      background: var(--card);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--primary);
+      border: 4px solid var(--bg);
+      border-radius: 50%;
+      top: 1.5rem;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 1.8rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #020617;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before { left: 30px; }
+      .timeline-item { width: 100%; left: 0 !important; }
+      .timeline-item::after { left: 20px !important; }
+      nav a { margin: 0 0.8rem; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#biodata">Biodata</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#portfolio">Portfolio</a>
+</nav>
+
+<div class="hero">
+  <img src="Mitchelle.jpg" alt="Adole">
+  <h1>Anyalor Mitchelle Chirotaram</h1>
+  <p>Web Developer • Programmer • Creative Builder . Game Developer</p>
+</div>
+
+<section id="biodata">
+  <h2>Biodata</h2>
+  <table class="biodata-table">
+    <tr><td>Full Name</td><td>Anyalor Mitchelle Chirotaram</td></tr>
+    <tr><td>State of Origin</td><td>Abia state </td></tr>
+    <tr><td>Current Location</td><td>Abuja </td></tr>
+    <tr><td>University</td><td>Federal University of Technology, Minna</td></tr>
+    <tr><td>Department</td><td>Computer Science</td></tr>
+    <tr><td>Level</td><td>100 Level</td></tr>
+    <tr><td>Matric number</td><td>2025/1/102413CT</td></tr>
+    <tr><td>Email</td><td>anyalormcubt25651@st.futminna.edu.ng</td></tr> <!-- Update this later -->
+    <tr><td>Phone</td><td>07026955229</td></tr>
+    <tr><td>Date of Birth</td><td>8th April</td></tr>
+  </table>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I’m Anyalor Mitchelle Chirotaram, a Computer science student passionate about turning ideas into reality through code, design, and constant learning. 
+    I build websites, experiment with software,build and clone games, redesign stores, and explore new technologies — always pushing my limits. 
+    Beyond tech, I'm also a 3D artist , dive into strategic games, and draw inspiration from discipline, consistency, and growth rooted in my Christian upbringing.
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-list">
+    <span class="skill-pill">HTML & CSS</span>
+    <span class="skill-pill">Web Development</span>
+    <span class="skill-pill">Graphics Design (Canva / Modern Tools)</span>
+    <span class="skill-pill">Game Development</span>
+    <span class="skill-pill">Digital Content Creation</span>
+    <span class="skill-pill">Problem Solving</span>
+</section>
+
+<section id="education">
+  <h2>Education Timeline</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Primary School</h3>
+      <p>Children of promise Christian school Calabar </p>
+    </div>
+    <div class="timeline-item">
+      <h3>Secondary School</h3>
+      <p>Covenant Foundation School</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Current University</h3>
+      <p>Federal University of Technology, Minna – Computer Science (100 Level)</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>Portfolio & Projects</h2>
+  <div class="portfolio-grid">
+    <div class="card">
+      <h3>Shopify Store Development</h3>
+      <p>Created and redesigned multiple Shopify stores focused on UX improvements and conversion optimization.</p>
+    </div>
+    <div class="card">
+      <h3>Graphics Design Projects</h3>
+      <p>Created digital graphics, banners, social media assets using modern design tools.</p>
+    </div>
+    <div class="card">
+      <h3>Responsive Web Development</h3>
+      <p>Built clean, mobile-first websites using semantic HTML and advanced CSS.</p>
+    </div>
+    <div class="card">
+      <h3>Game development </h3>
+      <p>Explored on C# and godot bringing some of my game ideas to life and cloning some games i believe keep testing my limits.</p>
+    </div>
+    <div class="card">
+      <h3>Crowdfunding & Project Ideation</h3>
+      <p>Developed creative concepts suitable for digital funding platforms and community projects.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Anyalor Mitchelle site • Built with the future in mind </p>
+</footer>
+
+</body>
+</html>

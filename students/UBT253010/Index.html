@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muktar Mohammed | Personal Website</title>
+
+    <style>
+        :root {
+            --bg: #283149;
+            --text: #ffffff;
+            --card: rgba(255, 255, 255, 0.08);
+        }
+
+        body.light-mode {
+            --bg: #f4f4f4;
+            --text: #111111;
+            --card: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.5s;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #00d4ff;
+            object-fit: cover;
+            margin-bottom: 15px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 35px;
+        }
+
+        #typing {
+            color: #00d4ff;
+            font-weight: 700;
+            margin: auto;
+        }
+
+        section {
+            background: var(--card);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.6s;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #00d4ff;
+            color: #000;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle">
+        <button onclick="toggleMode()">🌙 Mode</button>
+    </div>
+
+    <header>
+        <img src="myphoto.jpg/Snapchat-120644230.jpg" alt="Profile" class="profile-img">
+        <h1 id="name"></h1>
+        <p id="typing"></p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Biodata</h2>
+            <ul>
+                <li><strong>Name:</strong> Muktar Mohammed</li>
+                <li><strong>DOB:</strong> December 15, 2007</li>
+                <li><strong>Phone Number:</strong> 09152218903, 08106040316</li>
+                <li><strong>Address:</strong> Suleja, Niger State</li>
+                <li><strong>Email:</strong> muktarmohammed133@gmail.com</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <ul>
+                <li>Computer Science</li>
+                <li>SICT (School of Information and Communication Technology)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>CV</h2>
+            <p>Passionate Computer Science student with strong interest in tech.</p>
+            <button onclick="downloadCV()">📄 Download CV</button>
+        </section>
+
+        <section>
+            <h2>Portfolio</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Personal Website</h3>
+                    <p>This project</p>
+                </div>
+
+                <div class="card">
+                    <h3>Coming Soon</h3>
+                    <p>More projects...</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Hobbies</h2>
+            <ul>
+                <li>📖 Reading</li>
+                <li>⚽ Sports</li>
+                <li>🎮 Gaming</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Muktar Mohammed</p>
+    </footer>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("light-mode");
+        }
+
+        const nameText = "Muktar Mohammed";
+        const roleText = "Computer Science Student | Tech Enthusiast";
+        let i = 0;
+        let j = 0;
+
+        function typeName() {
+            if (i < nameText.length) {
+                document.getElementById("name").innerHTML += nameText.charAt(i);
+                i++;
+                setTimeout(typeName, 100);
+            } else {
+                typeRole();
+            }
+        }
+
+        function typeRole() {
+            if (j < roleText.length) {
+                document.getElementById("typing").innerHTML += roleText.charAt(j);
+                j++;
+                setTimeout(typeRole, 50);
+            }
+        }
+
+        typeName();
+
+        const sections = document.querySelectorAll("section");
+
+        function revealSections() {
+            sections.forEach((sec) => {
+                const top = sec.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    sec.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealSections);
+        revealSections();
+
+        function downloadCV() {
+            const text = `MUKTAR MOHAMMED
+PHONE NUMBER: 09152218903
+EMAIL: muktarmohammed133@gmail.com
+
+EDUCATION:
+- Computer Science
+
+SKILLS:
+- Web Development
+- Problem Solving`;
+
+            const blob = new Blob([text], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "Muktar_CV.txt";
+            link.click();
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

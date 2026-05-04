@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of a Computer Science student at FUT Minna — Frontend Developer and UI/UX Enthusiast." />
+  <title>Portfolio — CS Student | FUT Minna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">&lt;Neobrainiac /&gt;</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#biodata" class="nav-link">Biodata</a></li>
+        <li><a href="#cv" class="nav-link">CV</a></li>
+        <li><a href="#portfolio" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <p class="hero-greeting reveal">Hello, I'm</p>
+        <h1 class="hero-name reveal">Martha<span class="name-accent"> Ukange</span></h1>
+        <p class="hero-subtitle reveal">Computer Science Student &nbsp;|&nbsp; Frontend Developer &nbsp;|&nbsp; UI/UX Enthusiast</p>
+        <p class="hero-tagline reveal">"Turning ideas into elegant, interactive digital experiences."</p>
+        <div class="hero-cta reveal">
+          <a href="martha-cv.pdf" target="_blank" class="btn btn-primary"><i class="ph ph-file-text"></i> View CV</a>
+          <a href="#portfolio" class="btn btn-outline"><i class="ph ph-code"></i> View Projects</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper reveal">
+        <div class="hero-image-inner glass-card">
+          <img src="hero-image.jpeg" alt="Hero Image" class="hero-image" />
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2 class="section-label reveal">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="about-lead">I'm <span class="text-gradient">Martha Ukange</span>, a Computer Science student at FUT Minna, blending my love for frontend development with a passion for creative content and UI/UX design.</p>
+          <p>As a dynamic creative technologist, I've developed a unique skill set that bridges code and communication. From designing sleek, modern websites to leading educational content strategies at Techtots and managing brand presence for diverse businesses, I thrive at the intersection of technology and design.</p>
+          <p>Whether I'm writing code, creating engaging graphics, or inspiring young learners to explore tech, my ultimate goal is to craft impactful digital experiences that resonate with users and solve real-world problems.</p>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card glass-card"><span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span><span class="stat-label">Projects</span></div>
+          <div class="stat-card glass-card"><span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span><span class="stat-label">Technologies</span></div>
+          <div class="stat-card glass-card"><span class="stat-number" data-target="3">0</span><span class="stat-suffix">+</span><span class="stat-label">Years Learning</span></div>
+          <div class="stat-card glass-card"><span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span><span class="stat-label">Passion</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIODATA -->
+  <section id="biodata" class="section biodata">
+    <div class="container">
+      <h2 class="section-label reveal">Biodata</h2>
+      <div class="biodata-card glass-card reveal">
+        <div class="biodata-grid">
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-user"></i></span><div><span class="bio-key">Full Name</span><span class="bio-value">Martha Ukange</span></div></div>
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-calendar"></i></span><div><span class="bio-key">Date of Birth</span><span class="bio-value">23rd March</span></div></div>
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-gender-intersex"></i></span><div><span class="bio-key">Gender</span><span class="bio-value">Female</span></div></div>
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-flag"></i></span><div><span class="bio-key">Nationality</span><span class="bio-value">Nigerian</span></div></div>
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-graduation-cap"></i></span><div><span class="bio-key">University</span><span class="bio-value">Federal University of Technology, Minna</span></div></div>
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-code"></i></span><div><span class="bio-key">Department</span><span class="bio-value">Computer Science</span></div></div>
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-chart-bar"></i></span><div><span class="bio-key">Level</span><span class="bio-value">100 Level</span></div></div>
+          <div class="bio-item"><span class="bio-icon"><i class="ph ph-lightning"></i></span><div><span class="bio-key">Status</span><span class="bio-value">Student Developer / Aspiring Frontend Dev</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv" class="section cv">
+    <div class="container">
+      <h2 class="section-label reveal">Résumé</h2>
+      <div class="cv-block reveal">
+        <h3 class="cv-block-title"><i class="ph ph-graduation-cap"></i> Education</h3>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content glass-card"><span class="timeline-date">2025 — Present</span><h4>B.Tech Computer Science</h4><p>Federal University of Technology, Minna</p></div></div>
+        </div>
+      </div>
+      <div class="cv-block reveal">
+        <h3 class="cv-block-title"><i class="ph ph-briefcase"></i> Experience</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">Aug. 2025 — Present</span>
+              <h4>Content Lead</h4>
+              <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">Techtots</p>
+              <ul style="padding-left: 18px; list-style-type: disc; color: var(--text-secondary); font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px;">
+                <li>Lead content creation, strategy, and planning for tech education programs, workshops, and online platforms.</li>
+                <li>Develop engaging educational content and digital assets to simplify tech concepts using storytelling and interactive games.</li>
+                <li>Collaborate with instructors to deliver structured learning experiences and mentor young learners.</li>
+                <li>Manage brand messaging consistency and create visuals to enhance student engagement across all platforms.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">Aug. 2025 — Present</span>
+              <h4>Associate Content Creator</h4>
+              <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">Oly Beauty Spa</p>
+              <ul style="padding-left: 18px; list-style-type: disc; color: var(--text-secondary); font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px;">
+                <li>Design and manage content calendars to organize and schedule engaging posts.</li>
+                <li>Edit videos and create multimedia content to attract and retain audiences.</li>
+                <li>Apply strong writing and creative skills to communicate brand values effectively.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-date">Apr. 2025 — Present</span>
+              <h4>Social Media Manager / Graphic Designer</h4>
+              <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">Emerald Fashion Boutique</p>
+              <ul style="padding-left: 18px; list-style-type: disc; color: var(--text-secondary); font-size: 0.9rem; display: flex; flex-direction: column; gap: 8px;">
+                <li>Produced clear, engaging written content and visuals to communicate ideas effectively.</li>
+                <li>Gained strong communication and organizational skills transferrable to teaching and classroom management.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cv-block reveal">
+        <h3 class="cv-block-title"><i class="ph ph-wrench"></i> Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-card glass-card"><i class="ph ph-file-html"></i><span>HTML5</span><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+          <div class="skill-card glass-card"><i class="ph ph-file-css"></i><span>CSS3</span><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+          <div class="skill-card glass-card"><i class="ph ph-file-js"></i><span>JavaScript</span><div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></div>
+          <div class="skill-card glass-card"><i class="ph ph-figma-logo"></i><span>Figma</span><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></div>
+          <div class="skill-card glass-card"><i class="ph ph-devices"></i><span>Responsive Design</span><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
+          <div class="skill-card glass-card"><i class="ph ph-git-branch"></i><span>Git / GitHub</span><div class="skill-bar"><div class="skill-fill" data-width="65"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section portfolio">
+    <div class="container">
+      <h2 class="section-label reveal">Projects</h2>
+      <div class="portfolio-grid">
+        <div class="project-card glass-card reveal"><div class="project-number">01</div><h3 class="project-title">Reflex Pulse Pro</h3><p class="project-desc">A fun, interactive game designed to test your patience, reflexes, and intelligence.</p><div class="project-tags"><span>Game</span><span>HTML</span><span>CSS</span><span>JS</span></div><a href="https://reflex-pulse-pro.vercel.app/" target="_blank" class="project-link">View Project <i class="ph ph-arrow-right"></i></a></div>
+        <div class="project-card glass-card reveal"><div class="project-number">02</div><h3 class="project-title">Neo Design Portfolio</h3><p class="project-desc">A premium, modern design portfolio showcasing sleek aesthetics and creative projects.</p><div class="project-tags"><span>Portfolio</span><span>UI/UX</span><span>Web</span></div><a href="https://neo-design-blond.vercel.app/" target="_blank" class="project-link">View Project <i class="ph ph-arrow-right"></i></a></div>
+        <div class="project-card glass-card reveal"><div class="project-number">03</div><h3 class="project-title">Techtots Archade</h3><p class="project-desc">An interactive arcade platform filled with engaging, fun, and educational games.</p><div class="project-tags"><span>Arcade</span><span>Game</span><span>Web</span></div><a href="https://techtots-archade.vercel.app/" target="_blank" class="project-link">View Project <i class="ph ph-arrow-right"></i></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-label reveal">Get In Touch</h2>
+      <p class="contact-intro reveal">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+      <div class="contact-cards">
+        <a href="mailto:marthaukange11@gmail.com" class="contact-card glass-card reveal"><i class="ph ph-envelope-simple"></i><span class="contact-type">Email</span><span class="contact-value">marthaukange11@gmail.com</span></a>
+        <a href="https://wa.me/2349126904771" target="_blank" class="contact-card glass-card reveal"><i class="ph ph-whatsapp-logo"></i><span class="contact-type">WhatsApp</span><span class="contact-value">0912 690 4771</span></a>
+        <div class="contact-card glass-card reveal"><i class="ph ph-map-pin"></i><span class="contact-type">Location</span><span class="contact-value">Abuja, Nigeria</span></div>
+        <a href="https://www.linkedin.com/in/martha-ukange-20995027b" target="_blank" class="contact-card glass-card reveal"><i class="ph ph-linkedin-logo"></i><span class="contact-type">LinkedIn</span><span class="contact-value">Martha Ukange</span></a>
+        <a href="https://www.facebook.com/share/1J6vZh9RH7/" target="_blank" class="contact-card glass-card reveal"><i class="ph ph-facebook-logo"></i><span class="contact-type">Facebook</span><span class="contact-value">Martha Ukange</span></a>
+        <a href="https://x.com/NeoBrainX" target="_blank" class="contact-card glass-card reveal"><i class="ph ph-twitter-logo"></i><span class="contact-type">X (Twitter)</span><span class="contact-value">@NeoBrainX</span></a>
+        <a href="https://www.instagram.com/neobrainiac_?igsh=MWF0ZWo0emJqeHE5bg==" target="_blank" class="contact-card glass-card reveal"><i class="ph ph-instagram-logo"></i><span class="contact-type">Instagram</span><span class="contact-value">@neobrainiac_</span></a>
+        <a href="https://github.com/neobrainiac-hub" target="_blank" class="contact-card glass-card reveal"><i class="ph ph-github-logo"></i><span class="contact-type">GitHub</span><span class="contact-value">@neobrainiac-hub</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 <span class="text-gradient">Martha Ukange</span>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

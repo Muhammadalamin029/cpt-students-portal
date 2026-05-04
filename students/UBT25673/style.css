@@ -1,3 +1,8 @@
+/* ===================================
+   THEME 4 — DEEP ESPRESSO (#100a07)
+   Warm brown-black. Natural with wine red.
+=================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,8 +10,8 @@
 }
 
 body {
-  background-color: #0d1b2a;
-  color: #8776e4;
+  background-color: #100a07;
+  color: #eeddd5;
   font-family: Georgia, arial;
   font-size: 16px;
   line-height: 1.7;
@@ -14,18 +19,18 @@ body {
 
 /* NAV */
 nav {
-  background-color: #0a1520;
+  background-color: #0a0604;
   padding: 14px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #1e3a55;
+  border-bottom: 1px solid #2e1a10;
 }
 
 nav .logo {
   font-size: 18px;
   font-weight: bold;
-  color: #7ec8e3;
+  color: #c0392b;
 }
 
 nav ul {
@@ -35,20 +40,20 @@ nav ul {
 }
 
 nav ul li a {
-  color: #cce3f5;
+  color: #eeddd5;
   text-decoration: none;
   font-size: 15px;
 }
 
 nav ul li a:hover {
-  color: #7ec8e3;
+  color: #c0392b;
 }
 
 /* HERO */
 .hero {
   text-align: center;
   padding: 70px 20px 50px;
-  border-bottom: 1px solid #1e3a55;
+  border-bottom: 1px solid #2e1a10;
 }
 
 .hero img {
@@ -56,7 +61,7 @@ nav ul li a:hover {
   height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #0ab2f0;
+  border: 3px solid #c0392b;
   margin-bottom: 20px;
 }
 
@@ -68,7 +73,7 @@ nav ul li a:hover {
 
 .hero p.tagline {
   font-size: 15px;
-  color: #7ec8e3;
+  color: #c0392b;
   margin-bottom: 10px;
 }
 
@@ -76,14 +81,14 @@ nav ul li a:hover {
   max-width: 540px;
   margin: 0 auto;
   font-size: 15px;
-  color: #a8c8e0;
+  color: #d4bdb0;
 }
 
 .hero p.cta {
-margin-top: 20px;
-font-size: 16px;
-color: #ffffff;
-font-style: italic;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #ffffff;
+  font-style: italic;
 }
 
 /* SECTIONS */
@@ -91,12 +96,12 @@ section {
   max-width: 720px;
   margin: 0 auto;
   padding: 50px 20px;
-  border-bottom: 1px solid #1e3a55;
+  border-bottom: 1px solid #2e1a10;
 }
 
 section h2 {
   font-size: 22px;
-  color: #7ec8e3;
+  color: #c0392b;
   margin-bottom: 20px;
 }
 
@@ -108,12 +113,12 @@ section h2 {
 
 .biodata-table tr td {
   padding: 10px 14px;
-  border-bottom: 1px solid #1e3a55;
+  border-bottom: 1px solid #2e1a10;
   font-size: 15px;
 }
 
 .biodata-table tr td:first-child {
-  color: #7ec8e3;
+  color: #c0392b;
   width: 160px;
   font-weight: bold;
 }
@@ -121,7 +126,7 @@ section h2 {
 /* ABOUT */
 .about p {
   font-size: 15px;
-  color: #a8c8e0;
+  color: #d4bdb0;
   margin-bottom: 12px;
 }
 
@@ -133,9 +138,9 @@ section h2 {
 }
 
 .skill-tag {
-  background-color: #122840;
-  border: 1px solid #2a5070;
-  color: #7ec8e3;
+  background-color: #1c1008;
+  border: 1px solid #3e2010;
+  color: #c0392b;
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 14px;
@@ -143,8 +148,8 @@ section h2 {
 
 /* PORTFOLIO */
 .project {
-  background-color: #0f2035;
-  border: 1px solid #1e3a55;
+  background-color: #1c1008;
+  border: 1px solid #2e1a10;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 16px;
@@ -158,14 +163,14 @@ section h2 {
 
 .project p {
   font-size: 14px;
-  color: #a8c8e0;
+  color: #d4bdb0;
 }
 
 .project .tag {
   display: inline-block;
   margin-top: 10px;
-  background-color: #1a3a55;
-  color: #7ec8e3;
+  background-color: #2e1a10;
+  color: #c0392b;
   padding: 3px 12px;
   border-radius: 12px;
   font-size: 13px;
@@ -175,11 +180,11 @@ section h2 {
 .contact-info p {
   font-size: 15px;
   margin-bottom: 10px;
-  color: #a8c8e0;
+  color: #d4bdb0;
 }
 
 .contact-info span {
-  color: #7ec8e3;
+  color: #c0392b;
   font-weight: bold;
 }
 
@@ -187,13 +192,13 @@ section h2 {
 footer {
   text-align: center;
   padding: 30px 20px;
-  border-top: 1px solid #1e3a55;
-  background-color: #0a1520;
+  border-top: 1px solid #2e1a10;
+  background-color: #0a0604;
 }
 
 footer a {
   display: block;
-  color: #7ec8e3;
+  color: #c0392b;
   text-decoration: none;
   font-size: 18px;
   margin-bottom: 10px;
@@ -201,11 +206,11 @@ footer a {
 }
 
 footer a:hover {
-  color: #0ab2f0;
+  color: #e05050;
 }
 
 footer p {
   font-size: 13px;
-  color: #456070;
+  color: #7a5540;
   letter-spacing: 0.03em;
 }

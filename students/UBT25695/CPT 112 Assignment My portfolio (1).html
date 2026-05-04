@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Shuaibu | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --accent: #38bdf8; /* Modern Teal/Blue */
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo { font-weight: 700; font-size: 1.4rem; color: var(--accent); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger span { width: 25px; height: 3px; background: var(--text-primary); transition: 0.3s; border-radius: 2px; }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        .hero-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            padding: 5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+        }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 1rem; }
+        .hero p { color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; }
+        
+        .btn {
+            background: var(--accent);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s transform;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); }
+
+        /* --- SECTIONS --- */
+        section { padding: 100px 8%; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .underline { width: 60px; height: 4px; background: var(--accent); margin: 0 auto; border-radius: 2px; }
+
+        /* --- PROJECTS GRID --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .project-card:hover { transform: translateY(-10px); }
+        .project-img { height: 200px; background: #334155; display: flex; align-items: center; justify-content: center; }
+        .project-info { padding: 1.5rem; }
+        .project-info h3 { margin-bottom: 10px; color: var(--accent); }
+
+        /* --- TIMELINE --- */
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 2px solid var(--accent); padding-left: 30px; position: relative; }
+        .timeline-item { margin-bottom: 3rem; position: relative; }
+        .timeline-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: -39px;
+            top: 5px;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 5px; color: var(--text-secondary); }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+            outline: none;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 4rem 8% 2rem;
+            background: #070b14;
+            text-align: center;
+        }
+
+        .socials { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .socials a { color: var(--text-secondary); font-size: 1.5rem; transition: 0.3s; }
+        .socials a:hover { color: var(--accent); }
+
+        /* --- MOBILE MENU LOGIC --- */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: fixed; top: 70px; right: -100%; width: 100%; height: calc(100vh - 70px);
+                background: var(--bg-dark); flex-direction: column; align-items: center; padding-top: 2rem;
+            }
+            .nav-links.active { right: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Shuaibu Joshua Adavize</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="hero" id="home">
+        <img src="IMG-20260422-WA0007.jpg" alt="Joshua" class="hero-img">""
+        <h1>Shuaibu Joshua Adavize</h1>
+        <p>Turning Complex Problems into Elegant Digital Experiences. Student at FUTMINNA and Creative Designer.</p>
+        <a href="#projects" class="btn">View My Portfolio</a>
+    </div>
+
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="margin-bottom: 2rem; color: var(--text-secondary);">
+                As a 100 level Computer Science Student At <strong>FUTMINNA</strong>, I Combine My Technical Background with a Sharp Eye For Graphic Design. 
+                 I am Passionate About Combining Creativity, With Modern Design Trends To Produce
+                 High-Quality Work.
+                 “My Goal is to Combine creativity and Strategy to Deliver Visually Effective
+                 Solutions.”
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                <span style="background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); padding: 5px 15px; border-radius: 20px;">UI/UX Design</span>
+                <span style="background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); padding: 5px 15px; border-radius: 20px;">System Operations</span>
+                <span style="background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); padding: 5px 15px; border-radius: 20px;">Canva</span>
+                <span style="background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); padding: 5px 15px; border-radius: 20px;">Adobe InDesign</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="background: #0a1120;">
+        <div class="section-header">
+            <h2>Recent Work</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-palette fa-3x"></i></div>
+                <div class="project-info">
+                    <h3>Brand Identity</h3>
+                    <p style="color: var(--text-secondary);">Business Identity Package (logo, card, letterhead)</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-desktop fa-3x"></i></div>
+                <div class="project-info">
+                    <h3>Social Media Design</h3>
+                    <p style="color: var(--text-secondary);">Instagram Post Designs,(Product promotion posts,
+Fashion sales ads,
+Motivational quote graphics).</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-code fa-3x"></i></div>
+                <div class="project-info">
+                    <h3>logos and Magazine </h3>
+                    <p style="color: var(--text-secondary);">“I appreciate the modern simplicity of Canva, and the professional publishing power of Adobe InDesign, in creating visually compelling designs.”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="experience">
+        <div class="section-header">
+            <h2>Experience</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Worked with clients to develop logos and brand identities.</h3>
+            </div>
+            <div class="timeline-item">
+                <h3>Designed advertisement graphics for online marketing campaigns.</h3>
+                     </p>
+            </div></p> 
+            <div class="timeline-item">
+            
+                <h3>Designed social media graphics for brands and businesses.</h3>
+                <p style="color: var(--accent);"></p>
+                <p style="color: var(--text-secondary);".</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-container">
+            <form>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Tell me about your project..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="socials">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+            <a href="mailto:shuaibujoshua10@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="color: var(--text-secondary);">© 2026 Shuaibu Joshua Adavize | FUTMINNA Computer Science</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

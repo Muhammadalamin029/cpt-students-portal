@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olusegun Tobiloba | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: #e2e8f0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .name {
+      font-size: 2.5rem;
+      color: #38bdf8;
+    }
+
+    .title {
+      color: #94a3b8;
+      margin-top: 5px;
+    }
+
+    .section-title {
+      margin: 25px 0 10px;
+      color: #38bdf8;
+      border-left: 4px solid #38bdf8;
+      padding-left: 10px;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      flex-wrap: wrap;
+    }
+
+    .label {
+      color: #94a3b8;
+      font-weight: bold;
+    }
+
+    .divider {
+      height: 1px;
+      background: #334155;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      padding: 6px 0;
+    }
+
+    .btn {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- Header -->
+    <section class="header">
+      <h1 class="name">Olusegun Tobiloba Fikayo</h1>
+      <p class="title">Computer Science Student</p>
+    </section>
+
+    <!-- About -->
+    <h2 class="section-title">👤 About</h2>
+    <div class="card">
+      <p>
+        I’m a passionate student who loves coding, designing websites and learning new skills.
+        I aim to build creative and user-friendly websites.
+      </p>
+    </div>
+
+    <!-- Skills -->
+    <h2 class="section-title">💻 Skills</h2>
+    <div class="card">
+      <ul>
+        <li>HTML5</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Adobe Creative Suite</li>
+      </ul>
+    </div>
+
+    <!-- Student Profile -->
+    <h2 class="section-title">🎓 Student Profile</h2>
+    <div class="card">
+
+      <div class="row"><span class="label">School</span><span>Federal University of Technology, Minna</span></div>
+      <div class="divider"></div>
+
+      <div class="row"><span class="label">Faculty</span><span>School of Information, Communication and Technology</span></div>
+      <div class="divider"></div>
+
+      <div class="row"><span class="label">Department</span><span>Computer Science</span></div>
+      <div class="divider"></div>
+
+      <div class="row"><span class="label">Matric No</span><span>2025/1/105907CT</span></div>
+      <div class="divider"></div>
+
+      <div class="row"><span class="label">Student ID</span><span>UBT25705</span></div>
+      <div class="divider"></div>
+
+      <div class="row"><span class="label">Level</span><span>100</span></div>
+
+    </div>
+
+    <!-- Education -->
+    <h2 class="section-title">📚 Education</h2>
+    <div class="card">
+      <p><strong>University:</strong> Federal University of Technology, Minna, Niger</p>
+      <p><strong>High School:</strong> Government Secondary School, Bwari, Abuja</p>
+    </div>
+
+    <!-- Hobbies -->
+    <h2 class="section-title">🎮 Hobbies</h2>
+    <div class="card">
+      <p>Gaming, playing football, and effective reading.</p>
+    </div>
+
+    <!-- Contact -->
+    <h2 class="section-title">📞 Contact</h2>
+    <div class="card">
+      <p>Email: Oluseguntobiloba16@gmail.com</p>
+      <p>Phone: 08165272606</p>
+
+      <button class="btn" onclick="showMessage()">Click Me</button>
+      <p id="msg" class="hidden">Thanks for visiting my portfolio 🚀</p>
+    </div>
+
+    <footer>
+      © 2026 Olusegun Tobiloba Fikayo
+    </footer>
+
+  </main>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").classList.toggle("hidden");
+    }
+  </script>
+
+</body>
+</html>
