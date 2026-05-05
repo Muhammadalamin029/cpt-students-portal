@@ -1,0 +1,501 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Garpiya Kebzeya - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Newsreader:wght@500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#1a1c1c",
+              outline: "#74777f",
+              "error-container": "#ffdad6",
+              tertiary: "#4a4949",
+              "on-tertiary-container": "#dfdddc",
+              "surface-container-low": "#f3f3f4",
+              "on-primary-fixed": "#001b3d",
+              "surface-tint": "#475f87",
+              "on-surface-variant": "#44474e",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#1b1c1c",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#2f476e",
+              "on-background": "#1a1c1c",
+              "surface-container-highest": "#e2e2e2",
+              "surface-variant": "#e2e2e2",
+              primary: "#324a71",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c4c6cf",
+              error: "#ba1a1a",
+              "surface-bright": "#f9f9f9",
+              secondary: "#3b6934",
+              "secondary-container": "#b9eeab",
+              "secondary-fixed-dim": "#a1d494",
+              "tertiary-fixed-dim": "#c8c6c6",
+              "primary-container": "#4a628a",
+              "on-primary-container": "#cedeff",
+              "inverse-surface": "#2f3131",
+              "on-secondary-fixed-variant": "#23501e",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#626161",
+              "inverse-on-surface": "#f0f1f1",
+              "on-secondary-fixed": "#002201",
+              "tertiary-fixed": "#e4e2e1",
+              background: "#f9f9f9",
+              "surface-dim": "#dadada",
+              "on-error": "#ffffff",
+              "on-secondary-container": "#3f6d38",
+              "surface-container": "#eeeeee",
+              surface: "#f9f9f9",
+              "secondary-fixed": "#bcf0ae",
+              "primary-fixed": "#d6e3ff",
+              "inverse-primary": "#afc7f5",
+              "primary-fixed-dim": "#afc7f5",
+              "on-tertiary-fixed-variant": "#474747",
+              "surface-container-high": "#e8e8e8",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              gutter: "24px",
+              md: "2rem",
+              xs: "0.5rem",
+              unit: "4px",
+              lg: "4rem",
+              "container-max": "1100px",
+              sm: "1rem",
+              xl: "8rem",
+            },
+            fontFamily: {
+              "label-md": ["Inter"],
+              "code-sm": ["monospace"],
+              "headline-sm": ["Newsreader"],
+              "body-lg": ["Inter"],
+              "headline-lg": ["Newsreader"],
+              "headline-md": ["Newsreader"],
+              "body-md": ["Inter"],
+            },
+            fontSize: {
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "code-sm": [
+                "14px",
+                {
+                  lineHeight: "1.5",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-sm": [
+                "24px",
+                {
+                  lineHeight: "1.4",
+                  fontWeight: "500",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "1.6",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg": [
+                "40px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "32px",
+                {
+                  lineHeight: "1.3",
+                  fontWeight: "500",
+                },
+              ],
+              "body-md": [
+                "16px",
+                {
+                  lineHeight: "1.6",
+                  fontWeight: "400",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <!-- Top Navigation -->
+    <nav
+      class="bg-surface dark:bg-on-tertiary-fixed text-primary dark:text-inverse-primary docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows sticky z-50"
+    >
+      <div
+        class="flex justify-between items-center max-w-container-max mx-auto px-gutter py-md w-full"
+      >
+        <div
+          class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-inverse-on-surface"
+        >
+          Garpiya Kebzeya
+        </div>
+        <div class="hidden md:flex gap-gutter items-center">
+          <a
+            class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-colors duration-200 opacity-70 transition-opacity"
+            href="#home"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-fixed-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-fixed-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+            href="#education"
+            >Education</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-fixed-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+            href="#skills"
+            >Skills</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-fixed-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200"
+            href="#contact"
+            >Contact</a
+          >
+        </div>
+        <!-- Mobile Menu Button (Icon Only) -->
+        <button
+          class="md:hidden text-on-surface hover:text-primary transition-colors"
+        >
+          <span class="material-symbols-outlined" data-icon="menu">menu</span>
+        </button>
+      </div>
+    </nav>
+    <!-- Main Content Container -->
+    <main class="max-w-[900px] mx-auto px-gutter pb-xl pt-lg">
+      <!-- Hero Section -->
+      <section class="py-xl flex flex-col items-center text-center" id="home">
+        <div class="mb-md flex justify-center">
+          <img
+            alt="Garpiya Kebzeya Profile Image"
+            src="img.jpeg"
+            class="w-40 h-40 rounded-xl object-cover shadow-sm border-4 border-surface-container-lowest"
+          />
+        </div>
+        <h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">
+          Garpiya Kebzeya
+        </h1>
+        <p class="font-headline-sm text-headline-sm text-outline mb-md">
+          Computer Science Student | ICT Enthusiast | Lifelong Learner
+        </p>
+        <p
+          class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto"
+        >
+          Dedicated to mastering the theoretical foundations and practical
+          applications of computer science, with a rigorous approach to academic
+          growth and technological problem-solving.
+        </p>
+      </section>
+      <hr class="border-t border-outline-variant w-full my-lg" />
+      <!-- About Section -->
+      <section class="py-lg" id="about">
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-md">
+          About
+        </h2>
+        <div
+          class="bg-surface-container-lowest border border-outline-variant p-lg rounded"
+        >
+          <p
+            class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed"
+          >
+            Currently pursuing a degree in Computer Science at FUT Minna, I am
+            deeply invested in the transformative potential of Information and
+            Communication Technology. My academic journey is defined by a
+            commitment to excellence, rigorous study, and the continuous
+            translation of theoretical concepts into practical knowledge. I
+            approach complex technical challenges with discipline and a
+            structured mindset, aiming to build a solid foundation for future
+            innovation.
+          </p>
+        </div>
+      </section>
+      <hr class="border-t border-outline-variant w-full my-lg" />
+      <!-- Education Section -->
+      <section class="py-lg" id="education">
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-md">
+          Education Context
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+          <div
+            class="bg-surface border border-outline-variant p-md rounded flex flex-col"
+          >
+            <span class="font-label-md text-label-md text-outline mb-xs"
+              >Institution</span
+            >
+            <span class="font-headline-sm text-headline-sm text-on-surface"
+              >FUT Minna</span
+            >
+            <span
+              class="font-body-md text-body-md text-on-surface-variant mt-unit"
+              >Computer Science</span
+            >
+          </div>
+          <div class="flex flex-col gap-sm">
+            <div
+              class="bg-surface-container-lowest border border-outline-variant p-sm rounded flex justify-between items-center"
+            >
+              <span class="font-label-md text-label-md text-outline"
+                >Matric Number</span
+              >
+              <span class="font-code-sm text-code-sm text-primary"
+                >2025/1/101902CT</span
+              >
+            </div>
+            <div
+              class="bg-surface-container-lowest border border-outline-variant p-sm rounded flex justify-between items-center"
+            >
+              <span class="font-label-md text-label-md text-outline"
+                >Student ID</span
+              >
+              <span class="font-code-sm text-code-sm text-primary"
+                >UBT25736</span
+              >
+            </div>
+            <div
+              class="bg-surface-container-lowest border border-outline-variant p-sm rounded flex flex-col"
+            >
+              <span class="font-label-md text-label-md text-outline mb-unit"
+                >School Email</span
+              >
+              <a
+                class="font-code-sm text-code-sm text-primary hover:underline truncate"
+                href="mailto:garpiyakubt25736@st.futminna.edu.ng"
+                >garpiyakubt25736@st.futminna.edu.ng</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="border-t border-outline-variant w-full my-lg" />
+      <!-- Skills & Strengths Section -->
+      <section class="py-lg" id="skills">
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-md">
+          Competencies &amp; Strengths
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+          <!-- Academic Strengths -->
+          <div>
+            <h3
+              class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-xs"
+            >
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="menu_book"
+                >menu_book</span
+              >
+              Academic Discipline
+            </h3>
+            <div class="flex flex-wrap gap-xs">
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Discipline</span
+              >
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Hard Work</span
+              >
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Consistency</span
+              >
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Analytical Thinking</span
+              >
+            </div>
+          </div>
+          <!-- Personal Development -->
+          <div>
+            <h3
+              class="font-headline-sm text-headline-sm text-on-surface mb-sm flex items-center gap-xs"
+            >
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="psychology"
+                >psychology</span
+              >
+              Personal Development
+            </h3>
+            <div class="flex flex-wrap gap-xs">
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Collaboration</span
+              >
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Responsibility</span
+              >
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Continuous Learning</span
+              >
+              <span
+                class="bg-surface-container-low border border-outline-variant text-primary font-label-md text-label-md px-sm py-xs rounded"
+                >Adaptability</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Academic Focus (Code Block Style) -->
+        <div class="mt-lg">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">
+            Academic Focus
+          </h3>
+          <div
+            class="bg-surface-container-low border border-outline-variant p-md rounded font-code-sm text-code-sm overflow-x-auto"
+          >
+            <div class="text-secondary mb-xs">
+              /* Primary areas of theoretical and practical research */
+            </div>
+            <div class="mb-unit">
+              <span class="text-primary">const</span>
+              <span class="text-on-surface">focusAreas</span> = [
+            </div>
+            <div class="pl-md mb-unit text-on-surface-variant">
+              "Information and Communication Technology Applications",
+            </div>
+            <div class="pl-md mb-unit text-on-surface-variant">
+              "Fundamental Algorithms &amp; Data Structures",
+            </div>
+            <div class="pl-md mb-unit text-on-surface-variant">
+              "Software Engineering Principles",
+            </div>
+            <div class="pl-md mb-unit text-on-surface-variant">
+              "Systems Architecture Foundation"
+            </div>
+            <div class="mb-unit text-on-surface">];</div>
+            <div class="mt-sm text-secondary">
+              /* Objective: Bridging theory with practical implementation */
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="border-t border-outline-variant w-full my-lg" />
+      <!-- Contact Section -->
+      <section class="py-lg mb-xl" id="contact">
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-md">
+          Contact Directory
+        </h2>
+        <div class="flex flex-col md:flex-row gap-gutter">
+          <a
+            class="flex-1 bg-surface-container-lowest border border-outline-variant p-md rounded flex items-center gap-sm hover:border-primary transition-colors group"
+            href="tel:08051031852"
+          >
+            <span
+              class="material-symbols-outlined text-outline group-hover:text-primary transition-colors"
+              data-icon="call"
+              >call</span
+            >
+            <div>
+              <div class="font-label-md text-label-md text-outline mb-unit">
+                Phone
+              </div>
+              <div class="font-body-lg text-body-lg text-on-surface">
+                08051031852
+              </div>
+            </div>
+          </a>
+          <a
+            class="flex-1 bg-surface-container-lowest border border-outline-variant p-md rounded flex items-center gap-sm hover:border-primary transition-colors group"
+            href="mailto:garpiyakubt25736@st.futminna.edu.ng"
+          >
+            <span
+              class="material-symbols-outlined text-outline group-hover:text-primary transition-colors"
+              data-icon="mail"
+              >mail</span
+            >
+            <div class="overflow-hidden">
+              <div class="font-label-md text-label-md text-outline mb-unit">
+                Academic Email
+              </div>
+              <div class="font-body-lg text-body-lg text-on-surface truncate">
+                garpiyakubt25736@st.futminna.edu.ng
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface dark:bg-on-tertiary-fixed full-width py-md mt-xl border-t border-outline-variant dark:border-outline flat no shadows"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-gutter gap-md w-full"
+      >
+        <div
+          class="text-on-surface-variant dark:text-on-tertiary-fixed-variant font-label-md text-label-md"
+        >
+          © 2026 Garpiya Kebzeya
+        </div>
+        <div class="flex gap-gutter">
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-fixed-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all"
+            href="#contact"
+            >Contact</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-tertiary-fixed-variant font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed-dim underline transition-all"
+            href="#"
+            >Privacy Policy</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

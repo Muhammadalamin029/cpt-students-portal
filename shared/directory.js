@@ -46,7 +46,7 @@ if (Object.values(requiredElements).every(Boolean)) {
     if (!query) return students;
 
     return students.filter((student) =>
-      [student.name, student.matric, student.student_id, student.gender]
+      [student.name, student.student_id, student.gender]
         .join(" ")
         .toLowerCase()
         .includes(query),
@@ -82,8 +82,12 @@ if (Object.values(requiredElements).every(Boolean)) {
     image.className =
       "h-20 w-20 rounded-2xl object-cover shadow-md transition-transform duration-500 group-hover:scale-105";
     image.alt = `${student.name} profile photo`;
-    image.src = isSafeHttpUrl(student.imageUrl) ? student.imageUrl : fallbackAvatar;
-    image.addEventListener("error", () => { image.src = fallbackAvatar; });
+    image.src = isSafeHttpUrl(student.imageUrl)
+      ? student.imageUrl
+      : fallbackAvatar;
+    image.addEventListener("error", () => {
+      image.src = fallbackAvatar;
+    });
 
     const status = document.createElement("span");
     status.className = student.approved
@@ -92,9 +96,21 @@ if (Object.values(requiredElements).every(Boolean)) {
     status.textContent = student.approved ? "Approved" : "Review Required";
     topRow.append(image, status);
 
-    const name    = createTextElement("h2", "mb-1 text-2xl font-extrabold text-primary", student.name);
-    const idText  = createTextElement("p", "mb-2 text-sm font-medium text-on-surface-variant", `ID: ${student.student_id}`);
-    const metaText= createTextElement("p", "mb-4 text-xs uppercase tracking-wide text-outline", `${student.matric} • ${student.gender}`);
+    const name = createTextElement(
+      "h2",
+      "mb-1 text-2xl font-extrabold text-primary",
+      student.name,
+    );
+    const idText = createTextElement(
+      "p",
+      "mb-2 text-sm font-medium text-on-surface-variant",
+      `ID: ${student.student_id}`,
+    );
+    const metaText = createTextElement(
+      "p",
+      "mb-4 text-xs uppercase tracking-wide text-outline",
+      student.gender,
+    );
 
     const action = buildAction(student);
     card.append(topRow, name, idText, metaText, action);
@@ -111,19 +127,27 @@ if (Object.values(requiredElements).every(Boolean)) {
 
     // Cover image area
     const imgWrap = document.createElement("div");
-    imgWrap.className = "relative h-56 w-full overflow-hidden bg-surface-container-high";
+    imgWrap.className =
+      "relative h-56 w-full overflow-hidden bg-surface-container-high";
 
     const image = document.createElement("img");
-    image.className = "h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105";
+    image.className =
+      "h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105";
     image.alt = `${student.name} profile photo`;
-    image.src = isSafeHttpUrl(student.imageUrl) ? student.imageUrl : fallbackAvatar;
-    image.addEventListener("error", () => { image.src = fallbackAvatar; });
+    image.src = isSafeHttpUrl(student.imageUrl)
+      ? student.imageUrl
+      : fallbackAvatar;
+    image.addEventListener("error", () => {
+      image.src = fallbackAvatar;
+    });
 
     const statusOverlay = document.createElement("span");
     statusOverlay.className = student.approved
       ? "absolute right-3 top-3 rounded-full bg-secondary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-on-secondary-fixed shadow"
       : "absolute right-3 top-3 rounded-full bg-tertiary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-on-tertiary-fixed shadow";
-    statusOverlay.textContent = student.approved ? "Approved" : "Review Required";
+    statusOverlay.textContent = student.approved
+      ? "Approved"
+      : "Review Required";
 
     imgWrap.append(image, statusOverlay);
 
@@ -131,9 +155,21 @@ if (Object.values(requiredElements).every(Boolean)) {
     const body = document.createElement("div");
     body.className = "p-6";
 
-    const name    = createTextElement("h2", "mb-1 text-xl font-extrabold text-primary leading-snug", student.name);
-    const idText  = createTextElement("p", "mb-1 text-sm font-medium text-on-surface-variant", `ID: ${student.student_id}`);
-    const metaText= createTextElement("p", "mb-4 text-xs uppercase tracking-wide text-outline", `${student.matric} • ${student.gender}`);
+    const name = createTextElement(
+      "h2",
+      "mb-1 text-xl font-extrabold text-primary leading-snug",
+      student.name,
+    );
+    const idText = createTextElement(
+      "p",
+      "mb-1 text-sm font-medium text-on-surface-variant",
+      `ID: ${student.student_id}`,
+    );
+    const metaText = createTextElement(
+      "p",
+      "mb-4 text-xs uppercase tracking-wide text-outline",
+      student.gender,
+    );
 
     const action = buildAction(student);
     body.append(name, idText, metaText, action);
@@ -160,15 +196,21 @@ if (Object.values(requiredElements).every(Boolean)) {
     }
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "w-full rounded-lg bg-secondary/20 px-6 py-4 font-semibold text-secondary";
+    btn.className =
+      "w-full rounded-lg bg-secondary/20 px-6 py-4 font-semibold text-secondary";
     btn.disabled = true;
     btn.textContent = "Pending Review";
-    btn.setAttribute("aria-label", `${student.name} portfolio is still pending review`);
+    btn.setAttribute(
+      "aria-label",
+      `${student.name} portfolio is still pending review`,
+    );
     return btn;
   };
 
   const createStudentCard = (student) =>
-    cardStyle === "photo" ? createPhotoCard(student) : createClassicCard(student);
+    cardStyle === "photo"
+      ? createPhotoCard(student)
+      : createClassicCard(student);
 
   const updateSortButtons = () => {
     directoryElements.ascendingButton.setAttribute(
@@ -344,11 +386,16 @@ if (Object.values(requiredElements).every(Boolean)) {
     directoryElements.cardStyleBtn.addEventListener("click", () => {
       cardStyle = cardStyle === "classic" ? "photo" : "classic";
       const isPhoto = cardStyle === "photo";
-      directoryElements.cardStyleBtn.setAttribute("aria-pressed", String(isPhoto));
-      directoryElements.cardStyleBtn.querySelector(".toggle-label").textContent =
-        isPhoto ? "Classic View" : "Photo View";
-      directoryElements.cardStyleBtn.querySelector(".material-symbols-outlined").textContent =
-        isPhoto ? "view_list" : "photo_library";
+      directoryElements.cardStyleBtn.setAttribute(
+        "aria-pressed",
+        String(isPhoto),
+      );
+      directoryElements.cardStyleBtn.querySelector(
+        ".toggle-label",
+      ).textContent = isPhoto ? "Classic View" : "Photo View";
+      directoryElements.cardStyleBtn.querySelector(
+        ".material-symbols-outlined",
+      ).textContent = isPhoto ? "view_list" : "photo_library";
       currentPage = 1;
       updateView();
     });

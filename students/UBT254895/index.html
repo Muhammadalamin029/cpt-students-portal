@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Habiba Abubakar Muhammad - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fcf8f7;
+        --surface: #fcf8f7;
+        --surface-low: #f7f3f2;
+        --surface-container-low: #f1edec;
+        --surface-container-highest: #e5e2e1;
+        --text: #1c1b1b;
+        --text-muted: #454742;
+        --text-soft: #68615e;
+        --primary: #5e5e5c;
+        --secondary: #635d5a;
+        --secondary-container: #e7deda;
+        --outline: #767872;
+        --outline-variant: #c6c7c0;
+        --radius: 12px;
+        --radius-lg: 16px;
+        --container: 1140px;
+        --gutter: 24px;
+        --site-pad: 40px;
+        --header-h: 72px;
+        --shadow-soft: 0 2px 10px rgba(74, 69, 67, 0.06);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial,
+          "Noto Sans",
+          "Apple Color Emoji",
+          "Segoe UI Emoji";
+        line-height: 1.6;
+      }
+
+      ::selection {
+        background: var(--secondary-container);
+        color: var(--text);
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 var(--site-pad);
+      }
+
+      .section {
+        padding: 120px 0px;
+      }
+
+      .section--tight {
+        padding: 100px 0;
+      }
+
+      .kicker {
+        display: inline-block;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Noto Serif", ui-serif, Georgia, serif;
+        margin: 0;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+
+      h1 {
+        font-size: clamp(34px, 4vw, 48px);
+      }
+
+      h2 {
+        font-size: clamp(28px, 3vw, 36px);
+      }
+
+      h3 {
+        font-size: 24px;
+      }
+
+      p {
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      summary:focus-visible,
+      input:focus-visible {
+        outline: 3px solid rgba(118, 120, 114, 0.5);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+
+      /* Header / Nav */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        border-bottom: 1px solid rgba(101, 93, 90, 0.2);
+        background: rgba(252, 248, 247, 0.82);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav {
+        height: var(--header-h);
+      }
+
+      .nav__inner {
+        height: var(--header-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        font-family: "Noto Serif", ui-serif, Georgia, serif;
+        font-size: 24px;
+        letter-spacing: -0.01em;
+      }
+
+      .nav__links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav__link {
+        font-size: 16px;
+        color: var(--secondary);
+        padding: 10px 2px;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 160ms ease,
+          border-color 160ms ease,
+          transform 80ms ease;
+      }
+
+      .nav__link:hover {
+        color: var(--primary);
+      }
+
+      .nav__link:active {
+        transform: scale(0.98);
+      }
+
+      .nav__link[aria-current="page"] {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+        font-weight: 700;
+      }
+
+      @supports selector(body:has(#home:target)) {
+        body:has(:target) .nav__link[aria-current="page"] {
+          border-bottom-color: transparent;
+          font-weight: 400;
+          color: var(--secondary);
+        }
+
+        body:has(#home:target) .nav__links a[href="#home"],
+        body:has(#home:target) .nav__mobile a[href="#home"],
+        body:has(#about:target) .nav__links a[href="#about"],
+        body:has(#about:target) .nav__mobile a[href="#about"],
+        body:has(#education:target) .nav__links a[href="#education"],
+        body:has(#education:target) .nav__mobile a[href="#education"],
+        body:has(#skills:target) .nav__links a[href="#skills"],
+        body:has(#skills:target) .nav__mobile a[href="#skills"],
+        body:has(#creativity:target) .nav__links a[href="#creativity"],
+        body:has(#creativity:target) .nav__mobile a[href="#creativity"],
+        body:has(#contact:target) .nav__links a[href="#contact"],
+        body:has(#contact:target) .nav__mobile a[href="#contact"] {
+          color: var(--primary);
+          border-bottom-color: var(--primary);
+          border-color: var(--outline-variant);
+          font-weight: 700;
+        }
+      }
+
+      .nav__toggle {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .nav__toggle-btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(101, 93, 90, 0.2);
+        border-radius: 12px;
+        background: transparent;
+        cursor: pointer;
+        color: var(--text);
+      }
+
+      .nav__toggle-btn .material-symbols-outlined {
+        font-size: 24px;
+      }
+
+      .nav__mobile {
+        display: none;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 22px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background-color 200ms ease,
+          transform 80ms ease,
+          border-color 200ms ease,
+          color 200ms ease;
+        user-select: none;
+      }
+
+      .btn:active {
+        transform: scale(0.99);
+      }
+
+      .btn--soft {
+        background: var(--secondary-container);
+        color: #68615e;
+      }
+
+      .btn--soft:hover {
+        background: #ddd9d8;
+      }
+
+      .btn--dark {
+        background: var(--text);
+        color: var(--bg);
+      }
+
+      .btn--dark:hover {
+        background: var(--secondary);
+      }
+
+      /* Hero */
+      .hero {
+        padding-top: calc(120px + var(--header-h));
+        padding-bottom: 120px;
+      }
+
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gutter);
+        align-items: center;
+      }
+
+      .hero__lead {
+        max-width: 56ch;
+        margin-top: 18px;
+      }
+
+      .hero__card {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        background: var(--surface-container-low);
+        border: 1px solid rgba(101, 93, 90, 0.2);
+        aspect-ratio: 4 / 5;
+      }
+
+      .hero__card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: grayscale(20%);
+        transition:
+          transform 700ms ease,
+          filter 700ms ease;
+      }
+
+      .hero__card img:hover {
+        filter: grayscale(0%);
+        transform: scale(1.02);
+      }
+
+      /* About */
+      .about {
+        background: var(--surface-low);
+        position: relative;
+      }
+
+      .about__divider {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 120px;
+        height: 1px;
+        background: rgba(101, 93, 90, 0.2);
+        transform: translateX(-50%);
+      }
+
+      .about__inner {
+        max-width: 70ch;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      /* Education */
+      .section__head {
+        margin-bottom: 56px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gutter);
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid rgba(101, 93, 90, 0.2);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        transition: border-color 200ms ease;
+      }
+
+      .card:hover {
+        border-color: var(--outline-variant);
+      }
+
+      .card__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        background: var(--secondary-container);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        transition: background-color 200ms ease;
+      }
+
+      .card:hover .card__icon {
+        background: #c8c6c3;
+      }
+
+      .label {
+        display: block;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+
+      .value {
+        margin-top: 6px;
+        font-size: 18px;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .value--break {
+        word-break: break-word;
+      }
+
+      /* Skills */
+      .skills {
+        background: var(--surface-container-highest);
+      }
+
+      .skills__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .skills__title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .chip {
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(101, 93, 90, 0.12);
+        background: var(--surface);
+        box-shadow: var(--shadow-soft);
+        font-size: 16px;
+        color: var(--text);
+      }
+
+      .chip--soft {
+        background: var(--secondary-container);
+        color: #68615e;
+        border-color: transparent;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        box-shadow: none;
+      }
+
+      /* Creativity */
+      .split {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .rule {
+        height: 1px;
+        width: 64px;
+        background: var(--outline-variant);
+        margin: 22px 0;
+      }
+
+      .quote {
+        color: var(--secondary);
+        font-style: italic;
+      }
+
+      .media {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        background: var(--surface-container-low);
+        aspect-ratio: 1 / 1;
+      }
+
+      .media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Contact */
+      .contact {
+        background: var(--surface);
+        border-top: 1px solid rgba(101, 93, 90, 0.2);
+        text-align: center;
+      }
+
+      .contact__inner {
+        max-width: 62ch;
+        margin: 0 auto;
+      }
+
+      .contact__phone {
+        display: inline-block;
+        margin: 18px 0 18px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid transparent;
+        transition:
+          color 200ms ease,
+          border-color 200ms ease;
+        font-family: "Noto Serif", ui-serif, Georgia, serif;
+        font-size: clamp(34px, 4vw, 48px);
+        color: var(--text);
+      }
+
+      .contact__phone:hover {
+        color: var(--secondary);
+        border-bottom-color: var(--outline-variant);
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--surface);
+        border-top: 1px solid rgba(101, 93, 90, 0.2);
+        padding: var(--gutter) 0;
+      }
+
+      .footer__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        text-align: center;
+      }
+
+      .footer__links {
+        display: flex;
+        gap: 18px;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        font-weight: 700;
+      }
+
+      .muted {
+        color: var(--secondary);
+      }
+
+      .footer__links a {
+        color: var(--secondary);
+        transition:
+          color 160ms ease,
+          opacity 160ms ease;
+      }
+
+      .footer__links a:hover {
+        color: var(--primary);
+        opacity: 0.85;
+      }
+
+      /* Responsive */
+      @media (max-width: 860px) {
+        :root {
+          --site-pad: 20px;
+        }
+
+        .section {
+          padding: 96px 25px;
+        }
+
+        .hero {
+          padding-bottom: 96px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hero__grid {
+          grid-template-columns: 7fr 5fr;
+          gap: var(--gutter);
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .skills__grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 80px;
+        }
+
+        .split {
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
+        }
+
+        .footer__inner {
+          flex-direction: row;
+          text-align: left;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .nav__links {
+          display: none;
+        }
+
+        .nav__toggle-btn {
+          display: inline-flex;
+        }
+
+        .nav__mobile {
+          display: block;
+          position: fixed;
+          top: var(--header-h);
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(49, 48, 48, 0.45);
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 200ms ease;
+        }
+
+        .nav__mobile-panel {
+          position: relative;
+          background: var(--bg);
+          border-bottom: 1px solid rgba(101, 93, 90, 0.2);
+          padding: 18px var(--site-pad) 22px;
+          transform: translateY(-8px);
+          transition: transform 200ms ease;
+        }
+
+        .nav__backdrop {
+          position: absolute;
+          inset: 0;
+          cursor: pointer;
+        }
+
+        .nav__mobile-links {
+          display: grid;
+          gap: 8px;
+        }
+
+        .nav__mobile .nav__link {
+          border-bottom: 0;
+          padding: 14px 12px;
+          border-radius: 12px;
+          border: 1px solid rgba(101, 93, 90, 0.12);
+          background: var(--surface);
+        }
+
+        .nav__mobile .nav__link[aria-current="page"] {
+          border-color: var(--outline-variant);
+        }
+
+        .nav__toggle:checked ~ .nav__mobile {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .nav__toggle:checked ~ .nav__mobile .nav__mobile-panel {
+          transform: translateY(0);
+        }
+
+        .nav__toggle:checked ~ .nav__inner .nav__toggle-btn {
+          border-color: var(--outline-variant);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <input
+          class="nav__toggle"
+          type="checkbox"
+          id="nav-toggle"
+          aria-hidden="true"
+        />
+        <div class="nav__inner container">
+          <a class="brand" href="#home">Habiba</a>
+
+          <div class="nav__links">
+            <a class="nav__link" href="#home" aria-current="page">Home</a>
+            <a class="nav__link" href="#about">About</a>
+            <a class="nav__link" href="#education">Education</a>
+            <a class="nav__link" href="#skills">Skills</a>
+            <a class="nav__link" href="#creativity">Creativity</a>
+            <a class="nav__link" href="#contact">Contact</a>
+          </div>
+
+          <label
+            class="nav__toggle-btn"
+            for="nav-toggle"
+            aria-label="Toggle menu"
+          >
+            <span class="material-symbols-outlined" aria-hidden="true"
+              >menu</span
+            >
+          </label>
+        </div>
+
+        <div class="nav__mobile" aria-label="Mobile menu">
+          <label
+            class="nav__backdrop"
+            for="nav-toggle"
+            aria-hidden="true"
+          ></label>
+          <div class="nav__mobile-panel">
+            <div class="nav__mobile-links">
+              <label class="btn btn--soft" for="nav-toggle">Close</label>
+              <a class="nav__link" href="#home" aria-current="page">Home</a>
+              <a class="nav__link" href="#about">About</a>
+              <a class="nav__link" href="#education">Education</a>
+              <a class="nav__link" href="#skills">Skills</a>
+              <a class="nav__link" href="#creativity">Creativity</a>
+              <a class="nav__link" href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container" id="home">
+        <div class="hero__grid">
+          <div>
+            <span class="kicker"
+              >Science Student | Creative Designer | Entrepreneur</span
+            >
+            <h1 style="margin-top: 18px">
+              Bridging analytical thinking with creative vision.
+            </h1>
+            <p class="hero__lead">
+              A continuous learner dedicated to personal growth, blending the
+              precision of science with the expansive canvas of design and
+              entrepreneurship.
+            </p>
+            <div style="margin-top: 28px">
+              <a class="btn btn--soft" href="#contact">
+                Reach Out
+                <span
+                  class="material-symbols-outlined"
+                  aria-hidden="true"
+                  style="font-size: 18px"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class="hero__card">
+              <img
+                alt="Habiba Abubakar Muhammad Profile Portrait"
+                src="img.jpeg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="about__divider" aria-hidden="true"></div>
+        <div class="container">
+          <div class="about__inner">
+            <h2>Quiet Confidence &amp; Clarity</h2>
+            <p style="margin-top: 22px">
+              Rooted in a rigorous background as a science student, I approach
+              problem-solving with methodical precision. Yet, my true passion
+              flourishes in the realm of creativity. I am deeply invested in
+              continuous self-development, constantly seeking to refine my craft
+              and expand my horizons. Above all, my faith provides the
+              foundational compass that shapes my goals, inspiring a balanced
+              approach to professional ambition and personal integrity.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="education">
+        <div class="section__head">
+          <span class="kicker">Academic Background</span>
+          <h2 style="margin-top: 12px">Education Details</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card__icon">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >badge</span
+              >
+            </div>
+            <span class="label">Matric Number</span>
+            <div class="value">2025/1/106645CT</div>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >app_registration</span
+              >
+            </div>
+            <span class="label">Registration Number</span>
+            <div class="value">UBT254895</div>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >account_circle</span
+              >
+            </div>
+            <span class="label">Student Username</span>
+            <div class="value value--break">abubakarhmubt254895</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section skills" id="skills">
+        <div class="container">
+          <div class="skills__grid">
+            <div>
+              <div class="skills__title">
+                <span class="material-symbols-outlined muted" aria-hidden="true"
+                  >palette</span
+                >
+                <h3>Creative Expertise</h3>
+              </div>
+              <div class="chips">
+                <div class="chip">Graphic Design</div>
+                <div class="chip">Creative Writing</div>
+                <div class="chip">Resin Art</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="skills__title">
+                <span class="material-symbols-outlined muted" aria-hidden="true"
+                  >self_improvement</span
+                >
+                <h3>Personal Strengths</h3>
+              </div>
+              <div class="chips">
+                <div class="chip chip--soft">Discipline</div>
+                <div class="chip chip--soft">Continuous Learning</div>
+                <div class="chip chip--soft">Creativity</div>
+                <div class="chip chip--soft">Balance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="creativity">
+        <div class="split">
+          <div>
+            <span class="kicker">Entrepreneurial Vision</span>
+            <h2 style="margin-top: 12px">Promoting Modesty Through Design</h2>
+            <p style="margin-top: 18px">
+              My brand is a reflection of my core values. I aim to merge
+              high-end aesthetic appeal with the principles of modesty, creating
+              designs that resonate with elegance and respect. Through graphic
+              design, resin art, and curated experiences, the vision is to
+              establish a creative sanctuary that empowers and inspires without
+              compromising on dignity.
+            </p>
+            <div class="rule" aria-hidden="true"></div>
+            <p class="quote">
+              "Elegance is not about being noticed, it's about being
+              remembered."
+            </p>
+          </div>
+
+          <div>
+            <div class="media">
+              <img
+                alt="Modest Design Concept"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBATRs3MOpCR6Vok1kTlW44I_kgFjSiBEMZFxayzikLV3KwKHSxrbxTUCjcDT_3hKw7umzFhxt-fRuvLycugH5YdybLs89uPDIErQhVwv5v972Ov6VNxmzEgR4WyITYicc1hewsQgoJVbFYU3MNzuJBJk1opVag5BguyCZNhDRfDZrZi-KasWQogl_krXokTtHuIdcuoxSZ-hBVwl2b0V8YIjOg_Zlv5tdsAehnPZNht1IwArT7Gy4WYI34FjX1b8egut5YHxI76Sr1"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="container">
+          <div class="contact__inner">
+            <h2>Let's Connect</h2>
+            <p style="margin-top: 14px">
+              Open for collaborations, creative projects, or simply a
+              conversation about design and growth.
+            </p>
+
+            <div style="margin-top: 32px">
+              <a class="contact__phone" href="tel:07070345197">07070345197</a>
+            </div>
+
+            <a class="btn btn--dark" href="mailto:hello@example.com">
+              <span
+                class="material-symbols-outlined"
+                aria-hidden="true"
+                style="font-size: 18px"
+                >mail</span
+              >
+              Send a Message
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner container">
+        <div class="brand">Habiba Abubakar Muhammad</div>
+        <div
+          class="muted"
+          style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700"
+        >
+          © 2026 Habiba Abubakar Muhammad. All rights reserved.
+        </div>
+        <div class="footer__links" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
