@@ -243,20 +243,20 @@ if (Object.values(requiredElements).every(Boolean)) {
   const renderPagination = (totalPages) => {
     directoryElements.pagesContainer.replaceChildren();
 
-    const maxButtons = 5;
+    const maxButtons = 3;
     let startPage = 1;
     let endPage = totalPages;
 
     if (totalPages > maxButtons) {
-      if (currentPage <= 3) {
+      if (currentPage <= 2) {
         startPage = 1;
-        endPage = 5;
-      } else if (currentPage >= totalPages - 2) {
-        startPage = totalPages - 4;
+        endPage = 3;
+      } else if (currentPage >= totalPages - 1) {
+        startPage = totalPages - 2;
         endPage = totalPages;
       } else {
-        startPage = currentPage - 2;
-        endPage = currentPage + 2;
+        startPage = currentPage - 1;
+        endPage = currentPage + 1;
       }
     }
 
