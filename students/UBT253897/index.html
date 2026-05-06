@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Victor Eneojo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        :root {
+            --bg: #0a0a0a;
+            --text: #f0f0f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .profile-photo {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            display: block;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.4rem;
+        }
+        
+        .tags {
+            font-size: 1.05rem;
+            color: #aaa;
+            font-weight: 500;
+        }
+        
+        section {
+            margin: 3.5rem 0;
+        }
+        
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 60%;
+            height: 2px;
+            background: #fff;
+        }
+        
+        .about {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .card {
+            background: #111;
+            padding: 1.8rem;
+            border: 1px solid #333;
+        }
+        
+        .bio-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid #222;
+            font-size: 1rem;
+        }
+        
+        .bio-item:last-child {
+            border-bottom: none;
+        }
+        
+        .label {
+            color: #888;
+            font-weight: 500;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .interest-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .interest {
+            background: #111;
+            padding: 1.8rem;
+            border: 1px solid #333;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background: #1a1a1a;
+            color: #ddd;
+            padding: 0.55rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            border: 1px solid #444;
+            white-space: nowrap;
+        }
+        
+        .contact-box {
+            background: #111;
+            padding: 2.5rem 2rem;
+            border: 1px solid #333;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .contact-email {
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 4px;
+        }
+        
+        .nav-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2.5rem 0 1.5rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Optimizations */
+        @media (min-width: 768px) {
+            .container { padding: 2rem; }
+            .grid { grid-template-columns: 1fr 1fr; }
+            .interest-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+            h1 { font-size: 3.2rem; }
+            .profile-photo { width: 190px; height: 190px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.4rem; }
+            .profile-photo { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with your photo -->
+        <header>
+            <img src="https://drive.google.com/thumbnail?id=1Ks9-9g0NSmfz6xlgawVP0C_WucvN1MQ5&sz=w1000" 
+                 alt="Emmanuel Victor Eneojo" 
+                 class="profile-photo"
+                 onerror="this.src='https://via.placeholder.com/170?text=Add+Photo';">
+            
+            <h1>Emmanuel Victor Eneojo</h1>
+            <p class="tags">FUT Minna • Computer Science • Tech Enthusiast</p>
+        </header>
+
+        <!-- About -->
+        <section>
+            <h2 style="text-align: center; margin-bottom: 2rem;">About Me</h2>
+            <p class="about">
+                I am Emmanuel Victor Eneojo, a passionate and driven student of Federal University of Technology Minna. 
+                I have strong interests in technology, web development, graphic design, and digital content creation.
+            </p>
+        </section>
+
+        <!-- Bio Data & Student Profile -->
+        <div class="grid">
+            <div class="card">
+                <h2>— BIO DATA</h2>
+                <div class="bio-item">
+                    <span class="label">STATE OF ORIGIN</span>
+                    <span>Kogi State</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">DATE OF BIRTH</span>
+                    <span>24 August 2008</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">GENDER</span>
+                    <span>Male</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">EMAIL</span>
+                    <span>emmanuelvictoreneojo@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>— STUDENT PROFILE</h2>
+                <div class="bio-item">
+                    <span class="label">SCHOOL</span>
+                    <span>Federal University of Technology, Minna</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">FACULTY</span>
+                    <span>School of Information and Communication Technology</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">DEPARTMENT</span>
+                    <span>Computer Science</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">MATRIC. NUMBER</span>
+                    <span>UBT253897CT</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">STUDENT ID</span>
+                    <span>UBT25700</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">LEVEL</span>
+                    <span>100</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">ENROLLMENT YEAR</span>
+                    <span>2025/26</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats, Hobbies, Skills, Contact sections remain the same -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">17</div>
+                <div class="stat-label">Years Old</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Year in University</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Ambition Level</div>
+            </div>
+        </div>
+
+        <section>
+            <h2 style="text-align: center; margin-bottom: 2rem;">Hobbies & Interests</h2>
+            <div class="interest-grid">
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Building modern and responsive websites with clean code.</p>
+                </div>
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">🎨</div>
+                    <h3>Graphic Design</h3>
+                    <p>Creating visual contents, logos, and digital designs.</p>
+                </div>
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">🎥</div>
+                    <h3>Video Editing</h3>
+                    <p>Producing and editing engaging video content.</p>
+                </div>
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">📖</div>
+                    <h3>Reading</h3>
+                    <p>Enjoying books, articles, and continuous learning through reading.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center;">Skills & Stack</h2>
+            <div class="skills">
+                <div class="skill-tag">HTML & CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Microsoft Office</div>
+                <div class="skill-tag">MS Word</div>
+                <div class="skill-tag">MS Excel</div>
+                <div class="skill-tag">MS Access</div>
+                <div class="skill-tag">Video Editing</div>
+                <div class="skill-tag">Graphic Design</div>
+                <div class="skill-tag">UI/UX Basics</div>
+                <div class="skill-tag">Problem Solving</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Contact</h2>
+            <div class="contact-box">
+                <p style="font-size: 1.05rem; color: #aaa; margin-bottom: 1rem;">Email Address</p>
+                <a href="mailto:emmanuelvictoreneojo@gmail.com" class="contact-email">
+                    emmanuelvictoreneojo@gmail.com
+                </a>
+            </div>
+        </section>
+
+        <div class="nav-arrows">
+            ← &nbsp;&nbsp;&nbsp; →
+        </div>
+    </div>
+
+    <footer>
+        <p>Student Profile • Federal University of Technology, Minna • 2025</p>
+    </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Victor Eneojo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        :root {
+            --bg: #0a0a0a;
+            --text: #f0f0f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .profile-photo {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            display: block;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.4rem;
+        }
+        
+        .tags {
+            font-size: 1.05rem;
+            color: #aaa;
+            font-weight: 500;
+        }
+        
+        section {
+            margin: 3.5rem 0;
+        }
+        
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 60%;
+            height: 2px;
+            background: #fff;
+        }
+        
+        .about {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .card {
+            background: #111;
+            padding: 1.8rem;
+            border: 1px solid #333;
+        }
+        
+        .bio-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid #222;
+            font-size: 1rem;
+        }
+        
+        .bio-item:last-child {
+            border-bottom: none;
+        }
+        
+        .label {
+            color: #888;
+            font-weight: 500;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .interest-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .interest {
+            background: #111;
+            padding: 1.8rem;
+            border: 1px solid #333;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background: #1a1a1a;
+            color: #ddd;
+            padding: 0.55rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            border: 1px solid #444;
+            white-space: nowrap;
+        }
+        
+        .contact-box {
+            background: #111;
+            padding: 2.5rem 2rem;
+            border: 1px solid #333;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .contact-email {
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 4px;
+        }
+        
+        .nav-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2.5rem 0 1.5rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Optimizations */
+        @media (min-width: 768px) {
+            .container { padding: 2rem; }
+            .grid { grid-template-columns: 1fr 1fr; }
+            .interest-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+            h1 { font-size: 3.2rem; }
+            .profile-photo { width: 190px; height: 190px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.4rem; }
+            .profile-photo { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with your photo -->
+        <header>
+            <img src="https://drive.google.com/thumbnail?id=1Ks9-9g0NSmfz6xlgawVP0C_WucvN1MQ5&sz=w1000" 
+                 alt="Emmanuel Victor Eneojo" 
+                 class="profile-photo"
+                 onerror="this.src='https://via.placeholder.com/170?text=Add+Photo';">
+            
+            <h1>Emmanuel Victor Eneojo</h1>
+            <p class="tags">FUT Minna • Computer Science • Tech Enthusiast</p>
+        </header>
+
+        <!-- About -->
+        <section>
+            <h2 style="text-align: center; margin-bottom: 2rem;">About Me</h2>
+            <p class="about">
+                I am Emmanuel Victor Eneojo, a passionate and driven student of Federal University of Technology Minna. 
+                I have strong interests in technology, web development, graphic design, and digital content creation.
+            </p>
+        </section>
+
+        <!-- Bio Data & Student Profile -->
+        <div class="grid">
+            <div class="card">
+                <h2>— BIO DATA</h2>
+                <div class="bio-item">
+                    <span class="label">STATE OF ORIGIN</span>
+                    <span>Kogi State</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">DATE OF BIRTH</span>
+                    <span>24 August 2008</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">GENDER</span>
+                    <span>Male</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">EMAIL</span>
+                    <span>emmanuelvictoreneojo@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>— STUDENT PROFILE</h2>
+                <div class="bio-item">
+                    <span class="label">SCHOOL</span>
+                    <span>Federal University of Technology, Minna</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">FACULTY</span>
+                    <span>School of Information and Communication Technology</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">DEPARTMENT</span>
+                    <span>Computer Science</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">MATRIC. NUMBER</span>
+                    <span>UBT253897CT</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">STUDENT ID</span>
+                    <span>UBT25700</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">LEVEL</span>
+                    <span>100</span>
+                </div>
+                <div class="bio-item">
+                    <span class="label">ENROLLMENT YEAR</span>
+                    <span>2025/26</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats, Hobbies, Skills, Contact sections remain the same -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">17</div>
+                <div class="stat-label">Years Old</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Year in University</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Ambition Level</div>
+            </div>
+        </div>
+
+        <section>
+            <h2 style="text-align: center; margin-bottom: 2rem;">Hobbies & Interests</h2>
+            <div class="interest-grid">
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Building modern and responsive websites with clean code.</p>
+                </div>
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">🎨</div>
+                    <h3>Graphic Design</h3>
+                    <p>Creating visual contents, logos, and digital designs.</p>
+                </div>
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">🎥</div>
+                    <h3>Video Editing</h3>
+                    <p>Producing and editing engaging video content.</p>
+                </div>
+                <div class="interest">
+                    <div class="interest-icon" style="font-size: 2.8rem; margin-bottom: 1rem;">📖</div>
+                    <h3>Reading</h3>
+                    <p>Enjoying books, articles, and continuous learning through reading.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center;">Skills & Stack</h2>
+            <div class="skills">
+                <div class="skill-tag">HTML & CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Microsoft Office</div>
+                <div class="skill-tag">MS Word</div>
+                <div class="skill-tag">MS Excel</div>
+                <div class="skill-tag">MS Access</div>
+                <div class="skill-tag">Video Editing</div>
+                <div class="skill-tag">Graphic Design</div>
+                <div class="skill-tag">UI/UX Basics</div>
+                <div class="skill-tag">Problem Solving</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Contact</h2>
+            <div class="contact-box">
+                <p style="font-size: 1.05rem; color: #aaa; margin-bottom: 1rem;">Email Address</p>
+                <a href="mailto:emmanuelvictoreneojo@gmail.com" class="contact-email">
+                    emmanuelvictoreneojo@gmail.com
+                </a>
+            </div>
+        </section>
+
+        <div class="nav-arrows">
+            ← &nbsp;&nbsp;&nbsp; →
+        </div>
+    </div>
+
+    <footer>
+        <p>Student Profile • Federal University of Technology, Minna • 2025</p>
+    </footer>
+</body>
+</html>

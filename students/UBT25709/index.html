@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Portfolio</title>
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 25, 47, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #dbeafe;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0a192f, #0f3d6e, #1d4ed8);
+      color: #fff;
+      padding: 80px 0;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h2 {
+      font-size: 1.3rem;
+      color: #93c5fd;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .hero-text p {
+      margin-bottom: 25px;
+      max-width: 600px;
+      color: #e5e7eb;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0a192f;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #93c5fd;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      width: 100%;
+      max-width: 320px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .profile-card img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      margin-bottom: 15px;
+    }
+
+    .profile-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .profile-card p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #0f172a;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 35px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .light-bg {
+      background: #eef5ff;
+    }
+
+    /* ===== BIODATA ===== */
+    .biodata-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .biodata-item {
+      background: #f8fbff;
+      border-left: 5px solid #2563eb;
+      padding: 14px;
+      border-radius: 12px;
+    }
+
+    .biodata-item strong {
+      display: block;
+      color: #0f172a;
+      margin-bottom: 5px;
+    }
+
+    /* ===== CV / RESUME ===== */
+    .resume-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .resume-box h3 {
+      color: #1d4ed8;
+      margin-bottom: 12px;
+    }
+
+    .resume-box ul {
+      margin-left: 20px;
+    }
+
+    .resume-box li {
+      margin-bottom: 10px;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+      margin-top: 15px;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      color: #0f172a;
+      padding: 12px;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-top {
+      height: 160px;
+      background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-content h3 {
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .project-content p {
+      color: #475569;
+      margin-bottom: 15px;
+    }
+
+    .project-link {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== EXPERIENCE ===== */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      background: #fff;
+      border-left: 6px solid #2563eb;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .timeline-item h3 {
+      color: #0f172a;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item span {
+      color: #64748b;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* ===== EXTRA SECTION ===== */
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .extra-card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    }
+
+    .extra-card h3 {
+      color: #1d4ed8;
+      margin-bottom: 10px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: linear-gradient(135deg, #0a192f, #0f3d6e);
+      color: #fff;
+    }
+
+    .contact .section-title,
+    .contact .section-subtitle {
+      color: #fff;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-card p {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
+    .socials {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .socials a:hover {
+      color: #38bdf8;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #020617;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 18px;
+      font-size: 0.95rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-content,
+      .resume-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin: 0 auto 25px auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .nav-content {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .profile-card img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#biodata">Bio-Data</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Salaudeen Abdullateef O.</h1>
+        <h2>Graphics Designer | Aspiring UI/UX Designer & Web Developer | Creative Thinker</h2>
+        <p> Welcome to my personal portfolio website. I am passionate about visual design,
+            branding and digital creativity. As a graphics designer, I am currently learning
+              UI/UX design and web development to create clean, user-friendly, and impactful
+              digital experiences.
+          </p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn btn-secondary">Hire / Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="profile-card">
+          <img src="IMG_9310.jpeg" alt="Profile Picture">
+          <h3>Salaudeen Abdullateef O.</h3>
+          <p>Based in Abuja, Nigeria</p>
+          <p>Passionate about visual design,
+            branding and digital creativity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIODATA -->
+  <section id="biodata">
+    <div class="container">
+      <h2 class="section-title">My Bio-Data</h2>
+      <p class="section-subtitle">Personal information and essential details.</p>
+
+      <div class="card">
+        <div class="biodata-grid">
+          <div class="biodata-item">
+            <strong>Full Name</strong>
+            Salaudeen Abdullateef O.
+          </div>
+          <div class="biodata-item">
+            <strong>Date of Birth</strong>
+            02nd August 2000
+          </div>
+          <div class="biodata-item">
+            <strong>Gender</strong>
+            Male
+          </div>
+          <div class="biodata-item">
+            <strong>Nationality</strong>
+            Nigerian
+          </div>
+          <div class="biodata-item">
+            <strong>State of Origin</strong>
+            Kwara State
+          </div>
+          <div class="biodata-item">
+            <strong>Marital Status</strong>
+            Lonely
+          </div>
+          <div class="biodata-item">
+            <strong>Phone Number</strong>
+            +234 812 596 0468
+          </div>
+          <div class="biodata-item">
+            <strong>Email Address</strong>
+            olayinkaabiola206@gmail.com
+          </div>
+          <div class="biodata-item">
+            <strong>Home Address</strong>
+            Abuja, Nigeria
+          </div>
+          <div class="biodata-item">
+            <strong>Languages</strong>
+            Yoruba, English, Hausa
+          </div>
+          <div class="biodata-item">
+            <strong>Religion</strong>
+            Islam
+          </div>
+          <div class="biodata-item">
+            <strong>Career Goal</strong>
+            To become a professional software developer
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV / RESUME -->
+  <section id="cv" class="light-bg">
+    <div class="container">
+      <h2 class="section-title">My CV / Resume</h2>
+      <p class="section-subtitle">Career objective, education, skills and qualifications.</p>
+
+      <div class="card">
+        <div class="resume-grid">
+
+          <div class="resume-box">
+            <h3>Career Objective</h3>
+            <p>
+              A creative and ambitious graphics designer passionate about building strong
+              visual identities and meaningful digital experience. With a growing foundation
+              in UI/UX design and web development, my goal is to blend creativity, branding
+              and technology to design solutions that are visually compelling, user-focused
+              and impactful.
+            </p>
+
+            <h3 style="margin-top: 20px;">Education</h3>
+            <ul>
+              <li><strong>B.Tech. Computer Science</strong> - Federal University of Technology Minna. <br> (2025 - Till date)</li>
+              <li><strong>ND Computer Science</strong> - The Federal Polytechnic Nasarawa. <br> (2021 - 2023)</li>
+              <li><strong>Senior Secondary School Certificate</strong> - Government Science and Technical College, Garki Abuja. (2017 - 2020)</li>
+              <li><strong>Junior Secondary School Certificate</strong> - Junior Secondary School Karmo Sabo. (2013 - 2016)</li>
+              <li><strong>Primary School Certificate</strong> - Nurul Islam Nur/Pri School, Ereke, Karmo.<br> (2005 - 2011)</li>
+            </ul>
+
+            <h3 style="margin-top: 20px;">Certifications</h3>
+            <ul>
+              <li>Practical Experience in Graphics Design and Branding</li>
+              <li>Currently Learning Frontend Web Development Fundamentals</li>
+              <li>Currently Studying UI/UX Design Principles</li>
+              <li>HTML and CSS Certificate</li>
+            </ul>
+          </div>
+
+          <div class="resume-box">
+            <h3>Professional Skills</h3>
+            <div class="skills-grid">
+              <div class="skill">Graphics Design</div>
+              <div class="skill">Brand Identity Design</div>
+              <div class="skill">Creative Thinking</div>
+              <div class="skill">UI/UX Fundamentals</div>
+              <div class="skill">HTML</div>
+              <div class="skill">CSS</div>
+              <div class="skill">Microsoft Office</div>
+              <div class="skill">Problem Solving</div>
+              <div class="skill">Communication</div>
+              <div class="skill">Team Work</div>
+            </div>
+
+            <h3 style="margin-top: 20px;">Personal Qualities</h3>
+            <ul>
+              <li>Creative and detail-oriented</li>
+              <li>Fast learner and adaptable</li>
+              <li>Excellent communication skills</li>
+              <li>Strong team collaboration</li>
+              <li>Good time management</li>
+            </ul>
+
+            <h3 style="margin-top: 20px;">References</h3>
+            <p>Available on request.</p>
+            <a href="My Curriculum Vitae.pdf" download class="btn">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title">My Portfolio</h2>
+      <p class="section-subtitle">Selected projects and practical works.</p>
+
+      <div class="portfolio-grid">
+
+        <div class="project-card">
+          <div class="project-top">PROJECT 01</div>
+          <div class="project-content">
+            <h3>Branding Project 1</h3>
+            <p>
+              Designed a full visual identity for a startup, including logo, business cards,
+              and social media graphics.
+            </p>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">PROJECT 02</div>
+          <div class="project-content">
+            <h3>UI Concept</h3>
+            <p>
+              Created a user interface concept for a mobile app as part of UI/UX learning project.
+            </p>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">PROJECT 03</div>
+          <div class="project-content">
+            <h3>Website Mockup</h3>
+            <p>
+              Developed a responsive website mockup combining web design and branding elements.
+            </p>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">PROJECT 04</div>
+          <div class="project-content">
+            <h3>Branding Project 2</h3>
+            <p>
+              Designed visual assets and social media templates for a small business client.
+            </p>
+            <a href="#" class="project-link">View Project</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="light-bg">
+    <div class="container">
+      <h2 class="section-title">Work/Practical Experience</h2>
+      <p class="section-subtitle">Professional and practical experience over time.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Graphics Designer / Machine Operator</h3>
+          <span>Prographix Digital Prints Ltd. | 2023 - Present</span>
+          <p>
+            Gained hands-on experience in operating industrial printing machines and creating visula content,
+            branding materials and digital assests for persoanl brand growth creative projects. 
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>BRAND OWNER OF DEEN GRAPHIX MULTIMEDIA</h3>
+          <span>Self-Employed | 2024 - Present</span>
+          <p>
+            Designed logos, promotional graphics social media content and other visual materials focused on brand presentation.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>UI/UX DESIGN/WEB DEVELOPMENT PRACTICE</h3>
+          <p>
+            Currently developing practical skills in interface design, user experience principles and layout structuring
+            through self driven project and continous learning. Also building foundational experience in HTML and CSS by
+            designing responsive web pages and portfolio-based web project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER NECESSITIES -->
+  <section id="others">
+    <div class="container">
+      <h2 class="section-title">Other Necessities</h2>
+      <p class="section-subtitle">Additional information that strengthens my profile.</p>
+
+      <div class="extras-grid">
+        <div class="extra-card">
+          <h3>Hobbies & Interests</h3>
+          <p>Coding, games, graphic design, research, teamwork, and technology exploration.</p>
+        </div>
+
+        <div class="extra-card">
+          <h3>Strengths</h3>
+          <p>Creativity, adaptability, consistency, fast learning, communication, and leadership potential.</p>
+        </div>
+
+        <div class="extra-card">
+          <h3>Achievements</h3>
+          <p>Successfully completed multiple academic and personal web projects with responsive layouts.</p>
+        </div>
+
+        <div class="extra-card">
+          <h3>Availability</h3>
+          <p>Available for internships, freelance projects, collaborations, and entry-level opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-subtitle">Let’s connect for opportunities, projects, or collaborations.</p>
+
+      <div class="contact-card">
+        <p><strong>Full Name:</strong> Salaudeen Abdullateef O.</p>
+        <p><strong>Email:</strong> olayinkaabiola206@gmail.com</p>
+        <p><strong>Phone:</strong> +234 812 596 0468</p>
+        <p><strong>Location:</strong> Abuja, Nigeria</p>
+
+        <div class="socials">
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="https://wa.me/2348125960468" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Salaudeen Abdullateef O. | Personal Portfolio Website | All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

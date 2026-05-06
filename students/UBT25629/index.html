@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Philip's Biodata</title>
 
     <style>
       * {
@@ -12,26 +12,19 @@
       }
 
       .hero {
-        height: 100vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 2rem 1rem;
         background-color: rgb(92, 65, 92);
-        color: aliceblue;
       }
 
       .content h1 {
-        font-size: 4rem;
-        text-transform: capitalize;
-        font-weight: 900;
-        font-family: "Courier New", Courier, monospace;
+        font-size: 2rem;
       }
 
       .content h3 {
-        font-size: 1.2rem;
-        font-family: "Courier New", Courier, monospace;
-        text-transform: capitalize;
+        font-size: 1rem;
       }
 
       #about {
@@ -52,22 +45,20 @@
       }
 
       #about div {
-        padding: 3rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
       }
 
       #about p {
-        width: 50%;
-        font-size: 1.2rem;
+        width: 100%;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <nav></nav>
 
-    <section id="" class="hero">
+    <section id="" class="hero" ; style="margin-bottom: 2rem">
       <div class="content">
         <h1>Philip Oreofe Egbeyemi</h1>
         <h3>100 Level Computer Science Student</h3>
@@ -75,14 +66,14 @@
       </div>
 
       <div class="img">
-        <img src="Pic.jpg" alt="" width="500px" height="640px" />
+        <img src="Pic.jpg" alt="Philip" style="width: 100%; height: auto" />
       </div>
     </section>
 
     <section id="about">
       <h2>About me</h2>
       <div>
-        <p style="font-size: 30px">
+        <p style="font-size: 150%">
           👋Hey my name is Philip Oreofe Egbeyemi I'm an aspiring web developer
           currently building a strong foundation in the fundamentals of web
           development. I am learning different programming languages like CSS
@@ -90,8 +81,8 @@
           creating responsive and user-friendly websites for future clients.
         </p>
 
-        <div style="font-size: 30px">
-          <ul>
+        <div style="font-size: 150%">
+          <ul style="text-align: left">
             <li>School: <span>FUTMINNA</span></li>
             <li>Age: <span>17</span></li>
             <li>DOB: 15/1/2009</li>

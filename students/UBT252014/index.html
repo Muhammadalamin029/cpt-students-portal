@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eze Cynthia Ogechukwu | Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ================= RESET ================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* ================= THEME ================= */
+      :root {
+        --bg: #020617;
+        --text: #e5e7eb;
+        --card: #0f172a;
+        --accent: #3b82f6;
+        --input: #1e293b;
+      }
+
+      body.light {
+        --bg: #f8fafc;
+        --text: #0f172a;
+        --card: #ffffff;
+        --accent: #2563eb;
+        --input: #e2e8f0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        transition: 0.3s;
+      }
+
+      /* ================= NAV ================= */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: var(--bg);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        z-index: 1000;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        text-decoration: none;
+        color: var(--text);
+      }
+
+      .menu-btn {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        nav .links {
+          position: absolute;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background: var(--bg);
+          flex-direction: column;
+          max-height: 0;
+          overflow: hidden;
+          transition: 0.3s;
+          text-align: center;
+        }
+
+        nav .links.show {
+          max-height: 300px;
+        }
+        nav .links a {
+          padding: 1rem;
+          display: block;
+        }
+        .menu-btn {
+          display: block;
+        }
+      }
+
+      /* ================= HERO ================= */
+      header {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: radial-gradient(circle, #1d4ed8, var(--bg));
+      }
+
+      .profile-img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        border: 3px solid var(--accent);
+        object-fit: cover;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 20px var(--accent);
+      }
+
+      header h1 {
+        font-size: 2.4rem;
+        font-family: "Orbitron";
+      }
+
+      .typing {
+        margin-top: 10px;
+        color: var(--accent);
+        height: 30px;
+      }
+
+      .hero-btn {
+        margin-top: 1rem;
+        padding: 0.8rem 2rem;
+        background: var(--accent);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      /* ================= SECTION ================= */
+      section {
+        padding: 5rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-family: "Orbitron";
+        color: var(--accent);
+      }
+
+      /* ================= GRID ================= */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      /* ================= CARD ================= */
+      .card {
+        background: var(--card);
+        padding: 1.5rem;
+        border-radius: 12px;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 15px var(--accent);
+      }
+
+      /* ================= CONTACT ================= */
+      .contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 500px;
+        margin: auto;
+      }
+
+      input,
+      textarea {
+        padding: 0.8rem;
+        border-radius: 6px;
+        border: none;
+        background: var(--input);
+        color: var(--text);
+      }
+
+      /* ================= FADE ================= */
+      .fade {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 1s;
+      }
+
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div><strong>Cynthia</strong></div>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+      <div class="links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div onclick="toggleTheme()">🌙</div>
+    </nav>
+
+    <!-- HERO -->
+    <header>
+      <img src="img.jpeg" class="profile-img" />
+
+      <h1>Eze Cynthia Ogechukwu</h1>
+      <div class="typing" id="typing"></div>
+
+      <button
+        class="hero-btn"
+        onclick="
+          document
+            .getElementById('contact')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+      >
+        Contact Me
+      </button>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade">
+      <h2>About Me</h2>
+      <p style="text-align: center">
+        A Computer Science student passionate about technology, digital
+        innovation, and continuous learning. I am building my skills step by
+        step and growing into the tech industry with consistency and curiosity.
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="fade">
+      <h2>Education</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Primary School</h3>
+          <p>Mercy Field Model School (2010–2017)</p>
+        </div>
+
+        <div class="card">
+          <h3>Secondary School</h3>
+          <p>Salbasi Agape School (2021–2023)</p>
+        </div>
+
+        <div class="card">
+          <h3>University</h3>
+          <p>FUT Minna — B.Sc Computer Science (2025–Present)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="fade">
+      <h2>Skills</h2>
+
+      <div class="grid">
+        <div class="card">Basic Computer Skills</div>
+        <div class="card">Microsoft Word</div>
+        <div class="card">Communication Skills</div>
+        <div class="card">Willingness to Learn</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="fade">
+      <h2>Projects & Experience</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Learning Journey</h3>
+          <p>Basic computer science practice and academic projects.</p>
+        </div>
+
+        <div class="card">
+          <h3>Academic Work</h3>
+          <p>Assignments and structured learning tasks in university.</p>
+        </div>
+
+        <div class="card">
+          <h3>Growth Focus</h3>
+          <p>Actively improving digital and technical skills.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade">
+      <h2>Contact</h2>
+
+      <div class="contact">
+        <form onsubmit="sendMessage(event)">
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
+          <textarea rows="5" placeholder="Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      /* THEME */
+      function toggleTheme() {
+        document.body.classList.toggle("light");
+      }
+
+      /* MENU */
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+      }
+
+      /* TYPING */
+      const textArray = [
+        "Aspiring Tech Professional",
+        "Computer Science Student",
+        "Curious Learner",
+      ];
+
+      let i = 0,
+        j = 0,
+        del = false;
+
+      function type() {
+        let el = document.getElementById("typing");
+
+        let current = textArray[i];
+
+        if (!del) {
+          el.textContent = current.substring(0, j++);
+        } else {
+          el.textContent = current.substring(0, j--);
+        }
+
+        if (j === current.length) {
+          del = true;
+          setTimeout(type, 1000);
+          return;
+        }
+        if (j === 0) {
+          del = false;
+          i = (i + 1) % textArray.length;
+        }
+
+        setTimeout(type, del ? 50 : 100);
+      }
+      type();
+
+      /* SCROLL */
+      const faders = document.querySelectorAll(".fade");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+
+      faders.forEach((el) => observer.observe(el));
+
+      /* FORM */
+      function sendMessage(e) {
+        e.preventDefault();
+        alert("Message sent successfully!");
+        e.target.reset();
+      }
+    </script>
+  </body>
+</html>

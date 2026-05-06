@@ -1,0 +1,518 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;family=Manrope:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .nav-link {
+    transition: all 0.3s ease-in-out;
+    color: rgba(255,255,255,0.5);
+  }
+  .nav-link.active {
+    color: #C0C0C0;
+    background-color: #000;
+    /* font-variation-settings: &quot;FILL&quot; 1;  */
+  }
+  .nav-link.active .nav-icon {
+    font-variation-settings: "FILL" 1;
+    color: #C0C0C0;
+  }
+  .nav-link .nav-icon {
+    color: inherit;
+  }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        color: #c0c0c0;
+      }
+      body {
+        background-color: #000000;
+        color: #ffffff;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "#000000",
+              surface: "#121212",
+              "surface-variant": "#1A1A1A",
+              primary: "#C0C0C0",
+              "on-surface": "#FFFFFF",
+              outline: "#2A2A2A",
+            },
+            fontFamily: {
+              "body-lg": ["Manrope"],
+              "label-caps": ["Inter"],
+              h1: ["Inter"],
+              h2: ["Inter"],
+              h3: ["Inter"],
+              "body-md": ["Manrope"],
+            },
+            fontSize: {
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "1.6",
+                  letterSpacing: "0.01em",
+                  fontWeight: "400",
+                },
+              ],
+              "label-caps": [
+                "12px",
+                { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" },
+              ],
+              h1: [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              h2: [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              h3: [
+                "24px",
+                { lineHeight: "1.3", letterSpacing: "0", fontWeight: "600" },
+              ],
+              "body-md": [
+                "16px",
+                { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="font-body-md bg-background text-on-surface">
+    <!-- TopAppBar -->
+    <header
+      class="bg-black text-[#C0C0C0] font-inter tracking-tighter uppercase font-bold docked full-width top-0 border-b border-[#C0C0C0] flat no shadows flex justify-between items-center w-full px-6 h-16 sticky z-50"
+    >
+      <span class="material-symbols-outlined" data-icon="menu">menu</span>
+      <div class="text-lg font-black tracking-[0.2em] text-[#C0C0C0]">
+        ESTHER's CORNER
+      </div>
+      <span class="material-symbols-outlined" data-icon="account_circle"
+        >account_circle</span
+      >
+    </header>
+    <main class="max-w-[480px] mx-auto px-6 pt-12 pb-32">
+      <!-- Profile Section -->
+      <section class="flex flex-col items-center text-center mb-12" id="profile">
+        <div class="relative mb-8">
+          <!-- Profile Ring per Style Guidance -->
+          <div
+            class="w-40 h-40 rounded-full border-2 border-[#C0C0C0] flex items-center justify-center p-1"
+          >
+            <div
+              class="w-full h-full rounded-full border-4 border-black overflow-hidden bg-surface"
+            >
+              <img
+                alt="ESTHER ADOLEH"
+                class="w-full h-full object-cover"
+                src="./IMG-20260506-WA0017.jpg"
+              />
+            </div>
+          </div>
+        </div>
+        <h1 class="font-h1 text-h2 mb-3">ESTHER ADOLEH OLOHI</h1>
+        <!-- Matric Number Badge -->
+        <div
+          class="inline-flex items-center px-4 py-1.5 bg-[#C0C0C0] text-black font-label-caps text-[10px] tracking-widest mb-6"
+        >
+          2025/1/107435CT
+        </div>
+        <div class="flex flex-col gap-2 items-center text-[#C0C0C0]/80">
+          <div class="flex items-center gap-2">
+            <span
+              class="material-symbols-outlined text-[18px]"
+              data-icon="computer"
+              >Computer</span
+            >
+            <span class="font-label-caps text-xs uppercase tracking-widest"
+              >Department of Computer Science</span
+            >
+          </div>
+          <div class="flex items-center gap-2">
+            <span
+              class="material-symbols-outlined text-[18px]"
+              data-icon="school"
+              >school</span
+            >
+            <span class="font-label-caps text-xs uppercase tracking-widest"
+              >Level: 100</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- About Me Section -->
+      <section class="mb-12">
+        <div class="bg-surface border border-[#2A2A2A] p-8">
+          <h3
+            class="font-h3 text-[#C0C0C0] mb-4 uppercase tracking-widest text-sm"
+          >
+            Statement of Purpose
+          </h3>
+          <p class="font-body-md text-white/80 leading-relaxed">
+            Dedicated to the intersection of clean code and real world impact.
+            My academic pursuit is defined by a relentless drive to master the
+            foundations of computer science — from algorithms and data
+            structures to the architecture of systems that scale. I am not just
+            learning to code, I am learning to engineer solutions that matter,
+            building at the edge of logic, creativity and innovation.
+          </p>
+        </div>
+      </section>
+      <!-- Personal Details Grid -->
+      <section class="grid grid-cols-2 gap-4 mb-12">
+        <div class="bg-surface border border-[#2A2A2A] p-6 flex flex-col gap-3">
+          <span class="material-symbols-outlined" data-icon="calendar_today"
+            >calendar_today</span
+          >
+          <div>
+            <p
+              class="text-[10px] font-label-caps text-[#C0C0C0] uppercase tracking-tighter"
+            >
+              D.O.B 
+            </p>
+            <p class="font-h3 text-lg">June 12</p>
+          </div>
+        </div>
+        <div class="bg-surface border border-[#2A2A2A] p-6 flex flex-col gap-3">
+          <span class="material-symbols-outlined" data-icon="location_on"
+            >location_on</span
+          >
+          <div>
+            <p
+              class="text-[10px] font-label-caps text-[#C0C0C0] uppercase tracking-tighter"
+            >
+              Origin
+            </p>
+            <p class="font-h3 text-lg">Abuja, Nigeria</p>
+          </div>
+        </div>
+        <div
+          class="bg-surface border border-[#C0C0C0] p-6 col-span-2 flex flex-col gap-3"
+        >
+          <span class="material-symbols-outlined" data-icon="verified_user"
+            >verified_user</span
+          >
+          <div>
+            <p
+              class="text-[10px] font-label-caps text-[#C0C0C0] uppercase tracking-tighter"
+            >
+              Institution
+            </p>
+            <p class="font-h3 text-lg">Federal University of Technology, Minna</p>
+          </div>
+        </div>
+      </section>
+      <!-- STUDENT PROFILE SECTION -->
+<div class="px-6 py-8" id="academics">
+
+  <!-- Header -->
+  <div class="flex items-center gap-3 mb-8">
+    <div class="w-8 h-px" style="background-color: #5a5a5a;"></div>
+    <h2 class="text-xs font-bold tracking-[0.3em] text-white uppercase"> Student Record</h2>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6">
+
+    
+    <!-- RIGHT — Details -->
+    <div class="space-y-3 w-full">
+
+      <div class="flex items-center justify-between px-4 py-3 bg-zinc-900" style="border: 1px solid #3a3a3a;">
+        <span class="text-xs tracking-[0.2em] uppercase" style="color: #5a5a5a;">Institution</span>
+        <span class="text-xs font-bold text-white tracking-widest">FUT Minna</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 bg-zinc-900" style="border: 1px solid #3a3a3a;">
+        <span class="text-xs tracking-[0.2em] uppercase" style="color: #5a5a5a;">Faculty</span>
+        <span class="text-xs font-bold text-white tracking-widest">SICT</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 bg-zinc-900" style="border: 1px solid #3a3a3a;">
+        <span class="text-xs tracking-[0.2em) uppercase" style="color: #5a5a5a;">Department</span>
+        <span class="text-xs font-bold text-white tracking-widest">Computer Science</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 bg-zinc-900" style="border: 1px solid #3a3a3a;">
+        <span class="text-xs tracking-[0.2em] uppercase" style="color: #5a5a5a;">Matric No.</span>
+        <span class="text-xs font-bold text-white tracking-widest">2025/1/107435CT</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 bg-zinc-900" style="border: 1px solid #3a3a3a;">
+        <span class="text-xs tracking-[0.2em] uppercase" style="color: #5a5a5a;">Mode of Entry</span>
+        <span class="text-xs font-bold text-white tracking-widest">UTME</span>
+      </div>
+
+      <div class="flex items-center justify-between px-4 py-3 bg-zinc-900" style="border: 1px solid #3a3a3a;">
+        <span class="text-xs tracking-[0.2em] uppercase" style="color: #5a5a5a;">Goal</span>
+        <span class="text-xs font-bold text-white tracking-widest">First Class</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+      <!-- Hobbies & Interests -->
+      <section class="mb-12">
+        <h3
+          class="font-h3 text-[#C0C0C0] mb-6 uppercase tracking-widest text-sm text-center"
+        >
+          Disciplines &amp; Interests
+        </h3>
+        <div class="flex flex-wrap justify-center gap-3">
+          <span
+            class="px-5 py-2 border border-[#C0C0C0] rounded-full text-xs font-label-caps uppercase tracking-widest"
+            >Basketball</span
+          >
+          <span
+            class="px-5 py-2 border border-[#C0C0C0] rounded-full text-xs font-label-caps uppercase tracking-widest"
+            >Eating</span
+          >
+          <span
+            class="px-5 py-2 border border-[#C0C0C0] rounded-full text-xs font-label-caps uppercase tracking-widest"
+            >Data Analytics</span
+          >
+          <span
+            class="px-5 py-2 border border-[#C0C0C0] rounded-full text-xs font-label-caps uppercase tracking-widest"
+            >Poetry</span
+          >
+          <span
+            class="px-5 py-2 border border-[#C0C0C0] rounded-full text-xs font-label-caps uppercase tracking-widest"
+            >Watching Movies</span
+          >
+        </div>
+      </section>
+      <form action="" method="post">
+        <!-- CONTACT SECTION -->
+<div class="px-6 py-8" id="contact">
+  <div class="flex items-center gap-3 mb-8">
+    <div class="w-8 h-px" style="background-color: #4a4a4a;"></div>
+    <h2 class="text-xs font-bold tracking-[0.3em] text-white uppercase">Contact Me</h2>
+  </div>
+
+  <div class="space-y-4">
+
+    <!-- Name -->
+    <div>
+      <label class="text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase block mb-2">Full Name</label>
+      <input
+        type="text"
+        placeholder="John Doe"
+        class="w-full bg-zinc-900 px-4 py-3 text-xs text-white tracking-widest uppercase placeholder-zinc-600 outline-none transition-all duration-200"
+        style="border: 1px solid #3a3a3a;"
+        onfocus="this.style.borderColor='#5a5a5a'"
+        onblur="this.style.borderColor='#3a3a3a'"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label class="text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase block mb-2">Email Address</label>
+      <input
+        type="email"
+        placeholder="john@email.com"
+        class="w-full bg-zinc-900 px-4 py-3 text-xs text-white tracking-widest uppercase placeholder-zinc-600 outline-none transition-all duration-200"
+        style="border: 1px solid #3a3a3a;"
+        onfocus="this.style.borderColor='#5a5a5a'"
+        onblur="this.style.borderColor='#3a3a3a'"
+      />
+    </div>
+
+    <!-- Phone No. -->
+    <div>
+      <label class="text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase block mb-2">Phone No.</label>
+      <input
+        type="tel"
+        placeholder="***********"
+        class="w-full bg-zinc-900 px-4 py-3 text-xs text-white tracking-widest uppercase placeholder-zinc-600 outline-none transition-all duration-200"
+        style="border: 1px solid #3a3a3a;"
+        onfocus="this.style.borderColor='#5a5a5a'"
+        onblur="this.style.borderColor='#3a3a3a'"
+      />
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label class="text-xs font-bold tracking-[0.2em] text-zinc-400 uppercase block mb-2">Message</label>
+      <textarea
+        rows="5"
+        placeholder="Write your message here..."
+        class="w-full bg-zinc-900 px-4 py-3 text-xs text-white tracking-widest uppercase placeholder-zinc-600 outline-none transition-all duration-200 resize-none"
+        style="border: 1px solid #3a3a3a;"
+        onfocus="this.style.borderColor='#5a5a5a'"
+        onblur="this.style.borderColor='#3a3a3a'"
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="button"
+      class="w-full bg-transparent px-4 py-3 text-xs font-bold tracking-[0.3em] text-white uppercase transition-all duration-200"
+      style="border: 1px solid #5a5a5a;"
+      onmouseover="this.style.backgroundColor='#5a5a5a'; this.style.color='#000'"
+      onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff'"
+    >
+      Send Message
+    </button>
+
+  </div>
+</div>
+      </form>
+    </main>
+    <!-- Footer Section -->
+    <footer
+      class="w-full py-16 px-8 flex flex-col items-center justify-center gap-6 mb-20 bg-black border-t border-[#2A2A2A] flat no shadows"
+    >
+      <div
+        class="text-[#C0C0C0] font-bold font-inter text-xs tracking-widest uppercase"
+      >
+        ESTHER ADOLEH PORTFOLIO
+      </div>
+      <div class="flex flex-col items-center gap-4">
+        <a
+          class="font-inter text-xs tracking-widest uppercase text-white/40 hover:text-[#C0C0C0] transition-colors cursor-pointer"
+          href="mailto:adoleesther402@gmail.com"
+          >adoleesther402@gmail.com</a
+        >
+        <a
+          class="font-inter text-xs tracking-widest uppercase text-white/40 hover:text-[#C0C0C0] transition-colors cursor-pointer"
+          href="https://wa.me/09056290376"
+          >WHATSAPP</a
+        >
+        <a
+          class="font-inter text-xs tracking-widest uppercase text-[#C0C0C0] underline cursor-pointer"
+          href="#"
+          >X</a
+        >
+      </div>
+      <div
+        class="font-inter text-xs tracking-widest uppercase text-white/40 mt-4"
+      >
+        © 2026 ESTHER ADOLEH PORTFOLIO
+      </div>
+    </footer>
+    <!-- BottomNavBar -->
+    <nav
+      class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-[#121212] border-t border-[#C0C0C0]"
+    >
+      <!-- Profile Active -->
+      <a
+        class="nav-link flex flex-col items-center justify-center text-[#C0C0C0]  h-full w-full transition-all duration-300 ease-in-out"
+        href="#profile" data-section="profile" id="profile"
+      >
+        <span
+          class="material-symbols-outlined nav-icon"
+          data-icon="person"
+          style=" color: #c0c0c0"
+          >person</span
+        >
+        <span class="font-inter text-[10px] uppercase tracking-widest mt-1"
+          >Profile</span
+        >
+      </a>
+      <a
+        class="nav-link flex flex-col items-center justify-center text-white/50 h-full w-full transition-all duration-300 ease-in-out hover:text-[#C0C0C0]"
+        href="#academics" data-section="academics" id="academics"
+      >
+        <span
+          class="material-symbols-outlined nav-icon"
+          data-icon="school"
+          style="color: inherit"
+          >school</span
+        >
+        <span class="font-inter text-[10px] uppercase tracking-widest mt-1"
+          >Academics</span
+        >
+      </a>
+      <a
+        class="nav-link flex flex-col items-center justify-center text-white/50 h-full w-full transition-all duration-300 ease-in-out hover:text-[#C0C0C0]"
+        href="#contact" data-section="contact" id="contact"
+      >
+        <span
+          class="material-symbols-outlined nav-icon"
+          data-icon="mail"
+          style="color: inherit"
+          >mail</span
+        >
+        <span class="font-inter text-[10px] uppercase tracking-widest mt-1"
+          >Contact</span
+        >
+      </a>
+    </nav>
+    <!-- script controlling nav active onscroll -->
+     <script>
+      const navLinks = document.querySelectorAll('.nav-link');
+
+  function setActive(sectionId) {
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.dataset.section === sectionId) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  // Active on load
+  setActive('profile');
+
+  // Scroll spy
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActive(entry.target.id);
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -40% 0px',
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('#profile, #academics, #contact')
+    .forEach(el => observer.observe(el));
+
+  // Click to scroll
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(link.dataset.section);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        setActive(link.dataset.section);
+      }
+    });
+  });
+</script>
+  </body>
+</html>
