@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mustapha - Portfolio</title>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f;
+    color: #ccd6f6;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: #64ffda;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; text-align: center; }
+
+a {
+    color: #64ffda;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover { 
+    color: #fff; 
+}
+
+/* Header */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #233554;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+/* Hero */
+.hero-section {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    border: 3px solid #64ffda;
+    transition: 0.4s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.subtitle { color: #8892b0; }
+
+.bio {
+    max-width: 700px;
+    margin: auto;
+    color: #8892b0;
+}
+
+/* About */
+.about-section {
+    padding: 80px 0;
+    background-color: #112240;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.about-item {
+    background: #0a192f;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.about-item:hover {
+    transform: translateY(-10px);
+    background: #1c2e4a;
+}
+
+/* Skills */
+.skills-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.skill-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    background: #233554;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #64ffda;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+    background: #64ffda;
+    color: #0a192f;
+}
+
+/* Contact */
+.contact-section {
+    padding: 80px 0;
+    background-color: #112240;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Scroll Animation */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+    <div class="logo">Mustapha</div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<section id="home" class="hero-section hidden">
+<div class="container">
+    <div class="profile-pic">
+        <img src="IMG/profile.jpeg" alt="Adamu Mustapha">
+    </div>
+    <h1 id="typing"></h1>
+    <p class="subtitle">Student, Computer Science, Federal University of Technology Minna.</p>
+    <p class="bio">
+        Tech geek who enjoys learning new technologies and solving problems.
+        Passionate about coding and design. I love gaming, exploring, and spending time with friends.
+    </p>
+</div>
+</section>
+
+<section id="about" class="about-section hidden">
+<div class="container">
+<h2>About Me</h2>
+
+<div class="about-grid">
+    <div class="about-item"><h3>Date of Birth:</h3> December 1, 2008</div>
+    <div class="about-item"><h3>School:</h3> Federal University of Technology Minna</div>
+    <div class="about-item"><h3>Course:</h3> Computer Science</div>
+    <div class="about-item"><h3>Level:</h3> 100</div>
+    <div class="about-item"><h3>Department:</h3> Computer Science</div>
+    <div class="about-item"><h3>Faculty:</h3> School of ICT</div>
+</div>
+
+</div>
+</section>
+
+<section id="skills" class="skills-section hidden">
+<div class="container">
+<h2>Skills</h2>
+
+<div class="skill-tags">
+    <span class="skill">HTML</span>
+    <span class="skill">CSS</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Graphic Design</span>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="contact-section hidden">
+<div class="container">
+    <h2>Contact</h2>
+    <p>Call: 09134547890</p>
+    <p>WhatsApp: 09134547890</p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Adamu Mustapha. All rights reserved.</p>
+</footer>
+
+<script>
+// Typing Effect
+const text = "Hi, I'm Adamu Mustapha";
+let i = 0;
+
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 50);
+    }
+}
+typeEffect();
+
+// Scroll Animation
+const elements = document.querySelectorAll('.hidden');
+
+window.addEventListener('scroll', () => {
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        if (position < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

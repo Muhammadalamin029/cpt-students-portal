@@ -1,69 +1,354 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Affordable and professional web design">
-	  <meta name="keywords" content="web design, affordable web design, professional web design">
-  	<meta name="author" content="Brad Traversy">
-    <title>Acme Web Deisgn | Welcome</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="img/favicon.png">
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <div id="branding">
-          <h1><span class="highlight">Acme</span> Web Design</h1>
-        </div>
-        <nav>
-          <ul>
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ijoko Owanyi Elizabeth | Portfolio</title>
 
-    <section id="showcase">
-      <div class="container">
-        <h1>Affordable Professional Web Design</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu luctus ipsum, rhoncus semper magna. Nulla nec magna sit amet sem interdum condimentum.</p>
-      </div>
-    </section>
+<style>
+html{
+    scroll-behavior: smooth;
+}
 
-    <section id="newsletter">
-      <div class="container">
-        <h1>Subscribe To Our Newsletter</h1>
-        <form>
-          <input type="email" placeholder="Enter Email..." required>
-          <button type="submit" class="button_1">Subscribe</button>
-        </form>
-      </div>
-    </section>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    color:white;
+    background: url("bg.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 
-    <section id="boxes">
-      <div class="container">
-        <div class="box">
-          <img src="./img/logo_html.png">
-          <h3>HTML5 Markup</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies</p>
-        </div>
-        <div class="box">
-          <img src="./img/logo_css.png">
-          <h3>CSS3 Styling</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies</p>
-        </div>
-        <div class="box">
-          <img src="./img/logo_brush.png">
-          <h3>Graphic Design</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies</p>
-        </div>
-      </div>
-    </section>
+/* NAVBAR WITH HAMBURGER */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#081426;
+    position:sticky;
+    top:0;
+    z-index: 100;
+}
 
-    <footer>
-      <p>Acme Web Deisgn, Copyright &copy; 2019</p>
-    </footer>
-  </body>
+nav h2{
+    color:#4db8ff;
+    margin: 0;
+}
+
+/* HAMBURGER BUTTON */
+.menu-btn{
+    font-size:28px;
+    color:#4db8ff;
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+/* DROPDOWN MENU - HIDDEN BY DEFAULT */
+.nav-links{
+    display:none;
+    position:absolute;
+    top:60px;
+    right:20px;
+    background:#081426;
+    border:1px solid #4db8ff;
+    border-radius:8px;
+    padding:10px;
+    width:160px;
+}
+
+.nav-links.show{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:8px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    padding:8px;
+    border-radius:5px;
+    text-align:center;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#4db8ff;
+    background:#1b2a41;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:4px solid #4db8ff;
+    object-fit: cover;
+}
+
+.hero h1{
+    margin-top:20px;
+}
+
+.hero p{
+    color:#ccc;
+}
+
+/* SECTION TITLE */
+.section-title{
+    text-align:center;
+    color:#4db8ff;
+    margin-top:40px;
+}
+
+/* ABOUT - REDUCED PADDING */
+.about{
+    padding:20px 15px;
+    text-align:center;
+    color:#ccc;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* TABLE CONTAINER - REDUCED PADDING */
+.table-container{
+    padding:20px 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+table{
+    width:100%; 
+    border-collapse:collapse; 
+    color:#ffffff; 
+    background:linear-gradient(to bottom, #000000, #1c1c1c); 
+    border:1px solid #333;
+}
+
+td{
+    padding:12px; 
+    border:1px solid #444;
+}
+
+td:first-child{
+    color:#4da6ff; 
+    font-weight:bold;
+}
+
+/* SKILLS - REDUCED PADDING + CENTERED */
+.skills{
+    text-align:center;
+    margin: 20px auto 40px auto;
+    max-width: 900px;
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skills span{
+    display:inline-block;
+    background:#4db8ff;
+    color:black;
+    padding:10px 15px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+/* COMMENT SECTION - REDUCED PADDING */
+.comment-section{
+    padding:20px 15px;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    background:#1b2a41;
+    border-radius:10px;
+}
+
+.comment-section h3{
+    color:#4db8ff;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.comment-section p{
+    text-align:center;
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+.comment-section input, 
+.comment-section textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #4db8ff;
+    border-radius:5px;
+    background:#081426;
+    color:white;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.comment-section button{
+    background:#4db8ff;
+    color:black;
+    padding:12px 30px;
+    border:none;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+    display:block;
+    margin:0 auto;
+}
+
+.comment-section button:hover{
+    background:#3aa3e6;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+    color:#aaa;
+    background: #081426;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV WITH HAMBURGER -->
+<nav>
+    <h2>Elizabeth</h2>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="menu">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#about" onclick="toggleMenu()">About Me</a>
+        <a href="#details" onclick="toggleMenu()">Details</a>
+        <a href="#skills" onclick="toggleMenu()">Skills</a>
+        <a href="#message" onclick="toggleMenu()">Message</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+    <img src="Eli.jpg" alt="Profile picture">
+    <h1>Hi, I'm Ijoko Elizabeth</h1>
+    <p>Student at FUTMINNA | Experienced Computer Operator | Graphic Designer</p>
+
+    <p>
+        Lover of tech and innovation.<br>
+        Technology is one of the tools helping me achieve my goals.
+    </p>
+</div>
+
+<!-- ABOUT -->
+<h2 class="section-title" id="about">About Me</h2>
+<div class="about">
+    <p>
+        I am a passionate 100 Level Computer Science student at the Federal University of Technology, Minna. Technology has always fascinated me because of its power to solve real-world problems and create new possibilities.
+    </p>
+    <p>
+        I have gained practical experience working as a computer operator in three different places, including Debol Cyber Link, Abuja.
+    </p>
+    <p>
+        I am also a trusted and accurate graphic designer with a passion for creating visually appealing designs. 
+        My dream is to become a skilled software developer who builds useful applications and websites. I believe that with technology and coding, I can contribute to innovations that will impact my community and the world at large.
+    </p>
+</div>
+
+<!-- PERSONAL DETAILS -->
+<h2 class="section-title" id="details">Personal Details</h2>
+<div class="table-container">
+    <table>
+        <tr>
+            <td>Full Name</td>
+            <td>Ijoko Owanyi Elizabeth</td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>21/08/2009</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>Female</td>
+        </tr>
+        <tr>
+            <td>State of Origin</td>
+            <td>Benue State</td>
+        </tr>
+        <tr>
+            <td>School</td>
+            <td>Federal University of Technology, Minna</td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>Computer Science</td>
+        </tr>
+        <tr>
+            <td>Level</td>
+            <td>100 Level</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SKILLS -->
+<h2 class="section-title" id="skills">Skills</h2>
+<div class="skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>Graphic Design</span>
+    <span>Typing Skills</span>
+    <span>Computer Operation</span>
+    <span>Microsoft Word</span>
+    <span>Problem Solving</span>
+</div>
+
+<!-- COMMENT SECTION -->
+<h2 class="section-title" id="message">Leave a Message</h2>
+<div class="comment-section">
+    <p>If you want to talk to me, send me a message below or email me directly at ijokoeli@gmail.com</p>
+    
+    <form action="mailto:ijokoeli@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<!-- CONTACT / FOOTER -->
+<div class="footer" id="contact">
+    <p>Call: 09063432958</p>
+    <p>Email: ijokoeli@gmail.com</p>
+    <p>© 2026 Ijoko Owanyi Elizabeth | All rights reserved</p>
+</div>
+
+<!-- JAVASCRIPT FOR HAMBURGER -->
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+
+document.addEventListener('click', function(event) {
+    var menu = document.getElementById("menu");
+    var btn = document.querySelector(".menu-btn");
+    if (!menu.contains(event.target) && !btn.contains(event.target)) {
+        menu.classList.remove("show");
+    }
+});
+</script>
+
+</body>
 </html>

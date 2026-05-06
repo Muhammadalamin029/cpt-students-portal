@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Olowookere Ibrahim</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      min-height: 100vh;
+      padding: 40px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: #111;
+    }
+
+    .cv-container {
+      width: 100%;
+      max-width: 950px;
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+
+    /* LEFT SIDE */
+    .left-panel {
+      background: linear-gradient(180deg, #0ea5e9, #2563eb);
+      padding: 35px 25px;
+      color: white;
+    }
+
+    .profile-box {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      margin: 0 auto 15px;
+      border: 4px solid rgba(255, 255, 255, 0.7);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-box h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .profile-box p {
+      font-size: 14px;
+      opacity: 0.95;
+    }
+
+    .left-section {
+      margin-bottom: 25px;
+    }
+
+    .left-section h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      padding-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info p {
+      font-size: 14px;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .info span {
+      font-weight: bold;
+    }
+
+    .skills-list, .hobbies-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* RIGHT SIDE */
+    .right-panel {
+      padding: 40px 35px;
+      background: #f8fafc;
+    }
+
+    .right-panel h2 {
+      font-size: 18px;
+      color: #1e3a8a;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-left: 5px solid #2563eb;
+      padding-left: 12px;
+      letter-spacing: 1px;
+    }
+
+    .right-panel p {
+      font-size: 15px;
+      color: #222;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .edu-box {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 18px;
+    }
+
+    .edu-box h3 {
+      font-size: 16px;
+      color: #0f172a;
+      margin-bottom: 5px;
+    }
+
+    .edu-box small {
+      display: block;
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 10px;
+    }
+
+    .edu-box p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #1e40af;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      background: #e2e8f0;
+      color: #475569;
+      grid-column: 1 / 3;
+    }
+
+    /* PRINT SETTINGS */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .cv-container {
+        box-shadow: none;
+        border-radius: 0;
+      }
+      footer {
+        display: none;
+      }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 850px) {
+      .cv-container {
+        grid-template-columns: 1fr;
+      }
+      footer {
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cv-container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div class="profile-box">
+        <div class="profile-img">
+          <!-- Replace "your-photo.jpg" with your actual image file -->
+          <img src="your-photo.jpg" alt="Profile Photo">
+        </div>
+        <h1>Olowookere Ibrahim</h1>
+        <p>Computer Science Student</p>
+        <p>Federal University of Technology Minna</p>
+      </div>
+
+      <div class="left-section info">
+        <h2>Personal Details</h2>
+        <p><span>Matric No:</span> 2025/1/107217CT</p>
+        <p><span>Date of Birth:</span> 16/08/2006</p>
+        <p><span>Email:</span> ibrahimolowookere01@gmail.com</p>
+        <p><span>Phone:</span> 09135078639</p>
+        <p><span>Nationality:</span> Nigerian</p>
+      </div>
+
+      <div class="left-section">
+        <h2>Skills</h2>
+        <div class="skills-list">
+          <span class="badge">HTML</span>
+          <span class="badge">CSS</span>
+          <span class="badge">Graphic Design</span>
+          <span class="badge">Writing</span>
+          <span class="badge">Web Design</span>
+        </div>
+      </div>
+
+      <div class="left-section">
+        <h2>Hobbies</h2>
+        <div class="hobbies-list">
+          <span class="badge">Football</span>
+          <span class="badge">Basketball</span>
+          <span class="badge">Reading</span>
+          <span class="badge">Tour</span>
+          <span class="badge">Gaming</span>
+          <span class="badge">Traveling</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      <h2>Profile Summary</h2>
+      <p>
+        I am <span class="highlight">Olowookere Ibrahim</span>, a Computer Science student at the Federal University of Technology Minna.
+        I am passionate about creating designs, learning new technologies, and solving mathematical problems.
+        My goal is to become a professional web designer and web developer, build innovative social applications,
+        and create solutions that improve lives while achieving financial success.
+      </p>
+
+      <h2>Career Objective</h2>
+      <p>
+        To grow into a skilled and professional <span class="highlight">Web Developer / Web Designer</span>,
+        gain strong industry experience, and contribute to building modern social applications and innovative platforms.
+      </p>
+
+      <h2>Education</h2>
+
+      <div class="edu-box">
+        <h3>Federal University of Technology Minna</h3>
+        <small>Computer Science (CPT) | 2025 – Present</small>
+        <p>
+          Currently studying Computer Science with focus on web technologies, programming fundamentals,
+          and practical problem-solving skills.
+        </p>
+      </div>
+
+      <div class="edu-box">
+        <h3>Secondary School Education</h3>
+        <small>2017 – 2023</small>
+        <p>
+          Completed secondary education and developed strong interest in technology, mathematics, and creativity.
+        </p>
+      </div>
+
+      <h2>Uniqueness / Strengths</h2>
+      <p>
+        I am dedicated, focused, and highly motivated. I learn quickly, adapt to new technologies easily,
+        and I enjoy solving challenges that require logic and creativity. I also have a strong passion
+        for design and modern user interfaces.
+      </p>
+
+    </div>
+
+    <footer>
+      © 2026 Olowookere Ibrahim | CV Document
+    </footer>
+
+  </div>
+</body>
+</html>

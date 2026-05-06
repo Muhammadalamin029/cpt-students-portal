@@ -23,15 +23,20 @@ const pendingSection = document.getElementById("pending-section");
 const approvedSection = document.getElementById("approved-section");
 const addStudentBtn = document.getElementById("addStudentBtn");
 
-const adminStudentsCountTotal = document.getElementById("adminStudentsCountTotal");
+const adminStudentsCountTotal = document.getElementById(
+  "adminStudentsCountTotal",
+);
 const adminStudentsCountApproved = document.getElementById(
   "adminStudentsCountApproved",
 );
 const adminStudentsCountPending = document.getElementById(
   "adminStudentsCountPending",
 );
+const adminSearchInput = document.getElementById("adminSearch");
 
 const studentModal = document.getElementById("studentModal");
+
+let allStudents = [];
 const studentModalOverlay = document.getElementById("studentModalOverlay");
 const studentModalClose = document.getElementById("studentModalClose");
 const studentModalCancel = document.getElementById("studentModalCancel");
@@ -116,7 +121,8 @@ onAuthStateChanged(auth, async (user) => {
 
 let lastFocusedElement = null;
 
-const isModalOpen = () => studentModal && !studentModal.classList.contains("hidden");
+const isModalOpen = () =>
+  studentModal && !studentModal.classList.contains("hidden");
 
 const hideStudentModalError = () => {
   if (!studentModalError) return;
@@ -126,7 +132,8 @@ const hideStudentModalError = () => {
 
 const showStudentModalError = (message) => {
   if (!studentModalError) return;
-  studentModalError.textContent = message || "Something went wrong. Please try again.";
+  studentModalError.textContent =
+    message || "Something went wrong. Please try again.";
   studentModalError.classList.remove("hidden");
 };
 
@@ -274,6 +281,31 @@ logoutBtn?.addEventListener("click", async () => {
   window.location.href = "./login.html";
 });
 
+const getFilteredStudents = () => {
+  const query = normalizeWhitespace(adminSearchInput?.value).toLowerCase();
+  if (!query) return allStudents;
+
+  return allStudents.filter((student) => {
+    const searchable = [
+      student.name,
+      student.student_id,
+      student.matric,
+      student.email,
+      student.gender,
+      student.additional_info?.notes,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    return searchable.includes(query);
+  });
+};
+
+const updateStudentView = () => {
+  renderStudents(getFilteredStudents());
+};
+
 async function fetchAndRenderStudents() {
   // Deprecated: replaced by realtime subscription
 }
@@ -335,13 +367,18 @@ function setupStudentsSubscription() {
 
   unsubscribeStudents = subscribeToStudents(
     (students) => {
-      renderStudents(students);
+      allStudents = students;
+      updateStudentView();
     },
     (error) => {
       console.error("Students subscription failed:", error);
     },
   );
 }
+
+adminSearchInput?.addEventListener("input", () => {
+  updateStudentView();
+});
 
 function createStudentCard(student, isPending) {
   const card = document.createElement("article");
@@ -524,7 +561,8 @@ function createStudentCard(student, isPending) {
   deleteBtn.innerHTML = `<span>Delete Student</span><span class="material-symbols-outlined text-[18px]">delete</span>`;
   deleteBtn.addEventListener("click", async () => {
     const label = student.student_id ? ` (${student.student_id})` : "";
-    if (!confirm(`Delete ${student.name}${label}? This cannot be undone.`)) return;
+    if (!confirm(`Delete ${student.name}${label}? This cannot be undone.`))
+      return;
 
     const originalHTML = deleteBtn.innerHTML;
     deleteBtn.innerHTML = `<span>Deleting...</span><span class="material-symbols-outlined animate-spin text-[18px]">sync</span>`;

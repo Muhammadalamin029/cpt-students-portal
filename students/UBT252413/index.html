@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ako Joseph Owoicholohi - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+    <canvas id="trail-canvas"></canvas>
+    <div id="hero-webgl"></div>
+    <div class="mouse-glow"></div>
+    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-ring"><span class="cursor-text">VIEW</span></div>
+    <div class="ambient-orb"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <a href="#home" class="nav-logo">AJ.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Works</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="scrolling-container">
+
+        <!-- Hero Section -->
+        <section class="section-hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-name split-text">Ako Joseph Owoicholohi</h1>
+                <h2 class="hero-title gsap-hero-reveal">Graphic Designer &amp; Photographer</h2>
+                <div class="hero-ctas gsap-hero-reveal">
+                    <button class="cta-primary">Execute Portfolio</button>
+                    <button class="cta-secondary">Initialize Contact</button>
+                </div>
+            </div>
+
+            <div class="hero-image gsap-hero-reveal">
+                <img src="./assets/assetsprofile.png" class="profile-image" alt="Ako Joseph">
+            </div>
+        </section>
+
+        <!-- About Me -->
+        <section class="section-content gsap-scroll-reveal" id="about">
+            <h3 class="section-heading">About Me</h3>
+            <p class="about-narrative">
+                I am a Computer Science student and visual artist. I specialize in graphic design—creating clean
+                branding and marketing materials—alongside professional photography. My goal is to combine my technical
+                skills with my creative eye to build beautiful, engaging digital experiences.
+            </p>
+        </section>
+
+        <!-- Bio Data -->
+        <section class="section-content gsap-scroll-reveal">
+            <h3 class="section-heading">Bio Data</h3>
+            <ul class="data-list">
+                <li class="data-item">
+                    <span class="data-label">Status</span>
+                    <span class="data-value">100-Level CS</span>
+                </li>
+                <li class="data-item">
+                    <span class="data-label">Location</span>
+                    <span class="data-value">Nigeria</span>
+                </li>
+                <li class="data-item">
+                    <span class="data-label">Email</span>
+                    <span class="data-value"><a href="mailto:akojosephpbca@gmail.com">akojosephpbca@gmail.com</a></span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Skills & Expertise -->
+        <section class="section-content gsap-scroll-reveal" id="skills">
+            <h3 class="section-heading">Skills & Expertise</h3>
+            <div class="competencies-grid">
+                <div class="competency-badge">Graphic Design</div>
+                <div class="competency-badge">Photography</div>
+            </div>
+        </section>
+
+        <!-- Graphic Design Archive -->
+        <section class="section-content gsap-scroll-reveal" id="portfolio">
+            <h3 class="section-heading">Graphic Design Archive</h3>
+            <div class="masonry-grid">
+                <div class="masonry-item">
+                    <img src="./assets/flyer1.webp" alt="Restaurant Branding &amp; Seasonal Promo"
+                        class="masonry-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/flyer2.webp" alt="Personal Branding &amp; Art Direction" class="masonry-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/flyer3.webp" alt="Music Cover Art &amp; Retouching" class="masonry-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/flyer4.webp" alt="Social Media Milestone Campaign" class="masonry-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/flyer5.webp" alt="E-Commerce &amp; Retail Advertisement" class="masonry-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/flyer6.webp" alt="Corporate Services Agency Flyer" class="masonry-image">
+                </div>
+                <div class="masonry-item">
+                    <img src="./assets/flyer7.webp" alt="Nightlife &amp; Event Promotion" class="masonry-image">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <p class="footer-copyright">&copy; 2026 Ako Joseph. All rights reserved.</p>
+            <ul class="footer-socials">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Behance</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="lightbox" class="lightbox-overlay">
+        <button class="lightbox-close">Close</button>
+        <img src="" class="lightbox-img" alt="Full view">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

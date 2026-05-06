@@ -1,0 +1,245 @@
+:root {
+    --bg-color: #0a0a0b;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --text-color: #f4f4f5;
+    --secondary-text: #a1a1aa;
+    --accent-color: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --max-width: 900px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+.background-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%);
+    z-index: -1;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 11, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+#hero {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding-top: 120px;
+}
+
+.profile-frame {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--accent-color), #9333ea);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 22px;
+    display: block;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent-color);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.hero-content h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.matric {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    margin-bottom: 8px;
+}
+
+.matric span {
+    color: #fff;
+    font-weight: 600;
+}
+
+.school {
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.section-title i {
+    color: var(--accent-color);
+    width: 24px;
+    height: 24px;
+}
+
+.section-title h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    max-width: 700px;
+}
+
+.skills-list, .hobbies-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.skills-list li, .hobbies-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.skills-list li i, .hobbies-list li i {
+    width: 18px;
+    height: 18px;
+    color: var(--accent-color);
+}
+
+.skills-list li:hover, .hobbies-list li:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+        gap: 40px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .profile-frame {
+        width: 180px;
+        height: 180px;
+    }
+}

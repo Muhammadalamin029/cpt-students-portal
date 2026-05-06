@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ugor Doochivir Precious</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: #f9fafc;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    header {
+        height: 100vh;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #444;
+        position: relative;
+    }
+
+    h2::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background: #764ba2;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 6px 12px;
+        margin: 5px;
+        background: #667eea;
+        color: white;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .about {
+        text-align: center;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px;
+        background: #111;
+        color: #aaa;
+        margin-top: 40px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Ugor Doochivir Precious</h1>
+    <p>Creative • Entrepreneur • Storyteller</p>
+</header>
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <section class="about">
+        <h2>About Me</h2>
+        <p>
+            I am a creative and passionate individual who loves expressing ideas through art, writing, and photography. 
+            As a student, business owner, and content creator, I enjoy building things that inspire and connect with people.
+        </p>
+    </section>
+
+    <!-- BIODATA -->
+    <section>
+        <h2>Biodata</h2>
+        <div class="grid">
+            <div class="card"><strong>Name:</strong><br>Ugor Doochivir Precious</div>
+            <div class="card"><strong>Age:</strong><br>17</div>
+            <div class="card"><strong>Gender:</strong><br>Female</div>
+            <div class="card"><strong>Height:</strong><br>1.74m</div>
+            <div class="card"><strong>Nationality:</strong><br>Nigerian</div>
+            <div class="card"><strong>State:</strong><br>Benue State</div>
+            <div class="card"><strong>Institution:</strong><br>FUT Minna</div>
+        </div>
+    </section>
+
+    <!-- CV -->
+    <section>
+        <h2>CV</h2>
+
+        <div class="card">
+            <strong>Occupation</strong>
+            <p>Student • Business Owner • Content Creator • Freelancer</p>
+        </div>
+
+        <br>
+
+        <div class="card">
+            <strong>Hobbies</strong><br>
+            <span class="tag">Drawing</span>
+            <span class="tag">Dancing</span>
+            <span class="tag">Writing</span>
+            <span class="tag">Photography</span>
+        </div>
+
+        <br>
+
+        <div class="card">
+            <strong>Skills</strong>
+            <ul>
+                <li>Creative Thinking</li>
+                <li>Content Creation</li>
+                <li>Photography</li>
+                <li>Basic Business Management</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section>
+        <h2>Portfolio</h2>
+        <div class="grid">
+            <div class="card">🎨 Artwork & Drawings</div>
+            <div class="card">📸 Photography Projects</div>
+            <div class="card">📱 Social Media Content</div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 Ugor Doochivir Precious</p>
+</footer>
+
+</body>
+</html>

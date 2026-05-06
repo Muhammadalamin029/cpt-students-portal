@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damilare Oladipo | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="bg-blur shape-1"></div>
+    <div class="bg-blur shape-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="gradient-text">Damilare</span> Oladipo
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <p class="subtitle">Welcome to my Website</p>
+            <h1 class="title">Hey, I'm <span class="gradient-text">Dare</span></h1>
+            <h2 class="dynamic-text">I am a <span id="typewriter" class="gradient-text"></span><span
+                    class="cursor">|</span></h2>
+            <p class="description">
+                Hi, my name is Damilare Oladipo, i am a student of the Federal University of Technology Minna. Matric Number: 2025/1/102715CT. I love bringing creative ideas to life in
+                your browser.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-graphic slide-in-right">
+            <div class="hero-image-container">
+                <img src="ChatGPT Image Apr 30, 2026, 11_52_46 AM.png" alt="Damilare Oladipo" class="hero-image">
+                <div class="glass-card-floating">
+                    <i class="fas fa-code"></i>
+                    <span>Web Developer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about scroll-reveal">
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <div class="about-container">
+            <div class="about-text glass-panel">
+                <h3>A Young Developer on a Mission.</h3>
+                <p>
+                    I'm a passionate web developer studying at the <strong>Federal University of Technology
+                        Minna</strong> (FUTMINNA). I specialize in crafting beautiful, interactive, and user-centric web
+                    applications.
+                </p>
+                <p>
+                    My goal is to continuously learn modern technologies and apply them to solve real-world problems
+                    while delivering exceptional user experiences. Let's build something amazing together!
+                </p>
+                <div class="skills-grid">
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> Responsive Design</span>
+                    <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Prompt Engineer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects scroll-reveal">
+    <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+    <div class="projects-grid">
+        <a href="https://notevault.edgeone.app/" class="project-card glass-panel" target="_blank">
+            <div class="project-image" style="background: linear-gradient(45deg, #190477, #928DAB);">
+                <div class="project-overlay">
+                    <span class="view-btn"><i class="fas fa-external-link-alt"></i></span>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>DARE NOTES</h3>
+                <p>A modern dashboard UI with beautiful charts and data visualization for e-commerce platforms.</p>
+                <div class="project-tech">
+                    <span>HTML</span><span>CSS</span><span>JS</span><span>Localstorage</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://stashure.edgeone.app/" class="project-card glass-panel" target="_blank">
+            <div class="project-image" style="background: linear-gradient(45deg, #11998e, #38ef7d);">
+                <div class="project-overlay">
+                    <span class="view-btn"><i class="fas fa-external-link-alt"></i></span>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>Safe Vault</h3>
+                <p>Securely store, preview and retrieve documents across devices(localbackup).</p>
+                <div class="project-tech">
+                    <span>HTML</span><span>JS</span><span>CSS</span><span>Localstorage</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://musichubpro.edgeone.app/" class="project-card glass-panel" target="_blank">
+            <div class="project-image" style="background: linear-gradient(45deg, #FF416C, #FF4B2B);">
+                <div class="project-overlay">
+                    <span class="view-btn"><i class="fas fa-external-link-alt"></i></span>
+                </div>
+            </div>
+            <div class="project-info">
+                <h3>Music Hub Pro</h3>
+                <p>A productivity to-do list with local storage, dark mode, and smoothly animated interactions.</p>
+                <div class="project-tech">
+                    <span>HTML</span><span>CSS</span><span>JS</span><span>localstorage</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact scroll-reveal">
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <div class="contact-container glass-panel">
+            <div class="contact-info">
+                <h3>Let's Talk</h3>
+                <p>I am currently open to new opportunities. Whether you have a question or just want to say hi, I'll
+                    try my best to get back to you!</p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>dareoladipo994@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Minna, Nigeria</span>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 class="logo"><span class="gradient-text">Damilare</span></h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2026 Damilare Oladipo. Built with <i class="fas fa-heart" style="color: #ff3366;"></i></p>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

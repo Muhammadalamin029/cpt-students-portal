@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Me</title>
+        <style>*{
+   margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: #000;
+    color: #fff;
+}
+
+
+
+
+.debug{
+    color: #fff;
+    margin-bottom: 0;
+    margin-top: 10px;
+    padding: 35px auto;
+}
+
+
+.stars {
+  font-size: 1rem;
+  text-align: center;
+}
+
+footer {
+  background-color: inherit;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+
+
+.features{
+    padding: 50px 12%;
+    font-size: 22px;
+}
+
+.rom1{
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.row{
+  display: flex;
+    width: 100%;
+    //*text-align: center;*//
+    flex-wrap: wrap;
+    padding: 50px 0;
+}
+.text-col{
+    flex-basis: 50%;
+    margin-top: 100px;
+}
+
+.img-col{
+  display: flex;
+    flex-basis: 50%;
+    
+    //*margin-bottom: 20px;*//=
+}
+
+.img-col img{
+   display: block;
+    width: 150px;
+    margin: auto;
+}
+.features h2{
+    font-size: 50px;
+}
+
+/* About me */
+.faq{
+    padding: 10px 12%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.faq h2{
+    font-weight: 500px;
+    font-size: 40px;
+}
+
+.according{
+    margin: 60px auto;
+    width: 100%;
+    max-width: 750px;
+}
+.according li{
+    list-style: none;
+    width: 100%;
+    padding: 5px;
+}
+
+.according li label{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    background: #0b1721;
+    margin: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+label::after{
+    content: '+';
+    font-size: 34px;
+    position:absolute;
+    right: 20px;
+    transition: transform 0.5s;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.according .content{
+    background: #0b1721;
+     background: linear-gradient(to bottom right,#24022e 54%,#4b545b 75%,#0d2535 100%);
+    text-align: left;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.according input[type="radio"]:checked + label + .content{
+    max-height: 600px;
+    padding: 30px 20px;
+}
+
+.according input[type="radio"]:checked + label::after{
+    transform: rotate(135deg);
+}
+
+
+ img{
+    width: 140px;
+    border-radius: 5px;
+}
+
+#nunt{
+    text-align: center;
+}
+
+.text img{345rtyht3zxc
+    margin: 10px 25%;
+    width: 500px;
+    height: 450px;
+    border-radius: 5px;}
+
+
+</style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="img-col rom1">
+                <img src="Img/Mbata.jpg" alt="Mbata">
+            </div>
+            <div class="text-col">
+                <h2>Emmanuel Mbata</h2>
+            </div>
+        </div>
+        </div>
+    
+        </div>
+
+        <div class="faq">
+            <h2>About Me</h2>
+            <ul class="according">
+                <li>
+                    <input type="radio" name="according" id="first">
+                    <label for="first">FULL NAME</label>
+                    <div class="content">
+                        <p>Emmanuel Mbata</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="according" id="second">
+                    <label for="second">DATE OF BIRTH</label>
+                    <div class="content">
+                        <p> 11TH JANUARY, 2006</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="according" id="third">
+                    <label for="third">STATE OF ORIGIN</label>
+                    <div class="content">
+                        <p>IMO state, IKEDURU LCGA.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="according" id="fourth">
+                    <label for="fourth">Hobbies</label>
+                    <div class="content">
+                        <p>Swimming, Gaming, Skipping.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="according" id="fifth">
+                    <label for="fifth">SKILLS </label>
+                    <div class="content">
+                    <p>Full stack, HTML, CSS, JavaScript, React, Django, MySQL...</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="according" id="sixth">
+                    <label for="sixth">STUDENT ID</label>
+                    <div class="content">
+                        <p>SCHOOL: Federal University of Technology Minna<br>
+                           FACULTY: SICT(School of Information and Communication Technology)<br>
+                            COURSE: Computer Science<br>
+                            LEVEL: 100lv<br>
+
+MATRIC NUMBER: 2025/1/104012CT<br>
+                            ID NUMBER: UBT252<br>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <hr>
+<!-- and to take whatever actions it deems necessary. Nnamani Miracle Oluebube -->
+                          <div class="debug">
+                                        <div class="stars">
+                            <span class="text">CALL: +234 8123991732</span>
+                            <span class="text">WHATSAPP:+234 8123991732 </span>
+                        </div>
+                    <footer>
+                        <p>© 2026 — portfollio | All rights reserved</p>
+                        <div class="icons">
+                        🐦 📚
+                        </div>
+                    </footer>
+                </div>      
+
+
+    </body>
+
+</html>

@@ -26,13 +26,24 @@
     data-page="admin-dashboard"
   >
     <!-- Basic Navbar specific to Admin -->
-    <header class="border-b border-outline/10 bg-white shadow-sm dark:bg-slate-900">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8">
+    <header
+      class="border-b border-outline/10 bg-white shadow-sm dark:bg-slate-900"
+    >
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8"
+      >
         <div class="flex items-center gap-2 text-primary">
-            <span class="material-symbols-outlined text-[28px]">shield_person</span>
-            <span class="font-headline text-xl font-bold tracking-tight">Admin Dashboard</span>
+          <span class="material-symbols-outlined text-[28px]"
+            >shield_person</span
+          >
+          <span class="font-headline text-xl font-bold tracking-tight"
+            >Admin Dashboard</span
+          >
         </div>
-        <button id="logoutBtn" class="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-container hover:text-error disabled:opacity-50 hidden">
+        <button
+          id="logoutBtn"
+          class="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-container hover:text-error disabled:opacity-50 hidden"
+        >
           <span class="material-symbols-outlined text-[20px]">logout</span>
           Sign Out
         </button>
@@ -41,26 +52,51 @@
 
     <main class="portal-main mx-auto max-w-7xl px-4 pt-12 pb-20 sm:px-8">
       <header class="mb-12">
-        <span class="mb-2 block text-xs font-bold uppercase tracking-[0.1em] text-secondary">
+        <span
+          class="mb-2 block text-xs font-bold uppercase tracking-[0.1em] text-secondary"
+        >
           Submission Review
         </span>
-        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div
+          class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+        >
           <div>
-            <h1 class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-primary md:text-5xl">
+            <h1
+              class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-primary md:text-5xl"
+            >
               Pending Validations
             </h1>
-            <p class="max-w-2xl text-lg leading-relaxed text-on-surface-variant">
-              Review newly submitted student portfolios, or manage already approved students.
+            <p
+              class="max-w-2xl text-lg leading-relaxed text-on-surface-variant"
+            >
+              Review newly submitted student portfolios, or manage already
+              approved students.
             </p>
           </div>
 
           <div class="flex flex-wrap items-center gap-3">
+            <div class="relative w-full max-w-sm">
+              <label for="adminSearch" class="sr-only">Search students</label>
+              <span
+                aria-hidden="true"
+                class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant"
+                >search</span
+              >
+              <input
+                id="adminSearch"
+                type="search"
+                placeholder="Search by name, ID, email, or gender"
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest py-4 pl-12 pr-4 text-sm text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
+              />
+            </div>
             <button
               id="addStudentBtn"
               type="button"
               class="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-4 text-sm font-bold text-white shadow-[0px_16px_32px_rgba(0,35,111,0.18)] transition-all hover:bg-primary/90"
             >
-              <span class="material-symbols-outlined text-[18px]">person_add</span>
+              <span class="material-symbols-outlined text-[18px]"
+                >person_add</span
+              >
               Add Student
             </button>
           </div>
@@ -68,36 +104,76 @@
 
         <!-- Tabs -->
         <div class="mt-8 flex border-b border-outline/10">
-          <button id="tab-pending" class="px-6 py-3 font-semibold text-primary border-b-2 border-primary transition-colors focus:outline-none">
+          <button
+            id="tab-pending"
+            class="px-6 py-3 font-semibold text-primary border-b-2 border-primary transition-colors focus:outline-none"
+          >
             Pending Validations
           </button>
-          <button id="tab-approved" class="px-6 py-3 font-semibold text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors focus:outline-none">
+          <button
+            id="tab-approved"
+            class="px-6 py-3 font-semibold text-on-surface-variant border-b-2 border-transparent hover:text-primary transition-colors focus:outline-none"
+          >
             Approved Students
           </button>
         </div>
 
-        <div class="mt-4 flex flex-wrap gap-2 text-sm" aria-label="Student counts">
-          <span class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant">
-            <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">groups</span>
+        <div
+          class="mt-4 flex flex-wrap gap-2 text-sm"
+          aria-label="Student counts"
+        >
+          <span
+            class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant"
+          >
+            <span
+              class="material-symbols-outlined text-[18px] text-secondary"
+              aria-hidden="true"
+              >groups</span
+            >
             <span>Total:</span>
             <span id="adminStudentsCountTotal" class="text-primary">0</span>
           </span>
-          <span class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant">
-            <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">verified</span>
+          <span
+            class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant"
+          >
+            <span
+              class="material-symbols-outlined text-[18px] text-secondary"
+              aria-hidden="true"
+              >verified</span
+            >
             <span>Approved:</span>
             <span id="adminStudentsCountApproved" class="text-primary">0</span>
           </span>
-          <span class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant">
-            <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">pending</span>
+          <span
+            class="inline-flex items-center gap-2 rounded-full bg-surface-container-low px-4 py-2 font-semibold text-on-surface-variant"
+          >
+            <span
+              class="material-symbols-outlined text-[18px] text-secondary"
+              aria-hidden="true"
+              >pending</span
+            >
             <span>Pending:</span>
             <span id="adminStudentsCountPending" class="text-primary">0</span>
           </span>
         </div>
       </header>
-      
-      <div id="authCheckLoader" class="flex flex-col items-center justify-center py-20 text-on-surface-variant">
-        <span class="material-symbols-outlined animate-spin text-[40px] text-primary" style="animation: spin 1s linear infinite;">sync</span>
-        <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+
+      <div
+        id="authCheckLoader"
+        class="flex flex-col items-center justify-center py-20 text-on-surface-variant"
+      >
+        <span
+          class="material-symbols-outlined animate-spin text-[40px] text-primary"
+          style="animation: spin 1s linear infinite"
+          >sync</span
+        >
+        <style>
+          @keyframes spin {
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
         <p class="mt-4 font-semibold text-lg">Authenticating Session...</p>
       </div>
 
@@ -111,24 +187,33 @@
           >
             <!-- Skeletons load here -->
           </div>
-          
+
           <div
             id="emptyState"
             class="hidden rounded-[2rem] border-2 border-dashed border-outline/20 bg-surface-container-lowest p-16 text-center"
           >
-            <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-low text-secondary mb-6">
-                <span class="material-symbols-outlined text-[36px]">done_all</span>
+            <div
+              class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-low text-secondary mb-6"
+            >
+              <span class="material-symbols-outlined text-[36px]"
+                >done_all</span
+              >
             </div>
             <h3 class="mb-2 text-2xl font-headline font-bold text-primary">
               All caught up!
             </h3>
             <p class="text-on-surface-variant max-w-md mx-auto">
-              There are no pending student portfolios requiring validation at this time.
+              There are no pending student portfolios requiring validation at
+              this time.
             </p>
           </div>
         </section>
 
-        <section id="approved-section" class="hidden" aria-labelledby="approved-heading">
+        <section
+          id="approved-section"
+          class="hidden"
+          aria-labelledby="approved-heading"
+        >
           <h2 class="sr-only" id="approved-heading">Approved Students Grid</h2>
           <div
             id="approved-grid"
@@ -137,19 +222,24 @@
           >
             <!-- Skeletons load here -->
           </div>
-          
+
           <div
             id="emptyStateApproved"
             class="hidden rounded-[2rem] border-2 border-dashed border-outline/20 bg-surface-container-lowest p-16 text-center"
           >
-            <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-low text-secondary mb-6">
-                <span class="material-symbols-outlined text-[36px]">group_off</span>
+            <div
+              class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-surface-container-low text-secondary mb-6"
+            >
+              <span class="material-symbols-outlined text-[36px]"
+                >group_off</span
+              >
             </div>
             <h3 class="mb-2 text-2xl font-headline font-bold text-primary">
               No Approved Students
             </h3>
             <p class="text-on-surface-variant max-w-md mx-auto">
-              There are no students currently approved to be displayed in the public directory.
+              There are no students currently approved to be displayed in the
+              public directory.
             </p>
           </div>
         </section>
@@ -169,13 +259,22 @@
         class="absolute inset-0 bg-slate-950/40 backdrop-blur-sm"
       ></div>
 
-      <div class="relative w-full max-w-2xl overflow-hidden rounded-[2.5rem] border border-primary/10 bg-white shadow-[0px_30px_90px_rgba(0,35,111,0.18)]">
-        <div class="flex items-start justify-between gap-6 border-b border-primary/10 bg-primary/5 px-8 py-6">
+      <div
+        class="relative w-full max-w-2xl overflow-hidden rounded-[2.5rem] border border-primary/10 bg-white shadow-[0px_30px_90px_rgba(0,35,111,0.18)]"
+      >
+        <div
+          class="flex items-start justify-between gap-6 border-b border-primary/10 bg-primary/5 px-8 py-6"
+        >
           <div>
-            <p class="text-xs font-bold uppercase tracking-[0.18em] text-secondary">
+            <p
+              class="text-xs font-bold uppercase tracking-[0.18em] text-secondary"
+            >
               Admin
             </p>
-            <h2 id="studentModalTitle" class="mt-2 font-headline text-2xl font-extrabold text-primary">
+            <h2
+              id="studentModalTitle"
+              class="mt-2 font-headline text-2xl font-extrabold text-primary"
+            >
               Add Student
             </h2>
             <p class="mt-1 text-sm text-on-surface-variant">
@@ -197,7 +296,10 @@
 
           <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
             <div class="space-y-2 md:col-span-2">
-              <label class="block text-sm font-semibold text-primary" for="studentFullName">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentFullName"
+              >
                 Full Name
               </label>
               <input
@@ -211,7 +313,10 @@
             </div>
 
             <div class="space-y-2">
-              <label class="block text-sm font-semibold text-primary" for="studentId">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentId"
+              >
                 Student ID
               </label>
               <input
@@ -225,7 +330,10 @@
             </div>
 
             <div class="space-y-2">
-              <label class="block text-sm font-semibold text-primary" for="studentMatric">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentMatric"
+              >
                 Matric Number
               </label>
               <input
@@ -239,7 +347,10 @@
             </div>
 
             <div class="space-y-2">
-              <label class="block text-sm font-semibold text-primary" for="studentGender">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentGender"
+              >
                 Gender
               </label>
               <select
@@ -255,7 +366,10 @@
             </div>
 
             <div class="space-y-2">
-              <label class="block text-sm font-semibold text-primary" for="studentEmail">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentEmail"
+              >
                 Email Address
               </label>
               <input
@@ -269,7 +383,10 @@
             </div>
 
             <div class="space-y-2 md:col-span-2">
-              <label class="block text-sm font-semibold text-primary" for="studentImageUrl">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentImageUrl"
+              >
                 Profile Image URL
               </label>
               <input
@@ -282,7 +399,10 @@
             </div>
 
             <div class="space-y-2 md:col-span-2">
-              <label class="block text-sm font-semibold text-primary" for="studentPortfolioUrl">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentPortfolioUrl"
+              >
                 Portfolio File URL (Cloudinary)
               </label>
               <input
@@ -298,7 +418,10 @@
             </div>
 
             <div class="space-y-2 md:col-span-2">
-              <label class="block text-sm font-semibold text-primary" for="studentNotes">
+              <label
+                class="block text-sm font-semibold text-primary"
+                for="studentNotes"
+              >
                 Notes (optional)
               </label>
               <textarea
@@ -311,9 +434,18 @@
             </div>
           </div>
 
-          <div class="flex flex-col gap-4 rounded-2xl bg-surface-container-lowest p-5 ring-1 ring-primary/5 sm:flex-row sm:items-center sm:justify-between">
-            <label class="inline-flex items-center gap-3 text-sm font-semibold text-primary">
-              <input id="studentApproved" name="approved" type="checkbox" class="h-5 w-5 rounded border-outline text-primary focus:ring-0" />
+          <div
+            class="flex flex-col gap-4 rounded-2xl bg-surface-container-lowest p-5 ring-1 ring-primary/5 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <label
+              class="inline-flex items-center gap-3 text-sm font-semibold text-primary"
+            >
+              <input
+                id="studentApproved"
+                name="approved"
+                type="checkbox"
+                class="h-5 w-5 rounded border-outline text-primary focus:ring-0"
+              />
               Mark as approved (visible on directory)
             </label>
 

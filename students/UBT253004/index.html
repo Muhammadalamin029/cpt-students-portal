@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>my details</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  transition: 0.4s;
+}
+
+
+
+/* DARK MODE */
+body.dark {
+  background: #b9d1df;
+  color: whitesmoke;
+}
+
+/* LIGHT MODE */
+body.light {
+  
+  background: #0f172a;
+  color: rgba(0, 21, 251, 0.865);
+  
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  background: transparent;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.typing {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+.mage{
+  width: 290px;
+  height: 300px;
+  border-radius: 50%;
+  border: #3b82f6 1px solid;
+
+}
+
+body.light .card {
+  background: white;
+}
+
+body.dark .card {
+  background: #1e293b;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* ANIMATION */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.6s;
+}
+
+/* MOBILE */
+@media(max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+</style>
+</head>
+
+<body class="light">
+
+<nav>
+  <h2>My Portfolio</h2>
+  <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
+</nav>
+
+<div class="hero">
+  <h1>Hi, I'm <span style="color:#558de0;"><b><i>LUKMAN ABDULMAJEED</i></b></span></h1>
+  <p>I am <span class="typing"></span></p>
+  <img class="mage" src="m.jpg" alt="">
+</div>
+
+<section class="hidden">
+  <h2>Biodata</h2>
+  <div class="card">
+    <p><b>Full name:</b>lukman Abdul-Majeed</p>
+    <p><b>Date of Birth:</b>2nd september </p>
+    <p><b>Gender:</b>Male</p>
+    <p><b>State of Origin:</b>Edo state</p>
+    <p><b>Phone:</b>09164462159</p>
+    <p><b>Email:</b>lukmanabdulmajeed09@gmail.com</p>
+  </div>
+</section>
+
+<section class="hidden">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      I'm a calm and focused person who values honesty,respect,and growth <br>
+      .I am passionate about coding and I enjoy learning new things as a whole.
+    </p>
+  </div>
+</section>
+
+<section class="hidden">
+  <h2>Hobbies</h2>
+  <div class="grid">
+    
+      <div class="card">Football⚽️</div>
+      
+      <div class="card">Learning new technologies⚙️</div>
+      <div class="card">Coding 💻</div>
+      <div class="card">Hacking💻</div>
+      <div class="card">Gaming🕹</div>
+      
+      
+      
+      
+
+    
+  </div>
+  </section>
+
+<section class="hidden">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">HTML</div>
+    <div class="card">CSS</div>
+    <div class="card">Desktop publishing</div>
+    <div class="card">Design</div>
+  </div>
+</section>
+
+<section class="hidden">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">Portfolio Website</div>
+    <div class="card">Landing Page</div>
+    <div class="card">Mobile UI Design</div>
+  </div>
+</section>
+
+<section class="hidden">
+  <h2>📞Contact</h2>
+  <div class="card">
+    <p>Email: lukmanabdulmajeed09@gmail.com</p>
+    <p>Phone: +2349164462159</p>
+  </div>
+</section>
+
+<section class="hidden">
+  <h2>Education </h2>
+  <div class="card">
+    <p><b>Federal University of Technology Minna</b> -  B.Sc <br> Computer science (100 Level )</p>
+    
+    <p><b>spring leaders montessori school</b></p>primary school
+    
+    <p><b>Royal kingdom universal academy</b></p>secondary school
+    
+  </div>
+</section>
+
+<script>
+// DARK MODE
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+}
+
+// TYPING EFFECT
+const text = ["a Developer", "a Students", "an Athlete"];
+let i = 0;
+let j = 0;
+let currentText = "";
+let isDeleting = false;
+
+function type() {
+  currentText = text[i];
+  
+  if (isDeleting) {
+    j--;
+  } else {
+    j++;
+  }
+
+  document.querySelector(".typing").textContent = currentText.substring(0, j);
+
+  if (!isDeleting && j === currentText.length) {
+    isDeleting = true;
+    setTimeout(type, 1000);
+  } else if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % text.length;
+    setTimeout(type, 200);
+  } else {
+    setTimeout(type, isDeleting ? 50 : 100);
+  }
+}
+
+type();
+
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+</body>
+</html>
