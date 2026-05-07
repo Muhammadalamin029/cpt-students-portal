@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japhet Idowu Portfolio</title><style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #050816;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+header h1 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #1f2937;
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: #00ffcc;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,255,200,0.1);
+}
+
+h2 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+}
+
+.progress {
+  background: #1f2937;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: linear-gradient(90deg, #00ffcc, #00c6ff);
+  animation: load 2s ease;
+}
+
+@keyframes load {
+  from { width: 0; }
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+button.submit {
+  width: 100%;
+  background: linear-gradient(90deg, #00ffcc, #00c6ff);
+  border: none;
+  padding: 10px;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hidden { display: none; }
+</style></head>
+<body><header>
+<h1>Japhet Idowu</h1>
+<p>Computer Science Student | Tech Enthusiast | Designer</p>
+</header><nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('form')">Bio-Data</button>
+<button onclick="showPage('resume')">Resume</button>
+</nav><div class="container"><!-- HOME --><div id="home">
+<div class="card">
+<h2>Skills</h2>
+<p>HTML</p>
+<div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+<p>CSS</p>
+<div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+<p>JavaScript</p>
+<div class="progress"><div class="progress-bar" style="width:70%"></div></div>
+<p>Graphic Design</p>
+<div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+</div><div class="card">
+<h2>Highlights</h2>
+<p><b>First Project</b> – Developed my first real-world academic website.</p>
+<p><b>Sports</b> – Active footballer and team player.</p>
+</div>
+</div><!-- FORM --><div id="form" class="hidden">
+<div class="card">
+<h2>Student Bio-Data</h2>
+<input id="name" placeholder="Full Name">
+<input id="email" placeholder="Email">
+<input id="matric" placeholder="Matric Number">
+<select id="level">
+<option>Secondary</option>
+<option>University</option>
+</select>
+<textarea id="bio" placeholder="About you..."></textarea>
+<button class="submit" onclick="saveData()">Submit</button>
+</div>
+</div><!-- RESUME --><div id="resume" class="hidden"><div class="card">
+<h2>About Me</h2>
+<p id="rBio">I am a passionate student with strong interest in technology and creativity. Experienced in computer operations and graphic design, I combine technical skills with creativity to build meaningful solutions. I am driven to continuously learn and grow.</p>
+</div><div class="card">
+<h2>Student Bio-Data</h2>
+<p><b>Full Name:</b> Japhet Idowu</p>
+<p><b>Email:</b> japhetidowu@student.com</p>
+<p><b>Matric:</b> 2025/1/104172CT</p>
+</div><div class="card">
+<h2>Education</h2>
+<p>Government Science and Technical College, Kwali – 2025</p>
+<p>Bright Future Primary School</p>
+</div><div class="card">
+<h2>Skills</h2>
+<p>✔ Graphic Design</p>
+<p>✔ Web Development</p>
+<p>✔ Computer Operations</p>
+<p>✔ Problem Solving</p>
+</div><div class="card">
+<h2>Projects</h2>
+<p><b>Academic Portal Website</b> – Built a student portal with profile system.</p>
+<p><b>Design Portfolio</b> – Created logos and flyers.</p>
+<p><b>Cyber Café Work</b> – Assisted customers and managed systems.</p>
+</div></div></div><script>
+function showPage(page) {
+  document.getElementById('home').classList.add('hidden');
+  document.getElementById('form').classList.add('hidden');
+  document.getElementById('resume').classList.add('hidden');
+  document.getElementById(page).classList.remove('hidden');
+}
+
+function saveData() {
+  document.getElementById('rBio').innerText = document.getElementById('bio').value;
+  showPage('resume');
+}
+</script></body>
+</html>

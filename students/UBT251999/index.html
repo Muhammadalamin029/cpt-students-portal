@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio | [Your Name]</title>
+    <style>
+        :root {
+            /* Vibrant Gradient Palette */
+            --main-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #06b6d4 100%);
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --neon-blue: #38bdf8;
+            --neon-purple: #818cf8;
+            --dark-text: #0f172a;
+            --light-text: #64748b;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif; /* A modern, rounded font */
+            margin: 0;
+            background-color: #f1f5f9;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Hero Header with Gradient Background */
+        header {
+            background: var(--main-gradient);
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            margin-bottom: -50px;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic "Blob" shape */
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            background: #fff;
+            transition: 0.5s ease;
+        }
+
+        .profile-img:hover {
+            border-radius: 50%;
+            transform: scale(1.05);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 20px 0 10px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Content Sections */
+        main {
+            max-width: 900px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #4f46e5;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 0;
+        }
+
+        /* Skill Pills */
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pill {
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            color: var(--dark-text);
+            border-left: 4px solid var(--neon-blue);
+        }
+
+        /* Floating Contact Button */
+        .btn-glow {
+            background: var(--main-gradient);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.5);
+            filter: brightness(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="profile-wrapper">
+
+            <img src="c:\Users\WILLIAMS OSEMWEGIE\Documents\73035193-ba26-4809-acb8-d273a403a92a_2_watermark.jpeg" alt="Profile Picture">
+
+        </div>
+        <h1>OSEMWEGIE .O. DAVID MATRIC NO: 2025/1/102521CT
+        </h1>
+        <span class="badge">🚀 Computer Science</span>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section class="glass-card">
+            <h2>About Me</h2>
+            <p>Hi my name is Osemwegie Osazuwa David.I am an aspiring student of fedral university of technology, minna.The thing i am most passionate about is web editing and web designing, i also love programing. Thank you.</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="glass-card">
+            <h2>My Toolkit</h2>
+            <div class="pill-container">
+                <div class="pill" style="border-left-color: #f43f5e;">HTML/CSS</div>
+                <div class="pill" style="border-left-color: #8b5cf6;">Python</div>
+                <div class="pill" style="border-left-color: #10b981;">Web editing</div>
+                <div class="pill" style="border-left-color: #f59e0b;">Web Designing</div>
+                <div class="pill" style="border-left-color: #06b6d4;">Data Analysis</div>
+            </div>
+        </section>
+
+        <!-- Project Section -->
+        <section class="glass-card" style="border-bottom: 5px solid var(--neon-blue);">
+            <h2>Recent Projects</h2>
+            <div style="margin-bottom: 20px;">
+                <h3 style="margin-bottom: 5px;">🌟 The Project X</h3>
+                <p style="margin-top: 0; font-size: 0.95rem; color: var(--light-text);">created a password checker</p>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 5px;">🔬 Web Page Creation.</h3>
+                <p style="margin-top: 0; font-size: 0.95rem; color: var(--light-text);">constructed a webpage.</p>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="0saswealth89@gmail.com" class="btn-glow">contact me</a>
+        </div>
+    </main>
+    <footer>
+        <p style="color: var(--light-text); font-size: 0.9rem;">&copy; 2026 Osemwegie David Designed by vscode.</p>
+    </footer>
+
+</body>
+</html>

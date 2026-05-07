@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio | Professional & Vibrant</title>
+    <style>
+        :root {
+            --primary-color: #6366f1; /* Indigo */
+            --secondary-color: #f43f5e; /* Rose */
+            --accent-color: #10b981; /* Emerald */
+            --bg-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --text-dark: #1f2937;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        header {
+            background: var(--bg-gradient);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 10px solid var(--accent-color);
+        }
+
+        .profile-container {
+            margin-bottom: 20px;
+        }
+
+        /* The Image Placeholder */
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            object-fit: cover;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: #e5e7eb;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 15px;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: -40px auto 40px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* Change Image Button Simulation */
+        .img-hint {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #eee;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="profile-container">
+            <!-- CHANGE THE SRC BELOW TO YOUR IMAGE URL -->
+            <img src="c:\Users\WILLIAMS OSEMWEGIE\Documents\IMG-20260506-WA0000.jpg" alt="Profile Picture">
+            <p class="img-hint">Change the 'src' in the code to update this photo</p>
+        </div>
+        <h1>ADEYEMI DANIEL</h1>
+        <p class="tagline">COMPUTER SCIENCE</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi, my name is Adeyemi daniel i am an aspiring student of Fedral university of technology minna, and i'm studying computer science. The one thing i am most passionate about is becoming a computer programmer and that is why i have chosen to study at this prestigous school.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="grid">
+                <div class="card">
+                    <strong style="color: var(--secondary-color);">Major:</strong>
+                    <p>computer science 100 level</p>
+                </div>
+                <div class="card">
+                    <strong style="color: var(--secondary-color);">University:</strong>
+                    <p>FUTMINNA</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Core Skills</h2>
+            <div>
+                <span class="skill-tag">Web Design</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Web editing</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Creative Writing</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to collaborating on interesting projects. Let's build something amazing together!</p>
+            <p style="margin-top:15px;"><strong>Email:</strong>adyemidaniel49@gmail.com</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 adeyemi daniel. created by vscode.
+    </footer>
+
+</body>
+</html>
