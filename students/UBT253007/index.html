@@ -1,0 +1,779 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#f9f9f9",
+              "surface-variant": "#dde4e5",
+              "on-secondary-container": "#485260",
+              outline: "#757c7d",
+              "inverse-surface": "#0c0f0f",
+              "tertiary-dim": "#564f6b",
+              error: "#9f403d",
+              "surface-container-lowest": {
+                DEFAULT: "#ffffff",
+                dark: "#0c0f0f",
+              },
+              "secondary-fixed": "#d9e3f4",
+              "secondary-fixed-dim": "#cbd5e6",
+              "inverse-primary": "#618bff",
+              tertiary: "#625b77",
+              "on-primary": "#f8f7ff",
+              "tertiary-fixed": "#dfd5f7",
+              "secondary-container": "#d9e3f4",
+              "on-background": "#2d3435",
+              "tertiary-container": "#dfd5f7",
+              "primary-fixed-dim": "#c7d3ff",
+              "primary-dim": "#0048c1",
+              "on-secondary-fixed": "#36404d",
+              primary: { DEFAULT: "#0053db", dark: "#618bff" },
+              secondary: { DEFAULT: "#56606e", dark: "#485260" },
+              "on-primary-fixed": "#003798",
+              "primary-container": "#dbe1ff",
+              "secondary-dim": "#4a5462",
+              "on-error-container": "#752121",
+              "on-primary-fixed-variant": "#0050d4",
+              "on-primary-container": "#0048bf",
+              "on-surface-variant": "#596061",
+              "primary-fixed": "#dbe1ff",
+              "surface-container-highest": {
+                DEFAULT: "#dde4e5",
+                dark: "#1a1d1d",
+              },
+              "surface-container-high": { DEFAULT: "#e4e9ea", dark: "#1a1d1d" },
+              "on-error": "#fff7f6",
+              "surface-dim": "#d3dbdd",
+              background: { DEFAULT: "#f9f9f9", dark: "#0c0f0f" },
+              "on-tertiary": "#fdf7ff",
+              "on-secondary-fixed-variant": "#525c6a",
+              "surface-container-low": { DEFAULT: "#f2f4f4", dark: "#1a1d1d" },
+              "on-tertiary-fixed": "#3c3650",
+              "error-dim": "#4e0309",
+              "on-surface": { DEFAULT: "#2d3435", dark: "#9c9d9d" },
+              "tertiary-fixed-dim": "#d0c7e8",
+              "on-secondary": "#f7f9ff",
+              "outline-variant": "#acb3b4",
+              "inverse-on-surface": "#9c9d9d",
+              "surface-container": { DEFAULT: "#ebeeef", dark: "#1a1d1d" },
+              surface: { DEFAULT: "#f9f9f9", dark: "#0c0f0f" },
+              "on-tertiary-container": "#4f4964",
+              "on-tertiary-fixed-variant": "#59526e",
+              "error-container": "#fe8983",
+              "surface-tint": "#0053db",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Inter"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      .asymmetric-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+      }
+
+      @media (max-width: 768px) {
+        .asymmetric-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* GLOBAL THEME COLORS */
+      html.light body {
+        background: #f9f9f9;
+        color: #2d3435;
+      }
+
+      html.dark body {
+        background: #0c0f0f;
+        color: #f9f9f9;
+      }
+
+      html.dark section {
+        background-color: transparent !important;
+      }
+
+      html.dark nav {
+        background: #020617 !important;
+        border-color: #1e293b !important;
+      }
+
+      html.dark footer {
+        background: #020617 !important;
+      }
+
+      html.dark .bg-surface-container,
+      html.dark .bg-surface-container-high,
+      html.dark .bg-surface-container-highest,
+      html.dark .bg-surface-container-low,
+      html.dark .bg-surface-container-lowest {
+        background: #1a1d1d !important;
+      }
+
+      html.dark .text-on-surface,
+      html.dark .text-secondary,
+      html.dark .text-on-surface-variant {
+        color: #e2e8f0 !important;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface">
+    <!-- TopNavBar -->
+    <nav
+      class="w-full sticky top-0 z-50 bg-[#f9f9f9] dark:bg-slate-950 border-b border-[#acb3b4]/10 dark:border-slate-800 transition-opacity duration-200"
+    >
+      <div
+        class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center"
+      >
+        <span
+          class="text-lg font-bold tracking-tighter text-[#2d3435] dark:text-slate-100 uppercase"
+          >Ameenu</span
+        >
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-10">
+          <a class="nav-link active" data-section="home" href="#home">Home</a>
+          <a class="nav-link" data-section="about" href="#about">About</a>
+          <a class="nav-link" data-section="skills" href="#skills">Skills</a>
+          <a class="nav-link" data-section="projects" href="#projects"
+            >Projects</a
+          >
+          <a class="nav-link" data-section="education" href="#education"
+            >Education</a
+          >
+          <a class="nav-link" data-section="contact" href="#contact">Contact</a>
+        </div>
+        <div class="flex gap-4 items-center">
+          <button
+            class="bg-primary text-on-primary px-5 py-2 rounded-lg font-medium text-sm hover:opacity-80 transition-opacity active:scale-95"
+          >
+            Resume
+          </button>
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-lg hover:bg-surface-container hover:text-on-surface-variant transition-colors"
+          >
+            <span class="material-symbols-outlined">light_mode</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!-- Hero Section -->
+      <section class="max-w-7xl mx-auto px-8 py-24 md:py-32" id="home">
+        <div
+          class="flex flex-col-reverse md:flex-row items-center justify-between gap-16"
+        >
+          <div class="w-full md:w-3/5 space-y-8">
+            <div class="space-y-4">
+              <span
+                class="text-xs tracking-[0.2em] font-medium text-secondary uppercase block"
+                >Undergraduate Scholar</span
+              >
+              <h1
+                class="text-[3.5rem] leading-[1.1] font-extrabold tracking-tighter text-on-surface"
+              >
+                Muhammad <br />
+                Al-amin Musa
+              </h1>
+              <p
+                class="text-[1.75rem] font-semibold text-primary tracking-tight"
+              >
+                Computer Science Student | Fullstack Developer
+              </p>
+            </div>
+            <p class="text-lg leading-relaxed text-secondary max-w-xl">
+              A dedicated computer science student with a focus on building
+              scalable web architectures and intuitive user experiences.
+              Passionate about transforming complex problems into elegant,
+              mathematical solutions.
+            </p>
+            <div class="pt-4 flex items-center gap-6">
+              <a
+                class="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold transition-opacity hover:opacity-90 active:scale-95"
+                href="#projects"
+                >View Projects</a
+              >
+              <a
+                class="text-on-surface border-b border-on-surface/20 hover:border-primary transition-all py-1 font-medium"
+                href="#contact"
+                >Get in Touch</a
+              >
+            </div>
+          </div>
+          <div
+            class="w-full md:w-2/5 aspect-[4/5] bg-surface-container overflow-hidden rounded-xl"
+          >
+            <img
+              class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              data-alt="professional headshot of a young man with a neutral scholarly expression in a minimalist studio setting with soft natural light"
+              src="img.jpeg"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- About Section (Asymmetric Tonal Shift) -->
+      <section class="bg-surface-container-low py-32" id="about">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="asymmetric-grid items-start">
+            <div>
+              <h2
+                class="text-xs font-bold tracking-[0.1em] text-secondary uppercase mb-4"
+              >
+                Academic Background
+              </h2>
+              <h3
+                class="text-3xl font-bold tracking-tight text-on-surface leading-tight"
+              >
+                Curating the Future of <br />
+                Software Engineering.
+              </h3>
+            </div>
+            <div class="space-y-6">
+              <p class="text-lg leading-relaxed text-secondary italic">
+                "Building solutions that create real impact is where my passion
+                lies."
+              </p>
+              <p class="text-lg leading-relaxed text-on-surface">
+                I am a Computer Science student and full-stack developer focused
+                on building practical, scalable software solutions. My journey
+                began with frontend development and has expanded into backend
+                systems, APIs, and modern application architecture.
+              </p>
+              <p class="text-lg leading-relaxed text-on-surface">
+                Working with React, TypeScript, and FastAPI, I create products
+                that balance performance, clarity, and user experience. My
+                long-term goal is to contribute to innovative software and
+                AI-driven solutions that create meaningful impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Skills Section (Bento Grid Style) -->
+      <section class="py-32" id="skills">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="mb-16">
+            <h2
+              class="text-xs font-bold tracking-[0.1em] text-secondary uppercase mb-2"
+            >
+              Technical Proficiency
+            </h2>
+            <p class="text-3xl font-bold tracking-tighter">
+              Tools &amp; Technologies
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- HTML/CSS -->
+            <div
+              class="bg-surface-container p-8 rounded-xl flex flex-col justify-between aspect-square md:aspect-auto"
+            >
+              <span
+                class="text-xs font-bold tracking-[0.05em] text-secondary uppercase"
+                >Web Standards</span
+              >
+              <div class="space-y-2">
+                <p class="text-xl font-bold">HTML5 &amp; CSS3</p>
+                <p class="text-sm text-secondary">
+                  Semantic structures and modern layouts.
+                </p>
+              </div>
+            </div>
+            <!-- JS/TS -->
+            <div
+              class="bg-primary text-on-primary p-8 rounded-xl flex flex-col justify-between aspect-square md:aspect-auto"
+            >
+              <span
+                class="text-xs font-bold tracking-[0.05em] opacity-80 uppercase"
+                >Logic</span
+              >
+              <div class="space-y-2">
+                <p class="text-xl font-bold">JavaScript &amp; TypeScript</p>
+                <p class="text-sm opacity-90">
+                  Type-safe development and functional programming.
+                </p>
+              </div>
+            </div>
+            <!-- React -->
+            <div
+              class="bg-surface-container-highest p-8 rounded-xl flex flex-col justify-between aspect-square md:aspect-auto"
+            >
+              <span
+                class="text-xs font-bold tracking-[0.05em] text-secondary uppercase"
+                >Framework</span
+              >
+              <div class="space-y-2">
+                <p class="text-xl font-bold">React.js</p>
+                <p class="text-sm text-secondary">
+                  Component-driven UI/UX architecture.
+                </p>
+              </div>
+            </div>
+            <!-- Firebase -->
+            <div
+              class="bg-surface-container p-8 rounded-xl flex flex-col justify-between aspect-square md:aspect-auto"
+            >
+              <span
+                class="text-xs font-bold tracking-[0.05em] text-secondary uppercase"
+                >Cloud</span
+              >
+              <div class="space-y-2">
+                <p class="text-xl font-bold">Firebase</p>
+                <p class="text-sm text-secondary">
+                  Real-time DB and Authentication services.
+                </p>
+              </div>
+            </div>
+            <!-- FastAPI -->
+            <div
+              class="bg-surface-container-highest p-8 rounded-xl flex flex-col justify-between aspect-square md:aspect-auto"
+            >
+              <span
+                class="text-xs font-bold tracking-[0.05em] text-secondary uppercase"
+                >Backend</span
+              >
+              <div class="space-y-2">
+                <p class="text-xl font-bold">FastAPI</p>
+                <p class="text-sm text-secondary">
+                  High-performance Python API design.
+                </p>
+              </div>
+            </div>
+            <!-- Database -->
+            <div
+              class="bg-surface-container p-8 rounded-xl flex flex-col justify-between col-span-2 aspect-auto"
+            >
+              <span
+                class="text-xs font-bold tracking-[0.05em] text-secondary uppercase"
+                >Architecture</span
+              >
+              <div class="flex justify-between items-end">
+                <div class="space-y-2">
+                  <p class="text-xl font-bold">Database Management</p>
+                  <p class="text-sm text-secondary">
+                    Relational &amp; NoSQL schema optimization.
+                  </p>
+                </div>
+                <span class="material-symbols-outlined text-4xl text-primary/20"
+                  >database</span
+                >
+              </div>
+            </div>
+            <!-- Modern Tooling -->
+            <div
+              class="bg-surface-container-highest p-8 rounded-xl flex flex-col justify-between aspect-square md:aspect-auto"
+            >
+              <span
+                class="text-xs font-bold tracking-[0.05em] text-secondary uppercase"
+                >Systems</span
+              >
+              <div class="space-y-2">
+                <p class="text-xl font-bold">Git &amp; CI/CD</p>
+                <p class="text-sm text-secondary">
+                  Version control and automation pipelines.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section class="bg-surface py-32" id="projects">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="flex justify-between items-end mb-16">
+            <div>
+              <h2
+                class="text-xs font-bold tracking-[0.1em] text-secondary uppercase mb-2"
+              >
+                Selected Works
+              </h2>
+              <p class="text-3xl font-bold tracking-tighter">
+                Professional Projects
+              </p>
+            </div>
+            <a
+              class="text-sm font-bold text-primary group flex items-center gap-2"
+              href="#"
+            >
+              View All Archives
+              <span
+                class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Project 1 -->
+            <div class="group">
+              <div
+                class="aspect-video bg-surface-container-high rounded-xl overflow-hidden mb-6"
+              >
+                <img
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                  data-alt="DevAssist dashboard showing AI-generated application responses and resume content"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk-s2JD41yAA7b6XG-qKRFmpuoQp4n6cH_HZEC4fmDG9ru2-xE6fbOvCcmwzKDipTmAxlHttL2Oo2CJoteTSd5Pq-K3LFunNyqTH_0DUVbVtBtW4Zv6J_ARW94_cbdeVdJajkQJvM7VpUiJoOz8kNDRcmGto-dL7eoZfvHDfhAAvbCDtHlVnYlBwvw-dHBa1macidU0r1h1YS31TTEBRS3IOScGgl-VO649Sev3Ol0jV-Jvn6L_nGJ2gr3zuCTI1u04hR7JBakz0A"
+                />
+              </div>
+              <div class="space-y-3">
+                <div class="flex gap-2 flex-wrap">
+                  <span
+                    class="px-2 py-1 bg-surface-container text-[0.7rem] font-bold tracking-[0.05em] text-secondary uppercase rounded"
+                    >REACT</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-surface-container text-[0.7rem] font-bold tracking-[0.05em] text-secondary uppercase rounded"
+                    >FASTAPI</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-surface-container text-[0.7rem] font-bold tracking-[0.05em] text-secondary uppercase rounded"
+                    >LANGCHAIN</span
+                  >
+                </div>
+                <h3 class="text-2xl font-bold tracking-tight">DevAssist</h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  A full-stack AI-powered SaaS that automates job application
+                  workflows by converting job descriptions into tailored
+                  application responses and professional resume drafts.
+                </p>
+                <a
+                  class="inline-flex text-primary font-semibold hover:text-primary/80 transition-colors"
+                  href="https://dev-assist-apply-ai.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View live project
+                </a>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="group">
+              <div
+                class="aspect-video bg-surface-container-high rounded-xl overflow-hidden mb-6"
+              >
+                <img
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                  data-alt="Arah Exchange fintech interface showing wallet, crypto conversion, and payments"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuANfhNVx47S19rzIGIvLoSN3NWS5PIvQ7rSudNdI6lhfMJJqkVwovfbqIBJ3Fy5OntBUcEXNPxfH09JKwKsaOoQRtOpPN9vlmFAX9hxtfpAiKm5Rqat14sAGhGWF9X89Ok4_qcLX7X9VPzE-HvrjPoM5arDxPLmPSpZj32vOHs07ub5iRqV1R3gOSibOIIwqUGQbxwwonfLnimbnZWdag1EZhcAWfNvVwlbb0J3I-xv2KMBLGW917Fm5n9AZUJVmb6_S__Bm8eKCAE"
+                />
+              </div>
+              <div class="space-y-3">
+                <div class="flex gap-2 flex-wrap">
+                  <span
+                    class="px-2 py-1 bg-surface-container text-[0.7rem] font-bold tracking-[0.05em] text-secondary uppercase rounded"
+                    >FINTECH</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-surface-container text-[0.7rem] font-bold tracking-[0.05em] text-secondary uppercase rounded"
+                    >CRYPTO</span
+                  >
+                  <span
+                    class="px-2 py-1 bg-surface-container text-[0.7rem] font-bold tracking-[0.05em] text-secondary uppercase rounded"
+                    >FLUTTERWAVE</span
+                  >
+                </div>
+                <h3 class="text-2xl font-bold tracking-tight">Arah Exchange</h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  A multi-service Nigerian fintech platform for seamless
+                  crypto/Naira conversion, gift card trading, airtime and data
+                  sales, wallet funding, and withdrawals using 0xProcessing and
+                  Flutterwave.
+                </p>
+                <a
+                  class="inline-flex text-primary font-semibold hover:text-primary/80 transition-colors"
+                  href="https://www.arahexchange.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View live project
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Education Section -->
+      <section class="bg-surface-container-lowest py-32" id="education">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="mb-16">
+            <h2
+              class="text-xs font-bold tracking-[0.1em] text-secondary uppercase mb-2"
+            >
+              Education
+            </h2>
+            <p class="text-3xl font-bold tracking-tighter">Academic Journey</p>
+          </div>
+
+          <div class="space-y-14">
+            <!-- University -->
+            <div class="relative pl-8 border-l-2 border-primary/20">
+              <div
+                class="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full"
+              ></div>
+
+              <div class="flex flex-col md:flex-row md:justify-between gap-4">
+                <div class="space-y-2">
+                  <h3 class="text-xl font-bold text-on-surface">
+                    Bachelor of Science in Computer Science
+                  </h3>
+                  <p class="text-primary font-semibold">
+                    Federal University of Technology, Minna, Niger state
+                  </p>
+                  <p class="text-sm text-secondary uppercase">2025 — Present</p>
+                </div>
+
+                <div class="md:text-right max-w-xl">
+                  <p class="text-sm text-on-surface-variant">
+                    Focus on software engineering, AI, and product development.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Secondary -->
+            <div class="relative pl-8 border-l-2 border-primary/20">
+              <div
+                class="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full"
+              ></div>
+
+              <div class="flex flex-col md:flex-row md:justify-between gap-4">
+                <div class="space-y-2">
+                  <h3 class="text-xl font-bold text-on-surface">
+                    Secondary Education
+                  </h3>
+                  <p class="text-primary font-semibold">
+                    Thaqafatul Islamiyyah School, Abaji, FCT Abuja
+                  </p>
+                  <p class="text-sm text-secondary uppercase">2018 — 2024</p>
+                </div>
+
+                <div class="md:text-right max-w-xl">
+                  <p class="text-sm text-on-surface-variant">
+                    Completed WAEC with a strong foundation in science and
+                    mathematics.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Primary -->
+            <div class="relative pl-8 border-l-2 border-primary/20">
+              <div
+                class="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full"
+              ></div>
+
+              <div class="flex flex-col md:flex-row md:justify-between gap-4">
+                <div class="space-y-2">
+                  <h3 class="text-xl font-bold text-on-surface">
+                    Nursery & Primary Education
+                  </h3>
+                  <p class="text-primary font-semibold">
+                    Fou'ad Lababidi Nursery and Primary School, Wuse Zone 3, FCT
+                    Abuja
+                  </p>
+                  <p class="text-sm text-secondary uppercase">2010 — 2018</p>
+                </div>
+
+                <div class="md:text-right max-w-xl">
+                  <p class="text-sm text-on-surface-variant">
+                    Built a solid academic foundation and early interest in
+                    learning.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section class="py-32" id="contact">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="max-w-3xl">
+            <h2
+              class="text-xs font-bold tracking-[0.1em] text-secondary uppercase mb-2"
+            >
+              Contact
+            </h2>
+
+            <p class="text-4xl font-extrabold tracking-tighter mb-6">
+              Let's build something great.
+            </p>
+
+            <p class="text-lg text-secondary mb-10">
+              I am open to internship opportunities, collaborations, and
+              exciting projects. Feel free to reach out.
+            </p>
+
+            <div class="space-y-5">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary">mail</span>
+                <a
+                  class="text-lg font-medium hover:text-primary transition-colors"
+                  href="mailto:mmuhammadalameen9@gmail.com"
+                >
+                  mmuhammadalameen9@gmail.com
+                </a>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary">call</span>
+                <span class="text-lg font-medium">+234 9028626260</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-12 mt-20 bg-[#f2f4f4] dark:bg-slate-900">
+      <div
+        class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <span
+          class="text-[0.75rem] uppercase tracking-[0.05em] font-['Inter'] text-[#56606e] dark:text-slate-500"
+        >
+          © 2026 Muhammad Al-amin Musa. Built with React, TypeScript, and
+          passion.
+        </span>
+
+        <div class="flex items-center gap-8">
+          <a
+            class="text-[0.75rem] uppercase tracking-[0.05em] font-['Inter'] text-[#56606e] dark:text-slate-500 hover:text-[#0053db] dark:hover:text-blue-400 transition-colors duration-200"
+            href="https://github.com/Muhammadalamin029"
+            target="_blank"
+          >
+            GitHub
+          </a>
+
+          <a
+            class="text-[0.75rem] uppercase tracking-[0.05em] font-['Inter'] text-[#56606e] dark:text-slate-500 hover:text-[#0053db] dark:hover:text-blue-400 transition-colors duration-200"
+            href="https://www.linkedin.com/in/ameenumhusah"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            class="text-[0.75rem] uppercase tracking-[0.05em] font-['Inter'] text-[#56606e] dark:text-slate-500 hover:text-[#0053db] dark:hover:text-blue-400 transition-colors duration-200"
+            href="mailto:mmuhammadalameen9@gmail.com"
+          >
+            Email
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const navLinks = document.querySelectorAll("nav a[data-section]");
+      const sections = document.querySelectorAll("section[id]");
+
+      const observerOptions = {
+        root: null,
+        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+              link.className =
+                "nav-link text-[#2d3435] dark:text-slate-400 hover:text-[#0053db] transition-colors cursor-pointer active:scale-95";
+              if (link.dataset.section === id) {
+                link.classList.add("active");
+                link.className =
+                  "nav-link active text-[#0053db] dark:text-blue-400 font-semibold border-b-2 border-[#0053db] pb-1 cursor-pointer active:scale-95 transition-all";
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+
+      // Theme toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+      const themeIcon = themeToggle.querySelector("span");
+
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        html.classList.add("dark");
+        html.classList.remove("light");
+        themeIcon.textContent = "dark_mode";
+      } else {
+        html.classList.remove("dark");
+        html.classList.add("light");
+        themeIcon.textContent = "light_mode";
+      }
+
+      // Toggle theme on button click
+      themeToggle.addEventListener("click", () => {
+        if (html.classList.contains("dark")) {
+          html.classList.remove("dark");
+          html.classList.add("light");
+          themeIcon.textContent = "light_mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          html.classList.add("dark");
+          html.classList.remove("light");
+          themeIcon.textContent = "dark_mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+    </script>
+  </body>
+</html>

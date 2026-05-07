@@ -1,0 +1,376 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Asugh Jeremiah | Computer Science Student</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-dim": "#535353",
+              "on-error-container": "#752121",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "on-primary-container": "#525151",
+              "on-secondary-fixed": "#3f3f3f",
+              primary: "#5f5e5e",
+              secondary: "#5f5f5f",
+              "primary-container": "#e5e2e1",
+              "on-primary-fixed": "#403f3f",
+              "surface-dim": "#d4dbdd",
+              "surface-container-high": "#e4e9ea",
+              "on-error": "#fff7f6",
+              background: "#f9f9f9",
+              "on-tertiary": "#faf8f8",
+              "primary-fixed": "#e5e2e1",
+              "on-surface-variant": "#5a6061",
+              "surface-container-highest": "#dde4e5",
+              "on-surface": "#2d3435",
+              "tertiary-fixed-dim": "#e6e5e5",
+              "on-secondary": "#fbf8f8",
+              "on-tertiary-fixed": "#494a4a",
+              "surface-container-low": "#f2f4f4",
+              "on-secondary-fixed-variant": "#5c5b5b",
+              "error-dim": "#4e0309",
+              "surface-tint": "#5f5e5e",
+              "error-container": "#fe8983",
+              "on-tertiary-fixed-variant": "#666666",
+              "outline-variant": "#adb3b4",
+              "inverse-on-surface": "#9c9d9d",
+              "surface-container": "#ebeeef",
+              surface: "#f9f9f9",
+              "on-tertiary-container": "#5b5c5c",
+              outline: "#757c7d",
+              "on-secondary-container": "#525252",
+              "surface-bright": "#f9f9f9",
+              "surface-variant": "#dde4e5",
+              "surface-container-lowest": "#ffffff",
+              error: "#9f403d",
+              "inverse-surface": "#0c0f0f",
+              "tertiary-dim": "#535353",
+              "inverse-primary": "#ffffff",
+              tertiary: "#5f5f5f",
+              "on-primary": "#faf7f6",
+              "on-background": "#2d3435",
+              "secondary-container": "#e4e2e1",
+              "tertiary-fixed": "#f5f3f3",
+              "secondary-fixed": "#e4e2e1",
+              "secondary-fixed-dim": "#d6d4d3",
+              "primary-dim": "#535252",
+              "primary-fixed-dim": "#d7d4d3",
+              "tertiary-container": "#f5f3f3",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Newsreader"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background selection:bg-surface-container-highest">
+    <!-- TopNavBar -->
+    <header class="w-full top-0 sticky bg-slate-50 dark:bg-zinc-900 z-50">
+      <nav
+        class="flex justify-between items-center max-w-6xl mx-auto px-8 py-6"
+      >
+        <div
+          class="font-['Newsreader'] text-2xl font-semibold text-zinc-800 dark:text-zinc-100"
+        >
+          Asugh Jeremiah
+        </div>
+        <div
+          class="hidden md:flex items-center gap-8 font-['Newsreader'] italic text-lg tracking-tight text-zinc-700 dark:text-zinc-300"
+        >
+          <a
+            class="text-zinc-900 dark:text-white border-b border-zinc-800 dark:border-zinc-200 pb-1 hover:underline decoration-1 underline-offset-4 transition-all duration-150 ease-in"
+            href="#home"
+            >Home</a
+          >
+          <a
+            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors duration-100 hover:underline decoration-1 underline-offset-4 transition-all duration-150 ease-in"
+            href="#profile"
+            >Profile</a
+          >
+          <a
+            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors duration-100 hover:underline decoration-1 underline-offset-4 transition-all duration-150 ease-in"
+            href="#skills"
+            >Skills</a
+          >
+          <a
+            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors duration-100 hover:underline decoration-1 underline-offset-4 transition-all duration-150 ease-in"
+            href="#portfolio"
+            >Portfolio</a
+          >
+          <a
+            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors duration-100 hover:underline decoration-1 underline-offset-4 transition-all duration-150 ease-in"
+            href="#education"
+            >Education</a
+          >
+          <a
+            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors duration-100 hover:underline decoration-1 underline-offset-4 transition-all duration-150 ease-in"
+            href="#contact"
+            >Contact</a
+          >
+        </div>
+        <div class="md:hidden">
+          <span class="material-symbols-outlined text-on-surface">menu</span>
+        </div>
+      </nav>
+      <div class="bg-slate-100 dark:bg-zinc-800 h-[1px] w-full"></div>
+    </header>
+    <main class="max-w-6xl mx-auto px-8">
+      <!-- Hero Section -->
+      <section
+        class="py-24 grid grid-cols-1 md:grid-cols-12 gap-12 items-center"
+        id="home"
+      >
+        <div class="md:col-span-7">
+          <p
+            class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-6"
+          >
+            Asugh Jeremiah — UBT251998 — Matric: 2025/1/104641CT
+          </p>
+          <h1
+            class="serif-text text-6xl md:text-8xl font-bold leading-[0.9] tracking-tight text-on-surface mb-8"
+          >
+            Computer <span class="italic font-normal">Science</span> Student.
+          </h1>
+          <p
+            class="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed"
+          >
+            Building robust software solutions through the lens of academic
+            rigor and modern engineering practices. Software Developer
+            specializing in technical scalability.
+          </p>
+          <div class="flex gap-4">
+            <a
+              class="bg-primary text-on-primary px-8 py-4 rounded-sm font-medium text-sm transition-all hover:opacity-90"
+              href="#portfolio"
+            >
+              Explore My Work
+            </a>
+          </div>
+        </div>
+        <div class="md:col-span-5 relative">
+          <div
+            class="aspect-[4/5] bg-surface-container-low p-4 overflow-hidden rounded-sm"
+          >
+            <img
+              alt="Asugh Jeremiah"
+              class="w-full h-full object-cover grayscale"
+              data-alt="Professional studio portrait of a confident young black male student with a subtle smile, wearing a modern neutral blazer, soft daylighting"
+              src="img.jpeg"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Profile Section -->
+      <section class="py-32 border-t border-outline-variant/10" id="profile">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div class="md:col-span-4">
+            <h2 class="serif-text text-4xl font-bold text-on-surface">
+              About Me
+            </h2>
+          </div>
+          <div class="md:col-span-8">
+            <p
+              class="font-body text-xl leading-relaxed text-on-surface-variant mb-8"
+            >
+              I am a 100-level Computer Science student at the Federal
+              University of Technology, Minna (FUTMINNA). Passionate about
+              technology, programming, and personal growth, I am focused on
+              building skills and exploring opportunities in the tech world.
+            </p>
+            <p
+              class="font-body text-lg leading-relaxed text-on-surface-variant"
+            >
+              My journey in computer science is driven by a commitment to
+              learning, innovation, and creating meaningful solutions. I believe
+              in continuous improvement and am dedicated to mastering both
+              theoretical foundations and practical applications of computer
+              science principles.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Technical Skills (Bento Grid) -->
+      <section class="py-32" id="skills">
+        <div class="mb-16">
+          <span
+            class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant block mb-4"
+            >Core Competencies</span
+          >
+          <h2 class="serif-text text-5xl font-bold">Technical Skills</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+          <div class="bg-surface-container-low p-8 rounded-sm">
+            <span
+              class="material-symbols-outlined text-primary mb-4"
+              data-icon="code"
+              >code</span
+            >
+            <h3 class="font-semibold text-xl mb-4">HTML5</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Semantic markup, accessibility standards, and modern HTML
+              structure for creating well-formed web documents.
+            </p>
+          </div>
+          <div class="bg-surface-container-low p-8 rounded-sm">
+            <span
+              class="material-symbols-outlined text-primary mb-4"
+              data-icon="palette"
+              >palette</span
+            >
+            <h3 class="font-semibold text-xl mb-4">CSS3</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">
+              Responsive design, styling techniques, layout systems, and
+              creating visually appealing user interfaces.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="py-32" id="education">
+        <div class="bg-surface-container-low p-12 md:p-24 rounded-sm">
+          <div class="max-w-3xl">
+            <span
+              class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant block mb-4"
+              >Academic Background</span
+            >
+            <h2 class="serif-text text-5xl font-bold mb-12">Education</h2>
+            <div class="space-y-16">
+              <div>
+                <p class="font-label text-sm text-on-surface-variant mb-2">
+                  2024 — Present
+                </p>
+                <h3 class="text-2xl font-bold mb-2">B.Sc. Computer Science</h3>
+                <p class="serif-text italic text-xl text-primary mb-4">
+                  Federal University of Technology, Minna (FUTMINNA)
+                </p>
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-8 text-on-surface-variant"
+                >
+                  <div>
+                    <h4 class="font-semibold text-sm uppercase mb-2">
+                      Current Level
+                    </h4>
+                    <p class="text-sm opacity-80 leading-relaxed">
+                      100-level student pursuing a comprehensive Computer
+                      Science degree with focus on programming, algorithms, and
+                      foundational computing principles.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-sm uppercase mb-2">
+                      Academic Focus
+                    </h4>
+                    <p class="text-sm opacity-80 leading-relaxed">
+                      Building strong foundations in computer science
+                      fundamentals, exploring programming paradigms, and
+                      developing practical problem-solving skills.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section class="py-32 text-center" id="contact">
+        <h2 class="serif-text text-5xl md:text-7xl font-bold mb-12">
+          Let's build <br /><span class="italic font-normal"
+            >something solid.</span
+          >
+        </h2>
+        <div
+          class="flex flex-col md:flex-row justify-center items-center gap-12 font-label"
+        >
+          <a
+            class="text-lg hover:text-primary transition-colors flex items-center gap-2"
+            href="mailto:asughjaubt251998@st.futminna.edu.ng"
+          >
+            <span class="material-symbols-outlined text-sm">mail</span>
+            asughjaubt251998@st.futminna.edu.ng
+          </a>
+          <a
+            class="text-lg hover:text-primary transition-colors flex items-center gap-2"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-sm">link</span>
+            LinkedIn
+          </a>
+          <a
+            class="text-lg hover:text-primary transition-colors flex items-center gap-2"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-sm">terminal</span>
+            GitHub
+          </a>
+          <p class="text-lg flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">call</span>
+            08028979116
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full border-t border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto px-8 py-12 gap-4"
+      >
+        <div
+          class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-600 dark:text-zinc-400"
+        >
+          © 2026 Asugh Jeremiah (UBT251998). Built with semantic precision.
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 underline transition-opacity duration-200"
+            href="#"
+            >Curriculum Vitae</a
+          >
+          <a
+            class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 underline transition-opacity duration-200"
+            href="#"
+            >Archive</a
+          >
+          <a
+            class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 underline transition-opacity duration-200"
+            href="#"
+            >Colophon</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
