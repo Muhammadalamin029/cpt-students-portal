@@ -58,13 +58,13 @@
               <h1
                 class="mt-3 text-4xl font-headline font-extrabold leading-tight text-primary md:text-5xl"
               >
-                Submit before midnight
+                Submit before noon
               </h1>
               <p
                 class="mt-4 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
               >
-                The submission window closes at noon tomorrow. Fill in the form
-                and submit before the deadline.
+                Deadline: <span id="deadlineLabel">Tomorrow</span> at 12:00 PM.
+                Fill in the form and submit before the deadline.
               </p>
             </div>
 
@@ -461,8 +461,24 @@
 
     <script>
       const deadline = new Date();
-      deadline.setDate(deadline.getDate() + 1);
       deadline.setHours(12, 0, 0, 0);
+      if (deadline <= new Date()) {
+        deadline.setDate(deadline.getDate() + 1);
+      }
+
+      const formatDeadlineDate = (date) => {
+        const options = {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+        };
+        return date.toLocaleDateString(undefined, options);
+      };
+
+      const deadlineLabel = document.getElementById("deadlineLabel");
+      if (deadlineLabel) {
+        deadlineLabel.textContent = formatDeadlineDate(deadline);
+      }
 
       const countdownDays = document.getElementById("countdownDays");
       const countdownHours = document.getElementById("countdownHours");
