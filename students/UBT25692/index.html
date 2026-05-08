@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Khalid Hadiza Kendra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+/* CSS Variables for Professional Theming */
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --accent-color: #f59e0b;
+    --dark-bg: #0f172a;
+    --light-bg: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-light: #f1f5f9;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+    color: var(--text-light);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    box-shadow: var(--shadow);
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.education-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.education-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.skill-name {
+    font-weight: 500;
+}
+
+.skill-bar {
+    flex: 1;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    margin: 0 1rem;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.skill-percentage {
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 40px;
+    text-align: right;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.project-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tag {
+    background: #f1f5f9;
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.contact-section {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+    color: var(--text-light);
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.contact-content h2 {
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.contact-item p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.contact-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: var(--transition);
+    padding: 1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+footer {
+    background: var(--dark-bg);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer p {
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    nav .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">KHK</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="profile-img">👨‍💻</div>
+            <h1>Khalid Hadiza Kendra</h1>
+            <p>Computer Science Student | Aspiring Software Developer</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Khalid Hadiza Kendra, a passionate computer science student at the Federal University of Technology Minna. Currently in my first year (Level 100), I'm deeply enthusiastic about programming, algorithms, and cutting-edge technology.</p>
+                    <p>My journey in computer science began with curiosity about how software shapes our world. I'm particularly interested in web development, artificial intelligence, and creating solutions that make a positive impact on society.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, participating in hackathons, or contributing to open-source projects. I'm always eager to learn and collaborate on innovative ideas.</p>
+                </div>
+                <div class="about-stats">
+                    <div style="text-align: center; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                        <h3 style="color: #6366f1; margin-bottom: 1rem;">Quick Facts</h3>
+                        <p>🎓 Level 100 Student</p>
+                        <p>💻 Computer Science Major</p>
+                        <p>🚀 Learning Enthusiast</p>
+                        <p>🌟 Problem Solver</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>🎓 Academic Information</h3>
+                    <div class="detail">
+                        <span class="label">Matric No:</span>
+                        <span>2025/1/102328CT</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Date of Birth:</span>
+                        <span>September 24</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Level:</span>
+                        <span>100</span>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <h3>🏛️ Institution Details</h3>
+                    <div class="detail">
+                        <span class="label">School:</span>
+                        <span>Federal University of Technology Minna</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Course:</span>
+                        <span>Computer Science</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Department:</span>
+                        <span>Computer Science</span>
+                    </div>
+                    <div class="detail">
+                        <span class="label">Faculty:</span>
+                        <span>School of Information and Communication Technology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills & Expertise</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Programming Languages</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Java</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 65%;"></div></div>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>🌐 Web Technologies</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML & CSS</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">React</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%;"></div></div>
+                        <span class="skill-percentage">60%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Node.js</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 55%;"></div></div>
+                        <span class="skill-percentage">55%</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>🛠️ Tools & Soft Skills</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Git & GitHub</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Problem Solving</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Team Collaboration</span>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">💼</div>
+                    <div class="project-content">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A responsive portfolio website built with HTML, CSS, and modern design principles. Features smooth animations, professional layout, and optimized performance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🧮</div>
+                    <div class="project-content">
+                        <h3>Advanced Calculator App</h3>
+                        <p>A feature-rich calculator application with scientific functions, history tracking, and intuitive user interface. Built with vanilla JavaScript for optimal performance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3>Student Management System</h3>
+                        <p>A comprehensive Python-based system for managing student records, grades, and academic performance. Features database integration and user-friendly CLI interface.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Database</span>
+                            <span class="project-tag">CLI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🎮</div>
+                    <div class="project-content">
+                        <h3>2D Game Development</h3>
+                        <p>An engaging 2D platformer game built with Java. Features custom physics engine, level design, and smooth gameplay mechanics.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Game Dev</span>
+                            <span class="project-tag">OOP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Connect</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📧 Email</h3>
+                        <p>khalid.hadiza@example.com</p>
+                        <p>Available for collaborations</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📱 Phone</h3>
+                        <p>+234 XXX XXX XXXX</p>
+                        <p>Call or WhatsApp</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📍 Location</h3>
+                        <p>Minna, Nigeria</p>
+                        <p>Open to remote work</p>
+                    </div>
+                </div>
+                <div class="contact-links">
+                    <a href="#" title="LinkedIn">💼</a>
+                    <a href="#" title="GitHub">💻</a>
+                    <a href="#" title="Twitter">🐦</a>
+                    <a href="#" title="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Khalid Hadiza Kendra. Crafted with passion and precision.</p>
+        </div>
+    </footer>
+</body>
+</html>
