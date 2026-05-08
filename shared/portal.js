@@ -2,17 +2,15 @@ const portalConfig = {
   home: {
     pageLabel: "Home",
     brandHref: "index.html",
-    actionHref: "#school-details",
-    actionLabel: "Explore",
+    actionHref: "../students/index.html",
+    actionLabel: "Browse Students",
     navLinks: [
       { label: "Home", href: "index.html", current: true },
       { label: "Students", href: "../students/index.html" },
-      { label: "Portfolio Submission", href: "../students/submit.html" },
     ],
     footerLinks: [
       { label: "Home", href: "index.html" },
       { label: "Students", href: "../students/index.html" },
-      { label: "Submit Portfolio", href: "../students/submit.html" },
       { label: "Access Admin Portal", href: "../admin/index.html" },
     ],
     pageLinks: [
@@ -29,12 +27,10 @@ const portalConfig = {
     navLinks: [
       { label: "Home", href: "../home/index.html" },
       { label: "Students", href: "index.html", current: true },
-      { label: "Portfolio Submission", href: "submit.html" },
     ],
     footerLinks: [
       { label: "Home", href: "../home/index.html" },
       { label: "Students", href: "index.html" },
-      { label: "Submit Portfolio", href: "submit.html" },
       { label: "Access Admin Portal", href: "../admin/index.html" },
     ],
     pageLinks: [
@@ -44,24 +40,22 @@ const portalConfig = {
     ],
   },
   submit: {
-    pageLabel: "Portfolio Submission",
+    pageLabel: "Portfolio Access",
     brandHref: "../home/index.html",
-    actionHref: "#submission-form",
-    actionLabel: "Open Form",
+    actionHref: "index.html",
+    actionLabel: "Student Directory",
     navLinks: [
       { label: "Home", href: "../home/index.html" },
       { label: "Students", href: "index.html" },
-      { label: "Portfolio Submission", href: "submit.html", current: true },
+      { label: "Portfolio Access", href: "submit.html", current: true },
     ],
     footerLinks: [
       { label: "Home", href: "../home/index.html" },
       { label: "Students", href: "index.html" },
-      { label: "Submit Portfolio", href: "submit.html" },
       { label: "Access Admin Portal", href: "../admin/index.html" },
     ],
     pageLinks: [
-      { label: "Submission Guide", href: "#submission-guide" },
-      { label: "Submission Form", href: "#submission-form" },
+      { label: "Student Directory", href: "index.html" },
       { label: "Back to Top", href: "#page-top" },
     ],
   },
@@ -199,7 +193,7 @@ if (config && footerSlot) {
             CS Scholar Portal
           </div>
           <p class="max-w-xs text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-            A focused Computer Science portfolio portal for discovering students, reviewing submissions, and keeping the CPT journey organized.
+            A focused Computer Science portfolio portal for discovering students, reviewing portfolios, and keeping the CPT journey organized.
           </p>
         </div>
         <div>

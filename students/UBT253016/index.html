@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Emelike Kelechi | Portfolio</title>
+
+<style>
+
+:root{
+  --bg:#0b0b0f;
+  --bg2:#111116;
+  --card:rgba(255,255,255,0.035);
+  --border:rgba(209,139,71,0.12);
+  --accent:#d18b47;
+  --accent-soft:#ffb36b;
+  --text:#f3eee7;
+  --muted:#b7aea3;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+  radial-gradient(circle at top left, rgba(209,139,71,0.08), transparent 25%),
+  radial-gradient(circle at bottom right, rgba(255,170,90,0.06), transparent 25%),
+  linear-gradient(to bottom, #0b0b0f, #090909);
+  color:var(--text);
+  overflow-x:hidden;
+  letter-spacing:0.3px;
+}
+
+/* grid texture */
+
+body::before{
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-image:
+  linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size:40px 40px;
+  z-index:-1;
+}
+
+/* ambient glow */
+
+body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:rgba(209,139,71,0.08);
+  filter:blur(140px);
+  border-radius:50%;
+  top:-100px;
+  right:-100px;
+  z-index:-1;
+}
+
+.container{
+  width:90%;
+  max-width:1250px;
+  margin:auto;
+}
+
+/* navbar */
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+
+  background:rgba(8,8,10,0.45);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,0.04);
+
+  box-shadow:
+  0 8px 32px rgba(0,0,0,0.18);
+
+  transition:0.35s ease;
+}
+nav .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 0;
+}
+
+.logo{
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:3px;
+}
+
+nav ul{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:0.92rem;
+  transition:0.3s ease;
+}
+
+nav a:hover{
+  color:var(--accent);
+}
+
+/* hero */
+
+header{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:90px;
+}
+
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:center;
+}
+
+.hero-text small{
+  color:var(--accent);
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.hero-text h1{
+  font-size:5rem;
+  line-height:1;
+  margin:20px 0;
+  color:var(--text);
+}
+
+.hero-text h1 span{
+  color:var(--accent);
+}
+
+.hero-text p{
+  color:var(--muted);
+  line-height:2;
+  max-width:720px;
+  font-size:1rem;
+}
+
+.hero-buttons{
+  margin-top:40px;
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:15px 28px;
+  border-radius:16px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  transition:0.3s ease;
+  font-weight:600;
+}
+
+.primary{
+  background:linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color:#0b0b0f;
+  box-shadow:0 0 35px rgba(209,139,71,0.18);
+}
+
+.primary:hover{
+  transform:translateY(-5px);
+}
+
+.secondary{
+  background:rgba(255,255,255,0.03);
+  color:var(--text);
+  border:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+
+.secondary:hover{
+  background:rgba(255,255,255,0.05);
+}
+
+/* profile */
+
+.profile-card{
+  height:520px;
+  border-radius:34px;
+
+  background:
+  linear-gradient(145deg,
+  rgba(255,255,255,0.04),
+  rgba(255,255,255,0.015));
+
+  border:1px solid var(--border);
+
+  position:relative;
+  overflow:hidden;
+
+  backdrop-filter:blur(18px);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.profile-card::before{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  background:rgba(209,139,71,0.18);
+  filter:blur(120px);
+  border-radius:50%;
+}
+
+.profile-card img{
+  width:88%;
+  height:88%;
+  object-fit:cover;
+  border-radius:24px;
+  position:relative;
+  z-index:2;
+}
+
+/* sections */
+
+section{
+  padding:120px 0;
+}
+
+.section-title{
+  font-size:2.5rem;
+  margin-bottom:45px;
+  color:var(--text);
+  position:relative;
+}
+
+.section-title::after{
+  content:"";
+  position:absolute;
+  width:70px;
+  height:3px;
+  background:var(--accent);
+  left:0;
+  bottom:-14px;
+  border-radius:10px;
+}
+
+/* glass cards */
+
+.glass{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:40px;
+  backdrop-filter:blur(18px);
+}
+
+/* skills */
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.skill-card{
+  padding:35px;
+  border-radius:24px;
+
+  background:rgba(255,255,255,0.025);
+
+  border:1px solid var(--border);
+
+  transition:0.35s ease;
+}
+
+.skill-card:hover{
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.04);
+}
+
+.skill-card h3{
+  margin-bottom:15px;
+  color:var(--accent);
+}
+
+.skill-card p{
+  line-height:1.8;
+  color:var(--muted);
+}
+
+/* projects */
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:28px;
+}
+
+.project-card{
+  padding:35px;
+  border-radius:26px;
+
+  background:rgba(255,255,255,0.025);
+
+  border:1px solid var(--border);
+
+  transition:0.35s ease;
+}
+
+.project-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 40px rgba(209,139,71,0.08);
+}
+
+.project-card h3{
+  color:var(--accent);
+  margin-bottom:16px;
+}
+
+.project-card p{
+  color:var(--muted);
+  line-height:1.9;
+}
+
+/* contact */
+
+.contact-links{
+  display:grid;
+  gap:18px;
+}
+
+.contact-links a{
+  text-decoration:none;
+  color:var(--text);
+
+  padding:20px 24px;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.025);
+
+  border:1px solid var(--border);
+
+  transition:0.3s ease;
+}
+
+.contact-links a:hover{
+  transform:translateX(8px);
+  background:rgba(255,255,255,0.045);
+  color:var(--accent-soft);
+}
+
+/* footer */
+
+footer{
+  padding:45px 20px;
+  text-align:center;
+  color:#7c746b;
+  border-top:1px solid rgba(255,255,255,0.04);
+}
+
+/* responsive */
+
+@media(max-width:980px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-text h1{
+    font-size:3.4rem;
+  }
+
+  .profile-card{
+    height:430px;
+  }
+
+  nav ul{
+    gap:16px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container">
+
+    <div class="logo">
+      ECHURA
+    </div>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<header>
+
+  <div class="container hero">
+
+    <div class="hero-text">
+
+      <small>Software Developer • AI Enthusiast • Producer</small>
+
+      <h1>
+        Emelike <br>
+        <span>Kelechi</span>
+      </h1>
+
+      <p>
+        Undergraduate developer and creative technologist focused on
+        building futuristic software systems, AI workflows and digital
+        creative experiences. Passionate about combining engineering,
+        automation and sound design into modern high-performance systems.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#projects" class="btn primary">
+          Explore Projects
+        </a>
+
+        <a href="#contact" class="btn secondary">
+          Connect
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="profile-card">
+
+      <!-- YOUR IMAGE -->
+      <img src="profile.jpg" alt="Profile Image">
+
+    </div>
+
+  </div>
+
+</header>
+
+<section id="about">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      About
+    </h2>
+
+    <div class="glass">
+
+      <p style="line-height:2; color:var(--muted);">
+
+        I am a 100-level university undergraduate with interests in
+        software engineering, artificial intelligence, trading systems
+        and sound production.
+
+        <br><br>
+
+        My work revolves around creating systems that feel modern,
+        intelligent and efficient — from desktop security software in C#
+        to AI-assisted automation pipelines and digital music branding.
+
+        <br><br>
+
+        I enjoy experimenting with technology that merges logic,
+        creativity and futuristic design philosophy.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="skills">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Skills
+    </h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h3>Software Development</h3>
+
+        <p>
+          Building desktop applications, system tools and UI-focused
+          experiences using C# and Windows Forms.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Artificial Intelligence</h3>
+
+        <p>
+          AI workflows, local model integration, automation systems,
+          prompt engineering and intelligent productivity tools.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Sound Production</h3>
+
+        <p>
+          Beat production, audio aesthetics, sound design and
+          creative digital branding.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Trading Systems</h3>
+
+        <p>
+          Market analysis research, prediction systems and
+          data-driven strategic experimentation.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="projects">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Featured Projects
+    </h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+
+        <h3>LockBox Security App</h3>
+
+        <p>
+          A desktop security application built with C# and Windows Forms,
+          designed for protecting files and applications through secure
+          authentication systems.
+        </p>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>AI Outreach Automation</h3>
+
+        <p>
+          Intelligent creator outreach workflows integrating AI-generated
+          messaging, automation pipelines and structured lead systems.
+        </p>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>Trading Prediction Research</h3>
+
+        <p>
+          Ongoing experimentation into predictive market systems,
+          strategic analysis and intelligent trading models.
+        </p>
+
+      </div>
+
+      <div class="project-card">
+
+        <h3>ECHURA Creative Branding</h3>
+
+        <p>
+          Developing a digital music identity through beat production,
+          visual branding and social media creative systems.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Connect
+    </h2>
+
+    <div class="contact-links">
+
+      <a href="mailto:kcuc1565@gmail.com">
+        Main — kcuc1565@gmail.com
+      </a>
+
+      <a href="mailto:echuraofficial01@gmail.com">
+        Beat Production — echuraofficial01@gmail.com
+      </a>
+
+      <a href="mailto:ECHURAAI@gmail.com">
+        AI Projects — ECHURAAI@gmail.com
+      </a>
+
+      <a href="https://youtube.com/@BuildWithAINow" target="_blank">
+        YouTube — BuildWithAINow
+      </a>
+
+      <a href="https://instagram.com/echuraofficial" target="_blank">
+        Instagram — @echuraofficial
+      </a>
+
+      <a href="https://tiktok.com/@echuraofficial" target="_blank">
+        TikTok — @echuraofficial
+      </a>
+
+      <a href="https://x.com/echuraofficial" target="_blank">
+        X — @echuraofficial
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Emelike Kelechi — Portfolio
+</footer>
+
+<script>
+
+window.addEventListener("scroll", ()=>{
+
+  const nav = document.querySelector("nav");
+
+  if(window.scrollY > 60){
+
+    nav.style.background = "rgba(8,8,10,0.72)";
+    nav.style.backdropFilter = "blur(22px)";
+
+  }
+
+  else{
+
+    nav.style.background = "rgba(8,8,10,0.45)";
+    nav.style.backdropFilter = "blur(18px)";
+
+  }
+
+});
+</script>
+
+</body>
+</html>

@@ -443,7 +443,7 @@ function createStudentCard(student, isPending) {
     const notesLabel = document.createElement("span");
     notesLabel.className =
       "mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-secondary";
-    notesLabel.textContent = "Submission Notes";
+    notesLabel.textContent = "Notes";
     const notesBody = document.createElement("p");
     notesBody.className =
       "rounded-2xl bg-white/75 px-4 py-4 text-sm leading-relaxed text-on-surface shadow-sm ring-1 ring-primary/5";
