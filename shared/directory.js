@@ -121,14 +121,14 @@ if (Object.values(requiredElements).every(Boolean)) {
   const createPhotoCard = (student) => {
     const card = document.createElement("article");
     card.className =
-      "group overflow-hidden rounded-[2rem] bg-surface-container-lowest shadow-[0px_12px_32px_rgba(0,35,111,0.06)] transition-all duration-300 hover:-translate-y-1";
+      "group overflow-hidden rounded-[2rem] border border-surface-container-highest bg-white shadow-[0px_14px_38px_rgba(15,23,45,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_22px_52px_rgba(15,23,45,0.14)]";
     card.setAttribute("role", "listitem");
     card.setAttribute("aria-label", `${student.name}, ${student.student_id}`);
 
     // Cover image area
     const imgWrap = document.createElement("div");
     imgWrap.className =
-      "relative h-56 w-full overflow-hidden bg-surface-container-high";
+      "relative h-72 w-full overflow-hidden bg-surface-container-high";
 
     const image = document.createElement("img");
     image.className =
@@ -149,30 +149,38 @@ if (Object.values(requiredElements).every(Boolean)) {
       ? "Approved"
       : "Review Required";
 
-    imgWrap.append(image, statusOverlay);
+    const gradientOverlay = document.createElement("div");
+    gradientOverlay.className =
+      "absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent";
+
+    imgWrap.append(image, gradientOverlay, statusOverlay);
 
     // Card body
     const body = document.createElement("div");
-    body.className = "p-6";
+    body.className = "p-6 bg-surface-container-lowest";
+
+    const details = document.createElement("div");
+    details.className = "mb-6 space-y-2";
 
     const name = createTextElement(
       "h2",
-      "mb-1 text-xl font-extrabold text-primary leading-snug",
+      "text-2xl font-extrabold text-primary leading-snug",
       student.name,
     );
     const idText = createTextElement(
       "p",
-      "mb-1 text-sm font-medium text-on-surface-variant",
+      "text-sm font-medium text-on-surface-variant",
       `ID: ${student.student_id}`,
     );
     const metaText = createTextElement(
       "p",
-      "mb-4 text-xs uppercase tracking-wide text-outline",
+      "text-xs uppercase tracking-wide text-outline",
       student.gender,
     );
 
+    details.append(name, idText, metaText);
     const action = buildAction(student);
-    body.append(name, idText, metaText, action);
+    body.append(details, action);
     card.append(imgWrap, body);
     return card;
   };
