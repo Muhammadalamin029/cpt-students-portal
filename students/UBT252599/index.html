@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+    <title>Portfolio</title>
+</head>
+<body>
+
+    <!-- Navbar-->
+     <nav>
+        <div class="left">
+           <a href="/">Micah Moses</a>
+        </div>    
+
+        <div class="right">
+            <a href="http://github.com" target="_blank" rel="noopener
+       noreferrer">
+                <i class="fa-brands fa-github"></i>
+                <span>Github</span>
+            </a>
+            
+            <a href="https://substack.com/@oveymm" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>Substack</span>
+            </a>
+
+            <a href="mailto:oveym4jc@example.com">
+                <i class="fa-regular fa-envelope"></i>
+                <span>Email</span>
+            </a>
+        </div>
+
+     </nav>
+
+     <main>
+        <!--Section 1: hero-->
+        <section class="hero-section">
+            <div class="text">
+                <h2>Hi, I'm Micah &#128075;</h2>
+                <p>
+                    I'm a software developer with a passion for creating innovative solutions. 
+                    I enjoy tackling complex problems and building efficient, scalable applications. 
+                    I'm always eager to learn new technologies and collaborate on exciting projects.
+                </p>
+                
+
+                <div class="social-media">
+                    <a href="https://web.facebook.com/ovey.micah.2025" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/mic_ov" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/micah-ovey-undefined-241394362/?isSelfProfile=true" target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <div class="links">
+                    <a href="#skills">
+                        <i class="fa-solid fa-code"></i>
+                        <span>Skills</span>
+                    </a>
+                    <a href="#projects">
+                        <i class="fa-regular fa-file-code"></i>
+                        <span>Projects</span>
+                    </a>
+                    <a href="#contacts">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Contacts</span>
+                    </a>
+                </div>
+                <ul>
+                    <li>Matric #:<br><span>2025/1/102849CT</span></li>
+                    <li>Department: <br><span>Computer Science</span></li>
+                    <li>Level: <br><span>100 lvl</span></li>
+                </ul>
+            </div>
+            
+            <div class="headshot">
+                <img src="images/demheadsht.webp" alt="Headshot of Micah Moses">
+            </div>
+            <div class="container">
+                <div class="overlay"></div>
+            </div>
+            
+        </section>
+
+        <!--Section 2: skills-->
+        <section id="skills" class="skills-section">
+            <h2>Skills</h2>
+                <div class="cells">
+                    <div class="cell">
+                        <img src="images/html-logo.webp" alt="HTML logo">
+                        <span>HTML</span>
+                    </div>
+                    <div class="cell">
+                        <img src="images/css-logo.webp" alt="CSS logo">
+                        <span>CSS</span>
+                    </div>
+                    <div class="cell">
+                        <img src="images/javascript-logo.webp" alt="JavaScript logo">
+                        <span>JavaScript</span>
+                    </div>    
+                    <div class="cell">
+                        <img src="images/Python-logo.webp" alt="Python logo" width="100px">
+                        <span>Python</span>
+                    </div>
+                    
+                </div>
+        </section>
+
+        <!--Section 3: projects-->
+        <section id="projects" class="projects-section">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <div class="project-minicard">
+                    <img src="images/fktwit.webp" alt="Fake Twitter Preview" class="project-preview">
+                    <h3> Fake Twitter</h3>
+                    <a href="fake-twitter.html" target="_blank" class="project-link">View Project</a>
+                </div>
+                <div class="project-minicard">
+                    <video src="images/spinning_don.mp4" autoplay loop muted class="project-preview"></video>
+                    <h3>Spinning Donut</h3>
+                    <a href="donut.html" target="_blank" class="project-link">View Project</a>
+                </div>
+            </div>
+            
+        </section>
+
+        <!--Section 1: contact-->
+        <section id="contacts" class="contacts-section">
+            <h2>Contact</h2>
+            <div class="group">
+                
+                <div class="text">
+                    Feel free to reach out to me via email or connect with me on social media!
+                </div>
+
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" cols="30" rows="10" required></textarea>
+                
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+            
+        </section>
+
+     </main>
+</body>
+</html>

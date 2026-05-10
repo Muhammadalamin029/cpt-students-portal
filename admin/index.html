@@ -381,35 +381,20 @@
             <div class="space-y-2 md:col-span-2">
               <label
                 class="block text-sm font-semibold text-primary"
-                for="studentImageUrl"
+                for="studentImageFile"
               >
-                Profile Image URL
+                Upload Profile Image
               </label>
               <input
-                id="studentImageUrl"
-                name="imageUrl"
-                type="url"
-                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
-                placeholder="https://..."
+                id="studentImageFile"
+                name="imageFile"
+                type="file"
+                accept="image/*"
+                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all file:mr-4 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white file:transition-all hover:file:bg-primary/90"
               />
-            </div>
-
-            <div class="space-y-2 md:col-span-2">
-              <label
-                class="block text-sm font-semibold text-primary"
-                for="studentPortfolioUrl"
-              >
-                Portfolio File URL (Cloudinary)
-              </label>
-              <input
-                id="studentPortfolioUrl"
-                name="portfolioUrl"
-                type="url"
-                class="w-full rounded-2xl border border-outline bg-surface-container-lowest px-5 py-4 text-on-surface outline-none transition-all focus:border-secondary focus:ring-0"
-                placeholder="https://res.cloudinary.com/..."
-              />
+              <input id="studentImageUrl" name="imageUrl" type="hidden" />
               <p class="text-xs text-on-surface-variant">
-                Use a direct Cloudinary link that students can open or download.
+                Upload a profile image file instead of pasting a URL. Leave blank while editing to keep the current photo.
               </p>
             </div>
 

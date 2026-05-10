@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spinning Donut</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        pre {
+            margin: 20px auto;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 1;
+            white-space: pre;
+        }
+        h1 { color: #0f0; }
+    </style>
+</head>
+<body>
+    <h1>Spinning Donut (ASCII)</h1>
+    <pre id="donut"></pre>
+
+    <script>
+        const pre = document.getElementById('donut');
+        let A = 0;  // rotation angle A
+        let B = 0;  // rotation angle B
+        const chars = ".,-~:;=!*#$@";
+
+        function donutFrame() {
+            let b = new Array(1760).fill(' ');
+            let z = new Array(1760).fill(0);
+
+            for (let j = 0; j < 6.28; j += 0.07) {           // theta
+                for (let i = 0; i < 6.28; i += 0.02) {       // phi
+                    const c = Math.sin(i);
+                    const d = Math.cos(j);
+                    const e = Math.sin(A);
+                    const f = Math.sin(j);
+                    const g = Math.cos(A);
+                    const h = d + 2;
+                    const D = 1 / (c * h * e + f * g + 5);
+                    const l = Math.cos(i);
+                    const m = Math.cos(B);
+                    const n = Math.sin(B);
+                    const t = c * h * g - f * e;
+
+                    const x = 0 | (40 + 30 * D * (l * h * m - t * n));
+                    const y = 0 | (12 + 15 * D * (l * h * n + t * m));
+                    const o = x + 80 * y;
+
+                    const N = 0 | (8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n));
+
+                    if (y > 0 && y < 22 && x > 0 && x < 80 && D > z[o]) {
+                        z[o] = D;
+                        b[o] = chars[Math.max(N, 0)];
+                    }
+                }
+            }
+
+            // Build the output string
+            let frame = '';
+            for (let k = 0; k < 1760; k++) {
+                frame += (k % 80 === 0 ? '\n' : '') + b[k];
+            }
+
+            pre.textContent = frame;
+
+            A += 0.04;
+            B += 0.02;
+        }
+
+        // Run at ~33 FPS
+        setInterval(donutFrame, 30);
+    </script>
+</body>
+</html>

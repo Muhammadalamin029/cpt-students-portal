@@ -9,6 +9,7 @@ import {
   createStudentFromAdmin,
   updateStudentFromAdmin,
 } from "../shared/firebase.js";
+import { CONFIG } from "../shared/config.js";
 
 const authCheckLoader = document.getElementById("authCheckLoader");
 const dashboardContent = document.getElementById("dashboardContent");
@@ -51,8 +52,8 @@ const studentIdInput = document.getElementById("studentId");
 const studentMatricInput = document.getElementById("studentMatric");
 const studentGenderInput = document.getElementById("studentGender");
 const studentEmailInput = document.getElementById("studentEmail");
+const studentImageFileInput = document.getElementById("studentImageFile");
 const studentImageUrlInput = document.getElementById("studentImageUrl");
-const studentPortfolioUrlInput = document.getElementById("studentPortfolioUrl");
 const studentNotesInput = document.getElementById("studentNotes");
 const studentApprovedInput = document.getElementById("studentApproved");
 
@@ -102,6 +103,38 @@ const getPortfolioDownloadUrl = (value) => {
   } catch {
     return value;
   }
+};
+
+const uploadProfileImageFile = async (file) => {
+  if (!file) return null;
+
+  const { CLOUD_NAME, UPLOAD_PRESET } = CONFIG.CLOUDINARY;
+
+  if (!CLOUD_NAME || !UPLOAD_PRESET) {
+    throw new Error(
+      "Cloudinary upload is not configured. Please set CLOUDINARY.CLOUD_NAME and CLOUDINARY.UPLOAD_PRESET in shared/config.js.",
+    );
+  }
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", UPLOAD_PRESET);
+
+  const response = await fetch(
+    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+    {
+      method: "POST",
+      body: formData,
+    },
+  );
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Image upload failed: ${response.status} ${errorText}`);
+  }
+
+  const data = await response.json();
+  return data.secure_url;
 };
 
 onAuthStateChanged(auth, async (user) => {
@@ -155,7 +188,6 @@ function openStudentModal({ mode, student }) {
     studentGenderInput.value = student.gender || "";
     studentEmailInput.value = student.email || "";
     studentImageUrlInput.value = student.imageUrl || "";
-    studentPortfolioUrlInput.value = student.portfolioUrl || "";
     studentNotesInput.value = student.additional_info?.notes || "";
     studentApprovedInput.checked = Boolean(student.approved);
   } else {
@@ -219,6 +251,35 @@ studentModalForm?.addEventListener("submit", async (event) => {
 
   const normalizedStudentId = normalizeStudentId(studentIdInput.value);
   const notesValue = normalizeWhitespace(studentNotesInput.value);
+  const originalSaveHTML = studentModalSave?.innerHTML;
+
+  let imageUrlValue = normalizeWhitespace(studentImageUrlInput.value);
+  const imageFile = studentImageFileInput?.files?.[0];
+
+  if (imageFile) {
+    try {
+      imageUrlValue = await uploadProfileImageFile(imageFile);
+    } catch (error) {
+      console.error(error);
+      showStudentModalError(
+        "Image upload failed. Please confirm the upload settings and try again.",
+      );
+      if (studentModalSave) {
+        studentModalSave.innerHTML = originalSaveHTML;
+        studentModalSave.disabled = false;
+      }
+      return;
+    }
+  }
+
+  if (!imageUrlValue) {
+    showStudentModalError("Please upload a profile image file.");
+    if (studentModalSave) {
+      studentModalSave.innerHTML = originalSaveHTML;
+      studentModalSave.disabled = false;
+    }
+    return;
+  }
 
   const payload = {
     name: toNameCase(studentFullNameInput.value),
@@ -227,12 +288,10 @@ studentModalForm?.addEventListener("submit", async (event) => {
     gender: studentGenderInput.value,
     email: normalizeWhitespace(studentEmailInput.value),
     approved: studentApprovedInput.checked,
-    imageUrl: normalizeWhitespace(studentImageUrlInput.value),
-    portfolioUrl: normalizeWhitespace(studentPortfolioUrlInput.value),
+    imageUrl: imageUrlValue,
     additional_info: notesValue ? { notes: notesValue } : {},
   };
 
-  const originalSaveHTML = studentModalSave?.innerHTML;
   if (studentModalSave) {
     studentModalSave.innerHTML = `<span>${isEditing ? "Saving..." : "Creating..."}</span><span class="material-symbols-outlined animate-spin text-[18px]">sync</span>`;
     studentModalSave.disabled = true;

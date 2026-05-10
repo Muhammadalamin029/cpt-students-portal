@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elyon Noel Duna Portfolio</title><style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d061a;
+    color: white;
+}
+
+header {
+    background: linear-gradient(to right, #4b0082, #8000ff);
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin-top: 5px;
+    color: #ddd;
+}
+
+nav {
+    background-color: #160a2c;
+    padding: 10px;
+    text-align: center;
+}
+
+nav button {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    padding: 20px;
+}
+
+.card {
+    background-color: #1b1035;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(128,0,255,0.3);
+}
+
+h2 {
+    color: #c084ff;
+}
+
+.progress {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 15px;
+}
+
+.bar {
+    height: 10px;
+    background: linear-gradient(to right, #8000ff, #c084ff);
+}
+
+.hidden {
+    display: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button.submit {
+    background: #8000ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+</style></head><body><header>
+<h1>Elyon Noel Duna</h1>
+<p>Computer Science Student | Creative Thinker | Tech Enthusiast</p>
+</header><nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('about')">About</button>
+<button onclick="showPage('resume')">Resume</button>
+</nav><div class="container"><!-- HOME PAGE --><div id="home">
+<div class="card">
+<h2>Skills</h2>
+<p>HTML</p>
+<div class="progress"><div class="bar" style="width:80%"></div></div><p>CSS</p>
+<div class="progress"><div class="bar" style="width:75%"></div></div><p>JavaScript</p>
+<div class="progress"><div class="bar" style="width:65%"></div></div><p>Graphic Design</p>
+<div class="progress"><div class="bar" style="width:85%"></div></div>
+</div><div class="card">
+<h2>My Passion</h2>
+<p>I am passionate about technology, creativity, and solving problems through digital innovation. I enjoy learning new things in computer science and using my skills to create useful and visually appealing projects. want to help shape the digital world and have an impact with my ideas.</p>
+</div>
+</div><!-- ABOUT PAGE --><div id="about" class="hidden">
+<div class="card">
+<h2>About Me</h2>
+<p>I am Elyon Noel Duna, a student with a growing interest in computer science and technology. I enjoy exploring web development, graphic design, and creative digital projects. I am always willing to improve my skills and learn new things that can help me become better in the tech field.</p>
+<p>
+    <b>Highlights:</b>
+    <ul>
+        <li>love writing</li>
+        <li>I play the base guitar</li>
+        <li>I make music</li>
+        <li>learn new things everyday</li>
+    </ul>
+    <h4>Am also a student of federal University of technology Minna, currently am undergraduate of computer science. still learning new things and how the world is becoming digital. Everyday people find new way to make life better and computer science is a vast field touching all aspects of artificial intelligence, cyber security, data science, information technology and more</h4>
+</p>
+</div>
+</div><!-- RESUME PAGE --><div id="resume" class="hidden">
+<div class="card">
+<h2>Education</h2>
+<p><b>Primary School:</b> Kiddies Palace</p>
+<p><b>Secondary School:</b> St. Clement Secondary School</p>
+<p><b>University:</b> Federal University of Technology, Minna. undergraduate of B/tech Computer Science</p>
+</div><div class="card">
+<h2>Projects</h2>
+<p><b>Student Portfolio Website</b>  Created a responsive personal portfolio website using HTML and CSS.</p>
+<p><b>Graphic Design Projects</b> Designed posters and social media graphics for practice and personal development.</p>
+</div><div class="card">
+<h2>Contact Us</h2>
+<p>Email: elyonnoel869@gmail.com</p>
+<p>Phone: +234 9050032445</p>
+</div>
+</div></div><script>
+function showPage(page) {
+    document.getElementById('home').classList.add('hidden');
+    document.getElementById('about').classList.add('hidden');
+    document.getElementById('resume').classList.add('hidden');
+
+    document.getElementById(page).classList.remove('hidden');
+}
+</script></body>
+</html>
