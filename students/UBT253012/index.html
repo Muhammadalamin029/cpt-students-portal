@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Francis Alexandra Ajibo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fdfcfb;
+        --bg2: #f8f4ef;
+        --white: #ffffff;
+        --ink: #1a1714;
+        --muted: #7c7268;
+        --border: #e8e0d6;
+        --rose: #9d6b6b;
+        --rose-l: #f5eded;
+        --rose-m: #c49191;
+        --gold: #b8955a;
+        --gold-l: #f7f0e4;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      /* ── MOBILE TOGGLE ── */
+      #nav-toggle {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: rgba(253, 252, 251, 0.92);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3rem;
+        height: 64px;
+        flex-wrap: wrap;
+      }
+
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--ink);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+
+      .nav-logo span {
+        color: var(--rose);
+        font-style: italic;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links a {
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--rose);
+      }
+
+      .ham {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .ham span {
+        display: block;
+        width: 20px;
+        height: 1px;
+        background: var(--ink);
+        transition:
+          transform 0.25s,
+          opacity 0.25s;
+        transform-origin: center;
+      }
+
+      #nav-toggle:checked ~ nav .ham span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      #nav-toggle:checked ~ nav .ham span:nth-child(2) {
+        opacity: 0;
+      }
+      #nav-toggle:checked ~ nav .ham span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        min-height: calc(100vh - 64px);
+      }
+
+      /* LEFT — IMAGE COLUMN */
+      .hero-img-col {
+        position: relative;
+        background: var(--bg2);
+        border-right: 1px solid var(--border);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-photo {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+
+      .hero-photo::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 35%;
+        background: linear-gradient(to top, rgba(26,23,20,0.45) 0%, transparent 100%);
+        pointer-events: none;
+      }
+
+      /* Abstract geometric background */
+      .placeholder-art::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 70% at 50% 40%,
+            #e8d5c4 0%,
+            transparent 70%
+          ),
+          linear-gradient(160deg, #f0e4d8 0%, #e8ddd4 50%, #d9cfc8 100%);
+      }
+
+      /* Silhouette shape */
+      .silhouette {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+
+      .sil-head {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #c4a898, #b89080);
+        margin-bottom: -2px;
+      }
+
+      .sil-neck {
+        width: 28px;
+        height: 24px;
+        background: linear-gradient(180deg, #c4a898, #b89080);
+      }
+
+      .sil-body {
+        width: 180px;
+        height: 220px;
+        border-radius: 90px 90px 30px 30px;
+        background: linear-gradient(160deg, #b89080, #a07868);
+      }
+
+      /* Decorative lines */
+      .placeholder-art .deco-line {
+        position: absolute;
+        background: rgba(155, 120, 100, 0.12);
+      }
+
+      .deco-line-1 {
+        width: 1px;
+        height: 100%;
+        left: 25%;
+      }
+
+      .deco-line-2 {
+        width: 1px;
+        height: 100%;
+        right: 25%;
+      }
+
+      .deco-line-3 {
+        height: 1px;
+        width: 100%;
+        top: 30%;
+      }
+
+      /* Name plate on image */
+      .img-nameplate {
+        padding: 1.8rem 2rem;
+        border-top: 1px solid var(--border);
+        background: var(--white);
+      }
+
+      .img-nameplate-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: 0.04em;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .img-nameplate-role {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 0.9rem;
+        color: var(--rose);
+      }
+
+      /* RIGHT — TEXT COLUMN */
+      .hero-text-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem 4rem 4rem 5rem;
+        position: relative;
+      }
+
+      .hero-text-col::before {
+        content: "FA";
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 7rem;
+        font-weight: 600;
+        color: var(--border);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .hero-label {
+        font-size: 0.62rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .hero-label::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 1px;
+        background: var(--rose);
+      }
+
+      .hero-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.4rem, 4vw, 3.8rem);
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin-bottom: 0.6rem;
+      }
+
+      .hero-name em {
+        display: block;
+        font-style: italic;
+        font-weight: 300;
+        color: var(--rose);
+      }
+
+      .hero-role {
+        font-size: 0.82rem;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-traits {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin-bottom: 3rem;
+      }
+
+      .trait {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .trait-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--rose);
+        flex-shrink: 0;
+      }
+
+      .trait-text {
+        font-size: 0.85rem;
+        color: var(--muted);
+        letter-spacing: 0.01em;
+        line-height: 1.5;
+      }
+
+      .trait-text strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 0.7rem 1.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: all 0.22s;
+        font-family: "Inter", sans-serif;
+      }
+
+      .btn-dark {
+        background: var(--ink);
+        color: var(--white);
+        border: 1px solid var(--ink);
+      }
+
+      .btn-dark:hover {
+        background: var(--rose);
+        border-color: var(--rose);
+      }
+
+      .btn-line {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--border);
+      }
+
+      .btn-line:hover {
+        border-color: var(--rose);
+        color: var(--rose);
+      }
+
+      /* ── ID STRIP ── */
+      .id-strip {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        background: var(--bg2);
+      }
+
+      .id-cell {
+        padding: 1.1rem 1.8rem;
+        border-right: 1px solid var(--border);
+      }
+
+      .id-cell:last-child {
+        border-right: none;
+      }
+
+      .id-lbl {
+        font-size: 0.56rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--rose);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+
+      .id-val {
+        font-size: 0.78rem;
+        color: var(--ink);
+        word-break: break-word;
+        line-height: 1.4;
+      }
+
+      /* ── SECTIONS ── */
+      .section {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 5rem 3rem;
+      }
+
+      .section.alt {
+        background: var(--bg2);
+        max-width: 100%;
+        padding: 5rem 0;
+      }
+
+      .section.alt .inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      .sec-top {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 3.5rem;
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .sec-label {
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--rose);
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+
+      .sec-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        line-height: 1;
+      }
+
+      .sec-title em {
+        font-weight: 300;
+        font-style: italic;
+        color: var(--muted);
+      }
+
+      .sec-note {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      /* ── ABOUT ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 5rem;
+        align-items: start;
+      }
+
+      .about-quote {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1.6;
+        color: var(--ink);
+        margin-bottom: 1.8rem;
+        padding-left: 1.5rem;
+        border-left: 2px solid var(--rose);
+      }
+
+      .about-text {
+        font-size: 0.88rem;
+        line-height: 1.9;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+
+      .about-text:last-child {
+        margin-bottom: 0;
+      }
+
+      .about-aside h3 {
+        font-size: 0.62rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--rose);
+        margin-bottom: 1.2rem;
+      }
+
+      .aside-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .aside-list li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+
+      .aside-list li:last-child {
+        border-bottom: none;
+      }
+
+      .aside-icon {
+        width: 34px;
+        height: 34px;
+        background: var(--rose-l);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+      }
+
+      /* ── PERSONALITY ── */
+      .personality-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border: 1px solid var(--border);
+      }
+
+      .p-card {
+        padding: 2.5rem 2rem;
+        border-right: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+        transition: background 0.25s;
+        background: var(--white);
+      }
+
+      .p-card:last-child {
+        border-right: none;
+      }
+
+      .p-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--rose), var(--gold));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s ease;
+      }
+
+      .p-card:hover {
+        background: var(--rose-l);
+      }
+      .p-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .p-glyph {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .p-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.5rem;
+      }
+
+      .p-desc {
+        font-size: 0.78rem;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      /* ── EDUCATION ── */
+      .edu-rows {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .edu-row {
+        display: grid;
+        grid-template-columns: 150px 1fr auto;
+        gap: 2rem;
+        align-items: center;
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--border);
+        transition: padding-left 0.3s;
+        position: relative;
+      }
+
+      .edu-row::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0;
+        height: 1px;
+        background: var(--rose);
+        transition: width 0.3s;
+        transform: translateY(-50%);
+      }
+
+      .edu-row:hover {
+        padding-left: 1.2rem;
+      }
+      .edu-row:hover::before {
+        width: 0.8rem;
+      }
+      .edu-row:last-child {
+        border-bottom: none;
+      }
+
+      .edu-yr {
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--rose);
+      }
+
+      .edu-deg {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.25rem;
+      }
+
+      .edu-sch {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .edu-tag {
+        font-size: 0.6rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.25rem 0.8rem;
+        border: 1px solid;
+        white-space: nowrap;
+      }
+
+      .edu-tag.on {
+        color: var(--rose);
+        border-color: var(--rose-m);
+        background: var(--rose-l);
+      }
+
+      .edu-tag.off {
+        color: var(--muted);
+        border-color: var(--border);
+      }
+
+      /* ── CONTACT ── */
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+
+      .contact-big {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin-bottom: 1rem;
+      }
+
+      .contact-big em {
+        font-style: italic;
+        font-weight: 300;
+        color: var(--rose);
+      }
+
+      .contact-note {
+        font-size: 0.86rem;
+        color: var(--muted);
+        line-height: 1.85;
+      }
+
+      .c-rows {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .c-row {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 1.2rem 0;
+        border-bottom: 1px solid var(--border);
+        text-decoration: none;
+        color: var(--ink);
+        transition:
+          color 0.2s,
+          padding-left 0.25s;
+        position: relative;
+      }
+
+      .c-row::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0;
+        height: 1px;
+        background: var(--rose);
+        transition: width 0.3s;
+        transform: translateY(-50%);
+      }
+
+      .c-row:hover {
+        color: var(--rose);
+        padding-left: 1rem;
+      }
+      .c-row:hover::before {
+        width: 0.6rem;
+      }
+      .c-row:last-child {
+        border-bottom: none;
+      }
+
+      .c-ico {
+        width: 38px;
+        height: 38px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+
+      .c-row:hover .c-ico {
+        background: var(--rose-l);
+        border-color: var(--rose-m);
+      }
+
+      .c-info {
+        flex: 1;
+      }
+
+      .c-lbl {
+        font-size: 0.56rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--rose);
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+
+      .c-val {
+        font-size: 0.82rem;
+        color: var(--ink);
+        word-break: break-all;
+        line-height: 1.35;
+        transition: color 0.2s;
+      }
+
+      .c-row:hover .c-val {
+        color: var(--rose);
+      }
+
+      .c-arrow {
+        font-size: 0.75rem;
+        color: var(--border);
+        transition:
+          color 0.2s,
+          transform 0.2s;
+        flex-shrink: 0;
+      }
+
+      .c-row:hover .c-arrow {
+        color: var(--rose);
+        transform: translateX(3px);
+      }
+
+      /* ── FOOTER ── */
+      .footer-wrap {
+        border-top: 1px solid var(--border);
+        padding: 2.2rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      .ft-l {
+        font-size: 0.68rem;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+
+      .ft-r {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-label {
+        animation: fadeUp 0.55s 0.1s ease both;
+      }
+      .hero-name {
+        animation: fadeUp 0.55s 0.2s ease both;
+      }
+      .hero-role {
+        animation: fadeUp 0.55s 0.3s ease both;
+      }
+      .hero-traits {
+        animation: fadeUp 0.55s 0.38s ease both;
+      }
+      .hero-ctas {
+        animation: fadeUp 0.55s 0.46s ease both;
+      }
+      .hero-img-col {
+        animation: fadeUp 0.55s 0.12s ease both;
+      }
+
+      /* ── MOBILE ── */
+      @media (max-width: 800px) {
+        nav {
+          padding: 0 1.5rem;
+        }
+        .ham {
+          display: flex;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          gap: 0;
+          border-top: 1px solid var(--border);
+          padding: 0.5rem 0;
+          margin-top: 0;
+        }
+
+        .nav-links li {
+          width: 100%;
+        }
+
+        .nav-links a {
+          display: block;
+          padding: 0.8rem 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        #nav-toggle:checked ~ nav .nav-links {
+          display: flex;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .hero-img-col {
+          height: 420px;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .hero-text-col {
+          padding: 3rem 1.5rem;
+        }
+        .hero-text-col::before {
+          display: none;
+        }
+
+        .id-strip {
+          grid-template-columns: 1fr 1fr;
+        }
+        .id-cell {
+          border-bottom: 1px solid var(--border);
+        }
+        .id-cell:nth-child(2n) {
+          border-right: none;
+        }
+
+        .section {
+          padding: 3.5rem 1.5rem;
+        }
+        .section.alt .inner {
+          padding: 0 1.5rem;
+        }
+
+        .sec-top {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.4rem;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .personality-grid {
+          grid-template-columns: 1fr;
+        }
+        .p-card {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .edu-row {
+          grid-template-columns: 1fr;
+          gap: 0.4rem;
+        }
+        .edu-tag {
+          align-self: flex-start;
+        }
+        .contact-layout {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .footer-wrap {
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+          padding: 2rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" id="nav-toggle" />
+
+    <!-- NAV -->
+    <nav>
+      <a class="nav-logo" href="#">Francis <span>Alexandra</span></a>
+      <label class="ham" for="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#personality">Personality</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <!-- LEFT — PLACEHOLDER PHOTO -->
+      <div class="hero-img-col">
+        <div class="hero-photo">
+          <img src="img.jpeg" alt="Francis Alexandra Ajibo" />
+        </div>
+        <div class="img-nameplate">
+          <span class="img-nameplate-name">Francis Alexandra Ajibo</span>
+          <span class="img-nameplate-role">CS Student · Model · Artist</span>
+        </div>
+      </div>
+
+      <!-- RIGHT — TEXT -->
+      <div class="hero-text-col">
+        <div class="hero-label">Student Portfolio · FUT Minna · 2025</div>
+        <h1 class="hero-name">
+          Francis<br />
+          <em>Alexandra</em><br />
+          Ajibo
+        </h1>
+        <p class="hero-role">Computer Science · Model · Singer · Dancer</p>
+        <div class="hero-traits">
+          <div class="trait">
+            <div class="trait-dot"></div>
+            <span class="trait-text"
+              >Studying at <strong>FUT Minna</strong>, Gidan Kwano</span
+            >
+          </div>
+          <div class="trait">
+            <div class="trait-dot"></div>
+            <span class="trait-text"
+              ><strong>Model</strong> with a passion for the arts</span
+            >
+          </div>
+          <div class="trait">
+            <div class="trait-dot"></div>
+            <span class="trait-text"
+              >Loves <strong>singing and dancing</strong></span
+            >
+          </div>
+          <div class="trait">
+            <div class="trait-dot"></div>
+            <span class="trait-text"
+              >Quiet but <strong>deeply confident</strong></span
+            >
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-dark" href="#contact">Get in Touch →</a>
+          <a class="btn btn-line" href="#about">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ID STRIP -->
+    <div class="id-strip">
+      <div class="id-cell">
+        <span class="id-lbl">Full Name</span>
+        <span class="id-val">Francis Alexandra Ajibo</span>
+      </div>
+      <div class="id-cell">
+        <span class="id-lbl">Matric No</span>
+        <span class="id-val">2025/1/103679CT</span>
+      </div>
+      <div class="id-cell">
+        <span class="id-lbl">Student ID</span>
+        <span class="id-val">UBT253012</span>
+      </div>
+      <div class="id-cell">
+        <span class="id-lbl">Institution</span>
+        <span class="id-val">FUT Minna · SICT</span>
+      </div>
+      <div class="id-cell">
+        <span class="id-lbl">Session</span>
+        <span class="id-val">2025 / 2026</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section" id="about">
+      <div class="sec-top">
+        <div>
+          <span class="sec-label">01 — About</span>
+          <h2 class="sec-title">Who I <em>Am</em></h2>
+        </div>
+        <span class="sec-note">In my own words</span>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p class="about-quote">
+            "I don't talk too much — but when I show up, I show up with
+            confidence."
+          </p>
+          <p class="about-text">
+            My name is Francis Alexandra Ajibo. I am a student of the Federal
+            University of Technology, Minna, studying Computer Science. I
+            currently reside at Gidan Kwano off campus, where I balance my
+            academic life with my creative pursuits.
+          </p>
+          <p class="about-text">
+            Beyond my studies, I am a model — someone who understands the power
+            of presence and how to carry yourself with purpose. I love singing
+            and dancing, and these artistic passions are a big part of who I am.
+          </p>
+          <p class="about-text">
+            I'm not the loudest person in the room, but I bring confidence,
+            focus, and a quiet kind of determination to everything I do.
+          </p>
+        </div>
+        <div class="about-aside">
+          <h3>A Few Things About Me</h3>
+          <ul class="aside-list">
+            <li>
+              <div class="aside-icon">🎓</div>
+              Computer Science student at FUT Minna
+            </li>
+            <li>
+              <div class="aside-icon">📍</div>
+              Based at Gidan Kwano, off campus
+            </li>
+            <li>
+              <div class="aside-icon">🎽</div>
+              Model — comfortable in front of the camera
+            </li>
+            <li>
+              <div class="aside-icon">🎵</div>
+              Loves singing and making music
+            </li>
+            <li>
+              <div class="aside-icon">💃</div>
+              Dancing is a creative outlet
+            </li>
+            <li>
+              <div class="aside-icon">🧠</div>
+              Quiet, confident, and determined
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONALITY -->
+    <div class="section alt" id="personality">
+      <div class="inner">
+        <div class="sec-top">
+          <div>
+            <span class="sec-label">02 — Character</span>
+            <h2 class="sec-title">My <em>Personality</em></h2>
+          </div>
+          <span class="sec-note">What makes me, me</span>
+        </div>
+        <div class="personality-grid">
+          <div class="p-card">
+            <span class="p-glyph">🤫</span>
+            <div class="p-title">Quiet by Nature</div>
+            <p class="p-desc">
+              I don't talk too much — I choose my words carefully. Silence, for
+              me, is not shyness. It's simply how I observe, think, and decide.
+            </p>
+          </div>
+          <div class="p-card">
+            <span class="p-glyph">💎</span>
+            <div class="p-title">Deeply Confident</div>
+            <p class="p-desc">
+              Whether on a runway or in a classroom, I carry myself with quiet
+              confidence. I know who I am, and I don't need noise to prove it.
+            </p>
+          </div>
+          <div class="p-card">
+            <span class="p-glyph">🎨</span>
+            <div class="p-title">Creatively Driven</div>
+            <p class="p-desc">
+              Modelling, singing, dancing — creativity isn't a hobby for me,
+              it's a language. I express myself best through art and
+              performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section" id="education">
+      <div class="sec-top">
+        <div>
+          <span class="sec-label">03 — Education</span>
+          <h2 class="sec-title">Academic <em>Journey</em></h2>
+        </div>
+        <span class="sec-note">Where I'm learning</span>
+      </div>
+      <div class="edu-rows">
+        <div class="edu-row">
+          <span class="edu-yr">2025 — Present</span>
+          <div>
+            <div class="edu-deg">B.Sc. Computer Science</div>
+            <div class="edu-sch">
+              Federal University of Technology, Minna · School of Information
+              &amp; Communication Technology (SICT)
+            </div>
+          </div>
+          <span class="edu-tag on">In Progress</span>
+        </div>
+        <div class="edu-row">
+          <span class="edu-yr">Pre-University</span>
+          <div>
+            <div class="edu-deg">Secondary Education</div>
+            <div class="edu-sch">Nigeria</div>
+          </div>
+          <span class="edu-tag off">Completed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section alt" id="contact">
+      <div class="inner">
+        <div class="sec-top">
+          <div>
+            <span class="sec-label">04 — Contact</span>
+            <h2 class="sec-title">Let's <em>Connect</em></h2>
+          </div>
+          <span class="sec-note">Reach out anytime</span>
+        </div>
+        <div class="contact-layout">
+          <div>
+            <h3 class="contact-big">Feel free to<br />reach <em>out.</em></h3>
+            <p class="contact-note">
+              Whether it's for a collaboration, a conversation, or just
+              connecting — I'm open to it. I may be quiet, but I am always
+              reachable.
+            </p>
+          </div>
+          <div class="c-rows">
+            <a class="c-row" href="tel:+2347070605324">
+              <div class="c-ico">📞</div>
+              <div class="c-info">
+                <span class="c-lbl">Phone</span>
+                <span class="c-val">07070605324</span>
+              </div>
+              <span class="c-arrow">→</span>
+            </a>
+            <a
+              class="c-row"
+              href="mailto:ajibofaubt253012ubt@st.futminna.edu.ng"
+            >
+              <div class="c-ico">✉</div>
+              <div class="c-info">
+                <span class="c-lbl">Email</span>
+                <span class="c-val"
+                  >ajibofaubt253012ubt@st.futminna.edu.ng</span
+                >
+              </div>
+              <span class="c-arrow">→</span>
+            </a>
+            <div class="c-row" style="cursor: default">
+              <div class="c-ico">🎓</div>
+              <div class="c-info">
+                <span class="c-lbl">Student ID</span>
+                <span class="c-val">UBT253012 · 2025/1/103679CT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-wrap">
+      <span class="ft-l"
+        >© 2026 Francis Alexandra Ajibo · All rights reserved</span
+      >
+      <span class="ft-r">FUT Minna · Computer Science · 2025/2026</span>
+    </div>
+  </body>
+</html>
