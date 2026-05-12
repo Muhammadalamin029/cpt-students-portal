@@ -187,7 +187,7 @@ if (Object.values(requiredElements).every(Boolean)) {
 
   // ── Shared action builder ──
   const buildAction = (student) => {
-    if (student.approved && isSafeHttpUrl(student.portfolioUrl)) {
+    if (student.approved) {
       const action = document.createElement("a");
       action.className =
         "inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-4 font-semibold text-white shadow-lg shadow-secondary/30 transition-all duration-300 hover:bg-primary";
